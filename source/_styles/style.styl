@@ -1,0 +1,90 @@
+html
+body
+    height 100%
+
+body
+    color rgb(255, 255, 255)
+    background rgb(77, 77, 77)
+    font-family 'Montserrat', sans-serif
+    font-style normal
+    font-weight 400
+
+h1
+h2
+h3
+    font-family 'Montserrat', sans-serif
+    font-style normal
+    font-weight 700
+    text-shadow 0 0 16px rgba(77, 77, 79, .4)
+    text-transform uppercase
+
+    a
+    a:active
+    a:hover
+    a:visited
+        text-decoration none
+
+h1
+    font-size 62pt
+    line-height 64pt
+
+    @media (max-width: 992px)
+        font-size 40pt
+        line-height 48pt
+
+    @media (max-width: 768px)
+        font-size 30pt
+        line-height 36pt
+
+    @media (max-width: 576px)
+        font-size 20pt
+        line-height 22pt
+
+h2
+    font-style normal
+    font-weight 700
+    font-size 20pt
+    line-height 22pt
+
+    @media (max-width: 768px)
+        font-size 13pt
+        line-height 15pt
+
+p
+li
+    margin-bottom .5rem
+
+a
+a:active
+a:hover
+a:visited
+    color rgb(255, 255, 255)
+
+input
+textarea
+button
+    border none
+    border-radius 0
+    outline none
+
+    &:focus
+    &:active
+        outline none
+
+input
+    color rgb(0, 0, 0)
+    background rgb(218, 56, 50)
+
+    &::placeholder
+        color rgb(0, 0, 0)
+        opacity 1 /* Firefox */
+
+    &:-ms-input-placeholder /* Internet Explorer 10-11 */
+       color rgb(0, 0, 0)
+
+    &::-ms-input-placeholder /* Microsoft Edge */
+       color rgb(0, 0, 0)
+
+button
+    text-transform uppercase
+    border 1px solid rgb(218, 56, 50)
