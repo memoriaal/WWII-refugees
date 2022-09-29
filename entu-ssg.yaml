@@ -1,7 +1,6 @@
 locales:
     - et
     - en
-    - ru
 defaultLocale: et
 
 source: ./source
