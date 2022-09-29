@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:url" content="https://mnemosyne.ee/baas" />
+    <meta property="og:title" content="Baas · " />
+    <meta property="og:image" content="/assets/images/bg/andmebaas.jpg" />
+    <title>Baas · </title>
+    <link href="https://cloud.typography.com/6935656/6118392/css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/bootstrap.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="col-12" id="search">
+        <h3 class="mb-3">Otsing</h3>
+        <form class="form" id="searchform" action="/baas/" method="GET">
+            <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →" />
+            <button class="col-4 col-md-3 col-xl-2">Otsi</button>
+        </form>
+        <p class="mt-2 mb-4" id="search-count"></p>
+        <div id="search-results"></div>
+    </div>
+    <div class="d-none" id="popup-background"></div>
+    <div class="p-3 d-none" id="popup-content">
+        <div class="row">
+            <h2 class="col-12" id="db-feedback-title">Tagasiside %name% kohta</h2>
+            <div class="col-12 col-md-10 offset-md-1" id="db-feedback-text">
+                <p>
+                    Kui Teie poolt pakutud muudatus puudutab persooni põhiandmeid - nimi
+                    või sünni- ning surmaaasta - saatke õigeid andmeid kinnitav dokument
+                    aadressile memoriaal@mnemosyne.ee
+                </p>
+            </div>
+            <form class="col-12 col-md-8 offset-md-2" id="db-feedback" method="POST" name="db-feedback">
+                <input type="hidden" name="form-name" value="db-feedback" />
+                <input id="db-feedback-id" type="hidden" name="id" />
+                <input id="db-feedback-url" type="hidden" name="url" />
+                <input id="db-feedback-name" type="hidden" name="name" />
+                <input class="d-none" id="db-feedback-fax" type="tel" name="fax" />
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-feedback-email">Kontakt e-post</label><input
+                        class="col-12 px-0" id="db-feedback-email" type="email" name="contact-email" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-feedback-phone">Kontakt telefon</label><input
+                        class="col-12 px-0" id="db-feedback-phone" type="tel" name="contact-phone" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-feedback-feedback">Tagasiside</label><textarea
+                        class="col-12 px-0" id="db-feedback-feedback" name="feedback" rows="5"></textarea>
+                </div>
+                <div class="form-group mt-5 text-right">
+                    <button class="btn btn-secondary" id="db-feedback-cancel">
+                        Tühista</button><button class="btn btn-primary ml-3" id="db-feedback-submit" type="submit">
+                        Saada tagasiside
+                    </button>
+                </div>
+            </form>
+            <h2 class="col-12 d-none" id="db-feedback-success">
+                Täname tagasiside eest
+            </h2>
+        </div>
+    </div>
+    <script src="./assets/jquery-3.3.1.min.js"></script>
+    <script src="/script.js"></script>
+    <script>
+        $(function () {
+            var e = function (e) {
+                e = e.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
+                e = location.search.match(new RegExp("[?&]" + e + "=([^&]+)(&|$)"));
+                return e && decodeURIComponent(e[1].replace(/\+/g, " "));
+            },
+                s = e("q"),
+                i = e("f") || "all";
+            s == Number(s) && 10 === s.length && (i = "all"),
+                $('input[value="' + i + '"]').prop("checked", !0),
+                s &&
+                ($('input[name="q"]').val(s),
+                    (e = {
+                        query: {
+                            bool: {
+                                must: {
+                                    multi_match: {
+                                        query: s,
+                                        fields: [
+                                            "perenimi",
+                                            "eesnimi",
+                                            "perenimed",
+                                            "eesnimed",
+                                            "sünd",
+                                            "surm",
+                                            "id",
+                                            "pereseosID",
+                                            "kirjed.kirje",
+                                        ],
+                                        operator: "and",
+                                        type: "cross_fields",
+                                    },
+                                },
+                            },
+                        },
+                        sort: { "eesnimi.raw": "asc", "perenimi.raw": "asc" },
+                        _source: [
+                            "perenimi",
+                            "eesnimi",
+                            "isanimi",
+                            "emanimi",
+                            "perenimed",
+                            "eesnimed",
+                            "sünd",
+                            "surm",
+                            "id",
+                            "kirjed.kirje",
+                            "kirjed.allikas",
+                            "pereseosID",
+                            "pereseos.kirjed.kirje",
+                            "pereseos.nimekiri",
+                            "tahvel",
+                            "tulp",
+                            "rida",
+                            "tahvlikirje",
+                            "ohvitser",
+                            "evokirje",
+                            "relevantne",
+                        ],
+                    }),
+                    "wall" === i
+                        ? (e.query.bool.filter = { term: { kivi: "1" } })
+                        : "officers" === i &&
+                        (e.query.bool.filter = { term: { ohvitser: "1" } }),
+                    $.ajax("/.netlify/functions/search", {
+                        data: JSON.stringify(e),
+                        contentType: "application/json",
+                        type: "POST",
+                        cache: !1,
+                        beforeSend: function (e) {
+                            e.setRequestHeader(
+                                "Authorization",
+                                "Basic cmVhZGVyOnJlYWRlcg=="
+                            );
+                        },
+                        success: function (e) {
+                            $("#search-count").html(
+                                e.hits.total + (1 === e.hits.total ? " kirje" : " kirjet")
+                            );
+                            for (var s = 0; s < e.hits.hits.length; s++) {
+                                var i = [],
+                                    a = e.hits.hits[s]._source;
+                                i.push(
+                                    '<div id="' +
+                                    a.id +
+                                    '" class="search-result pt-2 pb-4 ' +
+                                    ("1" === a.relevantne
+                                        ? "relevantne"
+                                        : "mitterelevantne") +
+                                    '">'
+                                ),
+                                    i.push('<div class="row">'),
+                                    i.push(
+                                        '<h3 class="search-result-name col-12 mb-2 mb-1">' +
+                                        (a.eesnimi || "") +
+                                        " " +
+                                        a.perenimi +
+                                        "</h3>"
+                                    ),
+                                    i.push('<div class="col-5 col-sm-3">'),
+                                    a.sünd &&
+                                    i.push('<p class="mb-0">sünd: ' + a.sünd + "</p>"),
+                                    a.surm &&
+                                    i.push('<p class="mb-0">surm: ' + a.surm + "</p>"),
+                                    a.isanimi &&
+                                    i.push('<p class="mb-0">isa: ' + a.isanimi + "</p>"),
+                                    a.emanimi &&
+                                    i.push('<p class="mb-0">ema: ' + a.emanimi + "</p>"),
+                                    i.push('<p class="mb-0"># ' + a.id + "</p>"),
+                                    i.push("</div>"),
+                                    i.push('<div class="search-result-info col-7 col-sm-6">');
+                                for (var r = 0; r < a.kirjed.length; r++)
+                                    i.push(
+                                        '<p class="mt-2 mb-0"><strong>' +
+                                        a.kirjed[r].allikas +
+                                        ":</strong></p>"
+                                    ),
+                                        a.kirjed[r].kirje && i.push('<p class="mb-1">'),
+                                        a.kirjed[r].kirje && i.push(a.kirjed[r].kirje),
+                                        a.kirjed[r].kirje && i.push("</p>");
+                                if (a.pereseos && 0 < a.pereseos.length)
+                                    for (var t = 0; t < a.pereseos.length; t++) {
+                                        i.push('<hr class="my-3">'),
+                                            i.push(
+                                                '<p class="my-0"><strong>' +
+                                                a.pereseos[t].nimekiri +
+                                                " (perekond):</strong></p>"
+                                            );
+                                        for (var n = 0; n < a.pereseos[t].kirjed.length; n++)
+                                            a.pereseos[t].kirjed[n].kirje &&
+                                                i.push('<p class="mb-1">- '),
+                                                a.pereseos[t].kirjed[n].kirje &&
+                                                i.push(a.pereseos[t].kirjed[n].kirje),
+                                                a.pereseos[t].kirjed[n].kirje && i.push("</p>");
+                                    }
+                                i.push("</div>"),
+                                    i.push(
+                                        '<div class="search-result-plaque col-12 col-sm-3">'
+                                    ),
+                                    a.tahvel && i.push('<p class="mb-0">tahvel:</p>'),
+                                    a.tahvel &&
+                                    i.push(
+                                        '<p class="mb-2 plaque-info">' + a.tahvel + "</p>"
+                                    ),
+                                    a.tulp &&
+                                    i.push(
+                                        '<p class="mb-2">tulp: ' +
+                                        a.tulp +
+                                        " / rida: " +
+                                        a.rida +
+                                        "</p>"
+                                    ),
+                                    a.tahvlikirje &&
+                                    i.push(
+                                        '<p class="mb-0">nimi tahvlil: ' +
+                                        a.tahvlikirje +
+                                        "</p>"
+                                    ),
+                                    "1" === a.ohvitser &&
+                                    i.push(
+                                        '<hr/><p class="mb-0">nimi ohvitseride mälestusmärgil: ' +
+                                        a.evokirje +
+                                        "</p>"
+                                    ),
+                                    i.push("</div>"),
+                                    i.push("</div>"),
+                                    i.push("</div>"),
+                                    $("#search-results").append(i.join(""));
+                            }
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        },
+                    })),
+                $('input[type="radio"]').on("click", function () {
+                    (s = $('input[name="q"]').val()),
+                        s == Number(s) && 10 === s.length
+                            ? $('input[value="all"]').prop("checked", !0)
+                            : $(s && $(this).prop("value")) !== i &&
+                            $("#searchform").submit();
+                }),
+                $("#search-results").on(
+                    "click",
+                    ".search-result-feedback",
+                    function () {
+                        var e = $(this).data("id"),
+                            s = $(this).data("name");
+                        $("#db-feedback-id").val(e),
+                            $("#db-feedback-url").val("http://baas.memoriaal.ee/#" + e),
+                            $("#db-feedback-name").val(s),
+                            $("#db-feedback-title").html(
+                                "Tagasiside %name% kohta".replace("%name%", s)
+                            ),
+                            $(
+                                "#db-feedback-title, #db-feedback-text, #db-feedback"
+                            ).removeClass("d-none"),
+                            $("#db-feedback-success").addClass("d-none"),
+                            $("#popup-background, #popup-content").removeClass("d-none");
+                    }
+                ),
+                $("#db-feedback").submit(function (e) {
+                    e.preventDefault();
+                    e = $(this);
+                    $.post(e.attr("action"), e.serialize(), function (e) {
+                        console.log(e),
+                            $(
+                                "#db-feedback-title, #db-feedback-text, #db-feedback"
+                            ).addClass("d-none"),
+                            $("#db-feedback-success").removeClass("d-none"),
+                            $("#db-feedback input, #db-feedback textarea").val(""),
+                            $("#db-feedback-title").html(""),
+                            setTimeout(function () {
+                                $("#popup-background, #popup-content").addClass("d-none");
+                            }, 4e3);
+                    });
+                }),
+                $("#db-feedback-cancel").click(function (e) {
+                    e.preventDefault(),
+                        $("#db-feedback input, #db-feedback textarea").val(""),
+                        $("#db-feedback-title").html(""),
+                        $("#popup-background, #popup-content").addClass("d-none");
+                });
+        });
+    </script>
+</body>
+
+</html>
