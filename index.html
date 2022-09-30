@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta property="og:url" content="https://mnemosyne.ee/baas" />
-    <meta property="og:title" content="Baas · " />
+    <meta property="og:url" content="https://mnemosyne.ee/kirmus4" />
+    <meta property="og:title" content="KirMus · 4" />
     <!-- <meta property="og:image" content="/assets/images/bg/andmebaas.jpg" /> -->
     <title>Baas · </title>
     <link href="https://cloud.typography.com/6935656/6118392/css/fonts.css" rel="stylesheet" type="text/css" />
@@ -89,13 +89,8 @@
                                         fields: [
                                             "perenimi",
                                             "eesnimi",
-                                            "perenimed",
-                                            "eesnimed",
                                             "sünd",
-                                            "surm",
                                             "id",
-                                            "pereseosID",
-                                            "kirjed.kirje",
                                         ],
                                         operator: "and",
                                         type: "cross_fields",
@@ -107,25 +102,8 @@
                         _source: [
                             "perenimi",
                             "eesnimi",
-                            "isanimi",
-                            "emanimi",
-                            "perenimed",
-                            "eesnimed",
                             "sünd",
-                            "surm",
                             "id",
-                            "kirjed.kirje",
-                            "kirjed.allikas",
-                            "pereseosID",
-                            "pereseos.kirjed.kirje",
-                            "pereseos.nimekiri",
-                            "tahvel",
-                            "tulp",
-                            "rida",
-                            "tahvlikirje",
-                            "ohvitser",
-                            "evokirje",
-                            "relevantne",
                         ],
                     }),
                     "wall" === i
@@ -159,82 +137,21 @@
                                         : "mitterelevantne") +
                                     '">'
                                 ),
-                                    i.push('<div class="row">'),
-                                    i.push(
-                                        '<h3 class="search-result-name col-12 mb-2 mb-1">' +
-                                        (a.eesnimi || "") +
-                                        " " +
-                                        a.perenimi +
-                                        "</h3>"
-                                    ),
-                                    i.push('<div class="col-5 col-sm-3">'),
-                                    a.sünd &&
-                                    i.push('<p class="mb-0">sünd: ' + a.sünd + "</p>"),
-                                    a.surm &&
-                                    i.push('<p class="mb-0">surm: ' + a.surm + "</p>"),
-                                    a.isanimi &&
-                                    i.push('<p class="mb-0">isa: ' + a.isanimi + "</p>"),
-                                    a.emanimi &&
-                                    i.push('<p class="mb-0">ema: ' + a.emanimi + "</p>"),
-                                    i.push('<p class="mb-0"># ' + a.id + "</p>"),
-                                    i.push("</div>"),
-                                    i.push('<div class="search-result-info col-7 col-sm-6">');
-                                for (var r = 0; r < a.kirjed.length; r++)
-                                    i.push(
-                                        '<p class="mt-2 mb-0"><strong>' +
-                                        a.kirjed[r].allikas +
-                                        ":</strong></p>"
-                                    ),
-                                        a.kirjed[r].kirje && i.push('<p class="mb-1">'),
-                                        a.kirjed[r].kirje && i.push(a.kirjed[r].kirje),
-                                        a.kirjed[r].kirje && i.push("</p>");
-                                if (a.pereseos && 0 < a.pereseos.length)
-                                    for (var t = 0; t < a.pereseos.length; t++) {
-                                        i.push('<hr class="my-3">'),
-                                            i.push(
-                                                '<p class="my-0"><strong>' +
-                                                a.pereseos[t].nimekiri +
-                                                " (perekond):</strong></p>"
-                                            );
-                                        for (var n = 0; n < a.pereseos[t].kirjed.length; n++)
-                                            a.pereseos[t].kirjed[n].kirje &&
-                                                i.push('<p class="mb-1">- '),
-                                                a.pereseos[t].kirjed[n].kirje &&
-                                                i.push(a.pereseos[t].kirjed[n].kirje),
-                                                a.pereseos[t].kirjed[n].kirje && i.push("</p>");
-                                    }
+                                i.push('<div class="row">'),
+                                i.push(
+                                    '<h3 class="search-result-name col-12 mb-2 mb-1">' +
+                                    (a.eesnimi || "") +
+                                    " " +
+                                    a.perenimi +
+                                    "</h3>"
+                                ),
+                                i.push('<div class="col-5 col-sm-3">'),
+                                a.sünd &&
+                                i.push('<p class="mb-0">sünd: ' + a.sünd + "</p>"),
+                                i.push('<p class="mb-0"># ' + a.id + "</p>"),
                                 i.push("</div>"),
-                                    i.push(
-                                        '<div class="search-result-plaque col-12 col-sm-3">'
-                                    ),
-                                    a.tahvel && i.push('<p class="mb-0">tahvel:</p>'),
-                                    a.tahvel &&
-                                    i.push(
-                                        '<p class="mb-2 plaque-info">' + a.tahvel + "</p>"
-                                    ),
-                                    a.tulp &&
-                                    i.push(
-                                        '<p class="mb-2">tulp: ' +
-                                        a.tulp +
-                                        " / rida: " +
-                                        a.rida +
-                                        "</p>"
-                                    ),
-                                    a.tahvlikirje &&
-                                    i.push(
-                                        '<p class="mb-0">nimi tahvlil: ' +
-                                        a.tahvlikirje +
-                                        "</p>"
-                                    ),
-                                    "1" === a.ohvitser &&
-                                    i.push(
-                                        '<hr/><p class="mb-0">nimi ohvitseride mälestusmärgil: ' +
-                                        a.evokirje +
-                                        "</p>"
-                                    ),
-                                    i.push("</div>"),
-                                    i.push("</div>"),
-                                    i.push("</div>"),
+                                i.push('<div class="search-result-info col-7 col-sm-6">');
+                                i.push("</div>"),
                                     $("#search-results").append(i.join(""));
                             }
                         },
