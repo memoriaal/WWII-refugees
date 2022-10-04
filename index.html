@@ -69,91 +69,97 @@
     <script src="./functions/search.js"></script>
     <script>
         $(function () {
-            var e = function (e) {
-                e = e.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
-                e = location.search.match(new RegExp("[?&]" + e + "=([^&]+)(&|$)"));
-                return e && decodeURIComponent(e[1].replace(/\+/g, " "));
-            },
-                s = e("q")
-                i = e("f") || "all"
-                s == Number(s) && 10 === s.length && (i = "all")
-                $('input[value="' + i + '"]').prop("checked", !0)
-                s &&
-                ($('input[name="q"]').val(s),
-                    (e = {
-                        query: {
-                            bool: {
-                                must: {
-                                    multi_match: {
-                                        query: s,
+            var qs = function (key) {
+                key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
+                var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+                return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+            }
+
+            var query = qs("q")
+            var filter = qs("f") || "all"
+            var idQuery = (query == Number(query) && query.length === 10)
+
+            $('input[value="' + filter + '"]').prop("checked", true)
+
+            if (query) {
+                $('input[name="q"]').val(query)
+
+                var qData = {
+                    query : {
+                        bool : {
+                            must : {
+                                multi_match : {
+                                    query: query,
                                         fields: [
                                             "perenimi",
                                             "eesnimi",
                                             "sünd",
                                             "id",
                                         ],
-                                        operator: "and",
-                                        type: "cross_fields",
-                                    },
-                                },
+                                        operator: 'and',
+                                    type: 'cross_fields'
+                                }
                             },
-                        },
-                        sort: { "eesnimi.raw": "asc", "perenimi.raw": "asc" },
-                        _source: [
+                            filter : { term: { relevantne: '1' } }
+                        }
+                    },
+                    sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+                    _source: [
                             "perenimi",
                             "eesnimi",
                             "sünd",
                             "id",
-                        ],
-                    }),
-                    "wall" === i
-                        ? (e.query.bool.filter = { term: { kivi: "1" } })
-                        : "officers" === i &&
-                        (e.query.bool.filter = { term: { ohvitser: "1" } }),
-                    $.ajax("/.netlify/functions/search", {
-                        data: JSON.stringify(e),
-                        contentType: "application/json",
-                        type: "POST",
-                        cache: !1,
-                        beforeSend: function (e) {
-                            e.setRequestHeader(
-                                "Authorization",
-                                "Basic cmVhZGVyOnJlYWRlcg=="
-                            );
-                        },
-                        success: function (e) {
-                            $("#search-count").html(
-                                e.hits.total + (1 === e.hits.total ? " kirje" : " kirjet")
-                            );
-                            for (var s = 0; s < e.hits.hits.length; s++) {
-                                var i = []
-                                var a = e.hits.hits[s]._source
-                                i.push('<div id="' + a.id + '" class="search-result pt-2 pb-4">')
-                                i.push('<div class="row">')
-                                i.push(
-                                    '<h3 class="search-result-name col-12 mb-2 mb-1">' +
-                                    (a.eesnimi || "") + " " + a.perenimi +
-                                    "</h3>"
-                                )
-                                i.push('<div class="col-5 col-sm-3">')
-                                a.sünd &&
-                                    i.push('<p class="mb-0">sünd: ' + a.sünd + "</p>")
-                                i.push(
-                                    '<p class="search-result-feedback mt-3" data-id="' + a.id + 
-                                    '" data-name="' + a.eesnimi + ' ' + a.perenimi + 
-                                    '">Tagasiside</p>')
-                                i.push('<p class="mb-0"># ' + a.id + "</p>")
-                                i.push("</div>")
-                                i.push('<div class="search-result-info col-7 col-sm-6"><hr/>')
-                                i.push("</div>")
-                                $("#search-results").append(i.join(""))
+                            ]
+                }
+
+                if (idQuery) {
+                    filter = 'all'
+                    qData['query']['bool']['must']['multi_match']['fields'] = ['id']
+                }
+                if (filter === 'wall') {
+                    qData['query']['bool']['filter'] = { term: { kivi: '1' } }
+                } else if (filter === 'officers') {
+                    qData['query']['bool']['filter'] = { term: { ohvitser: '1' } }
+                }
+                $.ajax('/.netlify/functions/search', {
+                    data : JSON.stringify(qData),
+                    contentType : 'application/json',
+                    type : 'POST',
+                    cache: false,
+                        // beforeSend: function (e) {
+                        //     e.setRequestHeader(
+                        //         "Authorization",
+                        //         "Basic cmVhZGVyOnJlYWRlcg=="
+                        //     );
+                        // },
+                        success: function (data) {
+                            $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' #{self.result.count.one}' : ' #{self.result.count.multiple}'))
+
+                            for (var i = 0; i < data.hits.hits.length; i++) {
+                                var text = []
+                                var p = data.hits.hits[i]._source
+
+                                text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
+                                text.push('<div class="row">')
+
+                                text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</h3>')
+
+                                text.push('<div class="col-5 col-sm-3">')
+                                if (p.sünd) { text.push('<p class="mb-0">#{self.result.born}: ' + p.sünd + '</p>') }
+                                text.push('<p class="mb-0"># ' + p.id + '</p>')
+                                text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">#{self.feedback.button}</p>')
+                                text.push('</div>')
+
+                                text.push('<div class="search-result-info col-7 col-sm-6">')
+                                text.push('</div>')
+                                $('#search-results').append(text.join(''))
                             }
                         },
                         error: function (e) {
                             console.log(e)
                         },
                     })
-                ),
+                }
                 $("#search-results").on("click", ".search-result-feedback", function () {
                     var e = $(this).data("id")
                     var s = $(this).data("name")
