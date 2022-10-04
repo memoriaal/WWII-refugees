@@ -20,6 +20,7 @@
             <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →" />
             <button class="col-4 col-md-3 col-xl-2">Otsi</button>
         </form>
+        <p id="new-refugee" class="mt-3">Tagasiside puuduva isiku kohta</p>
         <p class="mt-2 mb-4" id="search-count"></p>
         <div id="search-results"></div>
     </div>
@@ -112,6 +113,11 @@
     <script src="./functions/search.js"></script>
     <script>
         $(function () {
+            $('#new-refugee').on('click', function () {
+                $('#db-question-success').addClass('d-none')
+                $('#popup-background, #popup-question').removeClass('d-none')
+            })
+
             var e = function (e) {
                 e = e.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
                 e = location.search.match(new RegExp("[?&]" + e + "=([^&]+)(&|$)"));
@@ -120,7 +126,7 @@
             s = e("q")
             i = e("f") || "all"
             s == Number(s) && 10 === s.length && (i = "all")
-            $('input[value="' + i + '"]').prop("checked", !0)
+            $('input[value="' + i + '"]').prop("checked", true)
             s &&
             ($('input[name="q"]').val(s),
                 (e = {
@@ -192,7 +198,8 @@
                         console.log(e)
                     },
                 })
-            ),
+            )
+
             $('#search-results').on('click', '.search-result-feedback', function () {
                 var id = $(this).data('id')
                 var name = $(this).data('name')
@@ -203,7 +210,8 @@
                 $('#db-feedback-title, #db-feedback-text, #db-feedback').removeClass('d-none')
                 $('#db-feedback-success').addClass('d-none')
                 $('#popup-background, #popup-content').removeClass('d-none')
-            }),
+            })
+
             $('#db-feedback').submit(function (event) {
                 event.preventDefault()
                 var $form = $(this)
