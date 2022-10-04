@@ -152,47 +152,31 @@
                         error: function (e) {
                             console.log(e)
                         },
-                    })),
-                $('input[type="radio"]').on("click", function () {
-                    (s = $('input[name="q"]').val()),
-                        s == Number(s) && 10 === s.length
-                            ? $('input[value="all"]').prop("checked", !0)
-                            : $(s && $(this).prop("value")) !== i &&
-                            $("#searchform").submit();
-                }),
-                $("#search-results").on(
-                    "click",
-                    ".search-result-feedback",
-                    function () {
-                        var e = $(this).data("id"),
-                            s = $(this).data("name");
-                        $("#db-feedback-id").val(e),
-                            $("#db-feedback-url").val("http://baas.memoriaal.ee/#" + e),
-                            $("#db-feedback-name").val(s),
-                            $("#db-feedback-title").html(
-                                "Tagasiside %name% kohta".replace("%name%", s)
-                            ),
-                            $(
-                                "#db-feedback-title, #db-feedback-text, #db-feedback"
-                            ).removeClass("d-none"),
-                            $("#db-feedback-success").addClass("d-none"),
-                            $("#popup-background, #popup-content").removeClass("d-none");
-                    }
+                    })
                 ),
+                $("#search-results").on("click", ".search-result-feedback", function () {
+                    var e = $(this).data("id")
+                    var s = $(this).data("name")
+                    $("#db-feedback-id").val(e)
+                    $("#db-feedback-url").val("http://baas.memoriaal.ee/#" + e)
+                    $("#db-feedback-name").val(s)
+                    $("#db-feedback-title").html("Tagasiside %name% kohta".replace("%name%", s))
+                    $("#db-feedback-title, #db-feedback-text, #db-feedback").removeClass("d-none")
+                    $("#db-feedback-success").addClass("d-none")
+                    $("#popup-background, #popup-content").removeClass("d-none")
+                }),
                 $("#db-feedback").submit(function (e) {
-                    e.preventDefault();
-                    e = $(this);
+                    e.preventDefault()
+                    e = $(this)
                     $.post(e.attr("action"), e.serialize(), function (e) {
                         console.log(e),
-                            $(
-                                "#db-feedback-title, #db-feedback-text, #db-feedback"
-                            ).addClass("d-none"),
-                            $("#db-feedback-success").removeClass("d-none"),
-                            $("#db-feedback input, #db-feedback textarea").val(""),
-                            $("#db-feedback-title").html(""),
-                            setTimeout(function () {
-                                $("#popup-background, #popup-content").addClass("d-none");
-                            }, 4e3);
+                        $("#db-feedback-title, #db-feedback-text, #db-feedback").addClass("d-none"),
+                        $("#db-feedback-success").removeClass("d-none"),
+                        $("#db-feedback input, #db-feedback textarea").val(""),
+                        $("#db-feedback-title").html(""),
+                        setTimeout(function () {
+                            $("#popup-background, #popup-content").addClass("d-none");
+                        }, 4e3);
                     });
                 }),
                 $("#db-feedback-cancel").click(function (e) {
