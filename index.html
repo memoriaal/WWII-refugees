@@ -24,6 +24,8 @@
         <div id="search-results"></div>
     </div>
     <div class="d-none" id="popup-background"></div>
+
+    <!-- Tagasiside vorm -->
     <div class="p-3 d-none" id="popup-content">
         <div class="row">
             <h2 class="col-12" id="db-feedback-title">Tagasiside %name% kohta</h2>
@@ -64,6 +66,47 @@
             </h2>
         </div>
     </div>
+
+    <!-- Küsimuse vorm -->
+    <div class="p-3 d-none" id="popup-question">
+        <div class="row">
+            <h2 class="col-12" id="db-question-title">Tagasiside Teise maailmasõja ajal Eestist põgenenud isiku kohta</h2>
+            <div class="col-12 col-md-10 offset-md-1" id="db-question-text">
+                <p>
+                    Palun kirjutage nii täpselt, kui teate. Kui ei tea kuupäeva täpsusega, kirjutage aasta. Kui ei tea küla või linna, kirjutage maakond. Kui mõnele küsimusele ei oska vastata, jätke see vahele.
+                </p>
+            </div>
+            <form class="col-12 col-md-8 offset-md-2" id="db-question" method="POST" name="db-question">
+                <input type="hidden" name="form-name" value="db-question" />
+                <h3>Eestist põgenenud isik</h3>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-feedback">Tagasiside</label><textarea
+                        class="col-12 px-0" id="db-question-feedback" name="feedback" rows="5"></textarea>
+                </div>
+                <hr/>
+                <h3>Info andja</h3>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-email">Kontakt e-post</label><input
+                        class="col-12 px-0" id="db-question-email" type="email" name="contact-email" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-phone">Kontakt telefon</label><input
+                        class="col-12 px-0" id="db-question-phone" type="tel" name="contact-phone" />
+                </div>
+                <hr/>
+                <div class="form-group mt-5 text-right">
+                    <button class="btn btn-secondary" id="db-question-cancel">
+                        Tühista</button><button class="btn btn-primary ml-3" id="db-question-submit" type="submit">
+                        Saada tagasiside
+                    </button>
+                </div>
+            </form>
+            <h2 class="col-12 d-none" id="db-question-success">
+                Täname tagasiside eest
+            </h2>
+        </div>
+    </div>
+    
     <script src="./assets/jquery-3.3.1.min.js"></script>
     <script src="./script.js"></script>
     <script src="./functions/search.js"></script>
@@ -73,115 +116,115 @@
                 e = e.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
                 e = location.search.match(new RegExp("[?&]" + e + "=([^&]+)(&|$)"));
                 return e && decodeURIComponent(e[1].replace(/\+/g, " "));
-            },
-                s = e("q")
-                i = e("f") || "all"
-                s == Number(s) && 10 === s.length && (i = "all")
-                $('input[value="' + i + '"]').prop("checked", !0)
-                s &&
-                ($('input[name="q"]').val(s),
-                    (e = {
-                        query: {
-                            bool: {
-                                must: {
-                                    multi_match: {
-                                        query: s,
-                                        fields: [
-                                            "perenimi",
-                                            "eesnimi",
-                                            "sünd",
-                                            "id",
-                                        ],
-                                        operator: "and",
-                                        type: "cross_fields",
-                                    },
+            }
+            s = e("q")
+            i = e("f") || "all"
+            s == Number(s) && 10 === s.length && (i = "all")
+            $('input[value="' + i + '"]').prop("checked", !0)
+            s &&
+            ($('input[name="q"]').val(s),
+                (e = {
+                    query: {
+                        bool: {
+                            must: {
+                                multi_match: {
+                                    query: s,
+                                    fields: [
+                                        "perenimi",
+                                        "eesnimi",
+                                        "sünd",
+                                        "id",
+                                    ],
+                                    operator: "and",
+                                    type: "cross_fields",
                                 },
                             },
                         },
-                        sort: { "eesnimi.raw": "asc", "perenimi.raw": "asc" },
-                        _source: [
-                            "perenimi",
-                            "eesnimi",
-                            "sünd",
-                            "id",
-                        ],
-                    }),
-                    "wall" === i
-                        ? (e.query.bool.filter = { term: { kivi: "1" } })
-                        : "officers" === i &&
-                        (e.query.bool.filter = { term: { ohvitser: "1" } }),
-                    $.ajax("/.netlify/functions/search", {
-                        data: JSON.stringify(e),
-                        contentType: "application/json",
-                        type: "POST",
-                        cache: !1,
-                        beforeSend: function (e) {
-                            e.setRequestHeader(
-                                "Authorization",
-                                "Basic cmVhZGVyOnJlYWRlcg=="
-                            );
-                        },
-                        success: function (data) {
-                            $("#search-count").html(
-                                data.hits.total + (1 === data.hits.total ? " kirje" : " kirjet")
-                            );
-                            for (var i = 0; i < data.hits.hits.length; i++) {
-                                var text = []
-                                var p = data.hits.hits[i]._source
-                                text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
-                                text.push('<div class="row">')
-                                text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi || "") + " " + p.perenimi + '</h3>')
-                                text.push('<div class="col-5 col-sm-3">')
-                                p.sünd &&
-                                    text.push('<p class="mb-0">sünd: ' + p.sünd + "</p>")
-                                text.push(
-                                    '<p class="search-result-feedback mt-3" data-id="' + p.id + 
-                                    '" data-name="' + p.eesnimi + ' ' + p.perenimi + 
-                                    '">Tagasiside</p>')
-                                text.push('<p class="mb-0"># ' + p.id + '</p>')
-                                text.push('</div>')
-                                text.push('<div class="search-result-info col-7 col-sm-6"><hr/>')
-                                text.push('</div>')
-                                $('#search-results').append(text.join(''))
-                            }
-                        },
-                        error: function (e) {
-                            console.log(e)
-                        },
-                    })
-                ),
-                $('#search-results').on('click', '.search-result-feedback', function () {
-                    var id = $(this).data('id')
-                    var name = $(this).data('name')
-                    $('#db-feedback-id').val(id)
-                    $('#db-feedback-url').val('http://baas.memoriaal.ee/#' + id)
-                    $('#db-feedback-name').val(name)
-                    $('#db-feedback-title').html('Tagasiside %name% kohta'.replace('%name%', name))
-                    $('#db-feedback-title, #db-feedback-text, #db-feedback').removeClass('d-none')
-                    $('#db-feedback-success').addClass('d-none')
-                    $('#popup-background, #popup-content').removeClass('d-none')
+                    },
+                    sort: { "eesnimi.raw": "asc", "perenimi.raw": "asc" },
+                    _source: [
+                        "perenimi",
+                        "eesnimi",
+                        "sünd",
+                        "id",
+                    ],
                 }),
-                $('#db-feedback').submit(function (event) {
-                    event.preventDefault()
-                    var $form = $(this)
-                    $.post($form.attr('action'), $form.serialize(), function (data) {
-                        console.log(data)
-                        $('#db-feedback-title, #db-feedback-text, #db-feedback').addClass('d-none')
-                        $('#db-feedback-success').removeClass('d-none')
-                        $('#db-feedback input, #db-feedback textarea').val('')
-                        $('#db-feedback-title').html('')
-                        setTimeout(function () {
-                            $('#popup-background, #popup-content').addClass('d-none')
-                        }, 4e3)
-                    })
+                "wall" === i
+                    ? (e.query.bool.filter = { term: { kivi: "1" } })
+                    : "officers" === i &&
+                    (e.query.bool.filter = { term: { ohvitser: "1" } }),
+                $.ajax("/.netlify/functions/search", {
+                    data: JSON.stringify(e),
+                    contentType: "application/json",
+                    type: "POST",
+                    cache: !1,
+                    beforeSend: function (e) {
+                        e.setRequestHeader(
+                            "Authorization",
+                            "Basic cmVhZGVyOnJlYWRlcg=="
+                        );
+                    },
+                    success: function (data) {
+                        $("#search-count").html(
+                            data.hits.total + (1 === data.hits.total ? " kirje" : " kirjet")
+                        );
+                        for (var i = 0; i < data.hits.hits.length; i++) {
+                            var text = []
+                            var p = data.hits.hits[i]._source
+                            text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
+                            text.push('<div class="row">')
+                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi || "") + " " + p.perenimi + '</h3>')
+                            text.push('<div class="col-5 col-sm-3">')
+                            p.sünd &&
+                                text.push('<p class="mb-0">sünd: ' + p.sünd + "</p>")
+                            text.push(
+                                '<p class="search-result-feedback mt-3" data-id="' + p.id + 
+                                '" data-name="' + p.eesnimi + ' ' + p.perenimi + 
+                                '">Tagasiside</p>')
+                            text.push('<p class="mb-0"># ' + p.id + '</p>')
+                            text.push('</div>')
+                            text.push('<div class="search-result-info col-7 col-sm-6"><hr/>')
+                            text.push('</div>')
+                            $('#search-results').append(text.join(''))
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e)
+                    },
                 })
-
-                $('#db-feedback-cancel').click(function (e) {
-                    e.preventDefault()
+            ),
+            $('#search-results').on('click', '.search-result-feedback', function () {
+                var id = $(this).data('id')
+                var name = $(this).data('name')
+                $('#db-feedback-id').val(id)
+                $('#db-feedback-url').val('http://baas.memoriaal.ee/#' + id)
+                $('#db-feedback-name').val(name)
+                $('#db-feedback-title').html('Tagasiside %name% kohta'.replace('%name%', name))
+                $('#db-feedback-title, #db-feedback-text, #db-feedback').removeClass('d-none')
+                $('#db-feedback-success').addClass('d-none')
+                $('#popup-background, #popup-content').removeClass('d-none')
+            }),
+            $('#db-feedback').submit(function (event) {
+                event.preventDefault()
+                var $form = $(this)
+                $.post($form.attr('action'), $form.serialize(), function (data) {
+                    console.log(data)
+                    $('#db-feedback-title, #db-feedback-text, #db-feedback').addClass('d-none')
+                    $('#db-feedback-success').removeClass('d-none')
                     $('#db-feedback input, #db-feedback textarea').val('')
                     $('#db-feedback-title').html('')
-                    $('#popup-background, #popup-content').addClass('d-none')
+                    setTimeout(function () {
+                        $('#popup-background, #popup-content').addClass('d-none')
+                    }, 4e3)
                 })
+            })
+
+            $('#db-feedback-cancel').click(function (e) {
+                e.preventDefault()
+                $('#db-feedback input, #db-feedback textarea').val('')
+                $('#db-feedback-title').html('')
+                $('#popup-background, #popup-content').addClass('d-none')
+            })
         })
     </script>
 </body>
