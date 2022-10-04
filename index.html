@@ -124,12 +124,10 @@
                         success: function (data) {
                             $("#search-count").html(
                                 data.hits.total + (1 === data.hits.total ? " kirje" : " kirjet")
-                            )
-
+                            );
                             for (var i = 0; i < data.hits.hits.length; i++) {
                                 var text = []
                                 var p = data.hits.hits[i]._source
-
                                 text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
                                 text.push('<div class="row">')
                                 text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi || "") + " " + p.perenimi + '</h3>')
@@ -155,21 +153,18 @@
                 $('#search-results').on('click', '.search-result-feedback', function () {
                     var id = $(this).data('id')
                     var name = $(this).data('name')
-
                     $('#db-feedback-id').val(id)
                     $('#db-feedback-url').val('http://baas.memoriaal.ee/#' + id)
                     $('#db-feedback-name').val(name)
                     $('#db-feedback-title').html('Tagasiside %name% kohta'.replace('%name%', name))
-
                     $('#db-feedback-title, #db-feedback-text, #db-feedback').removeClass('d-none')
                     $('#db-feedback-success').addClass('d-none')
                     $('#popup-background, #popup-content').removeClass('d-none')
-                })
-
+                }),
                 $('#db-feedback').submit(function (event) {
                     event.preventDefault()
-                    var form = $(this)
-                    $.post(form.attr('action'), form.serialize(), function (data) {
+                    var $form = $(this)
+                    $.post($form.attr('action'), $form.serialize(), function (data) {
                         console.log(data)
                         $('#db-feedback-title, #db-feedback-text, #db-feedback').addClass('d-none')
                         $('#db-feedback-success').removeClass('d-none')
