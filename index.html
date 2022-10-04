@@ -90,7 +90,7 @@
                             must : {
                                 multi_match : {
                                     query: query,
-                                    fields: [ 'perenimi', 'eesnimi', 'perenimed', 'eesnimed', 'sünd', 'surm', 'id', 'pereseosID' ],
+                                    fields: ["perenimi", "eesnimi", "sünd", "id"],
                                     operator: 'and',
                                     type: 'cross_fields'
                                 }
@@ -100,12 +100,10 @@
                     },
                     sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
                     _source: [
-                        'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
-                        'sünd', 'surm', 'id',
-                        'kirjed.kirje', 'kirjed.allikas',
-                        'pereseosID', 'pereseos.kirjed.kirje', 'pereseos.nimekiri',
-                        'tahvel', 'tulp', 'rida', 'tahvlikirje',
-                        'ohvitser', 'evokirje'
+                        "perenimi",
+                        "eesnimi",
+                        "sünd",
+                        "id",
                     ]
                 }
 
