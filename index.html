@@ -126,12 +126,12 @@
                     contentType : 'application/json',
                     type : 'POST',
                     cache: false,
-                        // beforeSend: function (e) {
-                        //     e.setRequestHeader(
-                        //         "Authorization",
-                        //         "Basic cmVhZGVyOnJlYWRlcg=="
-                        //     );
-                        // },
+                        beforeSend: function (e) {
+                            e.setRequestHeader(
+                                "Authorization",
+                                "Basic cmVhZGVyOnJlYWRlcg=="
+                            );
+                        },
                         success: function (data) {
                             $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' #{self.result.count.one}' : ' #{self.result.count.multiple}'))
 
