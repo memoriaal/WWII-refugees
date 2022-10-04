@@ -126,34 +126,31 @@
                                 e.hits.total + (1 === e.hits.total ? " kirje" : " kirjet")
                             );
                             for (var s = 0; s < e.hits.hits.length; s++) {
-                                var i = [],
-                                    a = e.hits.hits[s]._source;
-                                i.push(
-                                    '<div id="' +
-                                    a.id +
-                                    '" class="search-result pt-2 pb-4">'
-                                ),
-                                i.push('<div class="row">'),
+                                var i = []
+                                var a = e.hits.hits[s]._source
+                                i.push('<div id="' + a.id + '" class="search-result pt-2 pb-4">')
+                                i.push('<div class="row">')
                                 i.push(
                                     '<h3 class="search-result-name col-12 mb-2 mb-1">' +
-                                    (a.eesnimi || "") +
-                                    " " +
-                                    a.perenimi +
+                                    (a.eesnimi || "") + " " + a.perenimi +
                                     "</h3>"
-                                ),
-                                i.push('<div class="col-5 col-sm-3">'),
+                                )
+                                i.push('<div class="col-5 col-sm-3">')
                                 a.sünd &&
-                                i.push('<p class="mb-0">sünd: ' + a.sünd + "</p>"),
-                                i.push('<p class="search-result-feedback mt-3" data-id="' + a.id + '" data-name="' + a.eesnimi + ' ' + a.perenimi + '">#{self.feedback.button}</p>')
-                                i.push('<p class="mb-0"># ' + a.id + "</p>"),
-                                i.push("</div>"),
-                                i.push('<div class="search-result-info col-7 col-sm-6">');
-                                i.push("</div>"),
-                                    $("#search-results").append(i.join(""));
+                                    i.push('<p class="mb-0">sünd: ' + a.sünd + "</p>")
+                                i.push(
+                                    '<p class="search-result-feedback mt-3" data-id="' + a.id + 
+                                    '" data-name="' + a.eesnimi + ' ' + a.perenimi + 
+                                    '">#{self.feedback.button}</p>')
+                                i.push('<p class="mb-0"># ' + a.id + "</p>")
+                                i.push("</div>")
+                                i.push('<div class="search-result-info col-7 col-sm-6">')
+                                i.push("</div>")
+                                $("#search-results").append(i.join(""))
                             }
                         },
                         error: function (e) {
-                            console.log(e);
+                            console.log(e)
                         },
                     })),
                 $('input[type="radio"]').on("click", function () {
