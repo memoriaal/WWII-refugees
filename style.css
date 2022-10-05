@@ -244,7 +244,9 @@
 }
 
 #db-feedback input,
-#db-feedback textarea {
+#db-feedback textarea,
+#db-question input,
+#db-question textarea {
     background: transparent;
     border-bottom: 1px solid #808080
 }
