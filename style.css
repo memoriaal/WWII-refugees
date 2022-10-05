@@ -179,13 +179,11 @@
     border-top: 1px solid #c7c7c7
 }
 
-#search-results .search-result:hover .search-result-feedback,
-#new-refugee-feedback {
+#search-results .search-result:hover .search-result-feedback {
     transform: translateX(0)
 }
 
-#search-results .search-result p,
-#new-refugee-feedback {
+#search-results .search-result p {
     font-weight: 700;
     font-size: 11pt;
     line-height: 12pt
@@ -196,13 +194,18 @@
     background-color: #000
 }
 
-#search-results .search-result .search-result-feedback,
-#new-refugee-feedback {
+#search-results .search-result .search-result-feedback {
     text-transform: lowercase;
     text-decoration: underline;
     cursor: pointer;
     transition: .3s;
     transform: translateX(-100%)
+}
+
+#new-refugee-feedback {
+    text-transform: lowercase;
+    text-decoration: underline;
+    cursor: pointer
 }
 
 #search-results .search-result .search-result-info p {
