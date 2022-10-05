@@ -79,22 +79,57 @@
             </div>
             <form class="col-12 col-md-8 offset-md-2" id="db-question" method="POST" name="db-question">
                 <input type="hidden" name="form-name" value="db-question" />
+
                 <h3>Eestist põgenenud isik</h3>
                 <div class="form-group mt-5">
-                    <label class="form-label col-12 px-0" for="db-question-feedback">Tagasiside</label><textarea
-                        class="col-12 px-0" id="db-question-feedback" name="feedback" rows="5"></textarea>
+                    <label class="form-label col-12 px-0" for="new-refugee-forename">Eesnimi</label>
+                    <input class="col-12 px-0" id="new-refugee-forename" type="name" name="new-refugee-forename" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="new-refugee-surname">Perenimi</label>
+                    <input class="col-12 px-0" id="new-refugee-surname" type="name" name="new-refugee-surname" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="new-refugee-birthdate">Sünniaeg</label>
+                    <input class="col-12 px-0" id="new-refugee-birthdate" type="date" name="new-refugee-birthdate" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="new-refugee-forename">Eesnimi</label>
+                    <input class="col-12 px-0" id="new-refugee-forename" type="name" name="new-refugee-forename" />
+                </div>
+
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-feedback">Tagasiside</label>
+                    <textarea class="col-12 px-0" id="db-question-feedback" name="feedback" rows="5"></textarea>
                 </div>
                 <hr/>
+
                 <h3>Info andja</h3>
                 <div class="form-group mt-5">
-                    <label class="form-label col-12 px-0" for="db-question-email">Kontakt e-post</label><input
-                        class="col-12 px-0" id="db-question-email" type="email" name="contact-email" />
+                    <label class="form-label col-12 px-0" for="db-question-relation">Suhe põgenenud isikuga</label>
+                    <textarea class="col-12 px-0" id="db-question-relation" name="relation" rows="5"></textarea>
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-name">Nimi</label>
+                    <input class="col-12 px-0" id="db-question-name" type="name" name="contact-name" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-email">Kontakt e-post</label>
+                    <input class="col-12 px-0" id="db-question-email" type="email" name="contact-email" />
                 </div>
                 <div class="form-group mt-5">
                     <label class="form-label col-12 px-0" for="db-question-phone">Kontakt telefon</label><input
                         class="col-12 px-0" id="db-question-phone" type="tel" name="contact-phone" />
                 </div>
                 <hr/>
+
+                <h3>Muu info</h3>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="db-question-other-info">Muu info</label>
+                    <textarea class="col-12 px-0" id="db-question-other-info" name="other-info" rows="5"></textarea>
+                </div>
+                <hr/>
+
                 <div class="form-group mt-5 text-right">
                     <button class="btn btn-secondary" id="db-question-cancel">
                         Tühista</button><button class="btn btn-primary ml-3" id="db-question-submit" type="submit">
