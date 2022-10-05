@@ -118,6 +118,29 @@
                 $('#popup-background, #popup-question').removeClass('d-none')
             })
 
+            $('#new-refugee-feedback').submit(function (event) {
+                event.preventDefault()
+                var $form = $(this)
+                $.post($form.attr('action'), $form.serialize(), function (data) {
+                    console.log(data)
+                    $('#new-refugee-feedback-title, #new-refugee-feedback-text, #new-refugee-feedback').addClass('d-none')
+                    $('#new-refugee-feedback-success').removeClass('d-none')
+                    $('#new-refugee-feedback input, #new-refugee-feedback textarea').val('')
+                    $('#new-refugee-feedback-title').html('')
+                    setTimeout(function () {
+                        $('#popup-background, #popup-question').addClass('d-none')
+                    }, 4e3)
+                })
+            })
+
+            $('#new-refugee-feedback-cancel').click(function (e) {
+                e.preventDefault()
+                $('#new-refugee-feedback input, #new-refugee-feedback textarea').val('')
+                $('#new-refugee-feedback-title').html('')
+                $('#popup-background, #popup-question').addClass('d-none')
+            })
+
+
             var e = function (e) {
                 e = e.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
                 e = location.search.match(new RegExp("[?&]" + e + "=([^&]+)(&|$)"));

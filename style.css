@@ -76,7 +76,7 @@
     backdrop-filter: blur(5px)
 }
 
-#popup-content {
+#popup-content, #popup-question {
     position: fixed;
     top: 0;
     right: 20%;
