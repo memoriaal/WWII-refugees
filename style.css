@@ -164,7 +164,7 @@
 
 #search-results {
     color: #693912;
-    background: rgba(255, 180, 147, 0.7)
+    background: rgba(147, 212, 255, 0.7)
 }
 
 #search-results h3 {
@@ -197,8 +197,8 @@
 }
 
 #search-results .search-result .search-result-name {
-    border-bottom: 1px solid #daad8a;
-    background-color: rgb(255, 212, 186)
+    border-bottom: 1px solid #8aa6da;
+    background-color: rgb(186, 215, 255)
 }
 
 #search-results .search-result .search-result-feedback {
@@ -257,8 +257,8 @@ body {
 }
 
 body {
-    color: rgb(64, 27, 0);
-    background: #fcf4e7;
+    color: rgb(0, 17, 64);
+    background: #d8dff1;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400
@@ -360,7 +360,7 @@ button:active {
 
 input {
     color: #000;
-    background: #da3832
+    background: #32d2da
 }
 
 input::-moz-placeholder {
@@ -388,7 +388,7 @@ input::-ms-input-placeholder {
 
 button {
     text-transform: uppercase;
-    border: 1px solid #da3832
+    border: 1px solid #32adda
 }
 
 #text {
@@ -428,7 +428,7 @@ button {
 }
 
 #text-text a.text-link.active {
-    color: #da3832
+    color: #3289da
 }
 
 #text-text a.text-link.active:hover {
