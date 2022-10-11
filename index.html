@@ -220,7 +220,7 @@
                         );
                     },
                     success: function (data) {
-                        $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' #{self.result.count.one}' : ' #{self.result.count.multiple}'))
+                        $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' vaste' : ' vastet'))
 
                         for (var i = 0; i < data.hits.hits.length; i++) {
                             var text = []
@@ -234,10 +234,10 @@
                             text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</h3>')
 
                             text.push('<div class="col-5 col-sm-3">')
-                            if (p.sünd) { text.push('<p class="mb-0">#{self.result.born}: ' + p.sünd + '</p>') }
-                            if (p.surm) { text.push('<p class="mb-0">#{self.result.dead}: ' + p.surm + '</p>') }
-                            if (p.isanimi) { text.push('<p class="mb-0">#{self.result.father}: ' + p.isanimi + '</p>') }
-                            if (p.emanimi) { text.push('<p class="mb-0">#{self.result.mother}: ' + p.emanimi + '</p>') }
+                            if (p.sünd) { text.push('<p class="mb-0">Sünd: ' + p.sünd + '</p>') }
+                            if (p.surm) { text.push('<p class="mb-0">Surm: ' + p.surm + '</p>') }
+                            if (p.isanimi) { text.push('<p class="mb-0">Isa: ' + p.isanimi + '</p>') }
+                            if (p.emanimi) { text.push('<p class="mb-0">Ema: ' + p.emanimi + '</p>') }
                             text.push('<p class="mb-0"># ' + p.id + '</p>')
                             text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">#{self.feedback.button}</p>')
                             text.push('</div>')
