@@ -211,11 +211,11 @@
     transform: translateX(-100%);
 }
 
-#new-refugee-feedback {
+/* #new-refugee-feedback {
     text-transform: lowercase;
     text-decoration: underline;
     cursor: pointer;
-}
+} */
 
 #search-results .search-result .search-result-info p {
     font-size: 9pt;
