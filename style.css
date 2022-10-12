@@ -178,7 +178,7 @@
 }
 
 #search-results a {
-    color: #c7c7c7;
+    color: hsl(220, 100%, 50%);
 }
 
 #search-results hr {
