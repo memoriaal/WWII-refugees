@@ -1,50 +1,50 @@
 #navigation {
     background: #4d4d4d;
-    z-index: 100
+    z-index: 100;
 }
 
 #navigation a {
     color: #222;
-    text-decoration: none
+    text-decoration: none;
 }
 
 #navigation a:hover {
     color: #737373;
-    text-decoration: none
+    text-decoration: none;
 }
 
 #navigation a:hover img {
-    filter: grayscale(0%)
+    filter: grayscale(0%);
 }
 
 #navigation a.active {
     color: #737373;
-    background: #414141
+    background: #414141;
 }
 
 #navigation a.active img {
-    filter: grayscale(0%)
+    filter: grayscale(0%);
 }
 
 #navigation a h3 {
     font-weight: 800;
     font-size: 11pt;
-    line-height: 13pt
+    line-height: 13pt;
 }
 
 #navigation a img {
-    filter: grayscale(100%)
+    filter: grayscale(100%);
 }
 
 #navigation a p {
     font-size: 8pt;
     line-height: 10pt;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
 #text-locale {
     background: #060606;
-    color: #fff
+    color: #fff;
 }
 
 #text-locale a {
@@ -54,14 +54,14 @@
     font-weight: 700;
     font-size: 13pt;
     line-height: 22pt;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
 @media (max-width:768px) {
     #text-locale a {
         font-size: 13pt;
         line-height: 15pt
-    }
+    };
 }
 
 #popup-background {
@@ -73,7 +73,7 @@
     background: rgba(20, 20, 20, 0.5);
     z-index: 1000;
     -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px)
+    backdrop-filter: blur(5px);
 }
 
 #popup-content, #popup-question {
@@ -86,21 +86,21 @@
     background: #fff;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    z-index: 2000
+    z-index: 2000;
 }
 
 @media (max-width:768px) {
     #popup-content, #popup-question {
         right: 10%;
         left: 10%
-    }
+    };
 }
 
 @media (max-width:576px) {
     #popup-content, #popup-question {
         right: 2%;
         left: 2%
-    }
+    };
 }
 
 #popup-content h2,
@@ -110,14 +110,14 @@
     font-size: 30pt;
     line-height: 32pt;
     text-align: center;
-    text-shadow: none
+    text-shadow: none;
 }
 
 @media (max-width:576px) {
     #popup-content h2, #popup-question h2 {
         font-size: 20pt;
         line-height: 22pt
-    }
+    };
 }
 
 #popup-content h3, #popup-question h3 {
@@ -126,11 +126,11 @@
     font-size: 16pt;
     line-height: 18pt;
     text-align: center;
-    text-shadow: none
+    text-shadow: none;
 }
 
 #popup-content p:last-of-type, #popup-question p:last-of-type {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 #popup-content a,
@@ -142,63 +142,64 @@
 #popup-question a:hover,
 #popup-question a:visited {
     color: #060606;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 #popup-content ul,
 #popup-question ul {
-    padding-left: 20px
+    padding-left: 20px;
 }
 
 #popup-content img,
 #popup-question img {
-    width: 100%
+    width: 100%;
 }
 
 #popup-close {
     height: 30px;
     width: 30px;
     margin: 1rem auto 1rem auto;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #search-results {
-    color: #693912;
-    background: rgba(147, 212, 255, 0.7)
+    color: hsl(220, 100%, 20%);
+    background: hsla(220, 100%, 100%, 0.9);;
 }
 
 #search-results h3 {
     font-size: 14pt;
-    line-height: 16pt
+    line-height: 16pt;;
 }
 
 #search-results button {
     background: #060606;
-    color: #fff
+    color: #fff;
 }
 
 #search-results a {
-    color: #c7c7c7
+    color: #c7c7c7;
 }
 
 #search-results hr {
     border: none;
-    border-top: 1px solid #c7c7c7
+    border-top: 1px solid #c7c7c7;
 }
 
 #search-results .search-result:hover .search-result-feedback {
-    transform: translateX(0)
+    transform: translateX(0);
 }
 
 #search-results .search-result p {
     font-weight: 700;
     font-size: 11pt;
-    line-height: 12pt
+    line-height: 12pt;
 }
 
 #search-results .search-result .search-result-name {
-    border-bottom: 1px solid #8aa6da;
-    background-color: rgb(186, 215, 255)
+    border-bottom: 1px solid hsl(220 50% 50%);
+    background-color: hsl(220 50% 80% / 50%);
+    padding-left: 0.25rem;
 }
 
 #search-results .search-result .search-result-feedback {
@@ -206,41 +207,41 @@
     text-decoration: underline;
     cursor: pointer;
     transition: .3s;
-    transform: translateX(-100%)
+    transform: translateX(-100%);
 }
 
 #new-refugee-feedback {
     text-transform: lowercase;
     text-decoration: underline;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #search-results .search-result .search-result-info p {
     font-size: 9pt;
     line-height: 10pt;
-    font-weight: 400
+    font-weight: 400;
 }
 
 #search-results .search-result .search-result-info span {
-    font-style: italic
+    font-style: italic;
 }
 
 #search-results .search-result .search-result-plaque .plaque-info {
     font-weight: 700;
     font-size: 34pt;
     line-height: 38pt;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 @media (max-width:576px) {
     #search-results .search-result .search-result-plaque .plaque-info {
         font-size: 20pt;
         line-height: 22pt
-    }
+    };
 }
 
 #search-results .mitterelevantne {
-    background-color: #2f4f4f
+    background-color: #2f4f4f;
 }
 
 #db-feedback input,
@@ -248,20 +249,20 @@
 #db-question input,
 #db-question textarea {
     background: transparent;
-    border-bottom: 1px solid #808080
+    border-bottom: 1px solid #808080;
 }
 
 html,
 body {
-    height: 100%
+    height: 100%;
 }
 
 body {
-    color: rgb(0, 17, 64);
-    background: #d8dff1;
+    color: hsl(220, 0%, 100%);
+    background: hsl(220, 100%, 60%);
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
-    font-weight: 400
+    font-weight: 400;
 }
 
 h1,
@@ -271,7 +272,7 @@ h3 {
     font-style: normal;
     font-weight: 700;
     text-shadow: 0 0 16px rgba(77, 77, 79, 0.4);
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 
 h1 a,
@@ -286,59 +287,59 @@ h3 a:hover,
 h1 a:visited,
 h2 a:visited,
 h3 a:visited {
-    text-decoration: none
+    text-decoration: none;
 }
 
 h1 {
     font-size: 62pt;
-    line-height: 64pt
+    line-height: 64pt;
 }
 
 @media (max-width:992px) {
     h1 {
         font-size: 40pt;
         line-height: 48pt
-    }
+    };
 }
 
 @media (max-width:768px) {
     h1 {
         font-size: 30pt;
         line-height: 36pt
-    }
+    };
 }
 
 @media (max-width:576px) {
     h1 {
         font-size: 20pt;
         line-height: 22pt
-    }
+    };
 }
 
 h2 {
     font-style: normal;
     font-weight: 700;
     font-size: 20pt;
-    line-height: 22pt
+    line-height: 22pt;
 }
 
 @media (max-width:768px) {
     h2 {
         font-size: 13pt;
         line-height: 15pt
-    }
+    };
 }
 
 p,
 li {
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
 }
 
 a,
 a:active,
 a:hover,
 a:visited {
-    color: #fff
+    color: #fff;
 }
 
 input,
@@ -346,7 +347,7 @@ textarea,
 button {
     border: none;
     border-radius: 0;
-    outline: none
+    outline: none;
 }
 
 input:focus,
@@ -355,51 +356,53 @@ button:focus,
 input:active,
 textarea:active,
 button:active {
-    outline: none
+    outline: none;
 }
 
 input {
-    color: #000;
-    background: #32d2da
+    color: hsl(60, 70%, 15%);
+    background: hsl(60, 70%, 80%);
 }
 
 input::-moz-placeholder {
     color: #000;
-    opacity: 1
+    opacity: 1;
 }
 
 input:-ms-input-placeholder {
     color: #000;
-    opacity: 1
+    opacity: 1;
 }
 
 input::placeholder {
     color: #000;
-    opacity: 1
+    opacity: 1;
 }
 
 input:-ms-input-placeholder {
-    color: #000
+    color: #000;
 }
 
 input::-ms-input-placeholder {
-    color: #000
+    color: #000;
 }
 
 button {
     text-transform: uppercase;
-    border: 1px solid #32adda
+    background: hsl(120, 70%, 30%);
+    color: hsl(60, 100%, 90%);
+    border: 1px solid hsl(220, 70%, 40%);
 }
 
 #text {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center
+    background-position: center;
 }
 
 #text.desktop {
     overflow: hidden;
-    overflow-y: auto
+    overflow-y: auto;
 }
 
 #text-text {
@@ -407,11 +410,11 @@ button {
     background: rgba(20, 20, 20, 0.9);
     font-weight: 500;
     font-size: 12pt;
-    line-height: 14pt
+    line-height: 14pt;
 }
 
 #text-text img {
-    background: rgba(255, 255, 255, 0.5)
+    background: rgba(255, 255, 255, 0.5);
 }
 
 #text-text h2 {
@@ -419,43 +422,43 @@ button {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12pt;
-    line-height: 14pt
+    line-height: 14pt;
 }
 
 #text-text a.text-link {
     text-transform: uppercase;
-    font-weight: 700
+    font-weight: 700;
 }
 
 #text-text a.text-link.active {
-    color: #3289da
+    color: #3289da;
 }
 
 #text-text a.text-link.active:hover {
-    text-decoration: none
+    text-decoration: none;
 }
 
 #text-text p:last-of-type {
-    margin: 0
+    margin: 0;
 }
 
 #text-search {
-    background: #060606
+    background: #060606;
 }
 
 #text-search h3 {
     font-size: 13pt;
-    line-height: 15pt
+    line-height: 15pt;
 }
 
 #text-search p {
     color: #c7c7c7;
     font-size: 8pt;
-    line-height: 10pt
+    line-height: 10pt;
 }
 
 #text-search button {
     font-size: 10pt;
     background: #060606;
-    color: #fff
+    color: #fff;
 }
