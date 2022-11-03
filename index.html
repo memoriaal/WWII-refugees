@@ -250,10 +250,15 @@
                             text.push('<div class="search-result-info col-7 col-sm-6">')
                             text.push('<pre class="d-none">' + JSON.stringify(p, 0, 2) + '</pre>')
                             for (var ik = 0; ik < (p.kirjed || []).length; ik++) {
-                                text.push('<p class="mt-2 mb-0"><a href="' + p.kirjed[ik].allikas + '">' + p.kirjed[ik].allikas + '</a></p>')
-                                if (p.kirjed[ik].kirje) { text.push('<p class="mb-1">') }
-                                if (p.kirjed[ik].kirje) { text.push(p.kirjed[ik].kirje) }
-                                if (p.kirjed[ik].kirje) { text.push('</p>') }
+                                text.push('<p class="mt-2 mb-0">' + p.kirjed[ik].allikas + '</p>')
+                                if (p.kirjed[ik].kirje) { 
+                                    text.push('<p class="mb-1">')
+                                    text.push(p.kirjed[ik].kirje)
+                                    text.push('</p>') 
+                                }
+                                if (p.kirjed[ik].viide) { 
+                                    text.push('<p class="mt-2 mb-0"><a href="' + p.kirjed[ik].viide + '">' + p.kirjed[ik].viide + '</a></p>')
+                                }
                             }
                             if (p.pereseos && p.pereseos.length > 0) {
                                 for (var ip = 0; ip < p.pereseos.length; ip++) {
