@@ -199,10 +199,9 @@
                             },
                         },
                     },
-                    sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+                    sort: { 'kirje.raw': 'asc' },
                     _source: [
-                    'kirje', 'id',
-                        'kirjed.kirje', 'kirjed.id'
+                    'kirje', 'id', 'kirjed.kirje', 'kirjed.id'
                     ],
                 }),
                 "wall" === i
