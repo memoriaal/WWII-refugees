@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta property="og:url" content="https://mnemosyne.ee/kirmus4" />
-    <meta property="og:title" content="KirMus · 4" />
+    <meta property="og:title" content="·WWII·" />
     <!-- <meta property="og:image" content="/assets/images/bg/andmebaas.jpg" /> -->
     <title>·WWII·</title>
     <link href="https://cloud.typography.com/6935656/6118392/css/fonts.css" rel="stylesheet" type="text/css" />
@@ -171,7 +171,7 @@
     
     <script src="./assets/jquery-3.3.1.min.js"></script>
     <script src="./script.js"></script>
-    <script src="./functions/search.js"></script>
+    <script src="./functions/search_wwii.js"></script>
     <script>
         $(function () {
 
@@ -192,28 +192,24 @@
                             must: {
                                 multi_match: {
                                     query: s,
-                                    fields: ['perenimi', 'eesnimi', 'perenimed', 'eesnimed', 'sünd', 'surm', 'id', 'pereseosID'],
+                                    fields: ['id', 'kirje', 'kirjed.kirje'],
                                     operator: 'and',
                                     type: 'cross_fields',
                                 },
                             },
                         },
                     },
-                    sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+                    sort: { 'kirje.raw': 'asc' },
                     _source: [
-                    'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
-                        'sünd', 'surm', 'id',
-                        'kirjed.kirje', 'kirjed.allikas', 'kirjed.viide',
-                        'pereseosID', 'pereseos.kirjed.kirje', 'pereseos.nimekiri',
-                        'tahvel', 'tulp', 'rida', 'tahvlikirje',
-                        'ohvitser', 'evokirje'
+                        'kirje', 'id', 
+                        'kirjed.kirje', 'kirjed.kirjekood', 'kirjed.viide', 'kirjed.allikas', 'kirjed.allika_nimetus'
                     ],
                 }),
                 "wall" === i
                     ? (e.query.bool.filter = { term: { kivi: "1" } })
                     : "officers" === i &&
                     (e.query.bool.filter = { term: { ohvitser: "1" } }),
-                $.ajax("/.netlify/functions/search", {
+                $.ajax("/.netlify/functions/search_wwii", {
                     data: JSON.stringify(e),
                     contentType: "application/json",
                     type: "POST",
@@ -225,24 +221,21 @@
                         );
                     },
                     success: function (data) {
+                        console.log(JSON.stringify(data, 0, 2))
                         $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' vaste' : ' vastet'))
 
                         for (var i = 0; i < data.hits.hits.length; i++) {
                             var text = []
                             var p = data.hits.hits[i]._source
-                            // console.log(JSON.stringify(p, 0, 2))
-                            // $('#hidden').html(JSON.stringify(p, 0, 2))
+                            console.log(JSON.stringify(p, 0, 2))
+                            $('#hidden').html(JSON.stringify(p, 0, 2))
 
                             text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
                             text.push('<div class="row">')
 
-                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</h3>')
+                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + p.kirje + '</h3>')
 
                             text.push('<div class="col-5 col-sm-3">')
-                            if (p.sünd) { text.push('<p class="mb-0">Sünd: ' + p.sünd + '</p>') }
-                            if (p.surm) { text.push('<p class="mb-0">Surm: ' + p.surm + '</p>') }
-                            if (p.isanimi) { text.push('<p class="mb-0">Isa: ' + p.isanimi + '</p>') }
-                            if (p.emanimi) { text.push('<p class="mb-0">Ema: ' + p.emanimi + '</p>') }
                             text.push('<p class="mb-0"># ' + p.id + '</p>')
                             text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">tagasiside</p>')
                             text.push('</div>')
@@ -250,7 +243,7 @@
                             text.push('<div class="search-result-info col-7 col-sm-6">')
                             text.push('<pre class="d-none">' + JSON.stringify(p, 0, 2) + '</pre>')
                             for (var ik = 0; ik < (p.kirjed || []).length; ik++) {
-                                text.push('<p class="mt-2 mb-0">' + p.kirjed[ik].allikas + '</p>')
+                                text.push('<p class="mt-2 mb-0">' + p.kirjed[ik].kirjekood + ' | ' + p.kirjed[ik].allikas + '</p>')
                                 if (p.kirjed[ik].kirje) { 
                                     text.push('<p class="mb-1">')
                                     text.push(p.kirjed[ik].kirje)
