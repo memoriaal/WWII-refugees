@@ -274,12 +274,12 @@
                             text.push('</div>')
 
                             text.push('<div class="search-result-plaque col-12 col-sm-3">')
-                            if (p.tahvel) { text.push('<p class="mb-0">#{self.result.plaque}:</p>') }
+                            if (p.tahvel) { text.push('<p class="mb-0">Tahvel:</p>') }
                             if (p.tahvel) { text.push('<p class="mb-2 plaque-info">' + p.tahvel + '</p>') }
-                            if (p.tulp) { text.push('<p class="mb-2">#{self.result.col}: ' + p.tulp + ' / #{self.result.row}: ' + p.rida + '</p>') }
-                            if (p.tahvlikirje) { text.push('<p class="mb-0">#{self.result.nameOnPlaque}: ' + p.tahvlikirje + '</p>') }
+                            if (p.tulp) { text.push('<p class="mb-2">Tulp: ' + p.tulp + ' / rida: ' + p.rida + '</p>') }
+                            if (p.tahvlikirje) { text.push('<p class="mb-0">Nimi tahvlil: ' + p.tahvlikirje + '</p>') }
 
-                            if (p.ohvitser === '1') { text.push('<hr/><p class="mb-0">#{self.result.nameOnEVOPlaque}: ' + p.evokirje + '</p>') }
+                            if (p.ohvitser === '1') { text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>') }
                             text.push('</div>')
 
                             text.push('</div>')
