@@ -192,7 +192,7 @@
                             must: {
                                 multi_match: {
                                     query: s,
-                                    fields: ['perenimi', 'eesnimi', 'perenimed', 'eesnimed', 'sünd', 'surm', 'id', 'pereseosID'],
+                                    fields: ['kirje', 'kirjed.kirje'],
                                     operator: 'and',
                                     type: 'cross_fields',
                                 },
@@ -201,12 +201,8 @@
                     },
                     sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
                     _source: [
-                    'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
-                        'sünd', 'surm', 'id',
-                        'kirjed.kirje', 'kirjed.allikas', 'kirjed.viide',
-                        'pereseosID', 'pereseos.kirjed.kirje', 'pereseos.nimekiri',
-                        'tahvel', 'tulp', 'rida', 'tahvlikirje',
-                        'ohvitser', 'evokirje'
+                    'kirje', 'id',
+                        'kirjed.kirje', 'kirjed.id'
                     ],
                 }),
                 "wall" === i
