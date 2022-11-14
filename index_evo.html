@@ -192,7 +192,7 @@
                             must: {
                                 multi_match: {
                                     query: s,
-                                    fields: ['kirje', 'kirjed.kirje'],
+                                    fields: ['id', 'kirje', 'kirjed.kirje'],
                                     operator: 'and',
                                     type: 'cross_fields',
                                 },
@@ -232,13 +232,9 @@
                             text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
                             text.push('<div class="row">')
 
-                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</h3>')
+                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + p.kirje + '</h3>')
 
                             text.push('<div class="col-5 col-sm-3">')
-                            if (p.sünd) { text.push('<p class="mb-0">Sünd: ' + p.sünd + '</p>') }
-                            if (p.surm) { text.push('<p class="mb-0">Surm: ' + p.surm + '</p>') }
-                            if (p.isanimi) { text.push('<p class="mb-0">Isa: ' + p.isanimi + '</p>') }
-                            if (p.emanimi) { text.push('<p class="mb-0">Ema: ' + p.emanimi + '</p>') }
                             text.push('<p class="mb-0"># ' + p.id + '</p>')
                             text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">tagasiside</p>')
                             text.push('</div>')
@@ -246,7 +242,7 @@
                             text.push('<div class="search-result-info col-7 col-sm-6">')
                             text.push('<pre class="d-none">' + JSON.stringify(p, 0, 2) + '</pre>')
                             for (var ik = 0; ik < (p.kirjed || []).length; ik++) {
-                                text.push('<p class="mt-2 mb-0">' + p.kirjed[ik].allikas + '</p>')
+                                text.push('<p class="mt-2 mb-0">' + p.kirjed[ik].id + '</p>')
                                 if (p.kirjed[ik].kirje) { 
                                     text.push('<p class="mb-1">')
                                     text.push(p.kirjed[ik].kirje)
