@@ -213,7 +213,7 @@
                     ? (e.query.bool.filter = { term: { kivi: "1" } })
                     : "officers" === i &&
                     (e.query.bool.filter = { term: { ohvitser: "1" } }),
-                $.ajax("/.netlify/functions/search", {
+                $.ajax("/.netlify/functions/search_evo", {
                     data: JSON.stringify(e),
                     contentType: "application/json",
                     type: "POST",
