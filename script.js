@@ -34,7 +34,7 @@ $(function () {
         var id = $(this).data('id')
         var name = $(this).data('name')
         $('#db-feedback-id').val(id)
-        $('#db-feedback-url').val('http://baas.memoriaal.ee/#' + id)
+        $('#db-feedback-url').val('http://wwii-refugees.ee/#' + id)
         $('#db-feedback-name').val(name)
         $('#db-feedback-title').html('Tagasiside %name% kohta'.replace('%name%', name))
         $('#db-feedback-title, #db-feedback-text, #db-feedback').removeClass('d-none')
