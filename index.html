@@ -192,7 +192,7 @@
                             must: {
                                 multi_match: {
                                     query: s,
-                                    fields: ['id', 'kirje', 'kirjed.kirje'],
+                                    fields: ['id', 'kirje', 'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'sünd', 'surm', 'kirjed.kirje'],
                                     operator: 'and',
                                     type: 'cross_fields',
                                 },
