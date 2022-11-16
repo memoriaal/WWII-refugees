@@ -192,7 +192,7 @@
                             must: {
                                 multi_match: {
                                     query: s,
-                                    fields: ['id', 'kirje', 'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'sünd', 'surm', 'kirjed.kirje'],
+                                    fields: ['id', 'kirje', 'kirjed.kirje'],
                                     operator: 'and',
                                     type: 'cross_fields',
                                 },
@@ -201,7 +201,7 @@
                     },
                     sort: { 'kirje.raw': 'asc' },
                     _source: [
-                        'kirje', 'id', 
+                        'kirje', 'id', 'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'sünd', 'surm', 
                         'kirjed.kirje', 'kirjed.kirjekood', 'kirjed.viide', 'kirjed.allikas', 'kirjed.allika_nimetus'
                     ],
                 }),
@@ -233,9 +233,13 @@
                             text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
                             text.push('<div class="row">')
 
-                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + p.kirje + '</h3>')
+                            text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</h3>')
 
                             text.push('<div class="col-5 col-sm-3">')
+                            if (p.sünd) { text.push('<p class="mb-0">#{self.result.born}: ' + p.sünd + '</p>') }
+                            if (p.surm) { text.push('<p class="mb-0">#{self.result.dead}: ' + p.surm + '</p>') }
+                            if (p.isanimi) { text.push('<p class="mb-0">#{self.result.father}: ' + p.isanimi + '</p>') }
+                            if (p.emanimi) { text.push('<p class="mb-0">#{self.result.mother}: ' + p.emanimi + '</p>') }
                             text.push('<p class="mb-0"># ' + p.id + '</p>')
                             text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">tagasiside</p>')
                             text.push('</div>')
