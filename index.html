@@ -171,7 +171,7 @@
     
     <script src="./assets/jquery-3.3.1.min.js"></script>
     <script src="./script.js"></script>
-    <script src="./functions/search_wwii.js"></script>
+    <script src="./functions/search.js"></script>
     <script>
         $(function () {
             var qs = function (key) {
@@ -215,7 +215,7 @@
                     ],
                 }
 
-                $.ajax("/.netlify/functions/search_wwii", {
+                $.ajax("/.netlify/functions/search", {
                     data: JSON.stringify(qData),
                     contentType: "application/json",
                     type: "POST",
