@@ -220,12 +220,6 @@
                     contentType: "application/json",
                     type: "POST",
                     cache: !1,
-                    beforeSend: function (qData) {
-                        e.setRequestHeader(
-                            "Authorization",
-                            "Basic cmVhZGVyOnJlYWRlcg=="
-                        );
-                    },
                     success: function (data) {
                         console.log(JSON.stringify(data, 0, 2))
                         $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' vaste' : ' vastet'))
