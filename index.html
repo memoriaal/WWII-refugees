@@ -174,24 +174,27 @@
     <script src="./functions/search_wwii.js"></script>
     <script>
         $(function () {
-
-            var e = function (e) {
-                e = e.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
-                e = location.search.match(new RegExp("[?&]" + e + "=([^&]+)(&|$)"));
-                return e && decodeURIComponent(e[1].replace(/\+/g, " "));
+            var qs = function (key) {
+                key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&")
+                var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"))
+                return match && decodeURIComponent(match[1].replace(/\+/g, " "))
             }
-            s = e("q")
-            i = e("f") || "all"
-            s == Number(s) && 10 === s.length && (i = "all")
-            $('input[value="' + i + '"]').prop("checked", true)
-            s &&
-            ($('input[name="q"]').val(s),
-                (e = {
+
+            var query = qs('q')
+            var filter = qs('f') || 'all'
+            var idQuery = (query == Number(query) && query.length === 10)
+
+            $('input[value="'+filter+'"]').prop('checked', true)
+
+            if (query) {
+                $('input[name="q"]').val(query)
+
+                var qData = {
                     query: {
                         bool: {
                             must: {
                                 multi_match: {
-                                    query: s,
+                                    query: query,
                                     fields: ['id', 'perenimi', 'eesnimi', 'sünd', 'surm', 'kirjed.kirje'],
                                     operator: 'and',
                                     type: 'cross_fields',
@@ -210,13 +213,14 @@
                         'pereseosed.kirjekood', 'pereseosed.allikas', 'pereseosed.raamatupere',
                         'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida'
                     ],
-                }),
+                }
+
                 $.ajax("/.netlify/functions/search_wwii", {
-                    data: JSON.stringify(e),
+                    data: JSON.stringify(qData),
                     contentType: "application/json",
                     type: "POST",
                     cache: !1,
-                    beforeSend: function (e) {
+                    beforeSend: function (qData) {
                         e.setRequestHeader(
                             "Authorization",
                             "Basic cmVhZGVyOnJlYWRlcg=="
@@ -304,9 +308,9 @@
                     },
                     error: function( error) {
                         console.log(error)
-                    },
+                    }
                 })
-            )
+            }
 
         })
     </script>
