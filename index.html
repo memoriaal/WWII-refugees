@@ -200,7 +200,7 @@
                                     type: 'cross_fields',
                                 },
                             },
-                            // filter: { term: { wwii: 1 } }
+                            filter: { term: { evo: 0 } }
                         },
                     },
                     sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
@@ -227,8 +227,8 @@
                         for (var i = 0; i < data.hits.hits.length; i++) {
                             var text = []
                             var p = data.hits.hits[i]._source
-                            console.log(JSON.stringify(p, 0, 2))
-                            $('#hidden').html(JSON.stringify(p, 0, 2))
+                            // console.log(JSON.stringify(p, 0, 2))
+                            // $('#hidden').html(JSON.stringify(p, 0, 2))
 
                             text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
                             text.push('<div class="row">')
