@@ -221,13 +221,13 @@
                     type: "POST",
                     cache: !1,
                     success: function (data) {
-                        console.log(JSON.stringify(data, 0, 2))
+                        // console.log(JSON.stringify(data, 0, 2))
                         $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' vaste' : ' vastet'))
 
                         for (var i = 0; i < data.hits.hits.length; i++) {
                             var text = []
                             var p = data.hits.hits[i]._source
-                            // console.log(JSON.stringify(p, 0, 2))
+                            console.log(p)
                             // $('#hidden').html(JSON.stringify(p, 0, 2))
 
                             text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">')
