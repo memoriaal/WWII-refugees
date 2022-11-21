@@ -221,7 +221,7 @@
                     type: "POST",
                     cache: !1,
                     success: function (data) {
-                        // console.log(JSON.stringify(data, 0, 2))
+                        console.log(JSON.stringify(data, 0, 2))
                         $('#search-count').html(data.hits.total + (data.hits.total === 1 ? ' vaste' : ' vastet'))
 
                         for (var i = 0; i < data.hits.hits.length; i++) {
