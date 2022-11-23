@@ -180,10 +180,6 @@
             }
 
             var query = qs('q')
-            var filter = qs('f') || 'all'
-            var idQuery = (query == Number(query) && query.length === 10)
-
-            $('input[value="'+filter+'"]').prop('checked', true)
 
             if (query) {
                 $('input[name="q"]').val(query)
@@ -194,7 +190,7 @@
                             must: {
                                 multi_match: {
                                     query: query,
-                                    fields: ['id', 'perenimi', 'eesnimi'],
+                                    fields: ['id', 'perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje' ],
                                     operator: 'and',
                                     type: 'cross_fields',
                                 },
@@ -213,14 +209,15 @@
                         'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida'
                     ],
                 }
-
+                console.log(JSON.stringify(qData))
                 $.ajax("/.netlify/functions/search", {
                     data: JSON.stringify(qData),
                     contentType: "application/json",
                     type: "POST",
-                    cache: !1,
+                    cache: false,
                     success: function (data) {
-                        console.log(JSON.stringify(data, 0, 2))
+                        console.log(data.error || 'All green')
+                        // console.log(JSON.stringify(data, 0, 2))
                         $('#search-count').html(data.hits.total.value + (data.hits.total.value === 1 ? ' vaste' : ' vastet'))
 
                         for (var i = 0; i < data.hits.hits.length; i++) {
