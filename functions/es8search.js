@@ -21,6 +21,7 @@ exports.handler = (event, context, callback) => {
         })
 
         response.on('end', function () {
+            console.log('response', body)
             callback(null, {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
