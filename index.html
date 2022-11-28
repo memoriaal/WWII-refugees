@@ -210,7 +210,7 @@
                     ],
                 }
                 console.log(JSON.stringify(qData))
-                $.ajax("/.netlify/functions/search", {
+                $.ajax("/.netlify/functions/es8search", {
                     data: JSON.stringify(qData),
                     contentType: "application/json",
                     type: "POST",
