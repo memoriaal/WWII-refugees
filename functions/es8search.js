@@ -8,7 +8,7 @@ exports.handler = (event, context, callback) => {
         path: '/emem_persons/_search?',
         method: 'POST',
         headers: {
-            'Authorization': 'Basic cmVhZGVyODpGaXVoOFdra1RkeDI2NFIK',
+            'Authorization': 'Basic cmVhZGVyODpyZWFkb25seQo=',
             'Content-Type': 'application/json'
         }
     }
