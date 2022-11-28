@@ -5,7 +5,7 @@ exports.handler = (event, context, callback) => {
     const options = {
         hostname: '94abc9318c712977e8c684628aa5ea0f.us-east-1.aws.found.io',
         port: 9243,
-        path: '/emem7_persons/_search?',
+        path: '/emem_persons/_search?',
         method: 'POST',
         headers: {
             'Authorization': 'Basic cmVhZGVyOnJlYWRlcg==',
