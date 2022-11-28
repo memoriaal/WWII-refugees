@@ -28,6 +28,15 @@ exports.handler = (event, context, callback) => {
                 body: body
             })
         })
+
+        response.on('error', function (e) {
+            console.log('error', e, 'body', body)
+            callback(null, {
+                statusCode: 200,
+                headers: { 'Content-Type': 'application/json' },
+                body: body
+            })
+        })
     })
 
     request.on('error', function () {
