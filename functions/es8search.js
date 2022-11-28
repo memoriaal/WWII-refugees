@@ -5,8 +5,8 @@ exports.handler = (event, context, callback) => {
     const options = {
         hostname: 'd3869450b84047e98abb54ff625681cc.eu-central-1.aws.cloud.es.io',
         port: 9243,
-        path: '/emem_persons',
-        method: 'POST',
+        path: '/emem_persons/_search',
+        method: 'GET',
         headers: {
             'Authorization': 'Basic cmVhZGVyODpyZWFkb25seQo=',
             'Content-Type': 'application/json'
