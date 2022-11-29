@@ -48,7 +48,7 @@
 }
 
 #text-locale a {
-    color: #fff;
+    color: hsl(211, 41%, 38%);
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -82,8 +82,8 @@
     right: 20%;
     bottom: 0;
     left: 20%;
-    color: hsl(60deg 20% 20%);
-    background: hsl(60deg 100% 90% / 70%);
+    color: hsl(211, 41%, 38%);
+    background: hsla(0, 0%, 100%, 0.7);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     z-index: 2000;
@@ -178,7 +178,7 @@
 }
 
 #search-results a {
-    color: hsl(220, 100%, 50%);
+    color: hsl(211, 41%, 38%);
 }
 
 #search-results hr {
@@ -198,7 +198,7 @@
 }
 
 #search-results .search-result .search-result-name {
-    border-bottom: 1px solid hsl(220 50% 50%);
+    border-bottom: 1px solid hsl(211, 41%, 38%);
     background-color: hsl(220 50% 80% / 50%);
     padding-left: 1.25rem;
 }
@@ -210,12 +210,6 @@
     transition: .3s;
     transform: translateX(-100%);
 }
-
-/* #new-refugee-feedback {
-    text-transform: lowercase;
-    text-decoration: underline;
-    cursor: pointer;
-} */
 
 #search-results .search-result .search-result-info p {
     font-size: 9pt;
@@ -259,8 +253,8 @@ body {
 }
 
 body {
-    color: hsl(220, 0%, 100%);
-    background: hsl(220, 100%, 60%);
+    color: hsl(0, 0%, 20%);
+    background: hsl(0, 0%, 100%);
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -361,38 +355,27 @@ button:active {
 }
 
 input {
-    color: hsl(60, 70%, 15%);
-    background: hsl(60, 70%, 80%);
+    color: hsl(0, 0%, 20%);
+    background: hsl(208, 70%, 95%);
 }
 
-input::-moz-placeholder {
-    color: #000;
-    opacity: 1;
-}
-
-input:-ms-input-placeholder {
-    color: #000;
-    opacity: 1;
-}
-
+input::-moz-placeholder,
+input:-ms-input-placeholder,
+input::-ms-input-placeholder,
 input::placeholder {
-    color: #000;
+    color: hsl(0, 0%, 0%);
     opacity: 1;
-}
-
-input:-ms-input-placeholder {
-    color: #000;
-}
-
-input::-ms-input-placeholder {
-    color: #000;
 }
 
 button {
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: hsl(211, 41%, 38%);
+    background-color: hsl(211, 41%, 38%);
+    cursor: pointer;
     text-transform: uppercase;
-    background: hsl(120, 70%, 30%);
-    color: hsl(60, 100%, 90%);
-    border: 1px solid hsl(220, 70%, 40%);
+    color: hsl(0, 0%, 100%);
 }
 
 #text {
