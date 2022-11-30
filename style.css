@@ -142,6 +142,7 @@
 #popup-question a:active,
 #popup-question a:hover,
 #popup-question a:visited {
+    cursor: pointer;
     color: #060606;
     text-decoration: underline;
 }
