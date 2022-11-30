@@ -133,6 +133,7 @@
     margin-bottom: 0;
 }
 
+#new-refugee-feedback p,
 #popup-content a,
 #popup-content a:active,
 #popup-content a:hover,
@@ -446,3 +447,4 @@ button {
     background: #060606;
     color: #fff;
 }
+
