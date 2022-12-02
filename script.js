@@ -34,6 +34,7 @@ $(function () {
         var id = $(this).data('id')
         var name = $(this).data('name')
         $('#db-feedback-id').val(id)
+        $('#db-feedback-persoon').val(id)
         $('#db-feedback-url').val('http://wwii-refugees.ee/#' + id)
         $('#db-feedback-name').val(name)
         $('#db-feedback-title').html('Tagasiside %name% kohta'.replace('%name%', name))
@@ -46,7 +47,7 @@ $(function () {
         event.preventDefault()
         var $form = $(this)
         $.post($form.attr('action'), $form.serialize(), function (data) {
-            console.log(data)
+            // console.log(data)
             $('#db-feedback-title, #db-feedback-text, #db-feedback').addClass('d-none')
             $('#db-feedback-success').removeClass('d-none')
             $('#db-feedback input, #db-feedback textarea').val('')
