@@ -33,35 +33,35 @@ $(function () {
     $('#search-results').on('click', '.search-result-feedback', function () {
         var id = $(this).data('id')
         var name = $(this).data('name')
-        $('#db-feedback-v2-id').val(id)
-        $('#db-feedback-v2-persoon').val(id)
-        $('#db-feedback-v2-url').val('http://wwii-refugees.ee/#' + id)
-        $('#db-feedback-v2-name').val(name)
-        $('#db-feedback-v2-title').html('Tagasiside %name% kohta'.replace('%name%', name))
-        $('#db-feedback-v2-title, #db-feedback-v2-text, #db-feedback-v2').removeClass('d-none')
-        $('#db-feedback-v2-success').addClass('d-none')
+        $('#feedback-v2-id').val(id)
+        $('#feedback-v2-persoon').val(id)
+        $('#feedback-v2-url').val('http://wwii-refugees.ee/#' + id)
+        $('#feedback-v2-name').val(name)
+        $('#feedback-v2-title').html('Tagasiside %name% kohta'.replace('%name%', name))
+        $('#feedback-v2-title, #feedback-v2-text, #feedback-v2').removeClass('d-none')
+        $('#feedback-v2-success').addClass('d-none')
         $('#popup-background, #popup-content').removeClass('d-none')
     })
 
-    $('#db-feedback-v2').submit(function (event) {
+    $('#feedback-v2').submit(function (event) {
         event.preventDefault()
         var $form = $(this)
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // console.log(data)
-            $('#db-feedback-v2-title, #db-feedback-v2-text, #db-feedback-v2').addClass('d-none')
-            $('#db-feedback-v2-success').removeClass('d-none')
-            $('#db-feedback-v2 input, #db-feedback-v2 textarea').val('')
-            $('#db-feedback-v2-title').html('')
+            $('#feedback-v2-title, #feedback-v2-text, #feedback-v2').addClass('d-none')
+            $('#feedback-v2-success').removeClass('d-none')
+            $('#feedback-v2 input, #feedback-v2 textarea').val('')
+            $('#feedback-v2-title').html('')
             setTimeout(function () {
                 $('#popup-background, #popup-content').addClass('d-none')
             }, 4e3)
         })
     })
 
-    $('#db-feedback-v2-cancel').click(function (e) {
+    $('#feedback-v2-cancel').click(function (e) {
         e.preventDefault()
-        $('#db-feedback-v2 input, #db-feedback-v2 textarea').val('')
-        $('#db-feedback-v2-title').html('')
+        $('#feedback-v2 input, #feedback-v2 textarea').val('')
+        $('#feedback-v2-title').html('')
         $('#popup-background, #popup-content, #popup-question').addClass('d-none')
     })
 
