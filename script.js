@@ -35,7 +35,7 @@ $(function () {
         var name = $(this).data('name')
         $('#feedback-v2-id').val(id)
         $('#feedback-v2-persoon').val(id)
-        $('#feedback-v2-url').val('http://wwii-refugees.ee/#' + id)
+        $('#feedback-v2-url').val('https://wwii-refugees.ee/?q=' + id)
         $('#feedback-v2-name').val(name)
         $('#feedback-v2-title').html('Tagasiside %name% kohta'.replace('%name%', name))
         $('#feedback-v2-title, #feedback-v2-text, #feedback-v2').removeClass('d-none')
