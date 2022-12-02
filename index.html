@@ -29,56 +29,56 @@
     <!-- Tagasiside vorm -->
     <div class="p-3 d-none" id="popup-content">
         <div class="row">
-            <h2 class="col-12" id="db-feedback-v2-title">Tagasiside %name% kohta</h2>
-            <div class="col-12 col-md-10 offset-md-1" id="db-feedback-v2-text">
+            <h2 class="col-12" id="feedback-v2-title">Tagasiside %name% kohta</h2>
+            <div class="col-12 col-md-10 offset-md-1" id="feedback-v2-text">
                 <p>
                     Kui Teie poolt pakutud muudatus puudutab persooni põhiandmeid - nimi
                     või sünni- ning surmaaasta - saatke õigeid andmeid kinnitav dokument
                     aadressile memoriaal@mnemosyne.ee
                 </p>
             </div>
-            <form class="col-12 col-md-8 offset-md-2" id="db-feedback-v2" method="POST" name="db-feedback-v2">
-                <input type="hidden" name="form-name" value="db-feedback-v2" />
-                <input id="db-feedback-v2-id" type="hidden" name="id" />
-                <input id="db-feedback-v2-persoon" type="hidden" name="persoon" />
-                <input id="db-feedback-v2-url" type="hidden" name="url" />
+            <form class="col-12 col-md-8 offset-md-2" id="feedback-v2" method="POST" name="feedback-v2">
+                <input type="hidden" name="form-name" value="feedback-v2" />
+                <input id="feedback-v2-id" type="hidden" name="id" />
+                <input id="feedback-v2-persoon" type="hidden" name="persoon" />
+                <input id="feedback-v2-url" type="hidden" name="url" />
                 <div class="form-group mt-5">
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-name">Nimi</label>
-                    <input id="db-feedback-v2-name" name="name" />
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-forename">Eesnimi</label>
-                    <input id="db-feedback-v2-forename" name="forename" />
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-surname">Perenimi</label>
-                    <input id="db-feedback-v2-surname" name="surname" />
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-birth">Sünd</label>
-                    <input id="db-feedback-v2-birth" type="date" name="birth" />
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-death">Surm</label>
-                    <input id="db-feedback-v2-death" type="date" name="death" />
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-mother-forename">Ema eesnimi</label>
-                    <input id="db-feedback-v2-mother-forename" name="mother-forename" />
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-father-forename">Isa eesnimi</label>
-                    <input id="db-feedback-v2-father-forename" name="father-forename" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-name">Nimi</label>
+                    <input id="feedback-v2-name" name="name" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-forename">Eesnimi</label>
+                    <input id="feedback-v2-forename" name="forename" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-surname">Perenimi</label>
+                    <input id="feedback-v2-surname" name="surname" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-birth">Sünd</label>
+                    <input id="feedback-v2-birth" type="date" name="birth" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-death">Surm</label>
+                    <input id="feedback-v2-death" type="date" name="death" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-mother-forename">Ema eesnimi</label>
+                    <input id="feedback-v2-mother-forename" name="mother-forename" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-father-forename">Isa eesnimi</label>
+                    <input id="feedback-v2-father-forename" name="father-forename" />
                 </div>
-                <input class="d-none" id="db-feedback-v2-fax" type="tel" name="fax" />
+                <input class="d-none" id="feedback-v2-fax" type="tel" name="fax" />
                 <div class="form-group mt-5">
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-email">Kontakt e-post</label><input
-                        class="col-12 px-0" id="db-feedback-v2-email" type="email" name="contact-email" />
-                </div>
-                <div class="form-group mt-5">
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-phone">Kontakt telefon</label><input
-                        class="col-12 px-0" id="db-feedback-v2-phone" type="tel" name="contact-phone" />
+                    <label class="form-label col-12 px-0" for="feedback-v2-email">Kontakt e-post</label><input
+                        class="col-12 px-0" id="feedback-v2-email" type="email" name="contact-email" />
                 </div>
                 <div class="form-group mt-5">
-                    <label class="form-label col-12 px-0" for="db-feedback-v2-feedback">Tagasiside</label><textarea
-                        class="col-12 px-1" id="db-feedback-v2-feedback" name="feedback" rows="5"></textarea>
+                    <label class="form-label col-12 px-0" for="feedback-v2-phone">Kontakt telefon</label><input
+                        class="col-12 px-0" id="feedback-v2-phone" type="tel" name="contact-phone" />
+                </div>
+                <div class="form-group mt-5">
+                    <label class="form-label col-12 px-0" for="feedback-v2-feedback">Tagasiside</label><textarea
+                        class="col-12 px-1" id="feedback-v2-feedback" name="feedback" rows="5"></textarea>
                 </div>
                 <div class="form-group mt-5 text-right">
-                    <button class="btn btn-secondary" id="db-feedback-v2-cancel">
-                        Tühista</button><button class="btn btn-primary ml-3" id="db-feedback-v2-submit" type="submit">
+                    <button class="btn btn-secondary" id="feedback-v2-cancel">
+                        Tühista</button><button class="btn btn-primary ml-3" id="feedback-v2-submit" type="submit">
                         Saada tagasiside
                     </button>
                 </div>
             </form>
-            <h2 class="col-12 d-none" id="db-feedback-v2-success">
+            <h2 class="col-12 d-none" id="feedback-v2-success">
                 Täname tagasiside eest
             </h2>
         </div>
