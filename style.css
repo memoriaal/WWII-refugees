@@ -57,6 +57,14 @@
     text-transform: uppercase;
 }
 
+#header {
+    width: 100%;
+    background: hsl(211, 41%, 38%);
+    margin: 0px;
+    height: 2rem;
+    padding: 0px;
+}
+
 @media (max-width:768px) {
     #text-locale a {
         font-size: 13pt;
