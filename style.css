@@ -61,8 +61,9 @@
     width: 100%;
     background: hsl(211, 41%, 38%);
     margin: 0px 0px 1rem 0px;
-    height: 2rem;
-    padding: 0px;
+    height: 3rem;
+    padding: 0.5rem;
+    color: hsl(208, 100%, 97%);
 }
 
 @media (max-width:768px) {
@@ -141,6 +142,7 @@
     margin-bottom: 0;
 }
 
+#new-refugee-feedback,
 #popup-content a,
 #popup-content a:active,
 #popup-content a:hover,
