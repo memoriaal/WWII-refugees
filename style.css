@@ -64,6 +64,7 @@
     height: 3rem;
     padding: 0.5rem;
     color: hsl(208, 100%, 97%);
+    font-size: 1.3rem;
 }
 
 @media (max-width:768px) {
