@@ -60,7 +60,7 @@
 #header {
     width: 100%;
     background: hsl(211, 41%, 38%);
-    margin: 0px;
+    margin: 0px 0px 1rem 0px;
     height: 2rem;
     padding: 0px;
 }
