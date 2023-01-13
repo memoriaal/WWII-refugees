@@ -68,7 +68,7 @@ $(function () {
 
 function init_accordeon(class_name) {
     var acc = document.getElementsByClassName(class_name)
-    console.log('DOM loaded', acc)
+    console.log('DOM loaded', acc.length, acc)
     var i
     for (i = 0; i < acc.length; i++) {
         console.log(this.lastChild.classList)
