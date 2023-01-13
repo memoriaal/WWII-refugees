@@ -261,9 +261,9 @@
                                         pereseos = '(' + pereseos + ')'
                                     }
                                     let perekirjed = p.pereseosed[ip].kirjed
-                                    text.push('<li class="my-0"><a href="?q=' + p.pereseosed[ip].persoon + '">' + p.pereseosed[ip].persoon + ' ' + pereseos + '</a>')
+                                    text.push('<li class="my-0 pereliige"><a href="?q=' + p.pereseosed[ip].persoon + '">' + p.pereseosed[ip].persoon + ' ' + pereseos + '</a>')
                                     text.push(' : ' + p.pereseosed[ip].kirje)
-                                    text.push('<ul class="pereliige folded">')
+                                    text.push('<ul class="perekirjed folded">')
                                     for (var ik = 0; ik < perekirjed.length; ik++) {
                                         text.push('<li class="mb-1">')
                                         text.push(perekirjed[ik].kirjekood + ': ' + perekirjed[ik].kirje)
@@ -305,6 +305,23 @@
             }
 
         })
+    </script>
+
+    <script>
+        var acc = document.getElementsByClassName("pereliikmed");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.lastChild;
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+                panel.style.display = "block";
+                }
+            });
+        }
     </script>
 </body>
 
