@@ -78,4 +78,8 @@ function init_accordeon(class_name) {
         })
     }
 }
-init_accordeon('pereliige')
+document.addEventListener("DOMContentLoaded", theDomHasLoaded, false)
+
+function theDomHasLoaded() {
+    init_accordeon('pereliige')
+}
