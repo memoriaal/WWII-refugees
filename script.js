@@ -71,8 +71,8 @@ function init_accordeon(class_name) {
     console.log('DOM loaded', acc)
     var i
     for (i = 0; i < acc.length; i++) {
+        console.log(this.lastChild.classList)
         acc[i].addEventListener("click", function() {
-            console.log(this.lastChild.classList)
             this.classList.toggle("active")
             this.lastChild.classList.toggle('folded')
         })
