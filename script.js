@@ -78,7 +78,7 @@ function init_accordeon(class_name) {
         })
     }
 }
-document.addEventListener("DOMContentLoaded", theDomHasLoaded, false)
+document.addEventListener("load", theDomHasLoaded, false)
 
 function theDomHasLoaded() {
     init_accordeon('pereliige')
