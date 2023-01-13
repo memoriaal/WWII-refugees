@@ -310,15 +310,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", theDomHasLoaded, false)
         function theDomHasLoaded(e) {
-            var acc = document.getElementsByClassName("pereliige");
-            var i;
-            
+            var acc = document.getElementsByClassName("pereliige")
+            console.log(acc)
+            var i
             for (i = 0; i < acc.length; i++) {
                 acc[i].addEventListener("click", function() {
                     // console.log(this.lastChild.classList)
-                    this.classList.toggle("active");
-                    this.lastChild.classList.toggle('folded');
-                });
+                    this.classList.toggle("active")
+                    this.lastChild.classList.toggle('folded')
+                })
             }
         }
     </script>
