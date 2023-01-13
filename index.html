@@ -254,15 +254,17 @@
                                 if (p.kirjed[ik].kirje) { text.push('</p>') }
                             }
                             if (p.pereseosed && p.pereseosed.length > 0) {
-                                text.push('<div class="pere"><label>Represseeritud pereliikmed</label>')
+                                text.push('<div class="pere"><label>Pereliikmed</label>')
                                 for (var ip = 0; ip < p.pereseosed.length; ip++) {
                                     let pereseos = p.pereseosed[ip].seos
                                     if (p.pereseosed[ip].suund === '-1') {
                                         pereseos = '(' + pereseos + ')'
                                     }
                                     let perekirjed = p.pereseosed[ip].kirjed
-                                    text.push('<p class="my-0"><a href="?q=' + p.pereseosed[ip].persoon + '">' + p.pereseosed[ip].persoon + ' ' + pereseos + '</a></p>')
-                                    text.push('<div class="pereliige">')
+                                    text.push('<li class="my-0"><a href="?q=' + p.pereseosed[ip].persoon + '">' + p.pereseosed[ip].persoon + ' ' + pereseos + '</a>')
+                                    text.push(' : ' + p.pereseosed[ip].kirje)
+                                    text.push('</li>')
+                                    text.push('<div class="pereliige folded">')
                                     for (var ik = 0; ik < perekirjed.length; ik++) {
                                         text.push('<li class="mb-1">')
                                         text.push(perekirjed[ik].kirjekood + ': ' + perekirjed[ik].kirje)
