@@ -199,7 +199,7 @@
                         'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida'
                     ],
                 }
-                console.log(JSON.stringify(qData))
+                // console.log(JSON.stringify(qData))
                 $.ajax("/.netlify/functions/search", {
                     data: JSON.stringify(qData),
                     contentType: "application/json",
