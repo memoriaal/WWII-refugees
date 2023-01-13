@@ -263,7 +263,9 @@
 .pere li {
     font-size: 0.8rem;
 }
-
+ul.perekirjed.folded {
+    display: none;
+}
 
 
 html,
