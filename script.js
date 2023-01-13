@@ -67,16 +67,6 @@ $(function () {
 })
 
 function init_accordeon(class_name) {
-    var acc = document.getElementsByClassName(class_name)
-    console.log('DOM loaded', acc.length, acc)
-    var i
-    for (i = 0; i < acc.length; i++) {
-        console.log(this.lastChild.classList)
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active")
-            this.lastChild.classList.toggle('folded')
-        })
-    }
 }
 document.addEventListener("load", theDomHasLoaded, false)
 
