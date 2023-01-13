@@ -311,7 +311,7 @@
         document.addEventListener("DOMContentLoaded", theDomHasLoaded, false)
         function theDomHasLoaded(e) {
             var acc = document.getElementsByClassName("pereliige")
-            console.log(acc)
+            console.log('DOM loaded', acc)
             var i
             for (i = 0; i < acc.length; i++) {
                 acc[i].addEventListener("click", function() {
