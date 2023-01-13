@@ -66,3 +66,16 @@ $(function () {
 
 })
 
+function init_accordeon(class_name) {
+    var acc = document.getElementsByClassName(class_name)
+    console.log('DOM loaded', acc)
+    var i
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            // console.log(this.lastChild.classList)
+            this.classList.toggle("active")
+            this.lastChild.classList.toggle('folded')
+        })
+    }
+}
+init_accordeon('pereliige')
