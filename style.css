@@ -267,9 +267,12 @@ ul.perekirjed.folded {
     display: none;
 }
 .search-result-info label {
-    border-bottom: black solid 1px;
+    border-bottom: 1px solid #c7c7c7;
     margin: 1rem 0 0.5rem;
     padding-right: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
 html,
