@@ -191,6 +191,7 @@
                     },
                     sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
                     _source: [
+                        'redirect',
                         'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
                         'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
                         'sünd', 'surm','sünnikoht','surmakoht', 'id',
@@ -212,13 +213,14 @@
                         // console.log(JSON.stringify(data, 0, 2))
                         $('#search-count').html(data.hits.total.value + (data.hits.total.value === 1 ? ' vaste' : ' vastet'))
 
-                        if (idQuery && data.hits.hits[0]._source.redirect) {
-                            window.location.href = '/?q=' + data.hits.hits[0]._source.redirect
+                        const hits = data.hits.hits
+                        if (idQuery && hits[0]._source.redirect) {
+                            window.location.href = '/?q=' + hits[0]._source.redirect
                         }
 
-                        for (var i = 0; i < data.hits.hits.length; i++) {
+                        for (var i = 0; i < hits.length; i++) {
                             var text = []
-                            var p = data.hits.hits[i]._source
+                            var p = hits[i]._source
                             // console.log(p)
                             // $('#hidden').html(JSON.stringify(p, 0, 2))
 
