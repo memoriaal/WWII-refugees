@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -o errexit -o nounset
-
 rm -rf ./dist
 mkdir ./dist
 
