@@ -1,14 +1,68 @@
 path: /
 title: II maailmasõja põgenike andmebaas
-pictures:
-    - /images/bg/otsing.jpg
-content:
-    - 
-        id: otsing
-        title: Otsing II maailmasõja põgenike andmebaasist
-        text: |
+
+cards:
+    -
+        id: home
+        url:
+        buttonText: Tutvu andmebaasiga
+        background: /images/bg/laevad.jpg
+        title: II maailmasõja põgenike andmebaas
+        lead: |
             Lorem Ipsum dolor sit amet consectetur adipi 
             scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua. Ut enim ad minim 
-            veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+    -
+        id: andmebaas
+        url: /otsing/
+        buttonText: Otsi
+        background: /images/bg/laevad.jpg
+        title: Otsi II maailmasõja põgenike andmebaasist
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+    -
+        id: intervjuud
+        url: /intervjuud/
+        buttonText: Vaata
+        background: /images/bg/laevad.jpg
+        title: Intervjuud
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+    -
+        id: kalender
+        url: /kalender/
+        buttonText: Vaata
+        background: /images/bg/laevad.jpg
+        title: Kalender
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.

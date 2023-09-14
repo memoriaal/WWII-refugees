@@ -1,14 +1,64 @@
 path: /home/
 title: Database of refugees of World War II
-pictures:
-    - /images/bg/otsing.jpg
-content:
+
+cards:
     -
-        id: search
+        id: home
+        link:
+        background: /images/bg/laevad.jpg
         title: Database of refugees of World War II
-        text: |
+        lead: |
             Lorem Ipsum dolor sit amet consectetur adipi 
             scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua. Ut enim ad minim 
-            veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+    -
+        id: andmebaas
+        link: /en/search/
+        background: /images/bg/laevad.jpg
+        title: Search the database of refugees of World War II
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+    -
+        id: intervjuud
+        link: /en/interviews/
+        background: /images/bg/laevad.jpg
+        title: Video Interviews
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+    -
+        id: kalender
+        link: /en/calendar/
+        background: /images/bg/laevad.jpg
+        title: Calendar
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
