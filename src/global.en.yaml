@@ -1,0 +1,37 @@
+siteTitle: Estonia's refugees of WWII
+root: /
+
+language:
+    et: eesti
+    en: english
+
+logo:
+    text: Estonia's refugees of WWII
+    image: /images/WWII-logo.png
+    imageAlt: Estonian War Refugees in World War II
+
+navigation:
+    -
+        url: /en/home/
+        title: WWII refugees
+        text: WWII refugees
+    -
+        url: /en/search/
+        title: Search
+        text: The Memorial’s database is managed and administered by the Estonian Institute of Historical Memory Foundation.
+    -
+        url: /en/interviews/
+        title: Interviews 
+        text: Video interviews
+    -
+        url: /en/calendar/
+        title: Calendar
+        text: Memorial days and events
+
+search:
+    url: /search/
+    text: |
+        ### Search in the electronic memorial
+        By using the search window, you can find information in the electronic memorial on persons who suffered in the communist terror and you will find instructions for finding their names on the name plaques.
+    placeholder: enter name →
+    button: Search

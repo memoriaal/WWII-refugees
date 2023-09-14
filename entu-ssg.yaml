@@ -10,15 +10,7 @@ build: ./dist
 
 server:
     port: 4000
-    public: ./public
+    public: ./dist
 
 dev:
     aliases: true
-
-paths:
-    - andmebaas
-    - intervjuud
-    - kalender
-    - avaleht
-ignorePaths:
-    - FOO
