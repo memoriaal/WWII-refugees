@@ -5,6 +5,7 @@ cards:
     -
         id: home
         link:
+        buttonText: Tutvu andmebaasiga :)
         background: /images/bg/laevad.jpg
         title: Database of refugees of World War II
         lead: |
@@ -20,6 +21,7 @@ cards:
     -
         id: andmebaas
         link: /en/search/
+        buttonText: Search
         background: /images/bg/laevad.jpg
         title: Search the database of refugees of World War II
         lead: |
@@ -35,6 +37,7 @@ cards:
     -
         id: intervjuud
         link: /en/interviews/
+        buttonText: Watch
         background: /images/bg/laevad.jpg
         title: Video Interviews
         lead: |
@@ -50,6 +53,7 @@ cards:
     -
         id: kalender
         link: /en/calendar/
+        buttonText: Watch
         background: /images/bg/laevad.jpg
         title: Calendar
         lead: |
