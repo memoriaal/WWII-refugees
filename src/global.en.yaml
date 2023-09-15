@@ -13,18 +13,22 @@ logo:
 navigation:
     -
         url: /en/home/
+        background: FB_IMG_1587103251581.jpg
         title: WWII refugees
         text: WWII refugees
     -
         url: /en/search/
+        background: FB_IMG_1587103251581.jpg
         title: Search
         text: The Memorial’s database is managed and administered by the Estonian Institute of Historical Memory Foundation.
     -
         url: /en/interviews/
+        background: FB_IMG_1587103251581.jpg
         title: Interviews 
         text: Video interviews
     -
         url: /en/calendar/
+        background: FB_IMG_1587103251581.jpg
         title: Calendar
         text: Memorial days and events
 
