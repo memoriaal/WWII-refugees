@@ -1,9 +1,7 @@
 block vars
 
-
 mixin markdown(text)
     | !{ self.md(text) }
-
 
 doctype html
 html(lang=self.locale)
@@ -29,8 +27,6 @@ html(lang=self.locale)
 
     body.wwii-valge.w3-container
         .w3-cell-row.w3-border
-            .w3-cell.m4.l3
-                include logo.pug
             .w3-cell.m8.l9.w3-border.w3-cell-bottom
                 include navigation.pug
 
@@ -41,7 +37,7 @@ html(lang=self.locale)
                 if self.popup
                     include popup.pug
 
-                //- block contents
+                block contents
 
                 script(src='/script.js')
 
