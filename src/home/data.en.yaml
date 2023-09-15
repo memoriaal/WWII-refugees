@@ -1,7 +1,7 @@
 path: /home/
 title: Database of refugees of World War II
 
-cards:
+content:
     -
         id: home
         link:
