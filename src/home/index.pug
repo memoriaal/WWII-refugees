@@ -11,7 +11,7 @@ block contents
                 p= card.text
                 if card.image
                     img(src=card.image, alt=card.imageAlt, class='w3-image')
-                if card.url
-                    a(href=card.url, class='w3-button w3-block w3-wwii-hele')= card.buttonText
+                if card.link
+                    a(href=card.link, class='w3-button w3-block w3-wwii-hele')= card.buttonText
 
     //- pre= JSON.stringify(self.cards, null, 2)

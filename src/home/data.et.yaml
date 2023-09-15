@@ -4,7 +4,7 @@ title: II maailmasõja põgenike andmebaas
 cards:
     -
         id: home
-        url:
+        link:
         buttonText: Tutvu andmebaasiga :)
         background: /images/bg/laevad.jpg
         title: II maailmasõja põgenike andmebaas
@@ -20,7 +20,7 @@ cards:
             culpa qui officia deserunt mollit anim id est laborum.
     -
         id: andmebaas
-        url: /otsing/
+        link: /otsing/
         buttonText: Otsi
         background: /images/bg/laevad.jpg
         title: Otsi II maailmasõja põgenike andmebaasist
@@ -36,7 +36,7 @@ cards:
             culpa qui officia deserunt mollit anim id est laborum.
     -
         id: intervjuud
-        url: /intervjuud/
+        link: /intervjuud/
         buttonText: Vaata
         background: /images/bg/laevad.jpg
         title: Intervjuud
@@ -52,7 +52,7 @@ cards:
             culpa qui officia deserunt mollit anim id est laborum.
     -
         id: kalender
-        url: /kalender/
+        link: /kalender/
         buttonText: Vaata
         background: /images/bg/laevad.jpg
         title: Kalender
