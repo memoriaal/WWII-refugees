@@ -1,4 +1,5 @@
 #navigation.w3-container
+    - var self_url = self.path === '/' ? '/' : self.path + '/'
     .w3-bar.w3-hover-none
         #logo.w3-display-container.w3-bar-item.w3-button.w3-mobile
             a(href=self.navigation[0].url)
@@ -8,8 +9,8 @@
         each n in self.navigation
             if i++ > 0
                 a.w3-bar-item.w3-button.w3-mobile.wwii-aktiivne.w3-hover-none.w3-hover-text-black(href=n.url, class={ 'wwii-valge': n.url === self_url, 'wwii-hesi': n.url !== self_url })= n.title
-        - var j = 0
+        - var i = 0
         each url, locale in self.otherLocalePaths
-            if j++ > 0
+            if i++ > 0
                 span.px-3 /
             a.w3-bar-item.w3-button.w3-mobile.w3-right.w3-small.wwii-aktiivne.w3-hover-none.w3-hover-text-black(href=url)= self.language[locale]

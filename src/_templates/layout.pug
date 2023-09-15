@@ -1,5 +1,5 @@
 block vars
-    - var self_url = self.path === '/' ? '/' : self.path + '/'
+
 
 mixin markdown(text)
     | !{ self.md(text) }
@@ -27,21 +27,29 @@ html(lang=self.locale)
             window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
             plausible('Host', { props: { host: window.location.host } })
 
-    body
-        include navigation.pug
-        #page.w3-col.w3-container.m4.l3.w3-yellow
-            block pageTitle
+    body.wwii-valge.w3-container
+        .w3-cell-row.w3-border
+            .w3-cell.m4.l3
+                include logo.pug
+            .w3-cell.m8.l9.w3-border.w3-cell-bottom
+                include navigation.pug
 
-            if self.popup
-                include popup.pug
+        #page.w3-row.w3-container
+            .w3-col
+                block pageTitle
 
-            script(src='/script.js')
+                if self.popup
+                    include popup.pug
 
-            block contents
+                //- block contents
 
-            div 
-                pre= JSON.stringify(self.path, null, 2)
-                pre= JSON.stringify(self_url, null, 2)
-                pre= JSON.stringify(self.navigation, null, 2)
+                script(src='/js/jquery-3.3.1.min.js')
+                script(src='/script.js')
 
-            block script
+                div 
+                    pre logo element
+                    pre= JSON.stringify(self.logo, null, 2)
+                    pre= JSON.stringify(self_url, null, 2)
+                    pre= JSON.stringify(self.navigation, null, 2)
+
+                block script

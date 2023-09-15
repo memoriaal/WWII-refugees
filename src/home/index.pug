@@ -1,17 +1,17 @@
-extends /_templates/layout.pug
+//- extends /_templates/layout.pug
 
-block pageTitle
-    h1= self.title
+//- block pageTitle
+//-     h1= self.title
 
-block contents
-    //- each card in self.cards
-    //-     .w3-card.w3-margin-bottom
-    //-         .w3-container
-    //-             h2= card.title
-    //-             p= card.text
-    //-             if card.image
-    //-                 img(src=card.image, alt=card.imageAlt, class='w3-image')
-    //-             if card.url
-    //-                 a(href=card.url, class='w3-button w3-block w3-wwii-hele')= card.buttonText
+//- block contents
+//-     each card in self.cards
+//-         .w3-card.w3-margin-bottom
+//-             .w3-container
+//-                 h2= card.title
+//-                 p= card.text
+//-                 if card.image
+//-                     img(src=card.image, alt=card.imageAlt, class='w3-image')
+//-                 if card.url
+//-                     a(href=card.url, class='w3-button w3-block w3-wwii-hele')= card.buttonText
 
-    pre= JSON.stringify(self.cards, null, 2)
+pre= JSON.stringify(self.cards, null, 2)
