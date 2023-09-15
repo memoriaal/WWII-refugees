@@ -45,12 +45,16 @@ function windowResized() {
 
     if (windowWidth < 768) {
         document.getElementById('navigation').classList.remove('fixed-bottom');
-        text.classList.remove('desktop');
-        text.style.height = '';
+        if (text) {
+            text.classList.remove('desktop');
+            text.style.height = '';
+        }
     } else {
         document.getElementById('navigation').classList.add('fixed-bottom');
-        text.classList.add('desktop');
-        text.style.height = (windowHeight - document.getElementById('navigation').offsetHeight) + 'px';
+        if (text) {
+            text.classList.add('desktop');
+            text.style.height = (windowHeight - document.getElementById('navigation').offsetHeight) + 'px';
+        }
     }
 
     if (windowWidth < 576) {
@@ -69,9 +73,11 @@ function windowResized() {
         });
     }
 
-    textText.style.height = '';
-    if (textText.offsetHeight < textSearch.offsetHeight) {
-        textText.style.height = textSearch.offsetHeight + 'px';
+    if (textText) {
+        textText.style.height = '';
+        if (textText.offsetHeight < textSearch.offsetHeight) {
+            textText.style.height = textSearch.offsetHeight + 'px';
+        }
     }
 }
 
