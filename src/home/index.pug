@@ -1,4 +1,38 @@
-extends /_templates/layout.pug
+extends /_templates/html.pug
+
+block body
+
+    .w3-container#p2is(style='background: url(/images/bg/FB_IMG_1587103251581.jpg), linear-gradient(var(--wwii-valge), var(--wwii-taust2)); background-size: cover; background-repeat: no-repeat; background-position: top right; background-attachment: fixed; background-blend-mode: multiply;')
+        include /_templates/navigation.pug
+        h1.w3-center= self.title
+        h4.w3-center= self.subtitle
+
+    .w3-container#artikkel 
+        h1 artikkel
+
+    .w3-container#andmebaas 
+        h1 andmebaas
+
+    .w3-container#intervjuud 
+        h1 intervjuud
+
+    .w3-container#syndmused 
+        h1 syndmused
+
+    .w3-container#jalus
+        h1 jalus
+
+
+    #page.w3-row.w3-container
+        .w3-col
+            block pageTitle
+
+            block contents
+
+            script(src='/script.js')
+
+            block script
+
 
 block pageTitle
     h1= self.title

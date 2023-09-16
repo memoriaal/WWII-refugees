@@ -1,5 +1,6 @@
 path: /
-title: II maailmasõja põgenike andmebaas
+title: Eesti sõjapõgenikud Teises maailmasõjas
+subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 cards:
     -
@@ -7,7 +8,7 @@ cards:
         link:
         buttonText: Tutvu andmebaasiga :)
         background: /images/bg/laevad.jpg
-        title: II maailmasõja põgenike andmebaas
+        title: Eesti sõjapõgenikud Teises maailmasõjas
         lead: |
             Lorem Ipsum dolor sit amet consectetur adipi 
             scing elit sed do eiusmod tempor incididunt ut 
