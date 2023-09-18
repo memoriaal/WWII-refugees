@@ -1,5 +1,8 @@
 path: /home/
+data:
+    intervjuud: /intervjuud.en.yaml
 title: Database of refugees of World War II
+subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 cards:
     home:
@@ -37,16 +40,10 @@ cards:
         buttonText: Watch
         background: /images/bg/laevad.jpg
         title: Video Interviews
-        lead: |
-            Lorem Ipsum dolor sit amet consectetur adipi 
-            scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua.
-        text: |
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+        texts:
+            - During World War II, thousands of people left Estonia for the West, old and young, families were scattered all over the world. In most cases, they were forced to leave their homeland by fear of the Red Army and the new Soviet regime's repressions. We offer you a small selection of video memories from people who were directly affected by these events.
+            - "More testimonials can be found: https://www.kogumelugu.en/node"
+
     kalender:
         id: kalender
         link: /en/calendar/

@@ -1,4 +1,6 @@
 path: /
+data:
+    intervjuud: /intervjuud.et.yaml
 title: Eesti sõjapõgenikud Teises maailmasõjas
 subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
@@ -38,16 +40,10 @@ cards:
         buttonText: Vaata
         background: /images/bg/laevad.jpg
         title: Intervjuud
-        lead: |
-            Lorem Ipsum dolor sit amet consectetur adipi 
-            scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua.
-        text: |
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+        texts:
+            - Teise Maailmasõja käigus lahkusid Eestist lääne suunas tuhanded inimesed, vanad ja noored, perekonnad pudenesid laiali üle maailma. Enamikel juhtudel sundis neid kodumaalt lahkuma hirm Punaarmee ning uute nõukogude režiimi repressioonide ees. Pakume teile vaatamiseks väikese valiku videomeenutusi inimestelt, keda need sündmused vahetult puudutasid.
+            - "Rohkem videomeenutusi: https://www.kogumelugu.ee/"
+
     kalender:
         id: kalender
         link: /kalender/
