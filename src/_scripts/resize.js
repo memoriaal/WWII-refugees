@@ -90,3 +90,21 @@ window.addEventListener('resize', function () {
     clearTimeout(doit);
     doit = setTimeout(windowResized, 100);
 });
+
+window.addEventListener('scroll', function () {
+    const toResize = {
+        logo: document.getElementById('logo'),
+        navigation: document.getElementById('navigation'),
+    }
+    // Resize all elements that need to be resized
+    Object.keys(toResize).forEach(key => {
+        const element = toResize[key]
+        if (element) {
+            if (window.scrollY > 0) {
+                element.classList.add('scrolled')
+            } else {
+                element.classList.remove('scrolled')
+            }
+        }
+    })
+})
