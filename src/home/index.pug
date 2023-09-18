@@ -2,8 +2,10 @@ extends /_templates/html.pug
 
 block body
 
-    .w3-container#p2is(style='background: url(/images/bg/FB_IMG_1587103251581.jpg), linear-gradient(var(--wwii-valge), var(--wwii-taust2)); background-size: cover; background-repeat: no-repeat; background-position: top right; background-attachment: fixed; background-blend-mode: multiply;')
-        include /_templates/navigation.pug
+    include /_templates/navigation.pug
+    
+    .w3-container#p2is
+        //- img(src='/images/bg/avapilt.jpg' style='width:100%' visibility='hidden' )
         h1.w3-center= self.title
         h4.w3-center= self.subtitle
 

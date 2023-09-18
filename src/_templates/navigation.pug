@@ -1,57 +1,29 @@
 - var self_url = self.path === '/' ? '/' : self.path + '/'
-#navigation.w3-row.w3-border
-    .w3-col.s12.m6.l4.w3-border
-        a#logo.w3-hover-none.w3-border(href=self.navigation[0].url)
+#navigation.w3-row.w3-hover-none
+
+    .w3-col.s12.m6.l4
+        a#logo.w3-hover-none(href=self.navigation[0].url)
             img.w3-image(src=self.logo.image, alt=self.logo.imageAlt)
-            .w3-center= self.logo.text
-    .w3-col.s12.m6.l8.w3-border
-        #navLarge.wwii-nav.w3-bar.w3-hide-small.w3-hide-medium.w3-border
+
+    .w3-col.s12.m6.l8
+        //- .w3-text foo
+        //- #navLarge.wwii-nav.w3-bar.w3-hide-small.w3-hide-medium.w3-border
+        #navLarge.wwii-nav.w3-bar.w3-padding-24
             - var i = 0
             //- hamburger menu N/A
             each n in self.navigation
                 if i++ > 0
-                    a.w3-bar-item.w3-button.w3-hover-grayscale.w3-hover-text-black(
+                    a.w3-bar-item.w3-button.w3-hover-none.w3-hover-text-black(
                         href=n.url, 
-                        class={ 'wwii-aktiivne': n.url === self_url, 'wwii-active': n.url !== self_url }
+                        class={ 'wwii-valitud': n.url === self_url, 'wwii-valimata': n.url !== self_url }
                         )= n.title
             - var j = 0
             each url, locale in self.otherLocalePaths
                 if j++ > 0
                     span.px-3 /
-                a.w3-bar-item.w3-button.w3-right.w3-small.w3-hover-grayscale(href=url
+                a.w3-bar-item.w3-button.w3-right.w3-small.w3-hover-none(href=url
                     )= self.language[locale]
 
-        #navMedium.wwii-nav.w3-bar.w3-hide-small.w3-hide-large
-            - var i = 0
-            .w3-bar-item.w3-button M
-            //- hamburger menu N/A
-            each n in self.navigation
-                if i++ > 0
-                    a.w3-bar-item.w3-button.w3-hover-grayscale.w3-hover-text-black(
-                        href=n.url, 
-                        class={ 'wwii-aktiivne': n.url === self_url, 'wwii-active': n.url !== self_url }
-                        )= n.title
-            - var j = 0
-            each url, locale in self.otherLocalePaths
-                if j++ > 0
-                    span.px-3 /
-                a.w3-bar-item.w3-button.w3-right.w3-small.w3-hover-grayscale(href=url
-                    )= self.language[locale]
+        //- #navMedium.wwii-nav.w3-bar.w3-hide-small.w3-hide-large
 
-        #navSmall.wwii-nav.w3-bar.w3-hide-large.w3-hide-medium
-            - var i = 0
-            .w3-bar-item.w3-button S
-            //- hamburger menu
-            a.w3-bar-item.w3-button.w3-right(href='javascript:void(0)', onclick='w3_open()') &#9776;
-            each n in self.navigation
-                if i++ > 0
-                    a.w3-bar-item.w3-button.w3-hover-grayscale.w3-hover-text-black(
-                        href=n.url, 
-                        class={ 'wwii-aktiivne': n.url === self_url, 'wwii-active': n.url !== self_url }
-                        )= n.title
-            - var j = 0
-            each url, locale in self.otherLocalePaths
-                if j++ > 0
-                    span.px-3 /
-                a.w3-bar-item.w3-button.w3-right.w3-small.w3-hover-grayscale(href=url
-                    )= self.language[locale]
+        //- #navSmall.wwii-nav.w3-bar.w3-hide-large.w3-hide-medium
