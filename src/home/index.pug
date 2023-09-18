@@ -10,7 +10,14 @@ block body
         h4= self.subtitle
 
     .sisu.w3-container#artikkel 
-        h1 artikkel
+        h2= self.cards.home.leadTitle
+        each paragraph in self.cards.home.leads
+            p= paragraph
+
+    button.sisu.w3-button.w3-left-align.w3-block#accordeon(onclick='toggleAccordeon(this)')= self.bits.keepReading
+    .sisu.accordeon.w3-hide.w3-container
+        each paragraph in self.cards.home.texts
+            p= paragraph
 
     .sisu.w3-container#andmebaas 
         h1 andmebaas
@@ -23,7 +30,6 @@ block body
 
     .sisu.w3-container#jalus
         h1 jalus
-
 
     #page.w3-row.w3-container
         .w3-col

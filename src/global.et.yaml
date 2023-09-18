@@ -32,6 +32,9 @@ navigation:
         title: Kalender
         text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
 
+bits:
+    keepReading: Loe edasi →
+    
 search:
     url: /otsing/
     text: |

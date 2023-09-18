@@ -2,23 +2,27 @@ path: /home/
 title: Database of refugees of World War II
 
 cards:
-    -
+    home:
         id: home
         link:
         buttonText: Tutvu andmebaasiga :)
         background: /images/bg/laevad.jpg
         title: Database of refugees of World War II
-        lead: |
-            Lorem Ipsum dolor sit amet consectetur adipi 
-            scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua.
-        text: |
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-    -
+        leadTitle: |
+            In the turmoil of World War II, tens of thousands of Estonian 
+            people were forced to leave their homeland.
+        leads:
+            - The escape became massive in the autumn of 1944, when the approaching front line and the fear of repression forced them to flee their homeland, hoping to return soon. Unfortunately, the absence turned into decades; many did not live to see it.
+            - Despite the decades that have passed, there is still no clear overview of the number of refugees, their origin, social background and subsequent fate. In previous studies, it is estimated that about 80,000 people fled Estonia during World War II.
+            - The Estonian Institute of Historical Memory started compiling a database of persons who fled from Estonia during World War II in 2022.
+        texts:
+            - Unfortunately, the absence turned into decades, too many never returned home.
+            - Despite the decades that have passed, there is still no clear overview of the number of refugees, their origin, social background and subsequent fate. In previous studies, it is estimated that about 80,000 people fled Estonia during World War II.
+            - The Estonian Institute of Historical Memory started compiling a database of persons who fled from Estonia during World War II in 2022. The patron of the undertaking is the President of the Republic of Estonia, Alar Karis. The database creates a basis for future research and records the life of previous generations.
+            - In the first stage of the work, the focus is on the primary target countries to which the refugees headed - Sweden and Germany. The data collections in the archives allow us to compile an initial database of the escaped persons, but we need the help of people to collect the names of those refugees who disappeared on the way.
+            - The first stage of data collection will last until September 2024, when 80 years have passed since the great escape of 1944. As a further goal, we want to follow the journey of refugees in search of a new permanent home.
+            - The Estonian Institute of Historical Memory is very grateful if fellow countrymen, wherever they live, are willing to support this undertaking. Assistance is needed both in terms of information that has not reached the large archives and financial support that allows us to involve new contributors to process the data.
+    andmebaas:
         id: andmebaas
         link: /en/search/
         buttonText: Search
@@ -34,7 +38,7 @@ cards:
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-    -
+    intervjuud:
         id: intervjuud
         link: /en/interviews/
         buttonText: Watch
@@ -50,7 +54,7 @@ cards:
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-    -
+    kalender:
         id: kalender
         link: /en/calendar/
         buttonText: Watch

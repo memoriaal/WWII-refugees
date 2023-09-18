@@ -32,6 +32,9 @@ navigation:
         title: Calendar
         text: Memorial days and events
 
+bits:
+    keepReading: Keep reading →
+
 search:
     url: /search/
     text: |
