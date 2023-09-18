@@ -1,9 +1,21 @@
-extends /_templates/layout.pug
-block vars
-    - var title = 'Andmebaas'
-    - var pictures = ['/img/andmebaas.jpg']
+extends /_templates/html.pug
 
-block pageTitle
-    h1= self.title
+block body
 
-block style
+    include /_templates/navigation.pug
+
+    .sisu.w3-container#andmebaas 
+        h1= self.title
+        form.w3-container#searchform
+            input.w3-input.w3-round-large.w3-animate-input(
+                style= 'width: 30%;',
+                type='search', 
+                name='q', 
+                placeholder= self.search.placeholder
+            ) 
+            button= self.search.button
+
+        //- <form class="form" id="searchform" action="/" method="GET">
+        //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
+        //-     <button class="col-4 col-md-3 col-xl-2">Otsi/Search</button>
+        //- </form>
