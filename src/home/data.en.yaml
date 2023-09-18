@@ -27,17 +27,10 @@ cards:
         link: /en/search/
         buttonText: Search
         background: /images/bg/laevad.jpg
-        title: Search the database of refugees of World War II
-        lead: |
-            Lorem Ipsum dolor sit amet consectetur adipi 
-            scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua.
-        text: |
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+        title: Database
+        leads:
+            - Lorem Ipsum dolor sit amet consectetur adipiscing elit.
+            - Pellentesque volutpat est a elit vehicula pharetra.
     intervjuud:
         id: intervjuud
         link: /en/interviews/

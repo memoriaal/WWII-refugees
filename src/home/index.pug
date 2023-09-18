@@ -20,7 +20,9 @@ block body
             p= paragraph
 
     .sisu.w3-container#andmebaas 
-        h1 andmebaas
+        h1= self.cards.andmebaas.title
+        each paragraph in self.cards.andmebaas.leads
+            p= paragraph
 
     .sisu.w3-container#intervjuud 
         h1 intervjuud
