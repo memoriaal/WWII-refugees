@@ -3,25 +3,25 @@ extends /_templates/html.pug
 block body
 
     include /_templates/navigation.pug
-    
-    .w3-container#p2is
-        //- img(src='/images/bg/avapilt.jpg' style='width:100%' visibility='hidden' )
-        h1.w3-center= self.title
-        h4.w3-center= self.subtitle
 
-    .w3-container#artikkel 
+    .sisu.w3-container#p2is
+        //- img(src='/images/bg/avapilt.jpg' style='width:100%' visibility='hidden' )
+        h1= self.title
+        h4= self.subtitle
+
+    .sisu.w3-container#artikkel 
         h1 artikkel
 
-    .w3-container#andmebaas 
+    .sisu.w3-container#andmebaas 
         h1 andmebaas
 
-    .w3-container#intervjuud 
+    .sisu.w3-container#intervjuud 
         h1 intervjuud
 
-    .w3-container#syndmused 
+    .sisu.w3-container#syndmused 
         h1 syndmused
 
-    .w3-container#jalus
+    .sisu.w3-container#jalus
         h1 jalus
 
 
