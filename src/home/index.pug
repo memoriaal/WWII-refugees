@@ -23,6 +23,14 @@ block body
         h1= self.cards.andmebaas.title
         each paragraph in self.cards.andmebaas.leads
             p= paragraph
+        form#searchform(action=self.navigation[1].url, method='GET')
+            input.w3-input.w3-round-large.w3-animate-input(
+                style= 'width: 30%;',
+                type='search', 
+                name='q', 
+                placeholder= self.search.placeholder
+            ) 
+            button.w3-button()= self.search.button
 
     .sisu.w3-container#intervjuud 
         h1 intervjuud
