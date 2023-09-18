@@ -45,7 +45,7 @@ function performQuery(qs) {
     };
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://wwii-refugees.ee/.netlify/functions/search');
+    xhr.open('POST', '/.netlify/functions/search');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
         if (xhr.status === 200) {
