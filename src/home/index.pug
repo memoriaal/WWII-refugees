@@ -40,30 +40,3 @@ block body
 
     .sisu.w3-container#jalus
         h1 jalus
-
-    #page.w3-row.w3-container
-        .w3-col
-            block pageTitle
-
-            block contents
-
-            script(src='/script.js')
-
-            block script
-
-
-block pageTitle
-    h1= self.title
-
-block contents
-    each card in self.cards
-        .w3-card.w3-margin-bottom
-            .w3-container
-                h2= card.title
-                p= card.text
-                if card.image
-                    img(src=card.image, alt=card.imageAlt, class='w3-image')
-                if card.link
-                    a(href=card.link, class='w3-button w3-block w3-wwii-hele')= card.buttonText
-
-    pre= JSON.stringify(self.backgrounds, null, 2) 

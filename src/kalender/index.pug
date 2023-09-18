@@ -1,6 +1,10 @@
-extends /_templates/layout.pug
+extends /_templates/html.pug
 
-block pageTitle
-    h1= self.title
+block body
 
-block style
+    include /_templates/navigation.pug
+
+    .sisu.w3-container#artikkel
+        //- img(src='/images/bg/avapilt.jpg' style='width:100%' visibility='hidden' )
+        h1= self.title
+        h4= self.subtitle

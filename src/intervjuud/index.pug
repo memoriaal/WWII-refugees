@@ -1,6 +1,18 @@
-extends /_templates/layout.pug
+extends /_templates/html.pug
 
-block pageTitle
-    h1= self.title
+block body
 
-block style
+    include /_templates/navigation.pug
+
+    .sisu.w3-container#artikkel
+        //- img(src='/images/bg/avapilt.jpg' style='width:100%' visibility='hidden' )
+        h1= self.title
+        each paragraph in self.texts
+            p= paragraph
+
+        .w3-row-padding
+        each intervjuu in self.data.intervjuud
+            .w3-third.w3-mobile.interview
+                .title= intervjuu.title
+                iframe.videothumb(src='https://player.vimeo.com/video/' + intervjuu.id + '?h=c330182d7b&color=3fbebc&title=0&byline=0', frameborder='0', allow='autoplay; fullscreen; picture-in-picture', allowfullscreen='')
+

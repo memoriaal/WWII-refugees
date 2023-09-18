@@ -108,3 +108,5 @@ window.addEventListener('scroll', function () {
         }
     })
 })
+
+console.log('resize loaded successfully')

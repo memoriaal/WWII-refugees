@@ -4,7 +4,7 @@ block body
 
     include /_templates/navigation.pug
 
-    .sisu.w3-container#andmebaas 
+    .sisu.w3-container#artikkel 
         h1= self.title
         form.w3-container#searchform
             input.w3-input.w3-round-large.w3-animate-input#search(
@@ -19,3 +19,4 @@ block body
         //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
         //-     <button class="col-4 col-md-3 col-xl-2">Otsi/Search</button>
         //- </form>
+    script(src='/functions/search.js')

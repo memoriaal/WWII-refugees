@@ -1,14 +1,15 @@
 path: /intervjuud/
+data:
+    intervjuud: /intervjuud.et.yaml
 title: Videointervjuud
+subtitle: |
+    Lorem Ipsum dolor sit amet consectetur adipi 
+    scing elit sed do eiusmod tempor incididunt ut 
+    labore et dolore magna aliqua. Ut enim ad minim 
+    veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat.
 pictures:
     - /images/bg/otsing.jpg
-content:
-    - 
-        id: otsing
-        title: Otsing II maailmasõja põgenike andmebaasist
-        text: |
-            Lorem Ipsum dolor sit amet consectetur adipi 
-            scing elit sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua. Ut enim ad minim 
-            veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute
+texts:
+    - Teise Maailmasõja käigus lahkusid Eestist lääne suunas tuhanded inimesed, vanad ja noored, perekonnad pudenesid laiali üle maailma. Enamikel juhtudel sundis neid kodumaalt lahkuma hirm Punaarmee ning uute nõukogude režiimi repressioonide ees. Pakume teile vaatamiseks väikese valiku videomeenutusi inimestelt, keda need sündmused vahetult puudutasid.
+    - "Rohkem videomeenutusi: https://www.kogumelugu.ee/"
