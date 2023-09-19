@@ -15,6 +15,8 @@ window.addEventListener('load', function () {
     }
 })
 
+var ecresults = {}
+
 function performQuery(qs) {
     const qData = {
         query: {
@@ -44,47 +46,18 @@ function performQuery(qs) {
         ],
     };
 
-    // const ec = {
-    //     hostname: '94abc9318c712977e8c684628aa5ea0f.us-east-1.aws.found.io',
-    //     port: 9243,
-    //     index: 'emem_persons',
-    //     url: '',
-    //     authorization: 'Basic cmVhZGVyOnJlYWRlcg==',
-    //     contentType: 'application/json',
-    //     query: qData
-    // }
-    // ec.url = 'https://' + ec.hostname + ':' + ec.port + '/' + ec.index + '/_search?size=10&from=0&pretty'
-    // console.log(ec)
-    // const xhrEC = new XMLHttpRequest()
-    // xhrEC.open('GET', ec.url)
-    // xhrEC.setRequestHeader('Content-Type', ec.contentType)
-    // xhrEC.setRequestHeader('Authorization', ec.authorization)
+    var idQuery = (qs == Number(qs) && qs.length === 10)
 
-    // xhrEC.onload = function () {
-    //     if (xhrEC.status === 200) {
-    //         const data = JSON.parse(xhrEC.responseText)
-    //         console.log(data.error || 'All green')
-    //         const searchCount = document.querySelector('#search-count')
-    //         searchCount.innerHTML = data.hits.total.value + (data.hits.total.value === 1 ? ' vaste' : ' vastet')
-    //     } else {
-    //         console.log('Error:', xhrEC.status)
-    //     }
-    // }
-    // xhrEC.onerror = function () {
-    //     console.log('Error:', xhrEC.status)
-    // }
-    // xhrEC.send(JSON.stringify(qData))
-
-    
     const xhr2 = new XMLHttpRequest();
-    xhr2.open('POST', '/.netlify/functions/search');
+    xhr2.open('POST', 'https://feature-v1--wwii-refugees.netlify.app/.netlify/functions/search');
     xhr2.setRequestHeader('Content-Type', 'application/json');
     xhr2.onload = function () {
         if (xhr2.status === 200) {
             const data = JSON.parse(xhr2.responseText);
+            ecresults = data;
             console.log(data.error || 'All green');
             const searchCount = document.querySelector('#search-count');
-            searchCount.innerHTML = data.hits.total.value + (data.hits.total.value === 1 ? ' vaste' : ' vastet');
+            searchCount.innerHTML = data.hits.total.value;
             const hits = data.hits.hits;
             if (idQuery && hits[0]._source.redirect) {
                 window.location.href = '/?q=' + hits[0]._source.redirect;

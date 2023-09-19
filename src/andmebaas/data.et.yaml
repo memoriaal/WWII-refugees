@@ -9,3 +9,8 @@ content:
         texts:
             - Lorem Ipsum dolor sit amet consectetur adipi 
             - scing elit sed do eiusmod tempor incididunt ut 
+
+t:
+    result: vaste
+    results: vastet
+
