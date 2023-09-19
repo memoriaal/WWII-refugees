@@ -13,16 +13,16 @@ cards:
         title: Eesti sõjapõgenikud Teises maailmasõjas
         leadTitle: Teise maailmasõja keerises olid kümned tuhanded Eesti inimesed sunnitud kodumaalt lahkuma.
         leads:
-            - Põgenemine muutus massiliseks 1944. aasta sügisel, kui lähenev rindejoon ja repressioonide hirm sundis kodumaalt põgenema, lootes siiski peagi naasta. Kahjuks kujunes eemalolek aastakümnete pikkuseks; paljud ei jõudnudki seda ära oodata.
-            - Vaatamata möödunud aastakümnetele puudub seni selge ülevaade põgenike arvust, nende päritolust, sotsiaalsest taustast ning hilisemast käekäigust. Senistes käsitlustes arvestatakse, et Teise maailmasõja perioodil põgenes Eestist umbes 80 000 inimest.  
-            - Eesti Mälu Instituut alustas 2022. aastal Teise maailmasõja kestel Eestist põgenenud isikute andmebaasi koostamist.
+            - Teise maailmasõja keerises olid kümned tuhanded Eesti inimesed sunnitud kodumaalt lahkuma.
+            - Läheneva rindejoone ja repressioonide hirmus muutus kodumaalt põgenemine 1944. aasta sügisel massiliseks. Ometi loodeti olude paranedes naasta.
+            - Eesti Mälu Instituut alustas 2022. aastal Teise maailmasõja kestel Eestist põgenenud isikute andmekogu koostamist. Ettevõtmise patroon on Eesti Vabariigi president Alar Karis.
         texts:
             - Kahjuks kujunes eemalolek aastakümnete pikkuseks, liiga paljud ei jõudnud enam kunagi kodumaale tagasi.
-            - Vaatamata sellele, et põgenemisest on möödas juba aastakümneid puudub siiani selge ülevaade põgenike arvust, nende päritolust, sotsiaalsest taustast ning hilisemast käekäigust. Senistes käsitlustes arvestatakse, et Teise maailmasõja perioodil põgenes Eestist umbes 80 000 inimest. 
-            - Eesti Mälu Instituut alustas 2022. aastal Teise maailmasõja kestel Eestist põgenenud isikute andmekogu koostamist. Ettevõtmise patroon on Eesti Vabariigi president Alar Karis. Andmekogu loob baasi tulevastele teadusuuringutele ja jäädvustab eelnevate põlvkondade elukäiku. 
-            - Töö esimeses etapis keskendutakse eelkõige esmastele sihtriikidele, kuhu põgenikud suundusid - Rootsi ja Saksamaale. Arhiivides olevad andmekogud võimaldavad koostada põgenenud isikute esialgse andmebaasi, kuid inimeste suurt abi vajame nende põgenike nimede kogumiseks, kes teekonnal teadmata kadunuks jäid.
-            - Andmekogumise esimene etapp kestab 2024. aasta septembrini, kui möödub 80 aastat 1944. aasta suurest põgenemisest. Edasise eesmärgina soovime jälgida ka põgenike teekonda uue püsiva elukoha otsinguil.
+            - Vaatamata sellele, et põgenemisest on möödas juba aastakümneid, puudub siiani selge ülevaade põgenike arvust, nende päritolust, sotsiaalsest taustast ning hilisemast käekäigust. Senistes käsitlustes arvestatakse, et Teise maailmasõja perioodil põgenes Eestist umbes 80 000 inimest.
+            - "Töö esimeses etapis keskendutakse eelkõige esmastele sihtriikidele, kuhu põgenikud suundusid: Rootsi ja Saksamaale. Arhiivides olevad andmekogud võimaldavad koostada põgenenud isikute esialgse andmebaasi, kuid inimeste suurt abi vajame nende põgenike nimede kogumiseks, kes teekonnal teadmata kadunuks jäid."
+            - Andmekogumise esimene etapp kestab 2024. aasta septembrini, kui möödub 80 aastat 1944. aasta suurest põgenemisest. Edasise eesmärgina soovime jälgida ka põgenike teekonda uue püsiva elukoha otsinguil. Andmekogu loob baasi tulevastele teadusuuringutele ja jäädvustab eelnevate põlvkondade elukäiku.
             - Eesti Mälu Instituut on väga tänulik kui kaasmaalased, kus iganes nad ka ei elaks, on valmis seda ettevõtmist toetama. Abi on nii informatsioonist, mis ei ole suurtesse arhiividesse jõudnud, kui ka rahalisest toetusest, mis võimaldab meil kaasata uusi kaastöölisi andmete töötlemiseks.
+
 
     andmebaas:
         id: andmebaas

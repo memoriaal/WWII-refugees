@@ -14,17 +14,40 @@ cards:
         leadTitle: |
             In the turmoil of World War II, tens of thousands of Estonian 
             people were forced to leave their homeland.
-        leads:
-            - The escape became massive in the autumn of 1944, when the approaching front line and the fear of repression forced them to flee their homeland, hoping to return soon. Unfortunately, the absence turned into decades; many did not live to see it.
-            - Despite the decades that have passed, there is still no clear overview of the number of refugees, their origin, social background and subsequent fate. In previous studies, it is estimated that about 80,000 people fled Estonia during World War II.
-            - The Estonian Institute of Historical Memory started compiling a database of persons who fled from Estonia during World War II in 2022.
+        leads: 
+            - In the turmoil of World War II, tens of thousands of Estonian 
+              people were forced to leave their homeland.
+            - In the autumn of 1944, fleeing from the advancing front line and 
+              the fear of repression, became massive. Yet, it was hoped that 
+              they would return when the situation improved.
+            - In 2022, the Estonian Institute of Historical Memory started 
+              compiling a database of persons who fled from Estonia during 
+              World War II. The patron of the undertaking is the President 
+              of the Republic of Estonia, Alar Karis.
         texts:
-            - Unfortunately, the absence turned into decades, too many never returned home.
-            - Despite the decades that have passed, there is still no clear overview of the number of refugees, their origin, social background and subsequent fate. In previous studies, it is estimated that about 80,000 people fled Estonia during World War II.
-            - The Estonian Institute of Historical Memory started compiling a database of persons who fled from Estonia during World War II in 2022. The patron of the undertaking is the President of the Republic of Estonia, Alar Karis. The database creates a basis for future research and records the life of previous generations.
-            - In the first stage of the work, the focus is on the primary target countries to which the refugees headed - Sweden and Germany. The data collections in the archives allow us to compile an initial database of the escaped persons, but we need the help of people to collect the names of those refugees who disappeared on the way.
-            - The first stage of data collection will last until September 2024, when 80 years have passed since the great escape of 1944. As a further goal, we want to follow the journey of refugees in search of a new permanent home.
-            - The Estonian Institute of Historical Memory is very grateful if fellow countrymen, wherever they live, are willing to support this undertaking. Assistance is needed both in terms of information that has not reached the large archives and financial support that allows us to involve new contributors to process the data.
+            - Unfortunately, the absence became decades long, too many never 
+              made it back home.
+            - Despite the fact that decades have passed since the escape, 
+              there is still no clear overview of the number of refugees, 
+              their origin, social background and subsequent fate. Previous 
+              studies estimate that about 80,000 people fled from Estonia 
+              during World War II.
+            - "In the first stage of the work, the focus is primarily on the 
+              primary target countries to which the refugees went: Sweden and 
+              Germany. The data collections in the archives allow us to create 
+              a preliminary database of the escaped persons, but we need the 
+              great help of people to collect the names of those refugees who 
+              remained missing on the way."
+            - The first stage of data collection will last until September 2024, 
+              when 80 years have passed since the great escape of 1944. As a 
+              further goal, we want to follow the journey of refugees in search 
+              of a new permanent home. The database creates a basis for future 
+              research and records the life of previous generations.
+            - The Estonian Institute of Historical Memory is very grateful if 
+              fellow countrymen, wherever they live, are willing to support this 
+              initiative. Assistance is needed both in terms of information that 
+              has not reached the large archives and financial support, which 
+              allows us to involve new contributors to process the data.
     andmebaas:
         id: andmebaas
         link: /en/search/
