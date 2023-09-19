@@ -2,7 +2,6 @@ path: /
 data:
     intervjuud: /intervjuud.et.yaml
 title: Eesti sõjapõgenikud Teises maailmasõjas
-subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 cards:
     home:

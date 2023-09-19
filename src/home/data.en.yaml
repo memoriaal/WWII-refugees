@@ -2,7 +2,6 @@ path: /home/
 data:
     intervjuud: /intervjuud.en.yaml
 title: Database of refugees of World War II
-subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 cards:
     home:
