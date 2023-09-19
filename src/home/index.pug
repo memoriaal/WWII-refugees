@@ -14,7 +14,7 @@ block body
         each paragraph in self.cards.home.leads
             p= paragraph
 
-        button.w3-button.w3-left-align.w3-block#accordeon(onclick='toggleAccordeon(this)')= self.bits.keepReading
+        button.w3-button.w3-left-align.w3-block.readmore(onclick='toggleAccordeon(this)')= self.bits.keepReading
         .accordeon.w3-hide
             each paragraph in self.cards.home.texts
                 p= paragraph
@@ -23,19 +23,18 @@ block body
         h1= self.cards.andmebaas.title
         each paragraph in self.cards.andmebaas.leads
             p.l4= paragraph
-        button.w3-button.w3-left-align.w3-block#accordeon(onclick='toggleAccordeon(this)')= self.bits.keepReading
+        button.w3-button.w3-left-align.w3-col.l7.readmore(onclick='toggleAccordeon(this)')= self.bits.keepReading
         .accordeon.w3-hide
             each paragraph in self.cards.andmebaas.texts
-                p.l4= paragraph
+                li.l4= paragraph
 
-        form#searchform(action=self.navigation[1].url, method='GET')
-            input.w3-input.w3-round-large.w3-animate-input(
-                style= 'width: 30%;',
+        form.w3-row#searchform(action=self.navigation[1].url + '#search-results', method='GET')
+            input.w3-input.w3-col.l5.w3-round#search(
                 type='search', 
                 name='q', 
                 placeholder= self.search.placeholder
             ) 
-            button.w3-button()= self.search.button
+            button.w3-input.w3-col.l2.w3-round= self.search.button
 
     .sisu.w3-container#intervjuud 
         h1= self.cards.intervjuud.title
