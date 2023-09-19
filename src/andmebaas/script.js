@@ -148,6 +148,8 @@ function performQuery(qs) {
                     this.lastChild.classList.toggle('folded');
                 });
             }
+            document.getElementById("searchform").scrollIntoView()
+            window.scrollBy(0,-100)
         } else {
             console.log('Error:', xhr2.status);
         }

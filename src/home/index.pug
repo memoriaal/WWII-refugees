@@ -28,7 +28,7 @@ block body
             each paragraph in self.cards.andmebaas.texts
                 li.l4= paragraph
 
-        form.w3-row#searchform(action=self.navigation[1].url + '#search-form', method='GET')
+        form.w3-row#searchform(action=self.navigation[1].url, method='GET')
             input.w3-input.w3-col.l5.w3-round#search(
                 type='search', 
                 name='q', 
