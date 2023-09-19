@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "entu-ssg build entu-ssg.yaml full",
-    "dev": "cp -r public/* dist;entu-ssg serve entu-ssg.yaml full"
+    "dev": "cp -r ./.netlify/functions ./public/netlify/;cp -r public/* dist;entu-ssg serve entu-ssg.yaml full"
   },
   "devDpendencies": {
     "entu-ssg": "^5.6.10"

@@ -77,7 +77,7 @@ function performQuery(qs) {
 
     
     const xhr2 = new XMLHttpRequest();
-    xhr2.open('POST', '/functions/search');
+    xhr2.open('POST', '/.netlify/functions/search');
     xhr2.setRequestHeader('Content-Type', 'application/json');
     xhr2.onload = function () {
         if (xhr2.status === 200) {
