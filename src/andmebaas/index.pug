@@ -6,17 +6,22 @@ block body
 
     .sisu.w3-container#artikkel 
         h1= self.title
-        form.w3-container#searchform
-            input.w3-input.w3-round-large.w3-animate-input#search(
-                style= 'width: 30%;',
+        h3= self.subtitle
+        each item in self.mainlist
+            li= item
+        each paragraph in self.texts
+            p= paragraph
+
+        form.w3-row#searchform
+            input.w3-input.w3-col.l8.w3-round#search(
                 type='search', 
-                name='q', 
+                name='q',
                 placeholder= self.search.placeholder
             ) 
-            button= self.search.button
+            button.w3-input.w3-col.l4.w3-round= self.search.button
 
-        .w3-container#tulemused
-            .w3-text#search-count= 0
+        #tulemused
+            .w3-text.w3-hide#search-count= 0
             #search-results
         //- <form class="form" id="searchform" action="/" method="GET">
         //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
