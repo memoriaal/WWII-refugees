@@ -49,7 +49,7 @@ function performQuery(qs) {
     var idQuery = (qs == Number(qs) && qs.length === 10)
 
     const xhr2 = new XMLHttpRequest();
-    xhr2.open('POST', './.netlify/functions/search');
+    xhr2.open('POST', '/.netlify/functions/search');
     xhr2.setRequestHeader('Content-Type', 'application/json');
     xhr2.onload = function () {
         if (xhr2.status === 200) {
