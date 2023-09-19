@@ -6,7 +6,7 @@ block body
 
     .sisu.w3-container#artikkel 
         h1= self.title
-        h3= self.subtitle
+        .w3-text= self.subtitle
         each item in self.mainlist
             li= item
         each paragraph in self.texts
