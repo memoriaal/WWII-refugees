@@ -1,30 +1,43 @@
-const INDEX = 'emem_persons';
+const https = require('https')
 
-const search = async (query) => {
-    const response = await fetch(`https://94abc9318c712977e8c684628aa5ea0f.us-east-1.aws.found.io/${INDEX}/_search?size=10000&from=0`, {
+const INDEX = 'emem_persons'
+
+exports.handler = (event, context, callback) => {
+    const options = {
+        hostname: '94abc9318c712977e8c684628aa5ea0f.us-east-1.aws.found.io',
+        port: 9243,
+        path: '/' + INDEX + '/_search?size=10000&from=0',
         method: 'POST',
         headers: {
             'Authorization': 'Basic cmVhZGVyOnJlYWRlcg==',
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(query),
-        mode: 'no-cors'
-    });
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-};
-
-const query = {
-    query: {
-        match: {
-            name: 'John'
         }
     }
-};
 
-search(query)
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+    const request = https.request(options, response => {
+        var body = ''
+
+        response.on('data', function (d) {
+            body += d
+        })
+
+        response.on('end', function () {
+            callback(null, {
+                statusCode: 200,
+                headers: { 'Content-Type': 'application/json' },
+                body: body
+            })
+        })
+    })
+
+    request.on('error', function () {
+        callback(null, {
+            statusCode: 500,
+            headers: { 'Content-Type': 'application/json' },
+            body: body
+        })
+    })
+
+    request.write(event.body)
+    request.end()
+}

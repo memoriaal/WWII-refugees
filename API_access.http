@@ -25,16 +25,21 @@ Content-Type: application/json
 
 {
   "query" : {"match" : { "tahvlikirje.tahvel": "X" } },
-  "sort": [
-    {
-      "perenimi.raw": {
-        "order": "asc"
-      },
-      "eesnimi.raw": {
-        "order": "asc"
-      }
-    }
-  ]
+  "sort": {
+    "perenimi.raw": "asc",
+    "eesnimi.raw": "asc"
+  },
+  "_source": [
+    "redirect",
+    "isperson", "kivi", "emem", "evo", "wwii", "evokirje",
+    "perenimi", "eesnimi", "isanimi", "emanimi", "perenimed", "eesnimed",
+    "sünd", "surm", "sünnikoht", "surmakoht", "id",
+    "kirjed.kirje", "kirjed.kirjekood", "kirjed.viide", "kirjed.allikas", "kirjed.allika_nimetus",
+    "pereseosed.persoon", "pereseosed.kirje",
+    "pereseosed.seos", "pereseosed.suund", "pereseosed.kirjed",
+    "tahvlikirje.kirjekood", "tahvlikirje.kirje", "tahvlikirje.tahvel", "tahvlikirje.tulp", "tahvlikirje.rida",
+    "redirect"
+  ],
 }
 
 ### familysearch.org päring
