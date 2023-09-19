@@ -22,7 +22,12 @@ block body
     .sisu.w3-container#andmebaas 
         h1= self.cards.andmebaas.title
         each paragraph in self.cards.andmebaas.leads
-            p= paragraph
+            p.l4= paragraph
+        button.w3-button.w3-left-align.w3-block#accordeon(onclick='toggleAccordeon(this)')= self.bits.keepReading
+        .accordeon.w3-hide
+            each paragraph in self.cards.andmebaas.texts
+                p.l4= paragraph
+
         form#searchform(action=self.navigation[1].url, method='GET')
             input.w3-input.w3-round-large.w3-animate-input(
                 style= 'width: 30%;',

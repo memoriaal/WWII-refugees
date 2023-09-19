@@ -54,8 +54,11 @@ cards:
         background: /images/bg/laevad.jpg
         title: Database
         leads:
-            - Lorem Ipsum dolor sit amet consectetur adipiscing elit.
-            - Pellentesque volutpat est a elit vehicula pharetra.
+            - The database contains information about Estonian residents who fled from Estonia during World War II.
+        texts:
+            - fled from Estonia during the Second World War period from the fall of Estonia under Soviet occupation in June 1940;
+            - served in the Finnish or German military during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees;
+            - were repressed or recruited in Germany during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees.
     intervjuud:
         id: intervjuud
         link: /en/interviews/

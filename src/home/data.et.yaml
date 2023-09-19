@@ -30,8 +30,12 @@ cards:
         background: /images/bg/laevad.jpg
         title: Andmebaas
         leads:
-            - Lorem Ipsum dolor sit amet consectetur adipiscing elit.
-            - Pellentesque volutpat est a elit vehicula pharetra.
+            - Andmebaas koondab infot Eesti elanike kohta, kes Teise maailmasõja keerises erinevatel põhjustel kodumaalt lahkusid
+        texts:
+            - pagesid kodumaalt Teise maailmasõja perioodil alates Eesti langemisest Nõukogude okupatsiooni alla juunis 1940;
+            - teenisid sõja vältel Soome või Saksa relvateenistuses ning jäid sõja lõppedes väljapoole NSV Liidu okupatsioonitsooni, muutudes sõjapõgenikeks;
+            - sattusid sõja vältel Saksamaale represseerituna või värvatuna ning jäid sõja lõppedes väljapoole NSV Liidu okupatsioonitsooni, muutudes sõjapõgenikeks.
+
 
     intervjuud:
         id: intervjuud

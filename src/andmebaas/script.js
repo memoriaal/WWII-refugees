@@ -65,8 +65,8 @@ function performQuery(qs) {
             for (let i = 0; i < hits.length; i++) {
                 const text = [];
                 const p = hits[i]._source;
-                text.push('<div id="' + p.id + '" class="search-result">');
-                text.push('<div class="search-result-name w3-panel">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</div>');
+                text.push('<div id="' + p.id + '" class="search-result w3-panel w3-round w3-padding">');
+                text.push('<div class="search-result-name">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</div>');
                 text.push('<div class="w3-row">');
                 text.push('<div class="w3-col l4">');
                 if (p.sünd) {
