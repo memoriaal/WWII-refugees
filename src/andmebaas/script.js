@@ -65,10 +65,10 @@ function performQuery(qs) {
             for (let i = 0; i < hits.length; i++) {
                 const text = [];
                 const p = hits[i]._source;
-                text.push('<div id="' + p.id + '" class="search-result pt-2 pb-4">');
-                text.push('<div class="row">');
-                text.push('<h3 class="search-result-name col-12 mb-2 mb-1">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</h3>');
-                text.push('<div class="col-5 col-sm-3">');
+                text.push('<div id="' + p.id + '" class="search-result">');
+                text.push('<div class="search-result-name w3-panel">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</div>');
+                text.push('<div class="w3-row">');
+                text.push('<div class="w3-col l4">');
                 if (p.sünd) {
                     text.push('<p class="mb-0">Sünd: ' + p.sünd);
                     if (p.sünnikoht) { text.push('<span> ' + p.sünnikoht + '</span>'); }
@@ -84,7 +84,7 @@ function performQuery(qs) {
                 text.push('<p class="mb-0"><a href="./?q=' + p.id + '"># ' + p.id + '</a></p>');
                 text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">Tagasiside/Feedback</p>');
                 text.push('</div>');
-                text.push('<div class="search-result-info col-7 col-sm-6">');
+                text.push('<div class="w3-col l8 search-result-info">');
                 p.kirjed = p.kirjed || [];
                 for (let ik = 0; ik < p.kirjed.length; ik++) {
                     let a1 = a2 = '';
