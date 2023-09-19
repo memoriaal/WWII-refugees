@@ -8,6 +8,7 @@ language:
 logo:
     text: Eesti sõjapõgenikud Teises maailmasõjas
     image: /images/WWII_refugees_visuals_logo_EMI_color.svg
+    imagelight: /images/WWII_refugees_visuals_logo_EMI_light.svg
     imageAlt: Eesti sõjapõgenikud Teises maailmasõjas
 
 navigation:
@@ -32,9 +33,19 @@ navigation:
         title: Kalender
         text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
 
+footer:
+    EMI: Eesti Mälu Instituut
+    contacts:
+        email: info@mnemosyne.ee
+        phone1: +372 664 5039
+        phone2: +372 648 4962
+        address: Tõnismägi 8, 10119 Tallinn
+        refugeeEmailText: Kontakt põgenike andmebaasi koostamisega seotud küsimustes
+        refugeeEmail: refugee@mnemosyne.ee
+
 bits:
     keepReading: Loe edasi →
-    
+
 search:
     url: /otsing/
     text: |

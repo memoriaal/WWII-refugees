@@ -8,6 +8,7 @@ language:
 logo:
     text: Estonia's refugees of WWII
     image: /images/WWII_refugees_visuals_logo_EMI_color.svg
+    imagelight: /images/WWII_refugees_visuals_logo_EMI_light.svg
     imageAlt: Estonian War Refugees in World War II
 
 navigation:
@@ -31,6 +32,17 @@ navigation:
         background: FB_IMG_1587103251581.jpg
         title: Calendar
         text: Memorial days and events
+
+footer:
+    EMI: Estonian Institute of Historical Memory
+    contacts:
+        email: info@mnemosyne.ee
+        phone1: +372 664 5039
+        phone2: +372 648 4962
+        address: Tõnismägi 8, 10119 Tallinn
+        refugeeEmailText: Contact for questions related to the compilation of the refugee database
+        refugeeEmail: refugee@mnemosyne.ee
+
 
 bits:
     keepReading: Keep reading →
