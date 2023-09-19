@@ -7,7 +7,8 @@ const search = async (query) => {
             'Authorization': 'Basic cmVhZGVyOnJlYWRlcg==',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(query)
+        body: JSON.stringify(query),
+        mode: 'no-cors'
     });
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
