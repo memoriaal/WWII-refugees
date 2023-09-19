@@ -6,11 +6,12 @@ block body
 
     .sisu.w3-container#artikkel 
         h1= self.title
-        .w3-text= self.subtitle
-        each item in self.mainlist
-            li= item
-        each paragraph in self.texts
-            p= paragraph
+        .w3-hide#intro
+            .w3-text= self.subtitle
+            each item in self.mainlist
+                li= item
+            each paragraph in self.texts
+                p= paragraph
 
         form.w3-row#searchform
             input.w3-input.w3-col.l8.w3-round#search(

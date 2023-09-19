@@ -13,6 +13,9 @@ window.addEventListener('load', function () {
         input.value = qs
         performQuery(qs)
     }
+    else {
+        this.document.getElementById('intro').classList.remove('w3-hide')
+    }   
 })
 
 var ecresults = {}
