@@ -55,10 +55,20 @@ cards:
         title: Database
         leads: 
             - "The database contains information about Estonian residents who fled from Estonia during World War II for various reasons:"
-        texts:
+        leadTexts:
             - fled from Estonia during the Second World War period from the fall of Estonia under Soviet occupation in June 1940;
             - served in the Finnish or German military during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees;
             - were repressed or recruited in Germany during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees.
+        texts:
+            - "The database also includes persons who repatriated to the Soviet Union after the end of the war in Germany."
+            - "The following data is collected in the database: the date and place of birth of the persons, their occupation, the time of departure from Estonia, the mode and route, the country of residence at the end of the war and the subsequent permanent country of residence."
+            - "The vast majority of the data comes from the archives of Estonia, Sweden, the United States and Germany, and individuals provide a valuable addition."
+            # - "To clarify the data of the persons in the database, there is a
+            #     “Feedback” button next to each person's entry, which opens up the
+            #     possibility to send additional information."
+            # - "To add a missing person to the database, there is a button: Feedback
+            #     for missing person"
+            - "For questions related to the compilation of the database, please contact: refugee@mnemosyne.ee"
     intervjuud:
         id: intervjuud
         link: /en/interviews/

@@ -25,8 +25,10 @@ block body
             p.l4= paragraph
         button.w3-button.w3-left-align.w3-col.l7.readmore(onclick='toggleAccordeon(this)')= self.bits.keepReading
         .accordeon.w3-hide
-            each paragraph in self.cards.andmebaas.texts
+            each paragraph in self.cards.andmebaas.leadTexts
                 li.l4= paragraph
+            each paragraph in self.cards.andmebaas.texts
+                p= paragraph
 
         form.w3-row#searchform(action=self.navigation[1].url, method='GET')
             input.w3-input.w3-col.l5.w3-round#search(
