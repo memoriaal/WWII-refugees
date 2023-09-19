@@ -38,7 +38,7 @@ block body
             p= paragraph
 
         .w3-row
-            each intervjuu in self.data.intervjuud
+            each intervjuu in self.data.intervjuud.splice(0, 6)
                 .w3-third.interview
                     .bottom-overlay
                         .title= intervjuu.title
