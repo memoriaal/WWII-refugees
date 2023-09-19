@@ -10,10 +10,12 @@ cards:
         buttonText: Tutvu andmebaasiga :)
         background: /images/bg/laevad.jpg
         title: Database of refugees of World War II
-        leadTitle: |
-            In the turmoil of World War II, tens of thousands of Estonian 
-            people were forced to leave their homeland.
+        # leadTitle: |
+        #     In the turmoil of World War II, tens of thousands of Estonian 
+        #     people were forced to leave their homeland.
         leads: 
+            - In the turmoil of World War II, tens of thousands of Estonian 
+              people were forced to leave their homeland.
             - In the autumn of 1944, fleeing from the advancing front line and 
               the fear of repression, became massive. Yet, it was hoped that 
               they would return when the situation improved.
