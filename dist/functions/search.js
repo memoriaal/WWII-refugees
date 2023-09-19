@@ -1,8 +1,8 @@
-import { request as _request } from 'https'
+const https = require('https')
 
 const INDEX = 'emem_persons'
 
-export function handler(event, context, callback) {
+exports.handler = (event, context, callback) => {
     const options = {
         hostname: '94abc9318c712977e8c684628aa5ea0f.us-east-1.aws.found.io',
         port: 9243,
@@ -14,7 +14,7 @@ export function handler(event, context, callback) {
         }
     }
 
-    const request = _request(options, response => {
+    const request = https.request(options, response => {
         var body = ''
 
         response.on('data', function (d) {
