@@ -1,0 +1,18 @@
+extends /_templates/html.pug
+
+block body
+
+    include navigation.pug
+
+    #page.w3-row.w3-container(style='background: url(/images/bg/esipaat.jpg), linear-gradient(var(--wwii-valge), var(--wwii-taust2)); background-size: cover; background-repeat: no-repeat; background-position: top right; background-attachment: fixed; background-blend-mode: multiply;')
+        .w3-col
+            block pageTitle
+
+            if self.popup
+                include popup.pug
+
+            block contents
+
+            script(src='/script.js')
+
+            block script

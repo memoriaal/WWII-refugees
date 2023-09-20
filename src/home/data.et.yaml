@@ -1,0 +1,72 @@
+path: /
+data:
+    intervjuud: /intervjuud.et.yaml
+title: Eesti sõjapõgenikud Teises maailmasõjas
+
+cards:
+    home:
+        id: home
+        link:
+        buttonText: Tutvu andmebaasiga :)
+        background: /images/bg/laevad.jpg
+        title: Eesti sõjapõgenikud Teises maailmasõjas
+        # leadTitle: Teise maailmasõja keerises olid kümned tuhanded Eesti inimesed sunnitud kodumaalt lahkuma.
+        leads:
+            - Teise maailmasõja keerises olid kümned tuhanded Eesti inimesed sunnitud kodumaalt lahkuma.
+            - Läheneva rindejoone ja repressioonide hirmus muutus kodumaalt põgenemine 1944. aasta sügisel massiliseks. Ometi loodeti olude paranedes naasta.
+            - Eesti Mälu Instituut alustas 2022. aastal Teise maailmasõja kestel Eestist põgenenud isikute andmekogu koostamist. Ettevõtmise patroon on Eesti Vabariigi president Alar Karis.
+        texts:
+            - Kahjuks kujunes eemalolek aastakümnete pikkuseks, liiga paljud ei jõudnud enam kunagi kodumaale tagasi.
+            - Vaatamata sellele, et põgenemisest on möödas juba aastakümneid, puudub siiani selge ülevaade põgenike arvust, nende päritolust, sotsiaalsest taustast ning hilisemast käekäigust. Senistes käsitlustes arvestatakse, et Teise maailmasõja perioodil põgenes Eestist umbes 80 000 inimest.
+            - "Töö esimeses etapis keskendutakse eelkõige esmastele sihtriikidele, kuhu põgenikud suundusid: Rootsi ja Saksamaale. Arhiivides olevad andmekogud võimaldavad koostada põgenenud isikute esialgse andmebaasi, kuid inimeste suurt abi vajame nende põgenike nimede kogumiseks, kes teekonnal teadmata kadunuks jäid."
+            - Andmekogumise esimene etapp kestab 2024. aasta septembrini, kui möödub 80 aastat 1944. aasta suurest põgenemisest. Edasise eesmärgina soovime jälgida ka põgenike teekonda uue püsiva elukoha otsinguil. Andmekogu loob baasi tulevastele teadusuuringutele ja jäädvustab eelnevate põlvkondade elukäiku.
+            - Eesti Mälu Instituut on väga tänulik kui kaasmaalased, kus iganes nad ka ei elaks, on valmis seda ettevõtmist toetama. Abi on nii informatsioonist, mis ei ole suurtesse arhiividesse jõudnud, kui ka rahalisest toetusest, mis võimaldab meil kaasata uusi kaastöölisi andmete töötlemiseks.
+
+
+    andmebaas:
+        id: andmebaas
+        link: /otsing/
+        buttonText: Otsi
+        background: /images/bg/laevad.jpg
+        title: Andmebaas
+        leads:
+            - "Andmebaas koondab infot Eesti elanike kohta, kes Teise maailmasõja käigus erinevatel põhjustel kodumaalt lahkusid:"
+        leadTexts:
+            - pagesid kodumaalt Teise maailmasõja perioodil alates Eesti langemisest Nõukogude okupatsiooni alla juunis 1940;
+            - teenisid sõja vältel Soome või Saksa relvateenistuses ning jäid sõja lõppedes väljapoole NSV Liidu okupatsioonitsooni, muutudes sõjapõgenikeks;
+            - sattusid sõja vältel Saksamaale represseerituna või värvatuna ning jäid sõja lõppedes väljapoole NSV Liidu okupatsioonitsooni, muutudes sõjapõgenikeks.
+        texts:
+            - "Andmebaasi on kaasatud ka isikud, kes pärast sõjategevuse lõppu Saksamaal repatrieerusid NSV Liitu."
+            - "Andmebaasi kogutakse järgmisi andmeid: isikute sünniaeg ja koht, tegevusala, Eestis lahkumise aeg, moodus ja teekond, asukohariik sõja lõppedes ning järgnev püsiv asukohariik."
+            - "Valdav osa andmeid pärineb Eesti, Rootsi, USA ning Saksamaa arhiividest, tänuväärset täiendust pakuvad ka üksikisikud."
+            # - "Andmebaasis olevate isikute andmete täpsustamiseks on iga isiku kirje juures “Tagasiside/Feedback” nupp, mis avab võimaluse täiendava info saatmiseks. "
+            # - "Andmebaasist puuduva isiku lisamiseks on nupp: Tagasiside puuduva isiku kohta / Feedback for missing person"
+            - "Küsimustega andmebaasi koostamisega seotud küsimustes palume pöörduda aadressil: refugee@mnemosyne.ee."
+
+
+    intervjuud:
+        id: intervjuud
+        link: /intervjuud/
+        buttonText: Vaata
+        background: /images/bg/laevad.jpg
+        title: Intervjuud
+        texts:
+            - Teise Maailmasõja käigus lahkusid Eestist lääne suunas tuhanded inimesed, vanad ja noored, perekonnad pudenesid laiali üle maailma. Enamikel juhtudel sundis neid kodumaalt lahkuma hirm Punaarmee ning uute nõukogude režiimi repressioonide ees. Pakume teile vaatamiseks väikese valiku videomeenutusi inimestelt, keda need sündmused vahetult puudutasid.
+            - "Rohkem videomeenutusi: https://www.kogumelugu.ee/"
+
+    kalender:
+        id: kalender
+        link: /kalender/
+        buttonText: Vaata
+        background: /images/bg/laevad.jpg
+        title: Kalender
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.

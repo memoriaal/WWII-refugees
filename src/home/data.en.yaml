@@ -1,0 +1,97 @@
+path: /home/
+data:
+    intervjuud: /intervjuud.en.yaml
+title: Database of refugees of World War II
+
+cards:
+    home:
+        id: home
+        link:
+        buttonText: Tutvu andmebaasiga :)
+        background: /images/bg/laevad.jpg
+        title: Database of refugees of World War II
+        # leadTitle: |
+        #     In the turmoil of World War II, tens of thousands of Estonian 
+        #     people were forced to leave their homeland.
+        leads: 
+            - In the turmoil of World War II, tens of thousands of Estonian 
+              people were forced to leave their homeland.
+            - In the autumn of 1944, fleeing from the advancing front line and 
+              the fear of repression, became massive. Yet, it was hoped that 
+              they would return when the situation improved.
+            - In 2022, the Estonian Institute of Historical Memory started 
+              compiling a database of persons who fled from Estonia during 
+              World War II. The patron of the undertaking is the President 
+              of the Republic of Estonia, Alar Karis.
+        texts:
+            - Unfortunately, the absence became decades long, too many never 
+              made it back home.
+            - Despite the fact that decades have passed since the escape, 
+              there is still no clear overview of the number of refugees, 
+              their origin, social background and subsequent fate. Previous 
+              studies estimate that about 80,000 people fled from Estonia 
+              during World War II.
+            - "In the first stage of the work, the focus is primarily on the 
+              primary target countries to which the refugees went: Sweden and 
+              Germany. The data collections in the archives allow us to create 
+              a preliminary database of the escaped persons, but we need the 
+              great help of people to collect the names of those refugees who 
+              remained missing on the way."
+            - The first stage of data collection will last until September 2024, 
+              when 80 years have passed since the great escape of 1944. As a 
+              further goal, we want to follow the journey of refugees in search 
+              of a new permanent home. The database creates a basis for future 
+              research and records the life of previous generations.
+            - The Estonian Institute of Historical Memory is very grateful if 
+              fellow countrymen, wherever they live, are willing to support this 
+              initiative. Assistance is needed both in terms of information that 
+              has not reached the large archives and financial support, which 
+              allows us to involve new contributors to process the data.
+    andmebaas:
+        id: andmebaas
+        link: /en/search/
+        buttonText: Search
+        background: /images/bg/laevad.jpg
+        title: Database
+        leads: 
+            - "The database contains information about Estonian residents who fled from Estonia during World War II for various reasons:"
+        leadTexts:
+            - fled from Estonia during the Second World War period from the fall of Estonia under Soviet occupation in June 1940;
+            - served in the Finnish or German military during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees;
+            - were repressed or recruited in Germany during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees.
+        texts:
+            - "The database also includes persons who repatriated to the Soviet Union after the end of the war in Germany."
+            - "The following data is collected in the database: the date and place of birth of the persons, their occupation, the time of departure from Estonia, the mode and route, the country of residence at the end of the war and the subsequent permanent country of residence."
+            - "The vast majority of the data comes from the archives of Estonia, Sweden, the United States and Germany, and individuals provide a valuable addition."
+            # - "To clarify the data of the persons in the database, there is a
+            #     “Feedback” button next to each person's entry, which opens up the
+            #     possibility to send additional information."
+            # - "To add a missing person to the database, there is a button: Feedback
+            #     for missing person"
+            - "For questions related to the compilation of the database, please contact: refugee@mnemosyne.ee"
+    intervjuud:
+        id: intervjuud
+        link: /en/interviews/
+        buttonText: Watch
+        background: /images/bg/laevad.jpg
+        title: Video Interviews
+        texts:
+            - During World War II, thousands of people left Estonia for the West, old and young, families were scattered all over the world. In most cases, they were forced to leave their homeland by fear of the Red Army and the new Soviet regime's repressions. We offer you a small selection of video memories from people who were directly affected by these events.
+            - "More testimonials can be found: https://www.kogumelugu.en/node"
+
+    kalender:
+        id: kalender
+        link: /en/calendar/
+        buttonText: Watch
+        background: /images/bg/laevad.jpg
+        title: Calendar
+        lead: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua.
+        text: |
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.

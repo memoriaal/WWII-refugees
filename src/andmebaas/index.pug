@@ -1,0 +1,34 @@
+extends /_templates/html.pug
+
+block body
+
+    include /_templates/navigation.pug
+
+    .sisu.w3-container#artikkel 
+        h1= self.title
+        .w3-hide#intro
+            .w3-text= self.subtitle
+            each item in self.mainlist
+                li= item
+            each paragraph in self.texts
+                p= paragraph
+
+        form.w3-row#searchform
+            input.w3-input.w3-col.l8.w3-round#search(
+                type='search', 
+                name='q',
+                placeholder= self.search.placeholder
+            ) 
+            button.w3-input.w3-col.l4.w3-round= self.search.button
+
+        #tulemused
+            .w3-text.w3-hide#search-count= 0
+            #search-results
+        //- <form class="form" id="searchform" action="/" method="GET">
+        //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
+        //-     <button class="col-4 col-md-3 col-xl-2">Otsi/Search</button>
+        //- </form>
+
+    include /_templates/footer.pug
+
+    //- script(src='/functions/search.js')

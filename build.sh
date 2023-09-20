@@ -1,9 +1,11 @@
 #!/bin/bash
 
+set -o errexit -o nounset
+
 rm -rf ./dist
 mkdir ./dist
 
-cp index.html ./dist
-cp script.js ./dist
-cp style.css ./dist
-cp assets ./dist -r
+cp -r ./.netlify/functions ./public/netlify/functions
+cp -r ./public/* ./dist
+
+npm run build

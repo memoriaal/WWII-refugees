@@ -1,0 +1,14 @@
+path: /calendar/
+title: Calendar
+pictures:
+    - /images/bg/otsing.jpg
+content:
+    -
+        id: search
+        title: Search the database of refugees of World War II
+        text: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua. Ut enim ad minim 
+            veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute

@@ -1,0 +1,19 @@
+path: /otsing
+title: Otsing andmebaasist
+subtitle: Käesolevasse andmekogusse koondatakse infot Eesti elanike kohta, kes
+mainlist:
+    - pagesid kodumaalt Teise maailmasõja perioodil alates Eesti langemisest Nõukogude okupatsiooni alla juunis 1940;
+    - teenisid sõja vältel Soome või Saksa relvateenistuses ning jäid sõja lõppedes väljapoole NSV Liidu okupatsioonitsooni, muutudes sõjapõgenikeks;
+    - sattusid sõja vältel Saksamaale represseerituna või värvatuna ning jäid sõja lõppedes väljapoole NSV Liidu okupatsioonitsooni, muutudes sõjapõgenikeks.
+texts:
+    - "Andmebaasi on kaasatud ka isikud, kes pärast sõjategevuse lõppu Saksamaal repatrieerusid NSV Liitu."
+    - "Andmebaasi kogutakse järgmisi andmeid: isikute sünniaeg ja koht, tegevusala, Eestis lahkumise aeg, moodus ja teekond, asukohariik sõja lõppedes ning järgnev püsiv asukohariik."
+    - "Valdav osa andmeid pärineb Eesti, Rootsi, USA ning Saksamaa arhiividest, tänuväärset täiendust pakuvad ka üksikisikud."
+    # - "Andmebaasis olevate isikute andmete täpsustamiseks on iga isiku kirje juures “Tagasiside/Feedback” nupp, mis avab võimaluse täiendava info saatmiseks. "
+    # - "Andmebaasist puuduva isiku lisamiseks on nupp: Tagasiside puuduva isiku kohta / Feedback for missing person"
+    - "Küsimustega andmebaasi koostamisega seotud küsimustes palume pöörduda aadressil: refugee@mnemosyne.ee."
+
+t:
+    result: vaste
+    results: vastet
+

@@ -1,0 +1,50 @@
+@hostname = 94abc9318c712977e8c684628aa5ea0f.us-east-1.aws.found.io
+@port = 9243
+@index = emem_persons
+@host = {{hostname}}:{{port}}
+
+###
+# 10 esimest
+GET {{host}}/{{index}}/_search?size=10&from=0&pretty HTTP/1.1
+Authorization: Basic cmVhZGVyOnJlYWRlcg==
+Content-Type: application/json
+
+
+###
+# persoonikoodi järgi
+GET {{host}}/{{index}}/_doc/0000218291 HTTP/1.1
+Authorization: Basic cmVhZGVyOnJlYWRlcg==
+Content-Type: application/json
+
+
+###
+# "match" päring
+GET {{host}}/{{index}}/_search?size=10&from=0&pretty HTTP/1.1
+Authorization: Basic cmVhZGVyOnJlYWRlcg==
+Content-Type: application/json
+
+{
+  "query" : {"match" : { "tahvlikirje.tahvel": "X" } },
+  "sort": {
+    "perenimi.raw": "asc",
+    "eesnimi.raw": "asc"
+  },
+  "_source": [
+    "redirect",
+    "isperson", "kivi", "emem", "evo", "wwii", "evokirje",
+    "perenimi", "eesnimi", "isanimi", "emanimi", "perenimed", "eesnimed",
+    "sünd", "surm", "sünnikoht", "surmakoht", "id",
+    "kirjed.kirje", "kirjed.kirjekood", "kirjed.viide", "kirjed.allikas", "kirjed.allika_nimetus",
+    "pereseosed.persoon", "pereseosed.kirje",
+    "pereseosed.seos", "pereseosed.suund", "pereseosed.kirjed",
+    "tahvlikirje.kirjekood", "tahvlikirje.kirje", "tahvlikirje.tahvel", "tahvlikirje.tulp", "tahvlikirje.rida",
+    "redirect"
+  ]
+}
+
+### familysearch.org päring
+https://www.familysearch.org/service/search/hr/v2/personas?c.deathLikePlace1=on&count=10&f.deathLikePlace0=10&m.defaultFacets=on&m.facetNestCollectionInCategory=on&m.queryRequireDefault=on&offset=100&q.birthLikeDate.from=1870&q.birthLikeDate.to=1945&q.birthLikePlace=Estonia
+Accept: application/json, text/plain, */*
+Authorization: Bearer
+Referer: https://www.familysearch.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
