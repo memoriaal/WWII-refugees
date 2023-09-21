@@ -1,10 +1,3 @@
-const getQueryStringValue = key => {
-    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&")
-    const match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"))
-    return match && decodeURIComponent(match[1].replace(/\+/g, " "))
-};
-
-
 // wait till page loaded, then fill in search field
 window.addEventListener('load', function () {
     const qs = getQueryStringValue('q')
