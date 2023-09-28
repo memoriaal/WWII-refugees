@@ -5,9 +5,9 @@
 
     .w3-col.l4
         img#logowhite.w3-image(src=self.logo.imagelight, alt=self.logo.imageAlt)
-        .w3-text-small= self.footer.EMI
 
     .w3-col.l8
+        .w3-text= self.footer.EMI
         .w3-text
             a(href='mailto:' + self.footer.contacts.email)= self.footer.contacts.email
             p= self.footer.contacts.phone1
