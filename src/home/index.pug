@@ -44,7 +44,7 @@ block body
         each paragraph in intervjuudCard.texts
             p= paragraph
         p= intervjuudCard.more.label
-            a(href=intervjuudCard.more.link)= intervjuudCard.more.link
+            a(href=intervjuudCard.more.link)= intervjuudCard.more.text
 
         .w3-row
             each intervjuu in self.data.intervjuud.splice(0, 6)
