@@ -48,3 +48,18 @@ Accept: application/json, text/plain, */*
 Authorization: Bearer
 Referer: https://www.familysearch.org
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+
+
+@feedbackapi = https://script.google.com/macros/s/AKfycbwNdxQVe6jLdwmEFD5ScYL5h1_54zaA9T5t-b6xLNx6SCJnHx7gyrQFBkZL8Vp8DMM_1Q/exec
+
+### tagasiside
+POST {{feedbackapi}}?target=wwiiref HTTP/1.1
+Content-Type: application/json
+
+{
+  "personId": "0000218291",
+  "contactEmail": "foo@baz.co",
+  "contactName": "Foo Bar",
+  "contactPhone": "12345678",
+  "feedback": "Foo bar baz"
+}

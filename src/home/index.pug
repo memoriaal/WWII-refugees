@@ -38,10 +38,13 @@ block body
             ) 
             button.w3-input.w3-col.l2.w3-round= self.search.button
 
-    .sisu.w3-container#intervjuud 
-        h1= self.cards.intervjuud.title
-        each paragraph in self.cards.intervjuud.texts
+    .sisu.w3-container#intervjuud
+        - var intervjuudCard = self.cards.intervjuud
+        h1= intervjuudCard.title
+        each paragraph in intervjuudCard.texts
             p= paragraph
+        p= intervjuudCard.more.label
+            a(href=intervjuudCard.more.link)= intervjuudCard.more.link
 
         .w3-row
             each intervjuu in self.data.intervjuud.splice(0, 6)
