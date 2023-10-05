@@ -155,3 +155,40 @@ function performQuery(qs) {
     };
     xhr2.send(JSON.stringify(qData));
 }
+
+
+window.addEventListener('load', setupFeedbackModal)
+
+function setupFeedbackModal() {
+    console.log('FeedbackModel setup')
+
+    let modalRootE = get('feedbackForm')
+    let modalE = query('.w3-modal-content')
+    let openModalE = get('feedbackLink')
+    let closeModalEs = queryAll('.close-modal')
+    
+    // modalRootE.addEventListener('click', closeModal)
+    modalE.addEventListener('click', modalClick)
+    openModalE.addEventListener('click', openModal)
+    for (let i=0; i<closeModalEs.length; i++) {
+        closeModalEs[i].addEventListener('click', closeModal)
+    }
+    
+    function closeModal() {
+        console.log('closeModal')
+        modalRootE.style.display='none'
+    }
+    
+    function openModal() {
+        console.log('openModal')
+        modalRootE.style.display='block'
+    }
+    
+    function modalClick(e) {
+        console.log('modalClick')
+        e.preventDefault()
+        e.stopPropagation()
+        e.stopImmediatePropagation()
+        return false
+    }
+}
