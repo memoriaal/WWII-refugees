@@ -1,5 +1,5 @@
-.w3-modal.w3-card-4#feedbackForm.close-modal
-    form#feedbackFormModal.w3-modal-content(method="POST")
+.w3-modal.w3-card-4#feedbackFormRoot.close-modal
+    form#feedbackForm.w3-modal-content(method="POST" action=self.feedbackForm.action)
         //- title of the form
         button#closeFeedbackForm.w3-button.w3-right.close-modal(type="button") &times;
         .w3-container
@@ -19,4 +19,4 @@
                             textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||'', required=field.required||false, rows=field.rows||3, cols=field.cols||80)
                         else
                             input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||'', required=field.required||false)
-            button.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round.close-modal(type="submit")= self.feedbackForm.submit
+            button#submitFeetbackButton.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round.close-modal(type="submit")= self.feedbackForm.submit

@@ -162,7 +162,24 @@ window.addEventListener('load', setupFeedbackModal)
 function setupFeedbackModal() {
     console.log('FeedbackModel setup')
 
-    let modalRootE = get('feedbackForm')
+    const formE = get('feedbackForm')
+    const feedbackApiId = 
+        'AKfycbxvkkGuyrPJBlnv_9DBpC31TivFfF1q5rOtqHVxWDpJO2AfUXUnrPdvAS9MMspG0ODBGw'
+    const feedbackBase = 'https://script.google.com/macros/s'
+    const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?target=wwiiref`
+    // set action for form
+    formE.action = feedbackApi
+
+    submitE = get('submitFeetbackButton')
+    submitE.addEventListener('click', submitFeedback)
+
+    function submitFeedback(e) {
+        console.log('submitFeedback')
+        formE.submit()
+        return false
+    }
+
+    let modalRootE = get('feedbackFormRoot')
     let modalE = query('.w3-modal-content')
     let openModalE = get('feedbackLink')
     let closeModalEs = queryAll('.close-modal')
