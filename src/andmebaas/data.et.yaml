@@ -9,11 +9,91 @@ texts:
     - "Andmebaasi on kaasatud ka isikud, kes pärast sõjategevuse lõppu Saksamaal repatrieerusid NSV Liitu."
     - "Andmebaasi kogutakse järgmisi andmeid: isikute sünniaeg ja koht, tegevusala, Eestis lahkumise aeg, moodus ja teekond, asukohariik sõja lõppedes ning järgnev püsiv asukohariik."
     - "Valdav osa andmeid pärineb Eesti, Rootsi, USA ning Saksamaa arhiividest, tänuväärset täiendust pakuvad ka üksikisikud."
-    # - "Andmebaasis olevate isikute andmete täpsustamiseks on iga isiku kirje juures “Tagasiside/Feedback” nupp, mis avab võimaluse täiendava info saatmiseks. "
-    # - "Andmebaasist puuduva isiku lisamiseks on nupp: Tagasiside puuduva isiku kohta / Feedback for missing person"
     - "Küsimustega andmebaasi koostamisega seotud küsimustes palume pöörduda aadressil: refugee@mnemosyne.ee."
 
 t:
     result: vaste
     results: vastet
 
+feedbackForm:
+    linkText: Tagasiside puuduva isiku kohta
+    title: Tagasiside
+    description: "Kui soovite anda tagasisidet andmebaasi kohta, siis palun täitke allolev vorm."
+    sections:
+        -   title: Eestist põgenenud isik
+            fields:
+                -   label: Eesnimi
+                    name: forename
+                    type: text
+                -   label: Perekonnanimi
+                    name: surname
+                    type: text
+                -   label: Sünniaeg
+                    name: birthdate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: Sünnikoht
+                    name: birthplace
+                    type: text
+                -   label: Surmaaeg
+                    name: deathdate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: Surmakoht
+                    name: deathplace
+                    type: text
+                -   label: Tegevusala Eestis
+                    name: occupation
+                    type: text
+                -   label: elukoht Eestis
+                    name: residence
+                    type: text
+                -   label: koht Eestis, kust asus põgenemisteekonnale
+                    name: departureplace
+                    type: text
+                -   label: millal lahkus Eestist
+                    name: departuredate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: kuidas Eestist lahkus (laevaga, rongiga)
+                    name: departuremode
+                    type: text
+                -   label: millist teekonda mööda lahkus Eestist
+                    name: departureroute
+                    type: text
+                -   label: millal jõudis sihtriiki
+                    name: arrivaldate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: millisesse sihtriiki jõudis
+                    name: arrivalcountry
+                    type: text
+                -   label: millisesse sihtriigi linna jõudis
+                    name: arrivalcity
+                    type: text
+                -   label: millisesse sihtriigi linna asus elama    
+                    name: arrivalcityresidence
+                    type: text
+                -   label: kui liikus edasi, siis millisesse sihtriiki
+                    name: onwardcountry
+                    type: text
+
+        -   title: Info andja
+            fields:
+                -   label: Suhe põgenenud isikuga
+                    name: contactRelationship
+                    type: text
+                -   label: Sinu nimi
+                    name: contactName
+                    type: text
+                -   label: Sinu e-posti aadress
+                    name: contactEmail
+                    type: email
+        -   title: Muu info
+            fields:
+                -   label: Lisainfo
+                    name: additionalInfo
+                    type: textarea
+                    rows: 5
+                    placeholder: "Kui soovite, võite siia lisada ka muid kommentaare."
+    submit: Saada

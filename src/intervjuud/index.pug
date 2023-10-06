@@ -9,6 +9,8 @@ block body
         h1= self.title
         each paragraph in self.texts
             p= paragraph
+        p= self.more.label
+            a(href=self.more.link)= self.more.text
 
         .w3-row
             each intervjuu in self.data.intervjuud

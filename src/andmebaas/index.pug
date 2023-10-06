@@ -3,6 +3,7 @@ extends /_templates/html.pug
 block body
 
     include /_templates/navigation.pug
+    include /_templates/feedback.pug
 
     .sisu.w3-container#artikkel 
         h1= self.title
@@ -12,6 +13,11 @@ block body
                 li= item
             each paragraph in self.texts
                 p= paragraph
+        
+        .w3-button#feedbackLink(onclick="document.getElementById('feedbackForm').style.display='block'"
+            )= self.feedbackForm.linkText
+
+        .w3-row
 
         form.w3-row#searchform
             input.w3-input.w3-col.l8.w3-round#search(
