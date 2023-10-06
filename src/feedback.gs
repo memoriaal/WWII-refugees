@@ -11,13 +11,14 @@ function doPost(req) {
   console.log("POST was called with action", target)
   const responseSheet = responseSheets[target]
 
-  const receivedData = req.postData.contents
-    .split('&')
-    .map(e => {
-      const [key, value] = e.split('=').map(decodeURIComponent)
-      return {key: key, value: value}
-    })
-  const currentTime = new Date().toISOString()
+  // iterate req.parameter and assign keys and values to separate arrays
+  // skip target parameter
+  const receivedData = Object.keys(req.parameter)
+    .filter(k => k !== "target")
+    .map(k => ({ key: k, value: req.parameter[k] }))
+
+  // add timestamp in Estonian locale
+  const currentTime = new Date().toLocaleString("et-EE")
   receivedData.push({key: 'submitTime', value: currentTime})
 
   const keys = receivedData.map(d => d.key)

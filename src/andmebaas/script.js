@@ -159,30 +159,32 @@ function performQuery(qs) {
 
 window.addEventListener('load', setupFeedbackModal)
 
+const feedbackBase = 'https://script.google.com/macros/s'
+const feedbackApiId = 
+    'AKfycbxvkkGuyrPJBlnv_9DBpC31TivFfF1q5rOtqHVxWDpJO2AfUXUnrPdvAS9MMspG0ODBGw'
+const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?target=wwiiref`
+
 function setupFeedbackModal() {
     console.log('FeedbackModel setup')
 
     const formE = get('feedbackForm')
-    const feedbackApiId = 
-        'AKfycbxvkkGuyrPJBlnv_9DBpC31TivFfF1q5rOtqHVxWDpJO2AfUXUnrPdvAS9MMspG0ODBGw'
-    const feedbackBase = 'https://script.google.com/macros/s'
-    const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?target=wwiiref`
     // set action for form
-    formE.action = feedbackApi
+    // formE.action = feedbackApi + '&redirect=${window.location.href}'
+    formE.addEventListener("submit", submitFeedback)
 
     submitE = get('submitFeetbackButton')
     submitE.addEventListener('click', submitFeedback)
 
-    function submitFeedback(e) {
-        console.log('submitFeedback')
-        formE.submit()
-        return false
-    }
+    // function submitFeedback(e) {
+    //     alert('submitFeedback')
+    //     formE.submit()
+    //     return false
+    // }
 
-    let modalRootE = get('feedbackFormRoot')
-    let modalE = query('.w3-modal-content')
-    let openModalE = get('feedbackLink')
-    let closeModalEs = queryAll('.close-modal')
+    const modalRootE = get('feedbackFormRoot')
+    const modalE = query('.w3-modal-content')
+    const openModalE = get('feedbackLink')
+    const closeModalEs = queryAll('.close-modal')
     
     // modalRootE.addEventListener('click', closeModal)
     modalE.addEventListener('click', modalClick)
@@ -214,4 +216,25 @@ function setupFeedbackModal() {
         e.stopImmediatePropagation()
         return false
     }
+
+    function submitFeedback(event) {
+        console.log('submitFeedback')
+        const xhr2 = new XMLHttpRequest();
+        xhr2.open('POST', feedbackApi, true);
+        // xhr2.setRequestHeader('Content-Type', 'multipart/form-data');
+        xhr2.onload = function() { // request successful
+        // we can use server response to our request now
+          console.log('response', xhr2.responseText);
+        }
+      
+        xhr2.onerror = function() {
+            console.log('Error:', xhr2.status);
+        };
+        const formData = new FormData(formE)
+        xhr2.send(formData)
+        event.preventDefault()
+      }
 }
+
+
+  
