@@ -41,7 +41,10 @@ function doPost(req) {
   
   var result = {"result": "Insertion successful", receivedData, rowData}
 
-  return response().json(result)
+  // return response().json(result)
+  // Instead of returning JSON, return a HTML page with "Thank you" message
+  return response().html("<html><body><h1>Thank you for feedback!</h1></body></html>")
+  
 }
 
 function _getDataRows(sheetObject) {
@@ -60,12 +63,16 @@ function response() {
     json: function (data) {
       return ContentService
         .createTextOutput(JSON.stringify(data))
-        .setMimeType(ContentService.MimeType.JSON);
+        .setMimeType(ContentService.MimeType.JSON)
     },
     text: function (data) {
       return ContentService
         .createTextOutput(data)
-        .setMimeType(ContentService.MimeType.TEXT);
+        .setMimeType(ContentService.MimeType.TEXT)
+    },
+    html: function (htmlContents) {
+      return HtmlService
+        .createHtmlOutput(htmlContents)
     }
   }
 }
