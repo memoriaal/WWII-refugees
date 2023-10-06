@@ -16,6 +16,7 @@ t:
     results: results
 
 feedbackForm:
+    linkText: Feedback on a missing person
     title: Feedback
     description: "If you would like to give feedback on the database, please fill in the form below."
     sections:

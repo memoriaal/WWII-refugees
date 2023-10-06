@@ -14,9 +14,8 @@ block body
             each paragraph in self.texts
                 p= paragraph
         
-        .w3-container
-            .w3-ripple#feedbackLink(onclick="document.getElementById('feedbackForm').style.display='block'"
-                )= self.feedbackForm.title
+        .w3-button#feedbackLink(onclick="document.getElementById('feedbackForm').style.display='block'"
+            )= self.feedbackForm.linkText
 
         .w3-row
 

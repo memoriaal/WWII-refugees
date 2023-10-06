@@ -16,6 +16,7 @@ t:
     results: vastet
 
 feedbackForm:
+    linkText: Tagasiside puuduva isiku kohta
     title: Tagasiside
     description: "Kui soovite anda tagasisidet andmebaasi kohta, siis palun täitke allolev vorm."
     sections:
