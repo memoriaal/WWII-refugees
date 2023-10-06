@@ -190,6 +190,12 @@ function setupFeedbackModal() {
     for (let i=0; i<closeModalEs.length; i++) {
         closeModalEs[i].addEventListener('click', closeModal)
     }
+
+    document.onkeydown = function(evt) {
+        if (evt.key === "Escape") {
+            closeModal()
+        }
+    };
     
     function closeModal() {
         console.log('closeModal')
