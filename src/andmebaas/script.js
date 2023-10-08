@@ -161,7 +161,7 @@ window.addEventListener('load', setupNewPersonModal)
 
 const feedbackBase = 'https://script.google.com/macros/s'
 const feedbackApiId = 
-    'AKfycbxvkkGuyrPJBlnv_9DBpC31TivFfF1q5rOtqHVxWDpJO2AfUXUnrPdvAS9MMspG0ODBGw'
+    'AKfycbwViNjVfFGja0LHWsAXX0-ud3_uM3isSuQzI5uTmJQVKaeqPTgBnc68ZACdXYqhL-KJ1g'
 const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=newPersonForm`
 
 function setupNewPersonModal() {
