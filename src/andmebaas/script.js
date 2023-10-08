@@ -157,36 +157,26 @@ function performQuery(qs) {
 }
 
 
-window.addEventListener('load', setupFeedbackModal)
+window.addEventListener('load', setupNewPersonModal)
 
 const feedbackBase = 'https://script.google.com/macros/s'
 const feedbackApiId = 
     'AKfycbxvkkGuyrPJBlnv_9DBpC31TivFfF1q5rOtqHVxWDpJO2AfUXUnrPdvAS9MMspG0ODBGw'
-const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?target=wwiiref`
+const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=newPersonForm`
 
-function setupFeedbackModal() {
-    console.log('FeedbackModel setup')
+function setupNewPersonModal() {
 
-    const formE = get('feedbackForm')
-    // set action for form
-    // formE.action = feedbackApi + '&redirect=${window.location.href}'
+    const formE = get('newPersonForm')
     formE.addEventListener("submit", submitFeedback)
 
     submitE = get('submitFeetbackButton')
     submitE.addEventListener('click', submitFeedback)
 
-    // function submitFeedback(e) {
-    //     alert('submitFeedback')
-    //     formE.submit()
-    //     return false
-    // }
-
-    const modalRootE = get('feedbackFormRoot')
+    const modalRootE = get('newPersonFormRoot')
     const modalE = query('.w3-modal-content')
     const openModalE = get('feedbackLink')
     const closeModalEs = queryAll('.close-modal')
     
-    // modalRootE.addEventListener('click', closeModal)
     modalE.addEventListener('click', modalClick)
     openModalE.addEventListener('click', openModal)
     for (let i=0; i<closeModalEs.length; i++) {
@@ -231,6 +221,8 @@ function setupFeedbackModal() {
             console.log('Error:', xhr2.status);
         };
         const formData = new FormData(formE)
+        // add current url to form data
+        formData.append('url', window.location.href)
         xhr2.send(formData)
         event.preventDefault()
       }

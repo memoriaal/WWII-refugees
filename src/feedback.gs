@@ -1,21 +1,24 @@
 const ss = SpreadsheetApp.openById("1BuELFMc-RNRO_vWFqShQ3ak6Q1KvT-d7hBsZgg94is0")
-const MemoriaalSheetName = 'memoriaal.ee tagasiside'
-const WWIIrefSheetName = 'WWII-ref tagasiside'
+const NewPersonsSheet = 'Uued isikud'
+const FeedbackSheet = 'Tagasiside'
 const responseSheets = {
-  "memoriaal": ss.getSheetByName(MemoriaalSheetName),
-  "wwiiref": ss.getSheetByName(WWIIrefSheetName)
+  "target": ss.getSheetByName(NewPersonsSheet),
+  "newPersonForm": ss.getSheetByName(NewPersonsSheet),
+  "feedback": ss.getSheetByName(FeedbackSheet)
 }
 
-function doPost(req) {
-  const target = req.parameter.target
-  console.log("POST was called with action", target)
-  const responseSheet = responseSheets[target]
+function doPost(evnt) {
+  console.log(JSON.stringify(evnt, null, 2))
 
-  // iterate req.parameter and assign keys and values to separate arrays
-  // skip target parameter
-  const receivedData = Object.keys(req.parameter)
-    .filter(k => k !== "target")
-    .map(k => ({ key: k, value: req.parameter[k] }))
+  const form = evnt.parameter._form
+  console.log("POST was called with action", form)
+  const responseSheet = responseSheets[form]
+
+  // iterate evnt.parameter and assign keys and values to separate arrays
+  // skip _form parameter
+  const receivedData = Object.keys(evnt.parameter)
+    .filter(k => k !== "_form")
+    .map(k => ({ key: k, value: evnt.parameter[k] }))
 
   // add timestamp in Estonian locale
   const currentTime = new Date().toLocaleString("et-EE")
