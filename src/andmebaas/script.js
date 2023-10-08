@@ -169,12 +169,12 @@ function setupNewPersonModal() {
     const formE = get('newPersonForm')
     formE.addEventListener("submit", submitFeedback)
 
-    submitE = get('submitFeetbackButton')
+    submitE = get('submitNewPersonButton')
     submitE.addEventListener('click', submitFeedback)
 
     const modalRootE = get('newPersonFormRoot')
     const modalE = query('.w3-modal-content')
-    const openModalE = get('feedbackLink')
+    const openModalE = get('newPersonLink')
     const closeModalEs = queryAll('.close-modal')
     
     modalE.addEventListener('click', modalClick)
