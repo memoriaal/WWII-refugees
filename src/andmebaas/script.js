@@ -224,6 +224,12 @@ function setupNewPersonForm() {
         formE.classList.add('w3-disabled')
         const xhr2 = new XMLHttpRequest()
         xhr2.open('POST', feedbackApi, true)
+        // xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        // multipart
+        // xhr2.setRequestHeader('Content-Type', '
+        
+
+        
         xhr2.onload = function() { // request successful
         // we can use server response to our request now
             formE.classList.remove('w3-disabled')
