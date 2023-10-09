@@ -243,6 +243,11 @@ function setupNewPersonForm() {
         const formData = new FormData(formE)
         // add current url to form data
         formData.append('url', window.location.href)
+        // add user language to form data
+        formData.append('nav_lang', navigator.language)
+        // get html lang property
+        formData.append('locale', document.documentElement.lang)
+
         xhr2.send(formData)
         evnt.preventDefault()
     }

@@ -24,8 +24,10 @@ function doPost(evnt) {
   const currentTime = new Date().toLocaleString("et-EE")
   receivedData.push({key: 'submitTime', value: currentTime})
 
+
   const keys = receivedData.map(d => d.key)
   const values = receivedData.map(d => d.value)
+
 
   // compare keys with header row and append missing columns
   const headerRow = _getHeaderRow(responseSheet)
@@ -42,13 +44,10 @@ function doPost(evnt) {
 
   // append row with new data to sheet
   responseSheet.appendRow(rowData)
-  
-  var result = {"result": "Insertion successful", receivedData, rowData}
-
-  // return response().json(result)
-  // Instead of returning JSON, return a HTML page with "Thank you" message
-  return response().html("<html><body><h1>Thank you for feedback!</h1></body></html>")
-  
+  if (form === 'newPersonForm' && evnt.parameter.contactEmail) {
+    sendEmail(evnt.parameter.contactEmail, evnt.parameter.locale)
+  }
+  return response().json(evnt.parameter)
 }
 
 function _getDataRows(sheetObject) {
@@ -60,6 +59,16 @@ function _getHeaderRow(sheetObject) {
   var sh = sheetObject;
 
   return sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+}
+
+function sendEmail(recipient, locale) {
+  var subject = "Thank you for your feedback"
+  var body = "Your feedback has been received and we will contact you soon!"
+  if (locale === 'et') {
+    subject = "Täname tagasiside eest"
+    body = "Teie tagasiside saadi kätte ja me võtame teiega ühendust!"
+  }
+  MailApp.sendEmail(recipient, subject, body)
 }
 
 function response() {
