@@ -97,3 +97,29 @@ newPersonForm:
                     rows: 5
                     placeholder: "Please add any additional information here"
     submit: Submit
+
+feedbackForm:
+    linkText: Feedback on %s
+    title: Feedback
+    description: "If you would like to give feedback on %s, please fill in the form below."
+    sections:
+        -   title: Information provider
+            fields:
+                -   label: Your name
+                    name: contactName
+                    type: text
+                -   label: Your e-mail address
+                    name: contactEmail
+                    type: email
+                -   label: Your phone number
+                    name: contactPhone
+                    type: text
+        -   title: Feedback
+            fields:
+                -   label: Feedback
+                    name: feedback
+                    type: textarea
+                    rows: 5
+                    placeholder: "Please add any additional information here"
+    submit: Submit
+    

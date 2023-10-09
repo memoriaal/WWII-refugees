@@ -1,13 +1,13 @@
-.w3-modal.w3-card-4#newPersonFormRoot.close-modal
-    form#newPersonForm.w3-modal-content(method="POST")
+.w3-modal.w3-card-4#feedbackFormTemplate.modal-root
+    form#feedbackForm.w3-modal-content.modal-content(method="POST")
         //- title of the form
-        button#closenewPersonForm.w3-button.w3-right.close-modal(type="button") &times;
+        button#closefeedbackForm.w3-button.w3-right.close-modal(type="button") &times;
         .w3-container
-            h1= self.newPersonForm.title
+            h1= self.feedbackForm.title
             //- description of the form
-            p= self.newPersonForm.description
+            p= self.feedbackForm.description
             //- iterate over sections
-            each section in self.newPersonForm.sections
+            each section in self.feedbackForm.sections
                 .w3-container
                     //- section title
                     h2= section.title
@@ -19,4 +19,4 @@
                             textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||'', required=field.required||false, rows=field.rows||3, cols=field.cols||80)
                         else
                             input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||'', required=field.required||false)
-            button#submitNewPersonButton.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round.close-modal(type="submit")= self.newPersonForm.submit
+            button#submitFeedbackButton.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round.close-modal(type="submit")= self.newPersonForm.submit

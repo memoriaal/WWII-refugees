@@ -97,3 +97,28 @@ newPersonForm:
                     rows: 5
                     placeholder: "Kui soovite, võite siia lisada ka muid kommentaare."
     submit: Saada
+
+feedbackForm:
+    linkText: Tagasiside %s kohta
+    title: Tagasiside
+    description: "Kui soovite anda tagasisidet %s kohta, siis palun täitke allolev vorm."
+    sections:
+        -   title: Info andja
+            fields:
+                -   label: Sinu nimi
+                    name: contactName
+                    type: text
+                -   label: Sinu e-posti aadress
+                    name: contactEmail
+                    type: email
+                -   label: Sinu telefoninumber
+                    name: contactPhone
+                    type: text
+        -   title: Tagasiside
+            fields:
+                -   label: Tagasiside
+                    name: feedback
+                    type: textarea
+                    rows: 5
+                    placeholder: "Palun lisage siia oma täpsustused, kommentaarid, parandused jne"
+    submit: Saada

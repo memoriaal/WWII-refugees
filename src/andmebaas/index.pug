@@ -3,7 +3,8 @@ extends /_templates/html.pug
 block body
 
     include /_templates/navigation.pug
-    include /_templates/newPerson.pug
+    include /_templates/formNewPerson.pug
+    include /_templates/formFeedback.pug
 
     .sisu.w3-container#artikkel 
         h1= self.title
@@ -14,7 +15,7 @@ block body
             each paragraph in self.texts
                 p= paragraph
         
-        .w3-button#newPersonLink(onclick="document.getElementById('newPersonForm').style.display='block'"
+        .w3-button#newPersonLink(onclick="document.getElementById('newPersonFormRoot').style.display='block'"
             )= self.newPersonForm.linkText
 
         .w3-row
