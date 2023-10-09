@@ -157,83 +157,103 @@ function performQuery(qs) {
 }
 
 
-window.addEventListener('load', setupFeedbackModal)
+window.addEventListener('load', setupNewPersonForm)
+// window.addEventListener('load', setupFeedbackForm)
+window.addEventListener('load', setupModals)
 
 const feedbackBase = 'https://script.google.com/macros/s'
 const feedbackApiId = 
-    'AKfycbxvkkGuyrPJBlnv_9DBpC31TivFfF1q5rOtqHVxWDpJO2AfUXUnrPdvAS9MMspG0ODBGw'
-const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?target=wwiiref`
+    'AKfycbyLwhNTYHw26-vVY68hd_xBxOEO9_VxxQ3WmiMhT5RnRxTrqqztnOO_fC1-k0DQtE18XQ'
+const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=newPersonForm`
 
-function setupFeedbackModal() {
-    console.log('FeedbackModel setup')
+function setupModals() {
+    const modalClick = (evnt) => {
+        console.log('modalClick', evnt)
+        evnt.preventDefault()
+        evnt.stopPropagation()
+        evnt.stopImmediatePropagation()
+        return false
+    }
+    const openModal = (evnt) => {
+        console.log('openModal', evnt.target)
+        evnt.target.style.display='block'
+    }
+    const closeModal = (evnet_or_element) => {
+        const target = evnet_or_element.target || evnet_or_element
+        if (target.style.display === 'none')
+            return
+        console.log('closeModal', target)
+        target.style.display='none'
+    }
 
-    const formE = get('feedbackForm')
-    // set action for form
-    // formE.action = feedbackApi + '&redirect=${window.location.href}'
-    formE.addEventListener("submit", submitFeedback)
+    const modalEs = queryAll('.modal-content')
+    for (let i=0; i<modalEs.length; i++) {
+        modalEs[i].addEventListener('click', modalClick)
+    }
 
-    submitE = get('submitFeetbackButton')
-    submitE.addEventListener('click', submitFeedback)
-
-    // function submitFeedback(e) {
-    //     alert('submitFeedback')
-    //     formE.submit()
-    //     return false
-    // }
-
-    const modalRootE = get('feedbackFormRoot')
-    const modalE = query('.w3-modal-content')
-    const openModalE = get('feedbackLink')
+    const openModalEs = queryAll('.open-modal')
+    for (let i=0; i<openModalEs.length; i++) {
+        openModalEs[i].addEventListener('click', openModal)
+    }
     const closeModalEs = queryAll('.close-modal')
-    
-    // modalRootE.addEventListener('click', closeModal)
-    modalE.addEventListener('click', modalClick)
-    openModalE.addEventListener('click', openModal)
     for (let i=0; i<closeModalEs.length; i++) {
         closeModalEs[i].addEventListener('click', closeModal)
     }
+    
+    const modalRootEs = queryAll('.modal-root')
+    for (let i=0; i<modalRootEs.length; i++) {
+        modalRootEs[i].addEventListener('click', closeModal)
+    }
 
-    document.onkeydown = function(evt) {
-        if (evt.key === "Escape") {
-            closeModal()
+    document.onkeydown = function(evnt) {
+        if (evnt.key === "Escape") {
+            for (let i=0; i<modalRootEs.length; i++) {
+                closeModal(modalRootEs[i])
+            }
         }
-    };
-    
-    function closeModal() {
-        console.log('closeModal')
-        modalRootE.style.display='none'
     }
-    
-    function openModal() {
-        console.log('openModal')
-        modalRootE.style.display='block'
-    }
-    
-    function modalClick(e) {
-        console.log('modalClick')
-        e.preventDefault()
-        e.stopPropagation()
-        e.stopImmediatePropagation()
-        return false
-    }
+}
 
-    function submitFeedback(event) {
+function setupNewPersonForm() {
+
+    const formE = get('newPersonForm')
+    const submitE = get('submitNewPersonButton')
+
+    const submitNewPerson = (evnt) => {
         console.log('submitFeedback')
-        const xhr2 = new XMLHttpRequest();
-        xhr2.open('POST', feedbackApi, true);
-        // xhr2.setRequestHeader('Content-Type', 'multipart/form-data');
+        formE.classList.add('w3-disabled')
+        const xhr2 = new XMLHttpRequest()
+        xhr2.open('POST', feedbackApi, true)
+        // xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        // multipart
+        // xhr2.setRequestHeader('Content-Type', '
+        
+
+        
         xhr2.onload = function() { // request successful
         // we can use server response to our request now
-          console.log('response', xhr2.responseText);
+            formE.classList.remove('w3-disabled')
+            document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'Escape'}))
+            console.log('response', xhr2.responseText)
         }
       
         xhr2.onerror = function() {
-            console.log('Error:', xhr2.status);
+            console.log('Error:', xhr2.status)
         };
         const formData = new FormData(formE)
+        // add current url to form data
+        formData.append('url', window.location.href)
+        // add user language to form data
+        formData.append('nav_lang', navigator.language)
+        // get html lang property
+        formData.append('locale', document.documentElement.lang)
+
         xhr2.send(formData)
-        event.preventDefault()
-      }
+        evnt.preventDefault()
+    }
+
+    formE.addEventListener("submit", submitNewPerson)
+    submitE.addEventListener('click', submitNewPerson)
 }
 
 

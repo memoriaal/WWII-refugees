@@ -1,28 +1,33 @@
 const ss = SpreadsheetApp.openById("1BuELFMc-RNRO_vWFqShQ3ak6Q1KvT-d7hBsZgg94is0")
-const MemoriaalSheetName = 'memoriaal.ee tagasiside'
-const WWIIrefSheetName = 'WWII-ref tagasiside'
+const NewPersonsSheet = 'Uued isikud'
+const FeedbackSheet = 'Tagasiside'
 const responseSheets = {
-  "memoriaal": ss.getSheetByName(MemoriaalSheetName),
-  "wwiiref": ss.getSheetByName(WWIIrefSheetName)
+  "target": ss.getSheetByName(NewPersonsSheet),
+  "newPersonForm": ss.getSheetByName(NewPersonsSheet),
+  "feedback": ss.getSheetByName(FeedbackSheet)
 }
 
-function doPost(req) {
-  const target = req.parameter.target
-  console.log("POST was called with action", target)
-  const responseSheet = responseSheets[target]
+function doPost(evnt) {
+  console.log(JSON.stringify(evnt, null, 2))
 
-  // iterate req.parameter and assign keys and values to separate arrays
-  // skip target parameter
-  const receivedData = Object.keys(req.parameter)
-    .filter(k => k !== "target")
-    .map(k => ({ key: k, value: req.parameter[k] }))
+  const form = evnt.parameter._form
+  console.log("POST was called with action", form)
+  const responseSheet = responseSheets[form]
+
+  // iterate evnt.parameter and assign keys and values to separate arrays
+  // skip _form parameter
+  const receivedData = Object.keys(evnt.parameter)
+    .filter(k => k !== "_form")
+    .map(k => ({ key: k, value: evnt.parameter[k] }))
 
   // add timestamp in Estonian locale
   const currentTime = new Date().toLocaleString("et-EE")
   receivedData.push({key: 'submitTime', value: currentTime})
 
+
   const keys = receivedData.map(d => d.key)
   const values = receivedData.map(d => d.value)
+
 
   // compare keys with header row and append missing columns
   const headerRow = _getHeaderRow(responseSheet)
@@ -39,13 +44,10 @@ function doPost(req) {
 
   // append row with new data to sheet
   responseSheet.appendRow(rowData)
-  
-  var result = {"result": "Insertion successful", receivedData, rowData}
-
-  // return response().json(result)
-  // Instead of returning JSON, return a HTML page with "Thank you" message
-  return response().html("<html><body><h1>Thank you for feedback!</h1></body></html>")
-  
+  if (form === 'newPersonForm' && evnt.parameter.contactEmail) {
+    sendEmail(evnt.parameter.contactEmail, evnt.parameter.locale)
+  }
+  return response().json(evnt.parameter)
 }
 
 function _getDataRows(sheetObject) {
@@ -57,6 +59,16 @@ function _getHeaderRow(sheetObject) {
   var sh = sheetObject;
 
   return sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+}
+
+function sendEmail(recipient, locale) {
+  var subject = "Thank you for your feedback"
+  var body = "Your feedback has been received and we will contact you soon!"
+  if (locale === 'et') {
+    subject = "Täname tagasiside eest"
+    body = "Teie tagasiside saadi kätte ja me võtame teiega ühendust!"
+  }
+  MailApp.sendEmail(recipient, subject, body)
 }
 
 function response() {
