@@ -217,6 +217,7 @@ function setupModals() {
 function setupNewPersonForm() {
 
     const formE = get('newPersonForm')
+    const validator = new Validator(formE)
     const submitE = get('submitNewPersonButton')
 
     const submitNewPerson = (evnt) => {
@@ -255,6 +256,3 @@ function setupNewPersonForm() {
     formE.addEventListener("submit", submitNewPerson)
     submitE.addEventListener('click', submitNewPerson)
 }
-
-
-  

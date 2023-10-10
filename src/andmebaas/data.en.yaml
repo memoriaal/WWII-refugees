@@ -88,7 +88,9 @@ newPersonForm:
                     type: text
                 -   label: Your e-mail address
                     name: contactEmail
-                    type: text
+                    type: email
+                    validator: email
+                    required: true
         -   title: Other
             fields:
                 -   label: Additional information
@@ -111,6 +113,8 @@ feedbackForm:
                 -   label: Your e-mail address
                     name: contactEmail
                     type: email
+                    validator: email
+                    required: true
                 -   label: Your phone number
                     name: contactPhone
                     type: text
@@ -122,4 +126,3 @@ feedbackForm:
                     rows: 5
                     placeholder: "Please add any additional information here"
     submit: Submit
-    

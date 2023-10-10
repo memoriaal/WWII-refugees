@@ -89,6 +89,8 @@ newPersonForm:
                 -   label: Sinu e-posti aadress
                     name: contactEmail
                     type: email
+                    validator: email
+                    required: true
         -   title: Muu info
             fields:
                 -   label: Lisainfo
@@ -111,6 +113,8 @@ feedbackForm:
                 -   label: Sinu e-posti aadress
                     name: contactEmail
                     type: email
+                    validator: email
+                    required: true
                 -   label: Sinu telefoninumber
                     name: contactPhone
                     type: text
