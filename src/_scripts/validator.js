@@ -19,7 +19,7 @@
 class Validator {
     constructor(formE) {
         this.formE = formE
-        this.inputs = this.formE.querySelectorAll('input[validator]')
+        this.inputs = this.formE.querySelectorAll('input[validator], input[required]')
         this.valid = false
         this.setup()
     }
@@ -36,15 +36,20 @@ class Validator {
             this.validateInput(input)
         })
         if (!this.valid) {
+            console.log('preventDefault')
             evnt.preventDefault()
         }
     }
     validateInput(input) {
         const validator = input.getAttribute('validator')
+        const required = input.getAttribute('required')
+        console.log('validateInput', { validator, required})
         if (validator === 'email') {
+            console.log('validateEmail', input)
             this.validateEmail(input)
         }
-        else if (validator === 'required') {
+        if (required === '') {
+            console.log('validateRequired', input)
             this.validateRequired(input)
         }
     }
