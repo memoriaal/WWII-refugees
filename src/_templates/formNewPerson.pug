@@ -1,7 +1,7 @@
 .w3-modal.w3-card-4#newPersonFormRoot.modal-root
     form#newPersonForm.w3-modal-content.modal-content(method="POST")
         //- title of the form
-        button#closenewPersonForm.w3-button.w3-right.close-modal(type="button") &times;
+        button#closeNewPersonForm.w3-button.close-modal(type="button", style="position: absolute; right: 0px;") &times;
         .w3-container
             h1= self.newPersonForm.title
             //- description of the form

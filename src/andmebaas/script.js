@@ -179,7 +179,18 @@ function setupModals() {
         evnt.target.style.display='block'
     }
     const closeModal = (evnet_or_element) => {
+        if (!evnet_or_element) return
         const target = evnet_or_element.target || evnet_or_element
+        // If target is not modal root, then call close modal on parent
+        console.log('closeModal', {target, classList: target.classList})
+        if (!target.classList) {
+            console.log('closeModal no classList', target)
+            return closeModal(target.parentElement)
+        }
+        if (!target.classList.contains('modal-root')) {
+            console.log('closeModal not modal-root', target.classList)
+            return closeModal(target.parentElement)
+        }
         if (target.style.display === 'none')
             return
         console.log('closeModal', target)
