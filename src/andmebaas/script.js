@@ -281,11 +281,9 @@ function setupNewPersonForm() {
         evnt.preventDefault()
     }
 
-    // modify formE reset function to reset all fields w/o persistent attribute
-    const resetForm = formE.reset
+    // modify formE reset function to reset all fields and textareas w/o persistent attribute
     formE.reset = () => {
-        console.log('resetForm')
-        const inputs = formE.querySelectorAll('input:not([persistent])')
+        const inputs = formE.querySelectorAll('input:not([persistent]), textarea:not([persistent])')
         inputs.forEach(input => {
             input.value = ''
         })
