@@ -233,25 +233,42 @@ function setupNewPersonForm() {
 
     const submitNewPerson = (evnt) => {
         console.log('submitFeedback')
+        if (!validator.valid) {
+            console.log('validation failed')
+            return false
+        }
         formE.classList.add('w3-disabled')
+        // Set up named timer to re-enable form after 5 seconds
+        // and alert user that form was not submitted
+        const timerName = 'submitNewPersonButton'
+        const timer = setTimeout(() => {
+            formE.classList.remove('w3-disabled')
+            alert('Vabandame, tagasiside saatmine ebaõnnestus. Palun proovi uuesti.')
+        }, 5000)
+        // If timer already exists, clear it
+        if (window[timerName]) {
+            clearTimeout(window[timerName])
+        }
+        // Set timer to window object
+        window[timerName] = timer
+
         const xhr2 = new XMLHttpRequest()
         xhr2.open('POST', feedbackApi, true)
-        // xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-        // multipart
-        // xhr2.setRequestHeader('Content-Type', '
-        
-
         
         xhr2.onload = function() { // request successful
         // we can use server response to our request now
+            clearTimeout(window[timerName])
             formE.classList.remove('w3-disabled')
             document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'Escape'}))
             console.log('response', xhr2.responseText)
+            formE.reset()
         }
       
         xhr2.onerror = function() {
+            clearTimeout(window[timerName])
+            formE.classList.remove('w3-disabled')
             console.log('Error:', xhr2.status)
-        };
+        }
         const formData = new FormData(formE)
         // add current url to form data
         formData.append('url', window.location.href)
@@ -262,6 +279,16 @@ function setupNewPersonForm() {
 
         xhr2.send(formData)
         evnt.preventDefault()
+    }
+
+    // modify formE reset function to reset all fields w/o persistent attribute
+    const resetForm = formE.reset
+    formE.reset = () => {
+        console.log('resetForm')
+        const inputs = formE.querySelectorAll('input:not([persistent])')
+        inputs.forEach(input => {
+            input.value = ''
+        })
     }
 
     formE.addEventListener("submit", submitNewPerson)

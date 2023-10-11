@@ -79,6 +79,7 @@ newPersonForm:
                     type: text
 
         -   title: Info andja
+            persistent: true
             fields:
                 -   label: Suhe põgenenud isikuga
                     name: contactRelationship
@@ -107,6 +108,7 @@ feedbackForm:
     description: "Kui soovite anda tagasisidet %s kohta, siis palun täitke allolev vorm."
     sections:
         -   title: Info andja
+            persistent: true
             fields:
                 -   label: Sinu nimi
                     name: contactName

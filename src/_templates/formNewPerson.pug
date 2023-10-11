@@ -8,7 +8,7 @@
             p= self.newPersonForm.description
             //- iterate over sections
             each section in self.newPersonForm.sections
-                .w3-container
+                .w3-container()
                     //- section title
                     h2= section.title
                     each field in section.fields
@@ -18,9 +18,9 @@
                         //- field input
                         //- add .wwii-invalid class, if required
                         if (field.type === 'textarea')
-                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '')
+                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
                         else
-                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '')
+                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
 
         button#submitNewPersonButton.w3-button.w3-block.w3-padding.w3-blue.close-modal(
             type="submit",

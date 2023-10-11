@@ -79,6 +79,7 @@ newPersonForm:
                     type: text
 
         -   title: Information provider
+            persistent: true
             fields:
                 -   label: Your relationship with the person who fled
                     name: contactRelationship
@@ -107,6 +108,7 @@ feedbackForm:
     description: "If you would like to give feedback on %s, please fill in the form below."
     sections:
         -   title: Information provider
+            persistent: true
             fields:
                 -   label: Your name
                     name: contactName
