@@ -1,3 +1,8 @@
+function test () {
+  const acc_sheet = responseSheets['newPersonForm']
+  acc_sheet.insertColumnBefore(1)
+}
+
 const ss = SpreadsheetApp.openById("1BuELFMc-RNRO_vWFqShQ3ak6Q1KvT-d7hBsZgg94is0")
 const NewPersonsSheet = 'Uued isikud'
 const FeedbackSheet = 'Tagasiside'
@@ -24,10 +29,8 @@ function doPost(evnt) {
   const currentTime = new Date().toLocaleString("et-EE")
   receivedData.push({key: 'submitTime', value: currentTime})
 
-
   const keys = receivedData.map(d => d.key)
   const values = receivedData.map(d => d.value)
-
 
   // compare keys with header row and append missing columns
   const headerRow = _getHeaderRow(responseSheet)
@@ -42,8 +45,10 @@ function doPost(evnt) {
   // reorder values to match header row
   const rowData = headerRow.map(h => values[keys.indexOf(h)])
 
-  // append row with new data to sheet
-  responseSheet.appendRow(rowData)
+  // insert rowData as first data row
+  responseSheet.insertRowBefore(2)
+  responseSheet.getRange(2, 1, 1, rowData.length).setValues([rowData])
+  
   if (form === 'newPersonForm' && evnt.parameter.contactEmail) {
     sendEmail(evnt.parameter.contactEmail, evnt.parameter.locale)
   }
