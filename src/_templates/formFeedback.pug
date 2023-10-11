@@ -16,7 +16,7 @@
                         label= field.label
                         //- field input
                         if (field.type === 'textarea')
-                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||'', required=field.required||false, rows=field.rows||3, cols=field.cols||80)
+                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80)
                         else
-                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||'', required=field.required||false)
+                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false)
             button#submitFeedbackButton.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round.close-modal(type="submit")= self.newPersonForm.submit
