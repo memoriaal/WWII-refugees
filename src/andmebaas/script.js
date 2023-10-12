@@ -156,9 +156,8 @@ function performQuery(qs) {
     xhr2.send(JSON.stringify(qData));
 }
 
-
 window.addEventListener('load', setupNewPersonForm)
-// window.addEventListener('load', setupFeedbackForm)
+window.addEventListener('load', setupFeedbackForm)
 window.addEventListener('load', setupModals)
 
 const feedbackBase = 'https://script.google.com/macros/s'
@@ -226,24 +225,31 @@ function setupModals() {
 }
 
 function setupNewPersonForm() {
+    setupForm('newPersonForm')
+}
+function setupFeedbackForm() {
+    setupForm('feedbackForm')
+}
 
-    const formE = get('newPersonForm')
+function setupForm(formName) {
+    const formE = get(formName)
     const validator = new Validator(formE)
-    const submitE = get('submitNewPersonButton')
+    const submitE = get(`${formName}SubmitButton`)
 
     const submitNewPerson = (evnt) => {
-        console.log('submitFeedback')
         if (!validator.valid) {
-            console.log('validation failed')
+            get('alert_mandatoryNameAndEmail').style.display = 'block'
+            evnt.preventDefault()
             return false
         }
+        console.log('submitFeedback', formName, evnt, validator.valid)
         formE.classList.add('w3-disabled')
         // Set up named timer to re-enable form after 5 seconds
         // and alert user that form was not submitted
-        const timerName = 'submitNewPersonButton'
+        const timerName = `${formName}Timer`
         const timer = setTimeout(() => {
             formE.classList.remove('w3-disabled')
-            alert('Vabandame, tagasiside saatmine ebaõnnestus. Palun proovi uuesti.')
+            get('alert_formNotSubmitted').style.display = 'block'
         }, 5000)
         // If timer already exists, clear it
         if (window[timerName]) {
@@ -283,6 +289,7 @@ function setupNewPersonForm() {
 
     // modify formE reset function to reset all fields and textareas w/o persistent attribute
     formE.reset = () => {
+        console.log('formE.reset', formName)
         const inputs = formE.querySelectorAll('input:not([persistent]), textarea:not([persistent])')
         inputs.forEach(input => {
             input.value = ''

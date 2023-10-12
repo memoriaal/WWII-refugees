@@ -22,7 +22,7 @@
                         else
                             input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
 
-        button#submitNewPersonButton.w3-button.w3-block.w3-padding.w3-blue.close-modal(
+        button#newPersonFormSubmitButton.w3-button.w3-block.w3-padding.w3-blue(
             type="submit",
             style="margin-bottom: 3em; margin-top: 1em;"
             )= self.newPersonForm.submit

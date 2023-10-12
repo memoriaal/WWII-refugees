@@ -1,7 +1,7 @@
-.w3-modal.w3-card-4#feedbackFormTemplate.modal-root
+.w3-modal.w3-card-4#feedbackFormRoot.modal-root
     form#feedbackForm.w3-modal-content.modal-content(method="POST")
         //- title of the form
-        button#closefeedbackForm.w3-button.w3-right.close-modal(type="button") &times;
+        button#closefeedbackForm.w3-button.w3-right.close-modal(type="button", style="position: absolute; right: 0px;") &times;
         .w3-container
             h1= self.feedbackForm.title
             //- description of the form
@@ -13,11 +13,14 @@
                     h2= section.title
                     each field in section.fields
                         //- field label
-                        label= field.label
+                        label= field.label + (field.required ? ' *' : '')
                         //- field input
                         if (field.type === 'textarea')
                             textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
                         else
                             input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
 
-        button#submitFeedbackButton.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round.close-modal(type="submit")= self.newPersonForm.submit
+        button#feedbackFormSubmitButton.w3-button.w3-block.w3-section.w3-padding.w3-blue.w3-round(
+            type="submit",
+            style="margin-bottom: 3em; margin-top: 1em;"
+            )= self.feedbackForm.submit
