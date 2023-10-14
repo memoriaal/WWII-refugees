@@ -13,6 +13,7 @@ window.addEventListener('load', function () {
 
 var ecresults = {}
 
+
 function performQuery(qs) {
     const qData = {
         query: {
@@ -58,41 +59,13 @@ function performQuery(qs) {
             if (idQuery && hits[0]._source.redirect) {
                 window.location.href = '/?q=' + hits[0]._source.redirect;
             }
+            const resultTemplateE = get('search-result-template')
+            const searchResultsE = get('search-results')
             for (let i = 0; i < hits.length; i++) {
-                const text = [];
-                const p = hits[i]._source;
-                text.push('<div id="' + p.id + '" class="search-result w3-panel w3-round w3-padding">');
-                text.push('<div class="search-result-name">' + (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi + '</div>');
-                text.push('<div class="w3-row">');
-                text.push('<div class="w3-col l4">');
-                if (p.sünd) {
-                    text.push('<p class="mb-0">Sünd: ' + p.sünd);
-                    if (p.sünnikoht) { text.push('<span> ' + p.sünnikoht + '</span>'); }
-                    text.push('</p>');
-                }
-                if (p.surm) {
-                    text.push('<p class="mb-0">Surm: ' + p.surm);
-                    if (p.surmakoht) { text.push('<span> ' + p.surmakoht + '</span>'); }
-                    text.push('</p>');
-                }
-                if (p.isanimi) { text.push('<p class="mb-0">Isanimi: ' + p.isanimi + '</p>'); }
-                if (p.emanimi) { text.push('<p class="mb-0">Emanimi: ' + p.emanimi + '</p>'); }
-                text.push('<p class="mb-0"><a href="./?q=' + p.id + '"># ' + p.id + '</a></p>');
-                text.push('<p class="search-result-feedback mt-3" data-id="' + p.id + '" data-name="' + p.eesnimi + ' ' + p.perenimi + '">Tagasiside/Feedback</p>');
-                text.push('</div>');
-                text.push('<div class="w3-col l8 search-result-info">');
-                p.kirjed = p.kirjed || [];
-                for (let ik = 0; ik < p.kirjed.length; ik++) {
-                    let a1 = a2 = '';
-                    if (p.kirjed[ik].viide) {
-                        a1 = '<a href="' + p.kirjed[ik].viide + '" target="_blank">';
-                        a2 = '</a>';
-                    }
-                    text.push('<p class="mt-2 mb-0"><strong>' + a1 + p.kirjed[ik].allikas + a2 + ':</strong></p>');
-                    if (p.kirjed[ik].kirje) { text.push('<p class="mb-1">'); }
-                    if (p.kirjed[ik].kirje) { text.push(p.kirjed[ik].kirje); }
-                    if (p.kirjed[ik].kirje) { text.push('</p>'); }
-                }
+                const text = []
+                const p = hits[i]._source
+                searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
+
                 if (p.pereseosed && p.pereseosed.length > 0) {
                     text.push('<div class="pere"><label>Pereliikmed</label>');
                     for (let ip = 0; ip < p.pereseosed.length; ip++) {
@@ -138,7 +111,7 @@ function performQuery(qs) {
             const acc = document.getElementsByClassName('pereliige');
             console.log('Search results loaded', acc.length, acc);
             for (let i = 0; i < acc.length; i++) {
-                console.log(acc[i].lastChild.classList);
+                console.log('classlist of last child', acc[i].lastChild.classList);
                 acc[i].addEventListener("click", function () {
                     this.classList.toggle("active");
                     this.lastChild.classList.toggle('folded');
@@ -156,8 +129,76 @@ function performQuery(qs) {
     xhr2.send(JSON.stringify(qData));
 }
 
+function fillTemplate(recordE, p) {
+    recordE.style.display = ''
+    recordE.id = p.id
+    const personName = (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi
+
+    recordE.querySelector('.search-result-name').innerHTML = personName
+
+    stripReplace('#result-born', p.sünd + (p.sünnikoht ? ' ' + p.sünnikoht : ''))
+    stripReplace('#result-died', p.surm + (p.surmakoht ? ' ' + p.surmakoht : ''))
+    stripReplace('#result-fathers-name', p.isanimi)
+    stripReplace('#result-mothers-name', p.emanimi)
+
+    const resultLinkE = recordE.querySelector('#resultId a')
+    resultLinkE.innerHTML = p.id
+    resultLinkE.href = './?q=' + p.id
+    recordE.querySelector('#resultId').id = 'ID_' + p.id
+
+    stripReplace('#searchResultFeedbackFormLink', personName, 'feedback_' + p.id)
+
+    p.kirjed = p.kirjed || []
+    console.log(7, p.kirjed)
+
+    const resultRecordsE = recordE.querySelector('#resultRecords')
+    const resultRecordTemplateE = recordE.querySelector('#result-record-template')
+    for (let ik = 0; ik < p.kirjed.length; ik++) {
+        const resultRecordE = resultRecordTemplateE.cloneNode(true)
+        const pKirje = p.kirjed[ik]
+        resultRecordE.id = p.id + '_' + ik
+        resultRecordE.setAttribute('code', pKirje.kirjekood)
+        resultRecordE.querySelector('.record-label').innerHTML = pKirje.allikas
+        const allikaLinkE = resultRecordE.querySelector('a')
+        if (pKirje.viide && pKirje.viide.length > 0) {
+            allikaLinkE.href = pKirje.viide
+        } else {
+            allikaLinkE.classList.remove('w3-btn', 'record-link')
+        }
+        resultRecordE.querySelector('.record-text').innerHTML = pKirje.kirje
+        resultRecordsE.appendChild(resultRecordE)
+    }
+
+    p.pereseosed = p.pereseosed || []
+    if (p.pereseosed.length === 0) {
+        recordE.querySelector('#resultFamily').remove()
+    }
+    for (let ip = 0; ip < p.pereseosed.length; ip++) {
+        const pPereseos = p.pereseosed[ip]
+        const pereseos = p.pereseosed[ip].seos
+        if (pPereseos.suund === '-1') {
+            pPereseos.seos = '(' + pereseos + ')'
+        }
+        const perekirjed = pPereseos.kirjed
+    }
+    // remove record template from DOM
+    resultRecordTemplateE.remove()
+    return recordE
+
+
+    function stripReplace(selector, text, newId = false) {
+        const element = recordE.querySelector(selector)
+        element.innerHTML = element.innerHTML.replace('%s', text)
+        if (newId) {
+            element.id = newId
+        } else {
+            element.removeAttribute('id')
+        }
+    }
+}
+
 window.addEventListener('load', setupNewPersonForm)
-window.addEventListener('load', setupFeedbackForm)
+window.addEventListener('load', setupSearchResultForm)
 window.addEventListener('load', setupModals)
 
 const feedbackBase = 'https://script.google.com/macros/s'
@@ -227,8 +268,8 @@ function setupModals() {
 function setupNewPersonForm() {
     setupForm('newPersonForm')
 }
-function setupFeedbackForm() {
-    setupForm('feedbackForm')
+function setupSearchResultForm() {
+    setupForm('searchResultForm')
 }
 
 function setupForm(formName) {

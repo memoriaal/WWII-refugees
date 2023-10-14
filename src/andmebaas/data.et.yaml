@@ -102,7 +102,7 @@ newPersonForm:
                     placeholder: "Kui soovite, võite siia lisada ka muid kommentaare."
     submit: Saada
 
-feedbackForm:
+searchResultForm:
     linkText: Tagasiside %s kohta
     title: Tagasiside
     description: "Kui soovite anda tagasisidet %s kohta, siis palun täitke allolev vorm."
@@ -130,3 +130,17 @@ feedbackForm:
                     rows: 5
                     placeholder: "Palun lisage siia oma täpsustused, kommentaarid, parandused jne"
     submit: Saada
+
+searchResultLabels:
+    linkText: Tagasiside %s kohta
+    noRecords: Vasteid ei leitud
+    born: "Sünd: %s"
+    died: "Surm: %s"
+    father: "Isanimi: %s"
+    mother: "Emanimi: %s"
+    records: Kirjed
+    family: Pereliikmed
+    t:
+        ema: ema
+        isa: isa
+        laps: laps

@@ -1,0 +1,30 @@
+// Search result template
+
+.search-result.w3-round.w3-padding#search-result-template(style='display: none;')
+    .search-result-name Steven Eleven
+    .w3-row
+        .w3-col.l4
+            p#result-born.mb-0= self.searchResultLabels.born
+                span#result-birthplace 
+            p#result-died.mb-0= self.searchResultLabels.died
+                span#result-deathplace 
+            p#result-fathers-name.mb-0= self.searchResultLabels.father
+            p#result-mothers-name.mb-0= self.searchResultLabels.mother
+            p#resultId.mb-0
+                a.record-link
+
+            .w3-button#searchResultFeedbackFormLink(onclick="openSearchResultFeedbackForm")= self.searchResultLabels.linkText
+        .w3-col.l8.search-result-info
+            #resultRecords.mt-2.mb-0
+                h3= self.searchResultLabels.records
+                #result-record-template.result-record.mt-2.mb-0(code='PR-5555555')
+                    //- span.record-label Pereregister:
+                    a.record-label.record-link.w3-btn(target='_blank')
+                    .record-text.mb-1 Lorem Ipsum dolor sit amet
+            #resultFamily.mt-2.mb-0
+                h3= self.searchResultLabels.family
+                #resultFamilyMember.mt-2.mb-0(code='0055555555')
+                    #resultFamilyRecord.mt-2.mb-0(code='PR-5555555')
+                        .record-label Pereregister:
+                        a.record-link.w3-btn.w3-circle(target='_blank')
+                        .record-text.mb-1 Lorem Ipsum dolor sit amet

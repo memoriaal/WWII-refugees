@@ -102,7 +102,7 @@ newPersonForm:
                     placeholder: "Please add any additional information here"
     submit: Submit
 
-feedbackForm:
+searchResultForm:
     linkText: Feedback on %s
     title: Feedback
     description: "If you would like to give feedback on %s, please fill in the form below."
@@ -130,3 +130,17 @@ feedbackForm:
                     rows: 5
                     placeholder: "Please add any additional information here"
     submit: Submit
+
+searchResultLabels:
+    linkText: Feedback on %s
+    noRecords: No records found
+    born: "Born: %s"
+    died: "Died: %s"
+    father: "Father: %s"
+    mother: "Mother: %s"
+    records: Records
+    family: Family members
+    t:
+        ema: mother
+        isa: father
+        laps: child
