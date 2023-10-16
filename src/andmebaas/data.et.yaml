@@ -124,6 +124,9 @@ searchResultForm:
                     type: text
         -   title: Tagasiside
             fields:
+                -   label: code
+                    name: code
+                    type: hidden
                 -   label: Tagasiside
                     name: feedback
                     type: textarea

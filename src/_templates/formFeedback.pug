@@ -5,7 +5,7 @@
         .w3-container
             h1= self.searchResultForm.title
             //- description of the form
-            p= self.searchResultForm.description
+            p#searchResultFormDescription= self.searchResultForm.description
             //- iterate over sections
             each section in self.searchResultForm.sections
                 .w3-container
@@ -13,7 +13,8 @@
                     h2= section.title
                     each field in section.fields
                         //- field label
-                        label= field.label + (field.required ? ' *' : '')
+                        if (field.type !== 'hidden')
+                            label= field.label + (field.required ? ' *' : '')
                         //- field input
                         if (field.type === 'textarea')
                             textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)

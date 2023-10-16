@@ -12,6 +12,7 @@ window.addEventListener('load', function () {
 })
 
 var ecresults = {}
+var fbFormData = {}
 
 
 function performQuery(qs) {
@@ -64,6 +65,10 @@ function performQuery(qs) {
             for (let i = 0; i < hits.length; i++) {
                 const text = []
                 const p = hits[i]._source
+                fbFormData[p.id] = {
+                    id: p.id,
+                    name: p.eesnimi + ' ' + p.perenimi
+                }
                 searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
                 if (p.tahvlikirje && p.kivi) {
@@ -97,6 +102,9 @@ function performQuery(qs) {
             }
             document.getElementById("searchform").scrollIntoView()
             window.scrollBy(0,-100)
+
+            initResultFeedbackButtons()
+        
         } else {
             console.log('Error:', xhr2.status);
         }
@@ -105,6 +113,13 @@ function performQuery(qs) {
         console.log('Error:', xhr2.status);
     };
     xhr2.send(JSON.stringify(qData));
+}
+
+function initResultFeedbackButtons() {
+    get('search-results').querySelectorAll('button').forEach(button => {
+        console.log('setupSearchResultForm', button)
+        button.addEventListener('click', openSearchResultFeedbackForm)
+    })
 }
 
 function fillTemplate(recordE, p) {
@@ -147,7 +162,6 @@ function fillTemplate(recordE, p) {
     }
 
     p.pereseosed = p.pereseosed || []
-    console.log(7, p.pereseosed)
     if (p.pereseosed.length === 0) {
         recordE.querySelector('#resultFamily').remove()
     }
@@ -209,7 +223,7 @@ window.addEventListener('load', setupModals)
 const feedbackBase = 'https://script.google.com/macros/s'
 const feedbackApiId = 
     'AKfycbyLwhNTYHw26-vVY68hd_xBxOEO9_VxxQ3WmiMhT5RnRxTrqqztnOO_fC1-k0DQtE18XQ'
-const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=newPersonForm`
+const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=`
 
 function setupModals() {
     const modalClick = (evnt) => {
@@ -305,7 +319,7 @@ function setupForm(formName) {
         window[timerName] = timer
 
         const xhr2 = new XMLHttpRequest()
-        xhr2.open('POST', feedbackApi, true)
+        xhr2.open('POST', feedbackApi + formName, true)
         
         xhr2.onload = function() { // request successful
         // we can use server response to our request now
@@ -344,4 +358,30 @@ function setupForm(formName) {
 
     formE.addEventListener("submit", submitNewPerson)
     submitE.addEventListener('click', submitNewPerson)
+}
+
+function openSearchResultFeedbackForm(evnt) {
+    function findSearhResultParent(element) {
+        if (element.classList.contains('search-result')) {
+            return element
+        }
+        if (element.parentElement) {
+            return findSearhResultParent(element.parentElement)
+        }
+        return null
+    }
+
+    console.log('openSearchResultFeedbackForm', evnt.target)
+    const button = evnt.target
+    const searchResultE = findSearhResultParent(button)
+    const personName = searchResultE.querySelector('.search-result-name').innerHTML
+    const code = searchResultE.id
+    const descriptionE = get('searchResultFormDescription')
+    descriptionE.innerHTML = descriptionE.innerHTML.replace('%s', code + ' ' + personName)
+    const formE = get('searchResultForm')
+    formE.reset()
+    formE.querySelector('input[name="code"]').value = code
+    // make form visible and set focus to first input
+    get('searchResultFormRoot').style.display = 'block'
+    // formE.querySelector('input[name="name"]').focus()
 }

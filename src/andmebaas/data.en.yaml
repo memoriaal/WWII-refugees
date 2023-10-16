@@ -124,6 +124,9 @@ searchResultForm:
                     type: text
         -   title: Feedback
             fields:
+                -   label: code
+                    name: code
+                    type: hidden
                 -   label: Feedback
                     name: feedback
                     type: textarea

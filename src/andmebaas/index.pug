@@ -19,7 +19,7 @@ block body
             each paragraph in self.texts
                 p= paragraph
         
-        .w3-button#newPersonLink(onclick="document.getElementById('newPersonFormRoot').style.display='block'"
+        button.w3-padding.w3-round.w3-right#newPersonLink(onclick="document.getElementById('newPersonFormRoot').style.display='block'"
             )= self.newPersonForm.linkText
 
         .w3-row
