@@ -117,13 +117,14 @@ function performQuery(qs) {
 
 function initResultFeedbackButtons() {
     get('search-results').querySelectorAll('button').forEach(button => {
-        console.log('setupSearchResultForm', button)
+        // console.log('setupSearchResultForm', button)
         button.addEventListener('click', openSearchResultFeedbackForm)
     })
 }
 
 function fillTemplate(recordE, p) {
     recordE.style.display = ''
+    // console.log('fillTemplate', p)
     recordE.id = p.id
     const personName = (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi
 
@@ -164,44 +165,44 @@ function fillTemplate(recordE, p) {
     p.pereseosed = p.pereseosed || []
     if (p.pereseosed.length === 0) {
         recordE.querySelector('#resultFamily').remove()
-    }
-    const resultRecordFamily = recordE.querySelector('#resultFamily')
-    resultRecordFamily.id = 'family_of_' + p.id
-    const familyMemberTemplateE = recordE.querySelector('#resultFamilyMember')
+    } else {
+        const resultRecordFamily = recordE.querySelector('#resultFamily')
+        resultRecordFamily.id = 'family_of_' + p.id
+        const familyMemberTemplateE = recordE.querySelector('#resultFamilyMember')
 
-    for (let ip = 0; ip < p.pereseosed.length; ip++) {
-        const pPereseos = p.pereseosed[ip]
-        const pereseos = p.pereseosed[ip].seos
-        if (pPereseos.suund === '-1') {
-            pPereseos.seos = '(' + pereseos + ')'
-        }
-        const perekirjed = pPereseos.kirjed || []
-        const familyMemberE = familyMemberTemplateE.cloneNode(true)
-        familyMemberE.id = p.id + '_F_' + ip
-        familyMemberE.classList.add('family-member')
-        familyMemberE.querySelector('.family-member-full-record .code').innerHTML = pPereseos.seos + ' ' + pPereseos.persoon
-        familyMemberE.querySelector('.family-member-full-record .record').innerHTML = pPereseos.kirje
-
-        for (let ik = 0; ik < perekirjed.length; ik++) {
-            const perekirje = perekirjed[ik]
-            const resultRecordE = resultRecordTemplateE.cloneNode(true)
-            resultRecordE.id = p.id + '_' + ik
-            resultRecordE.setAttribute('code', perekirje.kirjekood)
-            resultRecordE.querySelector('.record-label').innerHTML = perekirje.allikas
-            const allikaLinkE = resultRecordE.querySelector('a')
-            if (perekirje.viide && perekirje.viide.length > 0) {
-                allikaLinkE.href = perekirje.viide
-            } else {
-                allikaLinkE.classList.remove('w3-btn', 'record-link')
+        for (let ip = 0; ip < p.pereseosed.length; ip++) {
+            const pPereseos = p.pereseosed[ip]
+            const pereseos = p.pereseosed[ip].seos
+            if (pPereseos.suund === '-1') {
+                pPereseos.seos = '(' + pereseos + ')'
             }
-            resultRecordE.querySelector('.record-text').innerHTML = perekirje.kirje
-            familyMemberE.appendChild(resultRecordE)
+            const perekirjed = pPereseos.kirjed || []
+            const familyMemberE = familyMemberTemplateE.cloneNode(true)
+            familyMemberE.id = p.id + '_F_' + ip
+            familyMemberE.classList.add('family-member')
+            familyMemberE.querySelector('.family-member-full-record .code').innerHTML = pPereseos.seos + ' ' + pPereseos.persoon
+            familyMemberE.querySelector('.family-member-full-record .record').innerHTML = pPereseos.kirje
+
+            for (let ik = 0; ik < perekirjed.length; ik++) {
+                const perekirje = perekirjed[ik]
+                const resultRecordE = resultRecordTemplateE.cloneNode(true)
+                resultRecordE.id = p.id + '_' + ik
+                resultRecordE.setAttribute('code', perekirje.kirjekood)
+                resultRecordE.querySelector('.record-label').innerHTML = perekirje.allikas
+                const allikaLinkE = resultRecordE.querySelector('a')
+                if (perekirje.viide && perekirje.viide.length > 0) {
+                    allikaLinkE.href = perekirje.viide
+                } else {
+                    allikaLinkE.classList.remove('w3-btn', 'record-link')
+                }
+                resultRecordE.querySelector('.record-text').innerHTML = perekirje.kirje
+                familyMemberE.appendChild(resultRecordE)
+            }
+            resultRecordFamily.appendChild(familyMemberE)
         }
-        resultRecordFamily.appendChild(familyMemberE)
+        familyMemberTemplateE.remove()
     }
-    
     // remove templates from DOM
-    familyMemberTemplateE.remove()
     resultRecordTemplateE.remove()
     return recordE
 
@@ -227,14 +228,14 @@ const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=`
 
 function setupModals() {
     const modalClick = (evnt) => {
-        console.log('modalClick', evnt)
+        // console.log('modalClick', evnt)
         evnt.preventDefault()
         evnt.stopPropagation()
         evnt.stopImmediatePropagation()
         return false
     }
     const openModal = (evnt) => {
-        console.log('openModal', evnt.target)
+        // console.log('openModal', evnt.target)
         evnt.target.style.display='block'
     }
     const closeModal = (evnet_or_element) => {
@@ -243,16 +244,16 @@ function setupModals() {
         // If target is not modal root, then call close modal on parent
         console.log('closeModal', {target, classList: target.classList})
         if (!target.classList) {
-            console.log('closeModal no classList', target)
+            // console.log('closeModal no classList', target)
             return closeModal(target.parentElement)
         }
         if (!target.classList.contains('modal-root')) {
-            console.log('closeModal not modal-root', target.classList)
+            // console.log('closeModal not modal-root', target.classList)
             return closeModal(target.parentElement)
         }
         if (target.style.display === 'none')
             return
-        console.log('closeModal', target)
+        // console.log('closeModal', target)
         target.style.display='none'
     }
 
@@ -302,7 +303,7 @@ function setupForm(formName) {
             evnt.preventDefault()
             return false
         }
-        console.log('submitFeedback', formName, evnt, validator.valid)
+        // console.log('submitFeedback', formName, evnt, validator.valid)
         formE.classList.add('w3-disabled')
         // Set up named timer to re-enable form after 5 seconds
         // and alert user that form was not submitted
@@ -371,7 +372,7 @@ function openSearchResultFeedbackForm(evnt) {
         return null
     }
 
-    console.log('openSearchResultFeedbackForm', evnt.target)
+    // console.log('openSearchResultFeedbackForm', evnt.target)
     const button = evnt.target
     const searchResultE = findSearhResultParent(button)
     const personName = searchResultE.querySelector('.search-result-name').innerHTML
