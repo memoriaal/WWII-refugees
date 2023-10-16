@@ -66,28 +66,6 @@ function performQuery(qs) {
                 const p = hits[i]._source
                 searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
-                if (p.pereseosed && p.pereseosed.length > 0) {
-                    text.push('<div class="pere"><label>Pereliikmed</label>');
-                    for (let ip = 0; ip < p.pereseosed.length; ip++) {
-                        let pereseos = p.pereseosed[ip].seos;
-                        if (p.pereseosed[ip].suund === '-1') {
-                            pereseos = '(' + pereseos + ')';
-                        }
-                        let perekirjed = p.pereseosed[ip].kirjed;
-                        text.push('<li class="my-0 pereliige"><a href="?q=' + p.pereseosed[ip].persoon + '">' + p.pereseosed[ip].persoon + ' ' + pereseos + '</a>');
-                        text.push(' : ' + p.pereseosed[ip].kirje);
-                        text.push('<ul class="perekirjed folded">');
-                        for (let ik = 0; ik < perekirjed.length; ik++) {
-                            text.push('<li class="mb-1">');
-                            text.push(perekirjed[ik].kirjekood + ': ' + perekirjed[ik].kirje);
-                            text.push('</li>');
-                        }
-                        text.push('</ul>');
-                        text.push('</li>');
-                    }
-                    text.push('</div>');
-                }
-                text.push('</div>');
                 if (p.tahvlikirje && p.kivi) {
                     text.push('<div class="search-result-plaque col-12 col-sm-3">');
                     if (p.tahvlikirje.tahvel) {
@@ -149,7 +127,6 @@ function fillTemplate(recordE, p) {
     stripReplace('#searchResultFeedbackFormLink', personName, 'feedback_' + p.id)
 
     p.kirjed = p.kirjed || []
-    console.log(7, p.kirjed)
 
     const resultRecordsE = recordE.querySelector('#resultRecords')
     const resultRecordTemplateE = recordE.querySelector('#result-record-template')
@@ -170,21 +147,49 @@ function fillTemplate(recordE, p) {
     }
 
     p.pereseosed = p.pereseosed || []
+    console.log(7, p.pereseosed)
     if (p.pereseosed.length === 0) {
         recordE.querySelector('#resultFamily').remove()
     }
+    const resultRecordFamily = recordE.querySelector('#resultFamily')
+    resultRecordFamily.id = 'family_of_' + p.id
+    const familyMemberTemplateE = recordE.querySelector('#resultFamilyMember')
+
     for (let ip = 0; ip < p.pereseosed.length; ip++) {
         const pPereseos = p.pereseosed[ip]
         const pereseos = p.pereseosed[ip].seos
         if (pPereseos.suund === '-1') {
             pPereseos.seos = '(' + pereseos + ')'
         }
-        const perekirjed = pPereseos.kirjed
+        const perekirjed = pPereseos.kirjed || []
+        const familyMemberE = familyMemberTemplateE.cloneNode(true)
+        familyMemberE.id = p.id + '_F_' + ip
+        familyMemberE.classList.add('family-member')
+        familyMemberE.querySelector('.family-member-full-record .code').innerHTML = pPereseos.seos + ' ' + pPereseos.persoon
+        familyMemberE.querySelector('.family-member-full-record .record').innerHTML = pPereseos.kirje
+
+        for (let ik = 0; ik < perekirjed.length; ik++) {
+            const perekirje = perekirjed[ik]
+            const resultRecordE = resultRecordTemplateE.cloneNode(true)
+            resultRecordE.id = p.id + '_' + ik
+            resultRecordE.setAttribute('code', perekirje.kirjekood)
+            resultRecordE.querySelector('.record-label').innerHTML = perekirje.allikas
+            const allikaLinkE = resultRecordE.querySelector('a')
+            if (perekirje.viide && perekirje.viide.length > 0) {
+                allikaLinkE.href = perekirje.viide
+            } else {
+                allikaLinkE.classList.remove('w3-btn', 'record-link')
+            }
+            resultRecordE.querySelector('.record-text').innerHTML = perekirje.kirje
+            familyMemberE.appendChild(resultRecordE)
+        }
+        resultRecordFamily.appendChild(familyMemberE)
     }
-    // remove record template from DOM
+    
+    // remove templates from DOM
+    familyMemberTemplateE.remove()
     resultRecordTemplateE.remove()
     return recordE
-
 
     function stripReplace(selector, text, newId = false) {
         const element = recordE.querySelector(selector)
