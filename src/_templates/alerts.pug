@@ -1,0 +1,5 @@
+each alert, key in self.alerts
+    .w3-modal.modal-root(id='alert_'+key style='display: none;')
+        .w3-modal-content.w3-red.modal-content
+            button.w3-button.w3-right.close-modal(type="button", style="position: absolute; right: 0px;") &times;
+            .w3-padding= alert

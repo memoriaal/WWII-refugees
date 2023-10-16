@@ -44,27 +44,36 @@ class Validator {
         const validator = input.getAttribute('validator')
         const required = input.getAttribute('required')
         console.log('validateInput', { validator, required})
-        if (validator === 'email') {
-            console.log('validateEmail', input)
-            this.validateEmail(input)
-        }
+        // return false, if any validation fails
         if (required === '') {
             console.log('validateRequired', input)
-            this.validateRequired(input)
+            if( !this.validateRequired(input) ) {
+                return false
+            }
         }
+        if (validator === 'email') {
+            console.log('validateEmail', input)
+            if( !this.validateEmail(input) ) {
+                return false
+            }
+        }
+        return true
     }
     validateEmail(input) {
         const emailRe = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/
         const value = input.value
         const valid = emailRe.test(value)
         this.setValidity(input, valid)
+        return valid
     }
     validateRequired(input) {
         const value = input.value
         const valid = value.length > 0
         this.setValidity(input, valid)
+        return valid
     }
     setValidity(input, valid) {
+        console.log('setValidity', input, valid)
         if (valid) {
             input.classList.remove('wwii-invalid')
         }
