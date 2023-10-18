@@ -127,6 +127,32 @@ searchResultForm:
                 -   label: code
                     name: code
                     type: hidden
+                -   label: Eesnimi
+                    name: forename
+                    type: text
+                -   label: Perekonnanimi
+                    name: surname
+                    type: text
+                -   label: Isa nimi
+                    name: fathername
+                    type: text
+                -   label: Ema nimi
+                    name: mothername
+                    type: text
+                -   label: Sünniaeg
+                    name: birthdate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: Sünnikoht
+                    name: birthplace
+                    type: text
+                -   label: Surmaaeg
+                    name: deathdate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: Surmakoht
+                    name: deathplace
+                    type: text
                 -   label: Tagasiside
                     name: feedback
                     type: textarea
@@ -137,10 +163,10 @@ searchResultForm:
 searchResultLabels:
     linkText: Tagasiside %s kohta
     noRecords: Vasteid ei leitud
-    born: "Sünd: %s"
-    died: "Surm: %s"
-    father: "Isanimi: %s"
-    mother: "Emanimi: %s"
+    born: "Sünd: "
+    died: "Surm: "
+    father: "Isanimi: "
+    mother: "Emanimi: "
     records: Kirjed
     family: Pereliikmed
     t:

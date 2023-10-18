@@ -12,15 +12,22 @@
     margin-bottom 1em
     // linear-gradient(hsla(0, 0%, 0%, 0), var(--wwii-tekst-transparent))
 
-.search-result-name
-    font-size 1.5em
-    font-weight bold
-    margin 0
-    padding 0
-    background-color var(--wwii-taust2)
-    text-decoration none
-
 .search-result
+    background-color var(--wwii-taust2)
+    .search-result-name
+        font-size 1.5em
+        font-weight bold
+        margin 0.25em 0em 0em 0em
+        padding 0
+        text-decoration none
+    .search-result-main
+        padding-left 0.5em
+        background-color var(--wwii-taust2)
+        text-decoration none
+    .search-result-info
+        padding-left 0.5em
+        background-color var(--wwii-valge)
+        text-decoration none
     p
         margin 0em
         padding 0em 0em 0em 1em
@@ -40,10 +47,10 @@
     #result-records
         margin-left 0.5em
     .result-record
-        margin-left 1em
+        margin-left 0.1em
         margin-top 1em
         margin-bottom 1em
-        padding-left 1em
+        padding-left 0.5em
         border-left 1px solid var(--wwii-taust2)
     .family-member
         .code

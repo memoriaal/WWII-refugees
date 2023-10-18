@@ -128,12 +128,33 @@ function fillTemplate(recordE, p) {
     recordE.id = p.id
     const personName = (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi
 
-    recordE.querySelector('.search-result-name').innerHTML = personName
+    const surnameE = recordE.querySelector('#surname')
+    recordE.querySelector('#forename').innerHTML = p.eesnimi   || ''
+    if (p.perenimi) {
+        surnameE.innerHTML = p.perenimi
+    } else {
+        surnameE.previousElementSibling.remove()
+        surnameE.remove()
+    }
 
-    stripReplace('#result-born', p.sünd + (p.sünnikoht ? ' ' + p.sünnikoht : ''))
-    stripReplace('#result-died', p.surm + (p.surmakoht ? ' ' + p.surmakoht : ''))
-    stripReplace('#result-fathers-name', p.isanimi)
-    stripReplace('#result-mothers-name', p.emanimi)
+    const birthplaceE = recordE.querySelector('#birthplace')
+    const deathplaceE = recordE.querySelector('#deathplace')
+    recordE.querySelector('#birthdate').innerHTML = p.sünd       || ''
+    if (p.sünnikoht) {
+        birthplaceE.innerHTML = p.sünnikoht
+    } else {
+        birthplaceE.previousElementSibling.remove()
+        birthplaceE.remove()
+    }
+    recordE.querySelector('#deathdate').innerHTML = p.surm       || ''
+    if (p.surmakoht) {
+        deathplaceE.innerHTML = p.surmakoht
+    } else {
+        deathplaceE.previousElementSibling.remove()
+        deathplaceE.remove()
+    }
+    recordE.querySelector('#fathername').innerHTML = p.isanimi   || ''
+    recordE.querySelector('#mothername').innerHTML = p.emanimi   || ''
 
     const resultLinkE = recordE.querySelector('#resultId a')
     resultLinkE.innerHTML = p.id
@@ -372,7 +393,6 @@ function openSearchResultFeedbackForm(evnt) {
         return null
     }
 
-    // console.log('openSearchResultFeedbackForm', evnt.target)
     const button = evnt.target
     const searchResultE = findSearhResultParent(button)
     const personName = searchResultE.querySelector('.search-result-name').innerHTML
@@ -382,6 +402,18 @@ function openSearchResultFeedbackForm(evnt) {
     const formE = get('searchResultForm')
     formE.reset()
     formE.querySelector('input[name="code"]').value = code
+
+    // For every input, search for matching field in search result
+    // and copy value from search result to input
+    const inputs = formE.querySelectorAll('input, textarea')
+    inputs.forEach(input => {
+        const name = input.name
+        const valueE = searchResultE.querySelector(`#${name}`)
+        if (valueE) {
+            console.log('input', name, valueE)
+            input.value = valueE.innerHTML || input.value
+        }
+    })
     // make form visible and set focus to first input
     get('searchResultFormRoot').style.display = 'block'
     // formE.querySelector('input[name="name"]').focus()

@@ -1,17 +1,26 @@
 // Search result template
 
 .search-result#search-result-template(style='display: none;')
-    .search-result-name.w3-round.w3-padding Steven Eleven
+    .search-result-name.w3-round.w3-padding
+        span#forename
+        span= " "
+        span#surname
     .w3-row
-        .w3-col.l4
+        .search-result-main.w3-col.l4
             button.w3-right.w3-round.w3-padding#searchResultFeedbackFormLink= self.searchResultLabels.linkText
-            p#result-born.mb-0= self.searchResultLabels.born
-                span#result-birthplace 
-            p#result-died.mb-0= self.searchResultLabels.died
-                span#result-deathplace 
-            p#result-fathers-name.mb-0= self.searchResultLabels.father
-            p#result-mothers-name.mb-0= self.searchResultLabels.mother
-            p#resultId.mb-0
+            .mb-0= self.searchResultLabels.born
+                span#birthdate
+                span= ", "
+                span#birthplace 
+            .mb-0= self.searchResultLabels.died
+                span#deathdate
+                span= ", "
+                span#deathplace
+            .mb-0= self.searchResultLabels.father
+                span#fathername
+            .mb-0= self.searchResultLabels.mother
+                span#mothername
+            #resultId.mb-0
                 a.record-link
 
         .w3-col.l8.search-result-info

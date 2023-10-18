@@ -127,6 +127,32 @@ searchResultForm:
                 -   label: code
                     name: code
                     type: hidden
+                -   label: Forename
+                    name: forename
+                    type: text
+                -   label: Surname
+                    name: surname
+                    type: text
+                -   label: Father's name
+                    name: fathername
+                    type: text
+                -   label: Mother's name
+                    name: mothername
+                    type: text
+                -   label: Date of birth
+                    name: birthdate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: Birth place
+                    name: birthplace
+                    type: text
+                -   label: Date of death
+                    name: deathdate
+                    type: date
+                    format: YYYY-MM-DD
+                -   label: Place of death    
+                    name: deathplace
+                    type: text
                 -   label: Feedback
                     name: feedback
                     type: textarea
@@ -137,10 +163,10 @@ searchResultForm:
 searchResultLabels:
     linkText: Feedback on %s
     noRecords: No records found
-    born: "Born: %s"
-    died: "Died: %s"
-    father: "Father: %s"
-    mother: "Mother: %s"
+    born: "Born: "
+    died: "Died: "
+    father: "Father: "
+    mother: "Mother: "
     records: Records
     family: Family members
     t:
