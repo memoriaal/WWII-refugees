@@ -9,14 +9,14 @@ const FeedbackSheet = 'Tagasiside'
 const responseSheets = {
   "target": ss.getSheetByName(NewPersonsSheet),
   "newPersonForm": ss.getSheetByName(NewPersonsSheet),
-  "feedback": ss.getSheetByName(FeedbackSheet)
+  "searchResultForm": ss.getSheetByName(FeedbackSheet)
 }
 
 function doPost(evnt) {
-  console.log(JSON.stringify(evnt, null, 2))
+  Logger.log(JSON.stringify(evnt, null, 2))
 
   const form = evnt.parameter._form
-  console.log("POST was called with action", form)
+  Logger.log("POST was called with action", form)
   const responseSheet = responseSheets[form]
 
   // iterate evnt.parameter and assign keys and values to separate arrays
@@ -29,8 +29,13 @@ function doPost(evnt) {
   const currentTime = new Date().toLocaleString("et-EE")
   receivedData.push({key: 'submitTime', value: currentTime})
 
+  const forename = receivedData.find(d => d.key === 'forename').value || ''
+  const surname = receivedData.find(d => d.key === 'surname').value || ''
+  const fullName = `${forename} ${surname}`.trim()
+
   const keys = receivedData.map(d => d.key)
   const values = receivedData.map(d => d.value)
+  Logger.log({keys, values})
 
   // compare keys with header row and append missing columns
   const headerRow = _getHeaderRow(responseSheet)
@@ -45,12 +50,12 @@ function doPost(evnt) {
   // reorder values to match header row
   const rowData = headerRow.map(h => values[keys.indexOf(h)])
 
-  // insert rowData as first data row
+  // insert rowData at the top 
   responseSheet.insertRowBefore(2)
   responseSheet.getRange(2, 1, 1, rowData.length).setValues([rowData])
-  
-  if (form === 'newPersonForm' && evnt.parameter.contactEmail) {
-    sendEmail(evnt.parameter.contactEmail, evnt.parameter.locale)
+
+  if (evnt.parameter.contactEmail) {
+    sendEmail(evnt.parameter.contactEmail, evnt.parameter.locale, fullName)
   }
   return response().json(evnt.parameter)
 }
@@ -66,12 +71,12 @@ function _getHeaderRow(sheetObject) {
   return sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
 }
 
-function sendEmail(recipient, locale) {
-  var subject = "Thank you for your feedback"
-  var body = "Your feedback has been received and we will contact you soon!"
+function sendEmail(recipient, locale, p) {
+  var subject = `Thank you for submitting data about ${p}`
+  var body = "Estonian Institute of Historical Memory"
   if (locale === 'et') {
-    subject = "Täname tagasiside eest"
-    body = "Teie tagasiside saadi kätte ja me võtame teiega ühendust!"
+    subject = `Täname saadetud andmete eest ${p} kohta`
+    body = "Eesti Mälu Instituut"
   }
   MailApp.sendEmail(recipient, subject, body)
 }
