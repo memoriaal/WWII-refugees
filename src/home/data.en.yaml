@@ -13,40 +13,16 @@ cards:
         # leadTitle: |
         #     In the turmoil of World War II, tens of thousands of Estonian 
         #     people were forced to leave their homeland.
-        leads: 
-            - In the turmoil of World War II, tens of thousands of Estonian 
-              people were forced to leave their homeland.
-            - In the autumn of 1944, fleeing from the advancing front line and 
-              the fear of repression, became massive. Yet, it was hoped that 
-              they would return when the situation improved.
-            - In 2022, the Estonian Institute of Historical Memory started 
-              compiling a database of persons who fled from Estonia during 
-              World War II. The patron of the undertaking is the President 
-              of the Republic of Estonia, Alar Karis.
-        texts:
-            - Unfortunately, the absence became decades long, too many never 
-              made it back home.
-            - Despite the fact that decades have passed since the escape, 
-              there is still no clear overview of the number of refugees, 
-              their origin, social background and subsequent fate. Previous 
-              studies estimate that about 80,000 people fled from Estonia 
-              during World War II.
-            - "In the first stage of the work, the focus is primarily on the 
-              primary target countries to which the refugees went: Sweden and 
-              Germany. The data collections in the archives allow us to create 
-              a preliminary database of the escaped persons, but we need the 
-              great help of people to collect the names of those refugees who 
-              remained missing on the way."
-            - The first stage of data collection will last until September 2024, 
-              when 80 years have passed since the great escape of 1944. As a 
-              further goal, we want to follow the journey of refugees in search 
-              of a new permanent home. The database creates a basis for future 
-              research and records the life of previous generations.
-            - The Estonian Institute of Historical Memory is very grateful if 
-              fellow countrymen, wherever they live, are willing to support this 
-              initiative. Assistance is needed both in terms of information that 
-              has not reached the large archives and financial support, which 
-              allows us to involve new contributors to process the data.
+        leads:
+            - The Second World War forced tens of thousands of Estonians to leave their homeland.
+            - "In early 1944, the front reached the borders of Estonia. By the end of the summer, it was clear that the Red Army would conquer Estonia again and communist terror would continue where it had stopped in the summer of 1941. Now, people were already fleeing massively: both on evacuation ships to Germany and on their own across the stormy sea to Sweden."
+            - It was hoped that the exile would be temporary, Estonia would soon be liberated from Soviet rule, and all refugees would return home. But that did not happen. Exile lasted for half a century, and many who left Estonia never saw their homeland again.
+            - More than 30 years have passed since the restoration of Estonian independence. However, there is still no clear overview of the number of people who left Estonia during World War II, their origin, and their subsequent fate. Previous studies estimate the number of people who left Estonia during World War II to be between 70,000 and 80,000.
+            - In 2022, the Estonian Institute of Historical Memory began compiling a database of people who left Estonia during World War II. The patron of the initiative is the President of the Republic of Estonia, Alar Karis.
+            - "In the first stage of the research, the Estonian Institute of Historical Memory focuses on the countries where refugees from Estonia first arrived: Sweden and Germany. Based on the data stored in archives, a preliminary database of those who arrived there will be compiled. However, many people remained missing during their escape. Everyone who has information about someone who was lost in the autumn of 1944, whether it is a relative or a friend of their parents or grandparents, is welcome to help find their traces."
+            - The first stage of data collection will end in September 2024, when 80 years will have passed since the great escape of 1944. After that, the plan is to study the further journey of those who left Estonia to find a new home in Europe, North America, Australia, and elsewhere. The database will serve as a basis for future research and also as a memorial to the life paths of previous generations.
+            - The Estonian Institute of Historical Memory is grateful for any support in collecting data on those who left Estonia. Assistance is welcome both in terms of information that has not yet reached the large archives and in terms of financial support, which allows for the involvement of new contributors in data processing.
+        texts: []
     andmebaas:
         id: andmebaas
         link: /en/search/
