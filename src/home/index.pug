@@ -14,10 +14,11 @@ block body
         each paragraph in self.cards.home.leads
             p= paragraph
 
-        button.w3-button.w3-left-align.w3-block.readmore(onclick='toggleAccordeon(this)')= self.bits.keepReading
-        .accordeon.w3-hide
-            each paragraph in self.cards.home.texts
-                p= paragraph
+        if self.cards.home.texts.length > 0
+            button.w3-button.w3-left-align.w3-block.readmore(onclick='toggleAccordeon(this)')= self.bits.keepReading
+            .accordeon.w3-hide
+                each paragraph in self.cards.home.texts
+                    p= paragraph
 
     .sisu.w3-container#andmebaas 
         h1= self.cards.andmebaas.title
