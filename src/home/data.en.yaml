@@ -15,13 +15,13 @@ cards:
         #     people were forced to leave their homeland.
         leads:
             - The Second World War forced tens of thousands of Estonians to leave their homeland.
-            - "In early 1944, the front reached the borders of Estonia. By the end of the summer, it was clear that the Red Army would conquer Estonia again and communist terror would continue where it had stopped in the summer of 1941. Now, people were already fleeing massively: both on evacuation ships to Germany and on their own across the stormy sea to Sweden."
-            - It was hoped that the exile would be temporary, Estonia would soon be liberated from Soviet rule, and all refugees would return home. But that did not happen. Exile lasted for half a century, and many who left Estonia never saw their homeland again.
+            - "In early 1944, the front reached Estonian borders. By the end of summer, it was clear that the Red Army would reoccupy Estonia and communist terror would continue where it left off in the summer of 1941. Now, people began to flee en masse: both on evacuation ships to Germany and on their own across the stormy sea to Sweden."
+            - The exile was expected to be temporary, as people hoped that Estonia would soon be liberated from Soviet rule, and that all refugees would return home. Contrarily, exile lasted for half a century, and many who left Estonia never saw their homeland again.
             - More than 30 years have passed since the restoration of Estonian independence. However, there is still no clear overview of the number of people who left Estonia during World War II, their origin, and their subsequent fate. Previous studies estimate the number of people who left Estonia during World War II to be between 70,000 and 80,000.
             - In 2022, the Estonian Institute of Historical Memory began compiling a database of people who left Estonia during World War II. The patron of the initiative is the President of the Republic of Estonia, Alar Karis.
-            - "In the first stage of the research, the Estonian Institute of Historical Memory focuses on the countries where refugees from Estonia first arrived: Sweden and Germany. Based on the data stored in archives, a preliminary database of those who arrived there will be compiled. However, many people remained missing during their escape. Everyone who has information about someone who was lost in the autumn of 1944, whether it is a relative or a friend of their parents or grandparents, is welcome to help find their traces."
-            - The first stage of data collection will end in September 2024, when 80 years will have passed since the great escape of 1944. After that, the plan is to study the further journey of those who left Estonia to find a new home in Europe, North America, Australia, and elsewhere. The database will serve as a basis for future research and also as a memorial to the life paths of previous generations.
-            - The Estonian Institute of Historical Memory is grateful for any support in collecting data on those who left Estonia. Assistance is welcome both in terms of information that has not yet reached the large archives and in terms of financial support, which allows for the involvement of new contributors in data processing.
+            - "In the first stage of the research, the Estonian Institute of Historical Memory focuses on countries where refugees from Estonia first arrived: Sweden and Germany. Based on archival data, a preliminary database of those who arrived in Sweden and Germany will be compiled. However, many people went missing during their escape. We welcome any feedback and information about persons lost in autumn 1944."
+            - The first stage of data collection will end in September 2024, when 80 years will have passed since the end of battles in Estonia and the forceful re-establishment of Soviet rule. After that, the Institute will continue with the research of persons who found a new home in Europe, North America, Australia and elsewhere after leaving Estonia. The database will serve as a basis for future research, as well as a memorial to the previous generations' life paths.
+            - The Estonian Institute of Historical Memory is grateful for any support in collecting data on those who left Estonia. We welcome information that has not yet reached major archives, as well as financial support, which allows to involve more data processing specialists.
         texts: []
     andmebaas:
         id: andmebaas
@@ -30,20 +30,20 @@ cards:
         background: /images/bg/laevad.jpg
         title: Database
         leads: 
-            - "The database contains information about Estonian residents who fled from Estonia during World War II for various reasons:"
+            - "The database contains information about Estonian residents who fled Estonia during World War II for various reasons:"
         leadTexts:
-            - fled from Estonia during the Second World War period from the fall of Estonia under Soviet occupation in June 1940;
-            - served in the Finnish or German military during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees;
-            - were repressed or recruited in Germany during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees.
+            - people who fled from Estonia during the Second World War following Estonia's occupation by the Soviet Union in June 1940;
+            - people who served in the Finnish or German military during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees;
+            - people who were repressed or recruited by Germany during the war and remained outside the Soviet occupation zone at the end of the war, becoming refugees.
         texts:
             - "The database also includes persons who repatriated to the Soviet Union after the end of the war in Germany."
-            - "The following data is collected in the database: the date and place of birth of the persons, their occupation, the time of departure from Estonia, the mode and route, the country of residence at the end of the war and the subsequent permanent country of residence."
-            - "The vast majority of the data comes from the archives of Estonia, Sweden, the United States and Germany, and individuals provide a valuable addition."
-            # - "To clarify the data of the persons in the database, there is a
-            #     “Feedback” button next to each person's entry, which opens up the
-            #     possibility to send additional information."
-            # - "To add a missing person to the database, there is a button: Feedback
-            #     for missing person"
+            - "The following data is collected in the database: the date and place of birth of the persons, their occupation, the time of departure from Estonia, the mode of transportation and route, the country of residence at the end of the war and the subsequent permanent country of residence."
+            - "The vast majority of data comes from the archives of Estonia, Sweden, the United States and Germany."
+            # - "To clarify data of the persons in the database, there is a
+            #     “Feedback” button next to each person's entry, which allows
+            #     to send additional information."
+            # - "To add a missing person to the database, use the button: Feedback
+            #     on a missing person"
             - "For questions related to the compilation of the database, please contact: refugee@mnemosyne.ee"
     intervjuud:
         id: intervjuud
@@ -52,7 +52,7 @@ cards:
         background: /images/bg/laevad.jpg
         title: Video Interviews
         texts:
-            - During World War II, thousands of people left Estonia for the West, old and young, families were scattered all over the world. In most cases, they were forced to leave their homeland by fear of the Red Army and the new Soviet regime's repressions. We offer you a small selection of video memories from people who were directly affected by these events.
+            - During World War II, thousands of people left Estonia for the West and families were scattered all over the world. In most cases, they were forced to leave their homeland due to the Red Army and in fear of Soviet regime's repressions. Here is a small selection of video testimonials by people who were directly affected by these events.
         more:
             label: "More testimonials can be found: "
             text: www.kogumelugu.ee
