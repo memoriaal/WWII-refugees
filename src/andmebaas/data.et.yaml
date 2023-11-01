@@ -103,9 +103,9 @@ newPersonForm:
     submit: Saada
 
 searchResultForm:
-    linkText: Tagasiside %s kohta
+    linkText: Tagasiside 
     title: Tagasiside
-    description: "Kui soovite anda tagasisidet %s kohta, siis palun täitke allolev vorm."
+    description: "Kui soovite täiendada isiku %s andmeid, siis palun täitke allolev vorm."
     sections:
         -   title: Info andja
             persistent: true
