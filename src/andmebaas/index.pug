@@ -29,8 +29,8 @@ block body
                 name='q',
                 placeholder= self.search.placeholder
             ) 
-            button.w3-input.w3-col.l4.w3-round= self.search.button
-            button.w3-button.w3-right.w3-round#newPersonLink(
+            button.w3-input.w3-col.l4.w3-round#searchButton= self.search.button
+            button.w3-input.w3-col.l4.w3-round.w3-right#newPersonLink(
                 onclick="document.getElementById('newPersonFormRoot').style.display='block'"
                 )= self.newPersonForm.linkText
 
