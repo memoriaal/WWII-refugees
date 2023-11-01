@@ -398,7 +398,7 @@ function openSearchResultFeedbackForm(evnt) {
     const personName = searchResultE.querySelector('.search-result-name').innerHTML
     const code = searchResultE.id
     const descriptionE = get('searchResultFormDescription')
-    descriptionE.innerHTML = descriptionE.innerHTML.replace('%s', code + ' ' + personName)
+    descriptionE.innerHTML = descriptionE.innerHTML.replace('%s', personName)
     const formE = get('searchResultForm')
     formE.reset()
     formE.querySelector('input[name="code"]').value = code
