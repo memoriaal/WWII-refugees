@@ -161,7 +161,7 @@ searchResultForm:
     submit: Saada
 
 searchResultLabels:
-    linkText: Tagasiside %s kohta
+    linkText: Tagasiside
     noRecords: Vasteid ei leitud
     born: "Sünd: "
     died: "Surm: "
