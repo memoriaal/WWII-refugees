@@ -167,7 +167,6 @@ searchResultLabels:
     died: "Died: "
     father: "Father: "
     mother: "Mother: "
-    records: Records
     family: Family members
     t:
         ema: mother
