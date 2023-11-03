@@ -167,7 +167,11 @@ searchResultLabels:
     died: "Surm: "
     father: "Isanimi: "
     mother: "Emanimi: "
-    family: Pereliikmed
+    family: "Pereliikmed"
+    plaqueName: "Tahvel Maarjamäel: "
+    plaqueColumn: "Tulp: "
+    plaqueRow: "Rida: "
+    nameOnPlaque: "Nimi tahvlil: "
     t:
         ema: ema
         isa: isa

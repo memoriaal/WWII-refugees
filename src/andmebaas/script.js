@@ -16,6 +16,7 @@ var fbFormData = {}
 
 
 function performQuery(qs) {
+    // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
     const qData = {
         query: {
             bool: {
@@ -27,7 +28,9 @@ function performQuery(qs) {
                         type: 'cross_fields',
                     },
                 },
-                filter: { term: { wwii: 1 } }
+                filter: [
+                    { term: { wwii: 1 } },
+                ]
             },
         },
         sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
@@ -40,10 +43,13 @@ function performQuery(qs) {
             'pereseosed.persoon', 'pereseosed.kirje',
             'pereseosed.seos', 'pereseosed.suund', 'pereseosed.kirjed',
             'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida',
+            'episoodid.nimetus', 'episoodid.väärtus',
             'redirect'
         ],
-    };
+    }
 
+
+    // If querystring is 10 digits, then redirect to person page
     var idQuery = (qs == Number(qs) && qs.length === 10)
 
     const xhr2 = new XMLHttpRequest();
@@ -53,7 +59,7 @@ function performQuery(qs) {
         if (xhr2.status === 200) {
             const data = JSON.parse(xhr2.responseText);
             ecresults = data;
-            console.log(data.error || 'All green');
+            console.log(data.error || 'All green', qData, data);
             const searchCount = document.querySelector('#search-count');
             searchCount.innerHTML = data.hits.total.value;
             const hits = data.hits.hits;
@@ -71,17 +77,6 @@ function performQuery(qs) {
                 }
                 searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
-                if (p.tahvlikirje && p.kivi) {
-                    text.push('<div class="search-result-plaque col-12 col-sm-3">');
-                    if (p.tahvlikirje.tahvel) {
-                        text.push('<p class="mb-0">Tahvel Maarjamäel:</p>');
-                        text.push('<p class="mb-2 plaque-info">' + p.tahvlikirje.tahvel + '</p>');
-                    }
-                    if (p.tahvlikirje.tulp) { text.push('<p class="mb-2">Tulp: ' + p.tahvlikirje.tulp + ' / Rida: ' + p.tahvlikirje.rida + '</p>'); }
-                    if (p.tahvlikirje.kirje) {
-                        text.push('<p class="mb-0">Nimi tahvlil: ' + p.tahvlikirje.kirje + '</p>');
-                    }
-                }
                 if (p.evo === 1) {
                     text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>');
                 }
@@ -223,7 +218,19 @@ function fillTemplate(recordE, p) {
         }
         familyMemberTemplateE.remove()
     }
-    // remove templates from DOM
+
+    if (p.tahvlikirje && p.kivi) {
+        const plaqueTemplateE = get('search-result-plaque-template')
+        const plaqueE = plaqueTemplateE.cloneNode(true)
+        plaqueE.id = 'plaque_' + p.id
+        plaqueE.querySelector('#plaquename').innerHTML = p.tahvlikirje.tahvel
+        plaqueE.querySelector('#plaquecolumn').innerHTML = p.tahvlikirje.tulp
+        plaqueE.querySelector('#plaquerow').innerHTML = p.tahvlikirje.rida
+        plaqueE.querySelector('#nameonplaque').innerHTML = p.tahvlikirje.kirje
+        plaqueE.classList.remove('w3-hide')
+        recordE.querySelector('.search-result-main').appendChild(plaqueE)
+    }
+// remove templates from DOM
     resultRecordTemplateE.remove()
     return recordE
 

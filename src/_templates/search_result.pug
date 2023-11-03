@@ -1,11 +1,11 @@
 // Search result template
 
-.search-result#search-result-template(style='display: none;')
+#search-result-template.search-result(style='display: none;')
     .search-result-name.w3-round
         span#forename
         span= " "
         span#surname
-        button.w3-small.w3-right.w3-round.w3-padding#searchResultFeedbackFormLink= self.searchResultLabels.linkText
+        button#searchResultFeedbackFormLink.w3-small.w3-right.w3-round.w3-padding= self.searchResultLabels.linkText
     .w3-row
         .search-result-main.w3-col.l4
             .mb-0= self.searchResultLabels.born
@@ -36,3 +36,15 @@
                     .family-member-full-record
                         span.code
                         span.record
+
+#search-result-plaque-template.search-result-plaque.w3-hide
+    .mb-0= self.searchResultLabels.plaqueName
+        span#plaquename
+    .mb-0
+        span= self.searchResultLabels.plaqueColumn
+        span#plaquecolumn
+        span=", "
+        span= self.searchResultLabels.plaqueRow
+        span#plaquerow
+    .mb-0= self.searchResultLabels.nameOnPlaque
+        span#nameonplaque

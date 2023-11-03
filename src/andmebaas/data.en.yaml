@@ -167,7 +167,11 @@ searchResultLabels:
     died: "Died: "
     father: "Father: "
     mother: "Mother: "
-    family: Family members
+    family: "Family members"
+    plaqueName: "Plaque on Maarjamäe: "
+    plaqueColumn: "Column: "
+    plaqueRow: "Row: "
+    nameOnPlaque: "Name on plaque: "
     t:
         ema: mother
         isa: father
