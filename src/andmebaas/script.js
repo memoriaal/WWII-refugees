@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
     }
     else {
         this.document.getElementById('intro').classList.remove('w3-hide')
-    }   
+    }
 })
 
 var ecresults = {}
@@ -59,7 +59,7 @@ function performQuery(qs) {
         if (xhr2.status === 200) {
             const data = JSON.parse(xhr2.responseText);
             ecresults = data;
-            console.log(data.error || 'All green', qData, data);
+            console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
             const searchCount = document.querySelector('#search-count');
             searchCount.innerHTML = data.hits.total.value;
             const hits = data.hits.hits;
@@ -96,10 +96,10 @@ function performQuery(qs) {
                 });
             }
             document.getElementById("searchform").scrollIntoView()
-            window.scrollBy(0,-100)
+            window.scrollBy(0, -100)
 
             initResultFeedbackButtons()
-        
+
         } else {
             console.log('Error:', xhr2.status);
         }
@@ -230,7 +230,7 @@ function fillTemplate(recordE, p) {
         plaqueE.classList.remove('w3-hide')
         recordE.querySelector('.search-result-main').appendChild(plaqueE)
     }
-// remove templates from DOM
+    // remove templates from DOM
     resultRecordTemplateE.remove()
     return recordE
 
@@ -250,7 +250,7 @@ window.addEventListener('load', setupSearchResultForm)
 window.addEventListener('load', setupModals)
 
 const feedbackBase = 'https://script.google.com/macros/s'
-const feedbackApiId = 
+const feedbackApiId =
     'AKfycbyLwhNTYHw26-vVY68hd_xBxOEO9_VxxQ3WmiMhT5RnRxTrqqztnOO_fC1-k0DQtE18XQ'
 const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=`
 
@@ -264,13 +264,13 @@ function setupModals() {
     }
     const openModal = (evnt) => {
         // console.log('openModal', evnt.target)
-        evnt.target.style.display='block'
+        evnt.target.style.display = 'block'
     }
     const closeModal = (evnet_or_element) => {
         if (!evnet_or_element) return
         const target = evnet_or_element.target || evnet_or_element
         // If target is not modal root, then call close modal on parent
-        console.log('closeModal', {target, classList: target.classList})
+        console.log('closeModal', { target, classList: target.classList })
         if (!target.classList) {
             // console.log('closeModal no classList', target)
             return closeModal(target.parentElement)
@@ -282,31 +282,31 @@ function setupModals() {
         if (target.style.display === 'none')
             return
         // console.log('closeModal', target)
-        target.style.display='none'
+        target.style.display = 'none'
     }
 
     const modalEs = queryAll('.modal-content')
-    for (let i=0; i<modalEs.length; i++) {
+    for (let i = 0; i < modalEs.length; i++) {
         modalEs[i].addEventListener('click', modalClick)
     }
 
     const openModalEs = queryAll('.open-modal')
-    for (let i=0; i<openModalEs.length; i++) {
+    for (let i = 0; i < openModalEs.length; i++) {
         openModalEs[i].addEventListener('click', openModal)
     }
     const closeModalEs = queryAll('.close-modal')
-    for (let i=0; i<closeModalEs.length; i++) {
+    for (let i = 0; i < closeModalEs.length; i++) {
         closeModalEs[i].addEventListener('click', closeModal)
     }
     
     const modalRootEs = queryAll('.modal-root')
-    for (let i=0; i<modalRootEs.length; i++) {
+    for (let i = 0; i < modalRootEs.length; i++) {
         modalRootEs[i].addEventListener('click', closeModal)
     }
 
-    document.onkeydown = function(evnt) {
+    document.onkeydown = function (evnt) {
         if (evnt.key === "Escape") {
-            for (let i=0; i<modalRootEs.length; i++) {
+            for (let i = 0; i < modalRootEs.length; i++) {
                 closeModal(modalRootEs[i])
             }
         }
@@ -349,17 +349,17 @@ function setupForm(formName) {
 
         const xhr2 = new XMLHttpRequest()
         xhr2.open('POST', feedbackApi + formName, true)
-        
-        xhr2.onload = function() { // request successful
-        // we can use server response to our request now
+
+        xhr2.onload = function () { // request successful
+            // we can use server response to our request now
             clearTimeout(window[timerName])
             formE.classList.remove('w3-disabled')
-            document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'Escape'}))
+            document.dispatchEvent(new KeyboardEvent('keydown', { 'key': 'Escape' }))
             console.log('response', xhr2.responseText)
             formE.reset()
         }
-      
-        xhr2.onerror = function() {
+
+        xhr2.onerror = function () {
             clearTimeout(window[timerName])
             formE.classList.remove('w3-disabled')
             console.log('Error:', xhr2.status)
