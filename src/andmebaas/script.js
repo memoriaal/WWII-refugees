@@ -26,6 +26,8 @@ function performQuery(qs) {
                         fields: ['id', 'perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
                         operator: 'and',
                         type: 'cross_fields',
+                    { "match": { "episoodid.väärtus": "tallinn" } },
+                    { "match": { "episoodid.väärtus": "paasvere" } },
                     },
                 },
                 filter: [
@@ -298,7 +300,7 @@ function setupModals() {
     for (let i = 0; i < closeModalEs.length; i++) {
         closeModalEs[i].addEventListener('click', closeModal)
     }
-    
+
     const modalRootEs = queryAll('.modal-root')
     for (let i = 0; i < modalRootEs.length; i++) {
         modalRootEs[i].addEventListener('click', closeModal)
