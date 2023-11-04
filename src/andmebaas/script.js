@@ -20,16 +20,19 @@ function performQuery(qs) {
     const qData = {
         query: {
             bool: {
-                must: {
-                    multi_match: {
-                        query: qs,
-                        fields: ['id', 'perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
-                        operator: 'and',
-                        type: 'cross_fields',
-                    { "match": { "episoodid.väärtus": "tallinn" } },
-                    { "match": { "episoodid.väärtus": "paasvere" } },
+                must: [
+                    // { "match": { "episoodid.nimetus": "Vangilaager" } },
+                    // { "match": { "episoodid.asukoht": "lag" } },
+                    // { "match": { "episoodid.nimetus": "Elukoht" } },
+                    {
+                        multi_match: {
+                            query: qs,
+                            fields: ['id', 'perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
+                            operator: 'and',
+                            type: 'cross_fields',
+                        }
                     },
-                },
+                ],
                 filter: [
                     { term: { wwii: 1 } },
                 ]
@@ -45,7 +48,7 @@ function performQuery(qs) {
             'pereseosed.persoon', 'pereseosed.kirje',
             'pereseosed.seos', 'pereseosed.suund', 'pereseosed.kirjed',
             'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida',
-            'episoodid.nimetus', 'episoodid.väärtus',
+            'episoodid.nimetus', 'episoodid.väärtus', 'episoodid.asukoht',
             'redirect'
         ],
     }
