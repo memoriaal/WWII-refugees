@@ -160,6 +160,12 @@ searchResultForm:
                     placeholder: "Palun lisage siia oma täpsustused, kommentaarid, parandused jne"
     submit: Saada
 
+episodeFields:
+    - labelProperty: "Elukoht"
+      valueProperty: "väärtus"
+    - labelProperty: "Vangilaager"
+      valueProperty: "asukoht"
+    
 searchResultLabels:
     linkText: Tagasiside
     noRecords: Vasteid ei leitud

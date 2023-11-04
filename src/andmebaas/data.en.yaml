@@ -160,6 +160,12 @@ searchResultForm:
                     placeholder: "Please add any additional information here"
     submit: Submit
 
+episodeFields:
+    - labelProperty: "Elukoht"
+      valueProperty: "väärtus"
+    - labelProperty: "Vangilaager"
+      valueProperty: "asukoht"
+
 searchResultLabels:
     linkText: Feedback on %s
     noRecords: No records found
