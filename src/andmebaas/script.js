@@ -40,7 +40,6 @@ function performQuery(qs) {
         },
         sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
         _source: [
-            'redirect',
             'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
             'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
             'sünd', 'surm', 'sünnikoht', 'surmakoht', 'id',

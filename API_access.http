@@ -24,22 +24,52 @@ Authorization: Basic cmVhZGVyOnJlYWRlcg==
 Content-Type: application/json
 
 {
-  "query" : {"match" : { "tahvlikirje.tahvel": "X" } },
-  "sort": {
-    "perenimi.raw": "asc",
-    "eesnimi.raw": "asc"
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "multi_match": {
+            "query": "jaan",
+            "fields": ["id", "perenimi", "eesnimi", "id", "pereseosed.kirje", "kirjed.kirje"],
+            "operator": "and",
+            "type": "cross_fields"
+          }
+        },
+        {
+          "nested": {
+            "path": "episoodid",
+            "query": {
+              "bool": {
+                "must": [
+                  { "match": { "episoodid.nimetus": "Elukoht" } },
+                  { "match": { "episoodid.asukoht": "pihtla" } }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "filter": [
+        { "term": { "isperson": 1 } },
+        { "term": { "wwii": 1 } }
+      ]
+    }
   },
-  "_source": [
-    "redirect",
-    "isperson", "kivi", "emem", "evo", "wwii", "evokirje",
-    "perenimi", "eesnimi", "isanimi", "emanimi", "perenimed", "eesnimed",
-    "sünd", "surm", "sünnikoht", "surmakoht", "id",
-    "kirjed.kirje", "kirjed.kirjekood", "kirjed.viide", "kirjed.allikas", "kirjed.allika_nimetus",
-    "pereseosed.persoon", "pereseosed.kirje",
-    "pereseosed.seos", "pereseosed.suund", "pereseosed.kirjed",
-    "tahvlikirje.kirjekood", "tahvlikirje.kirje", "tahvlikirje.tahvel", "tahvlikirje.tulp", "tahvlikirje.rida",
-    "redirect"
+  "sort": [
+    { "perenimi.raw": "asc" },
+    { "eesnimi.raw": "asc" }
   ]
+}
+
+###
+GET {{host}}/{{index}}/_search HTTP/1.1
+Authorization: Basic cmVhZGVyOnJlYWRlcg==
+Content-Type: application/json
+
+{
+  "query": {
+    "match_all": {}
+  }
 }
 
 ### familysearch.org päring
