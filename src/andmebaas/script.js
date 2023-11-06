@@ -21,9 +21,6 @@ function performQuery(qs) {
         query: {
             bool: {
                 must: [
-                    // { "match": { "episoodid.nimetus": "Vangilaager" } },
-                    // { "match": { "episoodid.asukoht": "lag" } },
-                    // { "match": { "episoodid.nimetus": "Elukoht" } },
                     {
                         multi_match: {
                             query: qs,
@@ -32,6 +29,20 @@ function performQuery(qs) {
                             type: 'cross_fields',
                         }
                     },
+                    {
+                        nested: {
+                            path: 'episoodid',
+                            query: {
+                              bool: {
+                                must: [
+                                //   { match: { 'episoodid.nimetus': 'Elukoht' } },
+                                //   { match: { 'episoodid.asukoht': 'pihtla' } }
+                                ]
+                              }
+                            }
+                          }
+                
+                    }
                 ],
                 filter: [
                     { term: { wwii: 1 } },
@@ -57,12 +68,13 @@ function performQuery(qs) {
     var idQuery = (qs == Number(qs) && qs.length === 10)
 
     const xhr2 = new XMLHttpRequest();
-    xhr2.open('POST', 'https://wwii-refugees.ee/.netlify/functions/search');
+    xhr2.open('POST', 'https://wwii-refugees.ee/.netlify/functions/searchB');
     xhr2.setRequestHeader('Content-Type', 'application/json');
     xhr2.onload = function () {
         if (xhr2.status === 200) {
             const data = JSON.parse(xhr2.responseText);
-            ecresults = data;
+            ecresults = data
+            console.log('ecresults', ecresults)
             console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
             const searchCount = document.querySelector('#search-count');
             searchCount.innerHTML = data.hits.total.value;
@@ -110,8 +122,9 @@ function performQuery(qs) {
     };
     xhr2.onerror = function () {
         console.log('Error:', xhr2.status);
-    };
-    xhr2.send(JSON.stringify(qData));
+    }
+    console.log('qData', qData)
+    xhr2.send(JSON.stringify(qData))
 }
 
 function initResultFeedbackButtons() {
