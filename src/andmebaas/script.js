@@ -24,24 +24,10 @@ function performQuery(qs) {
                     {
                         multi_match: {
                             query: qs,
-                            fields: ['id', 'perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
+                            fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
                             operator: 'and',
                             type: 'cross_fields',
                         }
-                    },
-                    {
-                        nested: {
-                            path: 'episoodid',
-                            query: {
-                              bool: {
-                                must: [
-                                //   { match: { 'episoodid.nimetus': 'Elukoht' } },
-                                //   { match: { 'episoodid.asukoht': 'pihtla' } }
-                                ]
-                              }
-                            }
-                          }
-                
                     }
                 ],
                 filter: [
@@ -76,11 +62,11 @@ function performQuery(qs) {
             ecresults = data
             console.log('ecresults', ecresults)
             console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
-            const searchCount = document.querySelector('#search-count');
-            searchCount.innerHTML = data.hits.total.value;
-            const hits = data.hits.hits;
-            if (idQuery && hits[0]._source.redirect) {
-                window.location.href = '/?q=' + hits[0]._source.redirect;
+            const searchCountE = document.querySelector('#search-count')
+            searchCountE.innerHTML = data.hits.total.value
+            const hits = data.hits.hits
+            if (idQuery && hits[0] && hits[0]._source.redirect) {
+                window.location.href = '/?q=' + hits[0]._source.redirect
             }
             const resultTemplateE = get('search-result-template')
             const searchResultsE = get('search-results')
@@ -94,21 +80,21 @@ function performQuery(qs) {
                 searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
                 if (p.evo === 1) {
-                    text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>');
+                    text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>')
                 }
-                text.push('</div>');
-                text.push('</div>');
-                text.push('</div>');
-                const searchResults = document.querySelector('#search-results');
-                searchResults.innerHTML += text.join('');
+                text.push('</div>')
+                text.push('</div>')
+                text.push('</div>')
+                const searchResults = document.querySelector('#search-results')
+                searchResults.innerHTML += text.join('')
             }
-            const acc = document.getElementsByClassName('pereliige');
-            console.log('Search results loaded', acc.length, acc);
+            const acc = document.getElementsByClassName('pereliige')
+            console.log('Search results loaded', acc.length, acc)
             for (let i = 0; i < acc.length; i++) {
-                console.log('classlist of last child', acc[i].lastChild.classList);
+                console.log('classlist of last child', acc[i].lastChild.classList)
                 acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    this.lastChild.classList.toggle('folded');
+                    this.classList.toggle("active")
+                    this.lastChild.classList.toggle('folded')
                 });
             }
             document.getElementById("searchform").scrollIntoView()
@@ -117,11 +103,11 @@ function performQuery(qs) {
             initResultFeedbackButtons()
 
         } else {
-            console.log('Error:', xhr2.status);
+            console.log('Error:', xhr2.status)
         }
     };
     xhr2.onerror = function () {
-        console.log('Error:', xhr2.status);
+        console.log('Error:', xhr2.status)
     }
     console.log('qData', qData)
     xhr2.send(JSON.stringify(qData))
