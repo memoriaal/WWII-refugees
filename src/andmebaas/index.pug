@@ -30,7 +30,7 @@ block body
                 placeholder= self.search.placeholder
             ) 
             button.w3-input.w3-col.l4.w3-round#searchButton= self.search.button
-            button.w3-input.w3-col.l4.w3-round.w3-right#newPersonLink(
+            a.button.w3-input.w3-col.l4.w3-round.w3-right#newPersonLink(
                 onclick="document.getElementById('newPersonFormRoot').style.display='block'"
                 )= self.newPersonForm.linkText
 
