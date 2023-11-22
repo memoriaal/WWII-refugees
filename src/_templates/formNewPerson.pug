@@ -17,10 +17,11 @@
                         label= field.label + (field.required ? ' *' : '')
                         //- field input
                         //- add .wwii-invalid class, if required
+                        //- set autocomplete to on, if required, otherwise off
                         if (field.type === 'textarea')
-                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
+                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false, autocomplete=field.autocomplete||'off')
                         else
-                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false)
+                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false, autocomplete=field.autocomplete||'off')
 
         button#newPersonFormSubmitButton.w3-button.w3-block.w3-padding.w3-blue(
             type="submit",

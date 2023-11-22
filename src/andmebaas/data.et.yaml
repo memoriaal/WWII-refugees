@@ -84,15 +84,18 @@ newPersonForm:
                 -   label: Suhe põgenenud isikuga
                     name: contactRelationship
                     type: text
+                    autocomplete: on
                 -   label: Sinu nimi
                     name: contactName
                     type: text
                     required: true
+                    autocomplete: on
                 -   label: Sinu e-posti aadress
                     name: contactEmail
                     type: email
                     validator: email
                     required: true
+                    autocomplete: on
         -   title: Muu info
             fields:
                 -   label: Lisainfo
@@ -114,14 +117,17 @@ searchResultForm:
                     name: contactName
                     type: text
                     required: true
+                    autocomplete: on
                 -   label: Sinu e-posti aadress
                     name: contactEmail
                     type: email
                     validator: email
                     required: true
+                    autocomplete: on
                 -   label: Sinu telefoninumber
                     name: contactPhone
                     type: text
+                    autocomplete: on
         -   title: Tagasiside
             fields:
                 -   label: code
