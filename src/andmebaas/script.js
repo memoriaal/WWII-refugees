@@ -11,6 +11,10 @@ window.addEventListener('load', function () {
     }
 })
 
+// Because of accidentally closing modal when ending drag outside of modal,
+// we need to keep track of whether user is selecting text inside modal.
+var isSelecting = false
+
 var ecresults = {}
 var fbFormData = {}
 
@@ -257,6 +261,7 @@ const feedbackApiId =
     'AKfycbyLwhNTYHw26-vVY68hd_xBxOEO9_VxxQ3WmiMhT5RnRxTrqqztnOO_fC1-k0DQtE18XQ'
 const feedbackApi = `${feedbackBase}/${feedbackApiId}/exec?_form=`
 
+
 function setupModals() {
     const modalClick = (evnt) => {
         // console.log('modalClick', evnt)
@@ -269,9 +274,9 @@ function setupModals() {
         // console.log('openModal', evnt.target)
         evnt.target.style.display = 'block'
     }
-    const closeModal = (evnet_or_element) => {
-        if (!evnet_or_element) return
-        const target = evnet_or_element.target || evnet_or_element
+    const closeModal = (event_or_element) => {
+        if (!event_or_element) return
+        const target = event_or_element.target || event_or_element
         // If target is not modal root, then call close modal on parent
         console.log('closeModal', { target, classList: target.classList })
         if (!target.classList) {
@@ -312,6 +317,46 @@ function setupModals() {
             for (let i = 0; i < modalRootEs.length; i++) {
                 closeModal(modalRootEs[i])
             }
+        }
+    }
+
+    function addCloseModalListeners(closeEs) {
+        for (let i = 0; i < closeEs.length; i++) {
+            const closeE = closeEs[i]
+            closeE.addEventListener('mousedown', function(event) {
+                console.log('mousedown')
+                isSelecting = true
+            })
+            
+            closeE.addEventListener('dragend', function (event) {
+                console.log('dragend')
+                if (!isSelecting) {
+                    console.log('dragend not selecting')
+                    return closeModal(event)
+                }
+                console.log('dragend selecting')
+                isSelecting = false
+                // event.stopPropagation()
+            })
+
+            closeE.addEventListener('click', function (event) {
+                console.log('click')
+                if (!isSelecting) {
+                    console.log('click not selecting')
+                    return closeModal(event)
+                }
+                console.log('click selecting')
+                isSelecting = false
+            })
+            closeE.addEventListener('touchend', function (event) {
+                console.log('touchend')
+                if (!isSelecting) {
+                    console.log('touchend not selecting')
+                    return closeModal(event)
+                }
+                console.log('touchend selecting')
+                isSelecting = false
+            })
         }
     }
 }
