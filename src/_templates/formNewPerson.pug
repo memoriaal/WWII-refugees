@@ -12,6 +12,7 @@
                     //- section title
                     h2= section.title
                     each field in section.fields
+                        - field.autocomplete = field.autocomplete || 'off'
                         //- field label
                         //- add red asterisk if required
                         label= field.label + (field.required ? ' *' : '')
@@ -19,9 +20,21 @@
                         //- add .wwii-invalid class, if required
                         //- set autocomplete to on, if required, otherwise off
                         if (field.type === 'textarea')
-                            textarea.w3-input.w3-border(id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false, autocomplete=field.autocomplete, readonly=field.autocomplete === 'off' ? 'true' : 'false', onfocus=field.autocomplete === 'off' ? 'this.removeAttribute(\'readonly\');' : '', onblur=field.autocomplete === 'off' ? 'this.setAttribute(\'readonly\', true);' : '')
+                            textarea.w3-input.w3-border(
+                                id=field.name, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, rows=field.rows||3, cols=field.cols||80, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false, 
+                                autocomplete=field.autocomplete, 
+                                readonly=field.autocomplete === 'off' ? true : false, 
+                                onfocus=field.autocomplete === 'off' ? 'this.removeAttribute(\'readonly\');' : '', 
+                                onblur=field.autocomplete === 'off' ? 'this.setAttribute(\'readonly\', true);' : ''
+                            )
                         else
-                            input.w3-input.w3-border(id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false, autocomplete=field.autocomplete, readonly=field.autocomplete === 'off' ? 'true' : 'false', onfocus=field.autocomplete === 'off' ? 'this.removeAttribute(\'readonly\');' : '', onblur=field.autocomplete === 'off' ? 'this.setAttribute(\'readonly\', true);' : '')
+                            input.w3-input.w3-border(
+                                id=field.name, type=field.type, name=field.name, placeholder=field.placeholder||false, required=field.required||false, validator=field.validator||false, class=field.required ? 'wwii-invalid' : '' persistent=section.persistent||false, 
+                                autocomplete=field.autocomplete, 
+                                readonly=field.autocomplete === 'off' ? true : false, 
+                                onfocus=field.autocomplete === 'off' ? 'this.removeAttribute(\'readonly\');' : '', 
+                                onblur=field.autocomplete === 'off' ? 'this.setAttribute(\'readonly\', true);' : ''
+                            )
 
         button#newPersonFormSubmitButton.w3-button.w3-block.w3-padding.w3-blue(
             type="submit",
