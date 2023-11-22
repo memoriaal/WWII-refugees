@@ -13,11 +13,23 @@ window.addEventListener('load', function () {
 
 // Because of accidentally closing modal when ending drag outside of modal,
 // we need to keep track of whether user is selecting text inside modal.
-var isSelecting = false
+const trackMouse = { 
+    x: -1, 
+    y: -1 
+}
+const resetMouseTracking = () => {
+    trackMouse.x = -1
+    trackMouse.y = -1
+}
+const hasMouseMoved = (event) => {
+    if (trackMouse.x === -1 && trackMouse.y === -1) {
+        return false
+    }
+    return trackMouse.x !== event.clientX || trackMouse.y !== event.clientY
+}
 
 var ecresults = {}
 var fbFormData = {}
-
 
 function performQuery(qs) {
     // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
@@ -303,14 +315,10 @@ function setupModals() {
         openModalEs[i].addEventListener('click', openModal)
     }
     const closeModalEs = queryAll('.close-modal')
-    for (let i = 0; i < closeModalEs.length; i++) {
-        closeModalEs[i].addEventListener('click', closeModal)
-    }
+    addTrackMouseListeners(closeModalEs)
 
     const modalRootEs = queryAll('.modal-root')
-    for (let i = 0; i < modalRootEs.length; i++) {
-        modalRootEs[i].addEventListener('click', closeModal)
-    }
+    addTrackMouseListeners(modalRootEs)
 
     document.onkeydown = function (evnt) {
         if (evnt.key === "Escape") {
@@ -320,42 +328,24 @@ function setupModals() {
         }
     }
 
-    function addCloseModalListeners(closeEs) {
+    function addTrackMouseListeners(closeEs) {
         for (let i = 0; i < closeEs.length; i++) {
             const closeE = closeEs[i]
+
             closeE.addEventListener('mousedown', function(event) {
+                trackMouse.x = event.clientX
+                trackMouse.y = event.clientY
                 console.log('mousedown')
-                isSelecting = true
-            })
-            
-            closeE.addEventListener('dragend', function (event) {
-                console.log('dragend')
-                if (!isSelecting) {
-                    console.log('dragend not selecting')
-                    return closeModal(event)
-                }
-                console.log('dragend selecting')
-                isSelecting = false
-                // event.stopPropagation()
             })
 
             closeE.addEventListener('click', function (event) {
                 console.log('click')
-                if (!isSelecting) {
+                if (!hasMouseMoved(event)) {
                     console.log('click not selecting')
+                    resetMouseTracking()
                     return closeModal(event)
                 }
                 console.log('click selecting')
-                isSelecting = false
-            })
-            closeE.addEventListener('touchend', function (event) {
-                console.log('touchend')
-                if (!isSelecting) {
-                    console.log('touchend not selecting')
-                    return closeModal(event)
-                }
-                console.log('touchend selecting')
-                isSelecting = false
             })
         }
     }
