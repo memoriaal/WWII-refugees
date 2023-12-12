@@ -193,7 +193,7 @@ function fillTemplate(recordE, p) {
         } else {
             allikaLinkE.classList.remove('w3-btn', 'record-link')
         }
-        resultRecordE.querySelector('.record-text').innerHTML = pKirje.kirje
+        resultRecordE.querySelector('.record-text').innerHTML = replaceLinebreaks(pKirje.kirje)
         resultRecordsE.appendChild(resultRecordE)
     }
 
@@ -216,7 +216,7 @@ function fillTemplate(recordE, p) {
             familyMemberE.id = p.id + '_F_' + ip
             familyMemberE.classList.add('family-member')
             familyMemberE.querySelector('.family-member-full-record .code').innerHTML = pPereseos.seos + ' ' + pPereseos.persoon
-            familyMemberE.querySelector('.family-member-full-record .record').innerHTML = pPereseos.kirje
+            familyMemberE.querySelector('.family-member-full-record .record').innerHTML = replaceLinebreaks(pPereseos.kirje)
 
             for (let ik = 0; ik < perekirjed.length; ik++) {
                 const perekirje = perekirjed[ik]

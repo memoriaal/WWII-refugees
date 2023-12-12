@@ -18,3 +18,8 @@ const selectElementsByRegex = (pattern, root = document) => {
 
     return matchingElements
 }
+
+const replaceLinebreaks = (text) => {
+    const replaced = text.replace(/(\\n\\r|\\n|\\r)+/g, '<br/>')
+    return replaced
+}
