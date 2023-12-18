@@ -10,5 +10,8 @@
   },
   "devDpendencies": {
     "entu-ssg": "^5.6.10"
+  },
+  "dependencies": {
+    "entu-ssg": "^5.6.12"
   }
 }
