@@ -2,8 +2,23 @@ path: /kalender/
 title: Kalender
 pictures:
     - /images/bg/otsing.jpg
+subtitle: 2024 SÜNDMUSTE KAVA
 content:
-    - 
+•   "09.03. – Märtsipommitamise mälestusüritus ja küünalde süütamine koostöös Muinsuskaitse Seltsiga Tallinnas Harju tänaval."
+•	"mai-juuni – Rahvusvahelise foto- ja videokonkursi väljakuulutamine, kuhu on see kord eriti oodatud Eesti sõjapõgenike teemat puudutavad tööd. Parimatele toimub augustis traditsiooniline peaministri vastuvõtt Stenbocki majas."
+•	"juuni-november – Põgenemise-teemaline välinäitus kuues erinevas asukohas üle Eesti."
+•	"14.06. – õpilaste kirjakonkurss koostöös ajalehega Postimees, pühendatud II maailmasõja järel kodumaalt lahkuma sunnitute mälestusele. Konkursi tulemused tehakse teatavaks juuniküüditamise aastapäeval 14. juunil, võidutöö kantakse ette riiklikul mälestustseremoonial Kommunismiohvrite memoriaalis. Parimad tööd avaldatakse Postimehes."
+•	"juuli-august – Suvekool eesti päritolu noortele teistest riikidest. Teemadeks Eesti lähiajalugu, sõjapõgenikud, vastupanuvõitluse jätkumine eesti diasporaas, diplomaatia ajalugu."
+•	"24.08. – konverents „Eesti sõjapõgenikud II Maailmasõjas“ Haapsalu kultuurikeskuses:"
+-	"Andmebaasi „Eesti sõjapõgenikud II Maailmasõjas“ esitlus;"
+-	"Rootsi paadipõgenike teemalise artiklikogumiku esitlus;"
+-	"Dokumentaalfilmi esilinastus. Film toob vaatajani põgenike aitamise teema, põgenike ja naasjate lood Rootsi näitel ning ilmestab põgenike jäetud tühimikku Eesti ühiskonnas.
+"19:00 Raimo Kangro „Missa süütult hukkunud eestlastele“ (1989, op. 40) ettekanne Haapsalu Toomkirikus."
+•	"07.09. 19:00 Raimo Kangro „Missa süütult hukkunud eestlastele“ ettekanne Tartu Pauluse kirikus."
+•	"13.-14.09. Rootsi Eestlaste Liidu Eesti sõjapõgenike mälestustseremoonia, EMI dokumentaalfilmi ja paadipõgenikele pühendatud artiklikogumiku esitlus ning näituse avamine Slites, Rootsis."
+•	"21.09. Puise mälestusüritus, korraldaja ÜEKN suurpõgenemise toimkond."
+•	"21.09. 19:00 Raimo Kangro „Missa süütult hukkunud eestlastele“ ettekanne Tallinnas Kaarli kirikus."
+•	"Septembrikuu vältel – Ajarännak, üle-Eestiline ajalooline elamuspäev koolides, mille teemaks on tänavu 1944 põgenemine ja mida korraldab ERM koostöös Eesti Mälu Instituudiga."
         id: otsing
         title: Otsing II maailmasõja põgenike andmebaasist
         text: |
