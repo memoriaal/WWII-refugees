@@ -1,7 +1,7 @@
 path: /kalender/
 title: Kalender
 pictures:
-    - /WWII-refugees/images/bg/otsing.jpg
+    - /images/bg/otsing.jpg
 content:
     - 
         id: otsing

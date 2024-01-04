@@ -7,28 +7,28 @@ language:
 
 logo:
     text: Eesti sõjapõgenikud Teises maailmasõjas
-    image: /WWII-refugees/images/WWII_refugees_visuals_logo_EMI_color.svg
-    imagelight: /WWII-refugees/images/WWII_refugees_visuals_logo_EMI_light.svg
+    image: /images/WWII_refugees_visuals_logo_EMI_color.svg
+    imagelight: /images/WWII_refugees_visuals_logo_EMI_light.svg
     imageAlt: Eesti sõjapõgenikud Teises maailmasõjas
 
 navigation:
     -
-        url: /WWII-refugees/
+        url: /
         background: FB_IMG_1587103251581.jpg
         title: II maailmasõja põgenikud
         text: II maailmasõja põgenikud
     -
-        url: /WWII-refugees/otsing/
+        url: /otsing/
         background: FB_IMG_1587103251581.jpg
         title: Andmebaas
         text: Memoriaali andmebaasi haldab SA Eesti Mälu Instituut.
     -
-        url: /WWII-refugees/intervjuud/
+        url: /intervjuud/
         background: FB_IMG_1587103251581.jpg
         title: Intervjuud 
         text: Videointervjuud kommunistliku terrori läbi kannatanud inimestega.
     -
-        url: /WWII-refugees/kalender/
+        url: /kalender/
         background: FB_IMG_1587103251581.jpg
         title: Kalender
         text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
@@ -47,7 +47,7 @@ bits:
     keepReading: Loe edasi →
 
 search:
-    url: /WWII-refugees/otsing/
+    url: /otsing/
     text: |
         ### Otsing elektrooniliselt memoriaalilt
         Otsingu akna kaudu saate tutvuda memoriaali andmebaasis oleva infoga kommunistliku terrori läbi kannatanud isikute kohta ning leiate juhised nende nime leidmiseks nimetahvlitel.
@@ -67,7 +67,6 @@ search:
     placeholderDeathYearTo: surmaaeg kuni aasta
     button: Otsi
     buttonDetailSearch: Kuva veel otsinguvälju
-    buttonForTesting: TESTNUPP
 
 alerts:
     noResults: Otsingule ei leitud vasteid

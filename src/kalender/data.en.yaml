@@ -1,7 +1,7 @@
 path: /calendar/
 title: Calendar
 pictures:
-    - /WWII-refugees/images/bg/otsing.jpg
+    - /images/bg/otsing.jpg
 content:
     -
         id: search
