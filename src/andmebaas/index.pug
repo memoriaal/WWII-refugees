@@ -24,18 +24,110 @@ block body
         .w3-row
 
         form.w3-row#searchform
-            input.w3-input.w3-col.l8.w3-round#search(
-                type='search', 
-                name='q',
-                placeholder= self.search.placeholder
-            ) 
-            button.w3-input.w3-col.l4.w3-round#searchButton= self.search.button
-            a.button.w3-input.w3-col.l4.w3-round.w3-right#newPersonLink(
-                onclick="document.getElementById('newPersonFormRoot').style.display='block'"
-                )= self.newPersonForm.linkText
+            div.search-input-wrapper
+                input.w3-input.w3-round#search.search-input.search-input--general-search(
+                    type='search', 
+                    name='q',
+                    placeholder= self.search.placeholder
+                )
+                //- new inputs
+                
+                div.detail-search-inputs-wrapper
+                    input.w3-input.w3-round.search-firstname.search-input.search-input--detail-search(
+                        type='search', 
+                        name='firstname',
+                        placeholder= self.search.placeholderFirstname
+                    )
+                    input.w3-input.w3-round.search-lastname.search-input.search-input--detail-search(
+                        type='search', 
+                        name='lastname',
+                        placeholder= self.search.placeholderLastname
+                    )
+                    input.w3-input.w3-round.search-mothers-firstname.search-input.search-input--detail-search(
+                        type='search', 
+                        name='mothersFirstname',
+                        placeholder= self.search.placeholderMothersFirstname
+                    )
+                    input.w3-input.w3-round.search-mothers-lastname.search-input.search-input--detail-search(
+                        type='search', 
+                        name='mothersLastname',
+                        placeholder= self.search.placeholderMothersLastname
+                    )
+                    input.w3-input.w3-round.search-fathers-firstname.search-input.search-input--detail-search(
+                        type='search', 
+                        name='fathersFirstname',
+                        placeholder= self.search.placeholderFathersFirstname
+                    )
+                    input.w3-input.w3-round.search-fathers-lastname.search-input.search-input--detail-search(
+                        type='search', 
+                        name='fathersLastname',
+                        placeholder= self.search.placeholderFathersLastname
+                    )
+                    input.w3-input.w3-round.search-birthplace.search-input.search-input--detail-search(
+                        type='search', 
+                        name='birthplace',
+                        placeholder= self.search.placeholderBirthplace
+                    )
+                    input.w3-input.w3-round.search-place-of-residence.search-input.search-input--detail-search(
+                        type='search', 
+                        name='placeOfResidence',
+                        placeholder= self.search.placeholderPlaceOfResidence
+                    )
+                    input.w3-input.w3-round.search-place-of-death.search-input.search-input--detail-search(
+                        type='search', 
+                        name='placeOfDeath',
+                        placeholder= self.search.placeholderPlaceOfDeath
+                    )
+                    div.year-filter-wrapper
+                        div.year-filter-inputs-wrapper
+                            input.w3-input.w3-round.year-filter-input.birthyear-from(
+                                type="number",
+                                name="birthYearFrom",
+                                min="1850",
+                                max="2050",
+                                placeholder= self.search.placeholderBirthYearFrom
+                            ) 
+                            input.w3-input.w3-round.year-filter-input.birthyear-to(
+                                type="number",
+                                name="birthYearTo",
+                                min="1850",
+                                max="2050",
+                                placeholder= self.search.placeholderBirthYearTo
+                            ) 
+                        div.year-filter-inputs-wrapper
+                            input.w3-input.w3-round.year-filter-input.deathyear-from(
+                                type="number",
+                                name="deathYearFrom",
+                                min="1850",
+                                max="2050",
+                                placeholder= self.search.placeholderDeathYearFrom
+                            ) 
+                            input.w3-input.w3-round.year-filter-input.deathyear-to(
+                                type="number",
+                                name="deathYearTo",
+                                min="1850",
+                                max="2050",
+                                placeholder= self.search.placeholderDeathYearTo
+                            ) 
+            div.search-buttons-wrapper
+                button.search-form-button#searchButton= self.search.button
+                //-button.search-form-button.button-for-testing= self.search.buttonForTesting
+                button.search-form-button.more-fields-button= self.search.buttonDetailSearch
+                a.button.search-form-button#newPersonLink(
+                    onclick="document.getElementById('newPersonFormRoot').style.display='block'"
+                    )= self.newPersonForm.linkText           
+            //-
+    
+            //- button.w3-input.w3-col.l4.w3-round#searchButton= self.search.button
+            //- a.button.w3-input.w3-col.l4.w3-round.w3-right#newPersonLink(
+            //-     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
+            //-     )= self.newPersonForm.linkText
+
+            //- button.w3-input.w3-col.l4.w3-round#moreFields= self.search.buttonDetailSearch      
 
         #tulemused
-            .w3-text.w3-hide#search-count= 0
+            //-.w3-text.w3-hide#search-count= 0
+            .w3-text#search-count= ""
             #search-results
         //- <form class="form" id="searchform" action="/" method="GET">
         //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">

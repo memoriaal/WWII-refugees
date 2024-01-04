@@ -7,28 +7,28 @@ language:
 
 logo:
     text: Eesti sõjapõgenikud Teises maailmasõjas
-    image: /images/WWII_refugees_visuals_logo_EMI_color.svg
-    imagelight: /images/WWII_refugees_visuals_logo_EMI_light.svg
+    image: /WWII-refugees/images/WWII_refugees_visuals_logo_EMI_color.svg
+    imagelight: /WWII-refugees/images/WWII_refugees_visuals_logo_EMI_light.svg
     imageAlt: Eesti sõjapõgenikud Teises maailmasõjas
 
 navigation:
     -
-        url: /
+        url: /WWII-refugees/
         background: FB_IMG_1587103251581.jpg
         title: II maailmasõja põgenikud
         text: II maailmasõja põgenikud
     -
-        url: /otsing/
+        url: /WWII-refugees/otsing/
         background: FB_IMG_1587103251581.jpg
         title: Andmebaas
         text: Memoriaali andmebaasi haldab SA Eesti Mälu Instituut.
     -
-        url: /intervjuud/
+        url: /WWII-refugees/intervjuud/
         background: FB_IMG_1587103251581.jpg
         title: Intervjuud 
         text: Videointervjuud kommunistliku terrori läbi kannatanud inimestega.
     -
-        url: /kalender/
+        url: /WWII-refugees/kalender/
         background: FB_IMG_1587103251581.jpg
         title: Kalender
         text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
@@ -47,12 +47,27 @@ bits:
     keepReading: Loe edasi →
 
 search:
-    url: /otsing/
+    url: /WWII-refugees/otsing/
     text: |
         ### Otsing elektrooniliselt memoriaalilt
         Otsingu akna kaudu saate tutvuda memoriaali andmebaasis oleva infoga kommunistliku terrori läbi kannatanud isikute kohta ning leiate juhised nende nime leidmiseks nimetahvlitel.
     placeholder: sisesta nimi →
+    placeholderFirstname: sisesta eesnimi
+    placeholderLastname: sisesta perenimi
+    placeholderMothersFirstname: sisesta ema eesnimi
+    placeholderMothersLastname: sisesta ema perenimi
+    placeholderFathersFirstname: sisesta isa eesnimi
+    placeholderFathersLastname: sisesta isa perenimi
+    placeholderBirthplace: sisesta sünnikoht
+    placeholderPlaceOfResidence: sisesta elukoht
+    placeholderPlaceOfDeath: sisesta surmakoht
+    placeholderBirthYearFrom: sünniaeg alates aasta
+    placeholderBirthYearTo: sünniaeg kuni aasta
+    placeholderDeathYearFrom: surmaaeg alates aasta
+    placeholderDeathYearTo: surmaaeg kuni aasta
     button: Otsi
+    buttonDetailSearch: Kuva veel otsinguvälju
+    buttonForTesting: TESTNUPP
 
 alerts:
     noResults: Otsingule ei leitud vasteid

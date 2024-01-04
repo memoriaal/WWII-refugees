@@ -8,7 +8,7 @@ cards:
         id: home
         link:
         buttonText: Tutvu andmebaasiga :)
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Eesti sõjapõgenikud Teises maailmasõjas
         # leadTitle: Teise maailmasõja keerises olid kümned tuhanded Eesti inimesed sunnitud kodumaalt lahkuma.
         leads:
@@ -26,9 +26,9 @@ cards:
 
     andmebaas:
         id: andmebaas
-        link: /otsing/
+        link: /WWII-refugees/otsing/
         buttonText: Otsi
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Andmebaas
         leads:
             - "Andmebaas koondab infot Eesti elanike kohta, kes Teise maailmasõja käigus erinevatel põhjustel kodumaalt lahkusid:"
@@ -49,7 +49,7 @@ cards:
         id: intervjuud
         link: /intervjuud/
         buttonText: Vaata
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Intervjuud
         texts:
             - Teise Maailmasõja käigus lahkusid Eestist lääne suunas tuhanded inimesed, vanad ja noored, perekonnad pudenesid laiali üle maailma. Enamikel juhtudel sundis neid kodumaalt lahkuma hirm Punaarmee ning uute nõukogude režiimi repressioonide ees. Pakume teile vaatamiseks väikese valiku videomeenutusi inimestelt, keda need sündmused vahetult puudutasid.
@@ -62,7 +62,7 @@ cards:
         id: kalender
         link: /kalender/
         buttonText: Vaata
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Kalender
         lead: |
             Lorem Ipsum dolor sit amet consectetur adipi 

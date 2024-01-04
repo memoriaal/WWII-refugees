@@ -8,7 +8,7 @@ cards:
         id: home
         link:
         buttonText: Tutvu andmebaasiga :)
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Database of refugees of World War II
         # leadTitle: |
         #     In the turmoil of World War II, tens of thousands of Estonian 
@@ -25,9 +25,9 @@ cards:
         texts: []
     andmebaas:
         id: andmebaas
-        link: /en/search/
+        link: /WWII-refugees/en/search/
         buttonText: Search
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Database
         leads: 
             - "The database contains information about Estonian residents who fled Estonia during World War II for various reasons:"
@@ -47,9 +47,9 @@ cards:
             - "For questions related to the compilation of the database, please contact: refugee@mnemosyne.ee"
     intervjuud:
         id: intervjuud
-        link: /en/interviews/
+        link: /WWII-refugees/en/interviews/
         buttonText: Watch
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Video Interviews
         texts:
             - During World War II, thousands of people left Estonia for the West and families were scattered all over the world. In most cases, they were forced to leave their homeland due to the Red Army and in fear of Soviet regime's repressions. Here is a small selection of video testimonials by people who were directly affected by these events.
@@ -60,9 +60,9 @@ cards:
 
     kalender:
         id: kalender
-        link: /en/calendar/
+        link: /WWII-refugees/en/calendar/
         buttonText: Watch
-        background: /images/bg/laevad.jpg
+        background: /WWII-refugees/images/bg/laevad.jpg
         title: Calendar
         lead: |
             Lorem Ipsum dolor sit amet consectetur adipi 

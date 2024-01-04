@@ -1,5 +1,5 @@
 // wait till page loaded, then fill in search field
-window.addEventListener('load', function () {
+/* window.addEventListener('load', function () {
     const qs = getQueryStringValue('q')
     const input = document.querySelector('input[name="q"]')
     if (qs) {
@@ -8,6 +8,121 @@ window.addEventListener('load', function () {
     }
     else {
         this.document.getElementById('intro').classList.remove('w3-hide')
+    }
+}) */
+
+let userInputValue;
+let detailSearchInputsHaveValues;
+
+window.addEventListener('load', function () {
+    const qs = getQueryStringValue('q')
+    const input = document.querySelector('input[name="q"]')
+
+    const detailSearchInputsWrapper = document.querySelector(".detail-search-inputs-wrapper");
+    const showMoreSearchFieldsButton = document.querySelector(".more-fields-button");
+    const generalSearchInput = document.querySelector(".search-input--general-search");
+    const detailSearchInputs = queryAll(".search-input--detail-search");
+    // const firstnameInput = document.querySelector(".search-firstname");
+    // const lastnameInput = document.querySelector(".search-lastname");
+    // const mothersFirstnameInput = document.querySelector(".search-mothers-firstname");
+    // const mothersLastnameInput = document.querySelector(".search-mothers-lastname");
+    // const fathersFirstnameInput = document.querySelector(".search-fathers-firstname");
+    // const fathersLastnameInput = document.querySelector(".search-fathers-lastname");
+    // const birthplaceInput = document.querySelector(".search-birthplace");
+    // const placeOfResidenceInput = document.querySelector(".search-place-of-residence");
+    // const placeOfDeathInput = document.querySelector(".search-place-of-death");
+
+    const buttonForTesting = document.querySelector(".button-for-testing");
+
+    let detailSearchQueryStrings = [];
+    let detailSearchQueryString;
+
+    for (let input of detailSearchInputs) {
+        if(input.classList.contains("search-firstname")) {
+            detailSearchQueryString = getQueryStringValue('firstname');
+        } else if(input.classList.contains("search-lastname")) {
+            detailSearchQueryString = getQueryStringValue('lastname');
+        } else if(input.classList.contains("search-mothers-firstname")) {
+            detailSearchQueryString = getQueryStringValue('mothersFirstname');
+        } else if(input.classList.contains("search-mothers-lastname")) {
+            detailSearchQueryString = getQueryStringValue('mothersLastname');
+        } else if(input.classList.contains("search-fathers-firstname")) {
+            detailSearchQueryString = getQueryStringValue('fathersFirstname');
+        } else if(input.classList.contains("search-fathers-lastname")) {
+            detailSearchQueryString = getQueryStringValue('fathersLastname');
+        } else if(input.classList.contains("search-birthplace")) {
+            detailSearchQueryString = getQueryStringValue('birthplace');
+        } else if(input.classList.contains("search-place-of-residence")) {
+            detailSearchQueryString = getQueryStringValue('placeOfResidence');
+        } else if(input.classList.contains("search-place-of-death")) {
+            detailSearchQueryString = getQueryStringValue('placeOfDeath');
+        }
+        input.value = detailSearchQueryString;
+        if(input.value !== "") {
+            detailSearchQueryStrings.push(input.value);
+        }
+    }
+
+    console.log(detailSearchQueryStrings);
+
+    if(detailSearchQueryStrings.length > 0) {
+        detailSearchInputsWrapper.style.display = "block";
+        input.style.display = "none";
+        showMoreSearchFieldsButton.style.display = "none";
+    }
+
+    // buttonForTesting.addEventListener(("click"), (event) => {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     // detailSearch(qData, detailSearchInputs);
+    //     // checkIfDetailSearchInputsHaveValue(detailSearchInputs);
+    //     // console.log("funktsiooni tulem:",checkIfDetailSearchInputsHaveValue(detailSearchInputs, detailSearchInputsHaveValues));
+    // })
+
+    // let qData = {
+    //     query: {
+    //         bool: {
+    //             must: [
+    //                 {
+    //                     multi_match: {
+    //                         query: qs,
+    //                         fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
+    //                         operator: 'and',
+    //                         type: 'cross_fields',
+    //                     }
+    //                 }
+    //             ],
+    //             filter: [
+    //                 { term: { wwii: 1 } },
+    //             ]
+    //         },
+    //     },
+    //     sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+    //     _source: [
+    //         'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
+    //         'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
+    //         'sünd', 'surm', 'sünnikoht', 'surmakoht', 'id',
+    //         'kirjed.kirje', 'kirjed.kirjekood', 'kirjed.viide', 'kirjed.allikas', 'kirjed.allika_nimetus',
+    //         'pereseosed.persoon', 'pereseosed.kirje',
+    //         'pereseosed.seos', 'pereseosed.suund', 'pereseosed.kirjed',
+    //         'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida',
+    //         'episoodid.nimetus', 'episoodid.väärtus', 'episoodid.asukoht',
+    //         'redirect'
+    //     ],
+    // }
+
+    showMoreSearchFieldsButton.addEventListener(("click"), (event) => {
+        showMoreSearchFieldsButton.style.display = "none";
+        showMoreSearchInputsFields(event, generalSearchInput, detailSearchInputsWrapper);
+    })
+
+    if (qs || detailSearchQueryStrings.length > 0) {
+        input.value = qs
+        performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+        console.log("TÖÖTAB");
+    } else {
+        this.document.getElementById('intro').classList.remove('w3-hide')
+        console.log("EI TÖÖTA");
     }
 })
 
@@ -31,9 +146,9 @@ const hasMouseMoved = (event) => {
 var ecresults = {}
 var fbFormData = {}
 
-function performQuery(qs) {
+function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
-    const qData = {
+    /* const qData = {
         query: {
             bool: {
                 must: [
@@ -63,61 +178,72 @@ function performQuery(qs) {
             'episoodid.nimetus', 'episoodid.väärtus', 'episoodid.asukoht',
             'redirect'
         ],
+    } */
+    let qData = {
+            query: {
+                bool: {
+                    must: [
+                        {
+                            multi_match: {
+                                query: qs,
+                                fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
+                                operator: 'and',
+                                type: 'cross_fields',
+                            }
+                        }
+                    ],
+                    filter: [
+                        { term: { wwii: 1 } },
+                    ]
+                },
+            },
+            sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+            _source: [
+                'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
+                'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
+                'sünd', 'surm', 'sünnikoht', 'surmakoht', 'id',
+                'kirjed.kirje', 'kirjed.kirjekood', 'kirjed.viide', 'kirjed.allikas', 'kirjed.allika_nimetus',
+                'pereseosed.persoon', 'pereseosed.kirje',
+                'pereseosed.seos', 'pereseosed.suund', 'pereseosed.kirjed',
+                'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida',
+                'episoodid.nimetus', 'episoodid.väärtus', 'episoodid.asukoht',
+                'redirect'
+            ],
+        }
+
+    if(detailSearchQueryStrings.length > 0) {
+        qData = detailSearch(qData, detailSearchInputs, qs);
+        console.log(qData, "detail search query data")
     }
 
-
     // If querystring is 10 digits, then redirect to person page
-    var idQuery = (qs == Number(qs) && qs.length === 10)
+    /* var idQuery = (qs == Number(qs) && qs.length === 10)
 
     const xhr2 = new XMLHttpRequest();
     xhr2.open('POST', 'https://wwii-refugees.ee/.netlify/functions/searchB');
     xhr2.setRequestHeader('Content-Type', 'application/json');
     xhr2.onload = function () {
         if (xhr2.status === 200) {
-            const data = JSON.parse(xhr2.responseText);
-            ecresults = data
-            console.log('ecresults', ecresults)
-            console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
-            const searchCountE = document.querySelector('#search-count')
-            searchCountE.innerHTML = data.hits.total.value
-            const hits = data.hits.hits
-            if (idQuery && hits[0] && hits[0]._source.redirect) {
-                window.location.href = '/?q=' + hits[0]._source.redirect
-            }
-            const resultTemplateE = get('search-result-template')
-            const searchResultsE = get('search-results')
-            for (let i = 0; i < hits.length; i++) {
-                const text = []
-                const p = hits[i]._source
-                fbFormData[p.id] = {
-                    id: p.id,
-                    name: p.eesnimi + ' ' + p.perenimi
-                }
-                searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
+            generalSearch(xhr2, idQuery, qData);
+    
+        } else {
+            console.log('Error:', xhr2.status)
+        }
+    };
+    xhr2.onerror = function () {
+        console.log('Error:', xhr2.status)
+    }
+    console.log('qData', qData)
+    xhr2.send(JSON.stringify(qData)) */
 
-                if (p.evo === 1) {
-                    text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>')
-                }
-                text.push('</div>')
-                text.push('</div>')
-                text.push('</div>')
-                const searchResults = document.querySelector('#search-results')
-                searchResults.innerHTML += text.join('')
-            }
-            const acc = document.getElementsByClassName('pereliige')
-            console.log('Search results loaded', acc.length, acc)
-            for (let i = 0; i < acc.length; i++) {
-                console.log('classlist of last child', acc[i].lastChild.classList)
-                acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active")
-                    this.lastChild.classList.toggle('folded')
-                });
-            }
-            document.getElementById("searchform").scrollIntoView()
-            window.scrollBy(0, -100)
-
-            initResultFeedbackButtons()
-
+    var idQuery = (qs == Number(qs) && qs.length === 10)
+    
+    const xhr2 = new XMLHttpRequest();
+    xhr2.open('POST', 'https://wwii-refugees.ee/.netlify/functions/searchB');
+    xhr2.setRequestHeader('Content-Type', 'application/json');
+    xhr2.onload = function () {
+        if (xhr2.status === 200) {
+            generalSearch(xhr2, idQuery, qData);        
         } else {
             console.log('Error:', xhr2.status)
         }
@@ -127,6 +253,126 @@ function performQuery(qs) {
     }
     console.log('qData', qData)
     xhr2.send(JSON.stringify(qData))
+}
+
+function detailSearch(qData, detailSearchInputs, qs) {
+    let qDataField;
+
+    qData.query.bool.must = [];
+    for (let input of detailSearchInputs) {
+        if(input.value !== "") {
+            qs = input.value;
+
+            let queryObject = {
+                multi_match: {
+                    query: qs,
+                    fields: [],
+                    operator: 'and',
+                    type: 'cross_fields',
+                }
+            }
+
+            if(input.classList.contains("search-firstname")) {
+                qDataField = "eesnimi";
+                queryObject.multi_match.fields.push(qDataField);
+            }
+            else if(input.classList.contains("search-lastname")) {
+                qDataField = "perenimi";
+                queryObject.multi_match.fields.push(qDataField);
+                
+            }
+            else if(input.classList.contains("search-mothers-firstname")) {
+                qDataField = "emanimi";
+                queryObject.multi_match.fields.push(qDataField);
+                
+            }
+            // else if(input.classList.contains("search-mothers-lastname")) {
+            //     qDataField = "";
+            //     queryObject.multi_match.fields.push(qDataField);
+            // }
+            else if(input.classList.contains("search-fathers-firstname")) {
+                qDataField = "isanimi";
+                queryObject.multi_match.fields.push(qDataField);
+            }
+            // else if(input.classList.contains("search-fathers-lastname")) {
+            //     qDataField = "";
+            //     queryObject.multi_match.fields.push(qDataField);
+            // }
+            else if(input.classList.contains("search-birthplace")) {
+                qDataField = "sünnikoht";
+                queryObject.multi_match.fields.push(qDataField);
+            }
+            // else if(input.classList.contains("search-place-of-residence")) {
+            //     qDataField = "";
+            //     queryObject.multi_match.fields.push(qDataField);
+            // }
+            else if(input.classList.contains("search-place-of-death")) {
+                qDataField = "surmakoht";
+                queryObject.multi_match.fields.push(qDataField);
+            }
+
+            qData.query.bool.must.push(queryObject);
+        }
+    }
+    // console.log("testQdata", qData.query.bool.must);
+    return qData;
+}
+
+function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInputsWrapper) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    generalSearchInput.value = "";
+    generalSearchInput.style.display = "none";
+    detailSearchInputsWrapper.style.display = "block";
+}
+
+function generalSearch(xhr2, idQuery, qData) {
+    const data = JSON.parse(xhr2.responseText);
+    ecresults = data
+    console.log('ecresults', ecresults)
+    console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
+    const searchCountE = document.querySelector('#search-count')
+    // searchCountE.innerHTML = data.hits.total.value
+    if(data.hits.total.value) {
+        searchCountE.innerHTML = "Leitud tulemuste arv: " + data.hits.total.value;
+    }
+    const hits = data.hits.hits
+    if (idQuery && hits[0] && hits[0]._source.redirect) {
+        window.location.href = '/?q=' + hits[0]._source.redirect
+    }
+    const resultTemplateE = get('search-result-template')
+    const searchResultsE = get('search-results')
+    for (let i = 0; i < hits.length; i++) {
+        const text = []
+        const p = hits[i]._source
+        fbFormData[p.id] = {
+            id: p.id,
+            name: p.eesnimi + ' ' + p.perenimi
+        }
+        searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
+
+        if (p.evo === 1) {
+            text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>')
+        }
+        text.push('</div>')
+        text.push('</div>')
+        text.push('</div>')
+        const searchResults = document.querySelector('#search-results')
+        searchResults.innerHTML += text.join('')
+    }
+    const acc = document.getElementsByClassName('pereliige')
+    console.log('Search results loaded', acc.length, acc)
+    for (let i = 0; i < acc.length; i++) {
+        console.log('classlist of last child', acc[i].lastChild.classList)
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active")
+            this.lastChild.classList.toggle('folded')
+        });
+    }
+    document.getElementById("searchform").scrollIntoView()
+    window.scrollBy(0, -100)
+
+    initResultFeedbackButtons()
 }
 
 function initResultFeedbackButtons() {
