@@ -1,8 +1,5 @@
 // wait till page loaded, then fill in search field
 
-let userInputValue;
-let detailSearchInputsHaveValues;
-
 window.addEventListener('load', function () {
     const qs = getQueryStringValue('q')
     const input = document.querySelector('input[name="q"]')
@@ -34,7 +31,16 @@ window.addEventListener('load', function () {
             detailSearchQueryString = getQueryStringValue('placeOfResidence');
         } else if(input.classList.contains("search-place-of-death")) {
             detailSearchQueryString = getQueryStringValue('placeOfDeath');
+        } else if(input.classList.contains("birthyear-from")) {
+            detailSearchQueryString = getQueryStringValue('birthYearFrom');
+        } else if(input.classList.contains("birthyear-to")) {
+            detailSearchQueryString = getQueryStringValue('birthYearTo');
+        } else if(input.classList.contains("deathyear-from")) {
+            detailSearchQueryString = getQueryStringValue('deathYearFrom');
+        } else if(input.classList.contains("deathyear-to")) {
+            detailSearchQueryString = getQueryStringValue('deathYearTo');
         }
+        
         input.value = detailSearchQueryString;
         if(input.value !== "") {
             detailSearchQueryStrings.push(input.value);
@@ -97,7 +103,7 @@ function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
                         }
                     ],
                     filter: [
-                        { term: { wwii: 1 } },
+                        { term: { wwii: 1 } }
                     ]
                 },
             },
@@ -142,6 +148,10 @@ function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
 
 function detailSearch(qData, detailSearchInputs, qs) {
     let qDataField;
+    let birthyearFrom = "";
+    let birthyearTo = "";
+    let deathyearFrom = "";
+    let deathyearTo = "";
 
     qData.query.bool.must = [];
     for (let input of detailSearchInputs) {
@@ -160,16 +170,17 @@ function detailSearch(qData, detailSearchInputs, qs) {
             if(input.classList.contains("search-firstname")) {
                 qDataField = "eesnimi";
                 queryObject.multi_match.fields.push(qDataField);
+                qData.query.bool.must.push(queryObject);
             }
             else if(input.classList.contains("search-lastname")) {
                 qDataField = "perenimi";
                 queryObject.multi_match.fields.push(qDataField);
-                
+                qData.query.bool.must.push(queryObject);
             }
             else if(input.classList.contains("search-mothers-firstname")) {
                 qDataField = "emanimi";
                 queryObject.multi_match.fields.push(qDataField);
-                
+                qData.query.bool.must.push(queryObject);
             }
             // else if(input.classList.contains("search-mothers-lastname")) {
             //     qDataField = "";
@@ -178,6 +189,7 @@ function detailSearch(qData, detailSearchInputs, qs) {
             else if(input.classList.contains("search-fathers-firstname")) {
                 qDataField = "isanimi";
                 queryObject.multi_match.fields.push(qDataField);
+                qData.query.bool.must.push(queryObject);
             }
             // else if(input.classList.contains("search-fathers-lastname")) {
             //     qDataField = "";
@@ -186,17 +198,82 @@ function detailSearch(qData, detailSearchInputs, qs) {
             else if(input.classList.contains("search-birthplace")) {
                 qDataField = "sünnikoht";
                 queryObject.multi_match.fields.push(qDataField);
+                qData.query.bool.must.push(queryObject);
             }
-            // else if(input.classList.contains("search-place-of-residence")) {
-            //     qDataField = "";
-            //     queryObject.multi_match.fields.push(qDataField);
-            // }
+            else if(input.classList.contains("search-place-of-residence")) {
+                qDataField = "kirjed.kirje";
+                queryObject.multi_match.fields.push(qDataField);
+                qData.query.bool.must.push(queryObject);
+            }
             else if(input.classList.contains("search-place-of-death")) {
                 qDataField = "surmakoht";
                 queryObject.multi_match.fields.push(qDataField);
+                qData.query.bool.must.push(queryObject);
             }
-
-            qData.query.bool.must.push(queryObject);
+            else if(input.classList.contains("birthyear-from")) {
+                qDataField = "sünd";
+                birthyearFrom = qs;
+                if(birthyearTo === "") {
+                    birthyearTo = "now";
+                }
+                qData.query.bool.must.push({
+                    range: {
+                        [qDataField]: {
+                            gte: birthyearFrom,
+                            lte: birthyearTo,
+                            relation: "within"
+                        }
+                    }
+                })
+            }
+            else if(input.classList.contains("birthyear-to")) {
+                qDataField = "sünd";
+                birthyearTo = qs;
+                if(birthyearFrom === "") {
+                    birthyearFrom = "1850";
+                }
+                qData.query.bool.must.push({
+                    range: {
+                        [qDataField]: {
+                            gte: birthyearFrom,
+                            lte: birthyearTo,
+                            relation: "within"
+                        }
+                    }
+                })
+            }
+            else if(input.classList.contains("deathyear-from")) {
+                qDataField = "surm";
+                deathyearFrom = qs;
+                if(deathyearTo === "") {
+                    deathyearTo = "now";
+                }
+                qData.query.bool.must.push({
+                    range: {
+                        [qDataField]: {
+                            gte: deathyearFrom,
+                            lte: deathyearTo,
+                            relation: "within"
+                        }
+                    }
+                })
+            }
+            else if(input.classList.contains("deathyear-to")) {
+                qDataField = "surm";
+                deathyearTo = qs;
+                if(deathyearFrom === "") {
+                    deathyearFrom = "1850";
+                }
+                qData.query.bool.must.push({
+                    range: {
+                        [qDataField]: {
+                            gte: deathyearFrom,
+                            lte: deathyearTo,
+                            relation: "within"
+                        }
+                    }
+                })
+            }
         }
     }
     
@@ -233,6 +310,7 @@ function generalSearch(xhr2, idQuery, qData) {
             id: p.id,
             name: p.eesnimi + ' ' + p.perenimi
         }
+        console.log(`${p.id}: `, p);
         searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
         if (p.evo === 1) {
