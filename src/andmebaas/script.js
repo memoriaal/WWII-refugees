@@ -310,7 +310,6 @@ function generalSearch(xhr2, idQuery, qData) {
             id: p.id,
             name: p.eesnimi + ' ' + p.perenimi
         }
-        console.log(`${p.id}: `, p);
         searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
         if (p.evo === 1) {

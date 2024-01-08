@@ -30,8 +30,6 @@ block body
                     name='q',
                     placeholder= self.search.placeholder
                 )
-                //- new inputs
-                
                 div.detail-search-inputs-wrapper
                     input.w3-input.w3-round.search-firstname.search-input.search-input--detail-search(
                         type='search', 
@@ -114,18 +112,9 @@ block body
                 button.search-form-button.more-fields-button= self.search.buttonDetailSearch
                 a.button.search-form-button#newPersonLink(
                     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
-                    )= self.newPersonForm.linkText           
-            //-
-    
-            //- button.w3-input.w3-col.l4.w3-round#searchButton= self.search.button
-            //- a.button.w3-input.w3-col.l4.w3-round.w3-right#newPersonLink(
-            //-     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
-            //-     )= self.newPersonForm.linkText
-
-            //- button.w3-input.w3-col.l4.w3-round#moreFields= self.search.buttonDetailSearch      
+                    )= self.newPersonForm.linkText     
 
         #tulemused
-            //-.w3-text.w3-hide#search-count= 0
             .w3-text#search-count= ""
             #search-results
         //- <form class="form" id="searchform" action="/" method="GET">
