@@ -1,7 +1,8 @@
 #searchform
     display flex
     flex-direction row
-    flex-wrap wrap
+    @media screen and (max-width: 992px)
+        flex-direction column
     input, .search-form-button
         margin-bottom 15px
     input
@@ -25,7 +26,6 @@
         min-height 40px
         height auto
     .search-input-wrapper, .search-buttons-wrapper
-        max-width 435px
         min-width 200px
         width 100%
     .search-buttons-wrapper
