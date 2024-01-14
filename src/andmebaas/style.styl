@@ -1,4 +1,10 @@
 #searchform
+    display flex
+    flex-direction row
+    @media screen and (max-width: 992px)
+        flex-direction column
+    input, .search-form-button
+        margin-bottom 15px
     input
         border-top-right-radius 0em
         border-bottom-right-radius 0em
@@ -11,7 +17,29 @@
         border-bottom-left-radius 0.5em
         border-bottom-right-radius 0.5em
         border-top 1px solid var(--wwii-taust2)
-
+    .search-form-button
+        display flex
+        align-items center
+        justify-content center 
+        width 100%
+        min-width 100px
+        min-height 40px
+        height auto
+    .search-input-wrapper, .search-buttons-wrapper
+        min-width 200px
+        width 100%
+    .search-buttons-wrapper
+        display flex
+        flex-direction column
+    .detail-search-inputs-wrapper
+        display none
+    .year-filter-wrapper
+        display flex
+        flex-direction column
+        .year-filter-inputs-wrapper
+            display flex
+            flex-direction row
+            gap 10px
 button, .button
     background-color var(--wwii-taust3)
     cursor pointer
