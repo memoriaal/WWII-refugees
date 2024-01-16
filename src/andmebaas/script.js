@@ -142,7 +142,7 @@ function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     xhr2.onerror = function () {
         console.log('Error:', xhr2.status)
     }
-    console.log('qData', qData)
+    // console.log('qData', qData)
     xhr2.send(JSON.stringify(qData))
 }
 
@@ -291,8 +291,8 @@ function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInput
 function generalSearch(xhr2, idQuery, qData) {
     const data = JSON.parse(xhr2.responseText);
     ecresults = data
-    console.log('ecresults', ecresults)
-    console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
+    // console.log('ecresults', ecresults)
+    console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value })
     const searchCountE = document.querySelector('#search-count')
     if(data.hits.total.value) {
         searchCountE.innerHTML = "Leitud tulemuste arv: " + data.hits.total.value;
