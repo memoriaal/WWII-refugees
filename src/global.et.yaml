@@ -52,19 +52,28 @@ search:
         ### Otsing elektrooniliselt memoriaalilt
         Otsingu akna kaudu saate tutvuda memoriaali andmebaasis oleva infoga kommunistliku terrori läbi kannatanud isikute kohta ning leiate juhised nende nime leidmiseks nimetahvlitel.
     placeholder: sisesta nimi →
-    placeholderFirstname: sisesta eesnimi
-    placeholderLastname: sisesta perenimi
-    placeholderMothersFirstname: sisesta ema eesnimi
-    placeholderMothersLastname: sisesta ema perenimi
-    placeholderFathersFirstname: sisesta isa eesnimi
-    placeholderFathersLastname: sisesta isa perenimi
-    placeholderBirthplace: sisesta sünnikoht
-    placeholderPlaceOfResidence: sisesta elukoht
-    placeholderPlaceOfDeath: sisesta surmakoht
-    placeholderBirthYearFrom: sünniaeg alates aasta
-    placeholderBirthYearTo: sünniaeg kuni aasta
-    placeholderDeathYearFrom: surmaaeg alates aasta
-    placeholderDeathYearTo: surmaaeg kuni aasta
+    labelTextFirstname: Eesnimed
+    labelTextLastname: Perenimed
+    labelTextMothersFirstname: Ema eesnimed
+    # labelTextMothersLastname: Ema perenimed
+    labelTextFathersFirstname: Isa eesnimed
+    # labelTextFathersLastname: Isa perenimed
+    labelTextBirthplace: Sünnikoht
+    labelTextPlaceOfResidence: Elukoht
+    labelTextPlaceOfDeath: Surmakoht
+    labelTextBirthYearFrom: Sünniaasta (vahemik)
+    labelTextDeathYearFrom: Surmaaasta (vahemik)
+    # placeholderFirstname: sisesta eesnimi
+    # placeholderLastname: sisesta perenimi
+    # placeholderMothersFirstname: sisesta ema eesnimi
+    # placeholderMothersLastname: sisesta ema perenimi
+    # placeholderFathersFirstname: sisesta isa eesnimi
+    # placeholderFathersLastname: sisesta isa perenimi
+    placeholderBirthplace: linn
+    placeholderPlaceOfResidence: linn
+    placeholderPlaceOfDeath: linn
+    placeholderYearFrom: aastast
+    placeholderYearTo: aastani
     button: Otsi
     buttonDetailSearch: Kuva veel otsinguvälju
 
