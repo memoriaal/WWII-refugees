@@ -31,82 +31,112 @@ block body
                     placeholder= self.search.placeholder
                 )
                 div.detail-search-inputs-wrapper
+                    label(for="firstname-input")= self.search.labelTextFirstname  
                     input.w3-input.w3-round.search-firstname.search-input.search-input--detail-search(
                         type='search', 
                         name='firstname',
+                        id='firstname-input',
                         placeholder= self.search.placeholderFirstname
                     )
+                    label(for="lastname-input")= self.search.labelTextLastname
                     input.w3-input.w3-round.search-lastname.search-input.search-input--detail-search(
                         type='search', 
                         name='lastname',
+                        id='lastname-input',
                         placeholder= self.search.placeholderLastname
                     )
+                    label(for="mothers-firstname-input")= self.search.labelTextMothersFirstname
                     input.w3-input.w3-round.search-mothers-firstname.search-input.search-input--detail-search(
                         type='search', 
                         name='mothersFirstname',
+                        id='mothers-firstname-input',
                         placeholder= self.search.placeholderMothersFirstname
                     )
+                    //-label(for="mothers-lastname-input")= self.search.labelTextMothersLastname
                     //-input.w3-input.w3-round.search-mothers-lastname.search-input.search-input--detail-search(
                         type='search', 
                         name='mothersLastname',
+                        id='mothers-lastname-input',
                         placeholder= self.search.placeholderMothersLastname
                     //-)
+                    label(for="fathers-firstname-input")= self.search.labelTextFathersFirstname
                     input.w3-input.w3-round.search-fathers-firstname.search-input.search-input--detail-search(
                         type='search', 
                         name='fathersFirstname',
+                        id='fathers-firstname-input',
                         placeholder= self.search.placeholderFathersFirstname
                     )
+                    //-label(for="fathers-lastname-input")= self.search.labelTextFathersLastname
                     //-input.w3-input.w3-round.search-fathers-lastname.search-input.search-input--detail-search(
                         type='search', 
                         name='fathersLastname',
+                        id='fathers-lastname-input',
                         placeholder= self.search.placeholderFathersLastname
                     //-)
+                    label(for="birthplace-input")= self.search.labelTextBirthplace
                     input.w3-input.w3-round.search-birthplace.search-input.search-input--detail-search(
                         type='search', 
                         name='birthplace',
+                        id='birthplace-input',
                         placeholder= self.search.placeholderBirthplace
                     )
+                    label(for="place-of-residence-input")= self.search.labelTextPlaceOfResidence
                     input.w3-input.w3-round.search-place-of-residence.search-input.search-input--detail-search(
                         type='search', 
                         name='placeOfResidence',
+                        id='place-of-residence-input',
                         placeholder= self.search.placeholderPlaceOfResidence
                     )
+                    label(for="place-of-death-input")= self.search.labelTextPlaceOfDeath
                     input.w3-input.w3-round.search-place-of-death.search-input.search-input--detail-search(
                         type='search', 
                         name='placeOfDeath',
+                        id='place-of-death-input',
                         placeholder= self.search.placeholderPlaceOfDeath
                     )
                     div.year-filter-wrapper
                         div.year-filter-inputs-wrapper
-                            input.w3-input.w3-round.year-filter-input.birthyear-from.search-input--detail-search(
-                                type="number",
-                                name="birthYearFrom",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderBirthYearFrom
-                            ) 
-                            input.w3-input.w3-round.year-filter-input.birthyear-to.search-input--detail-search(
-                                type="number",
-                                name="birthYearTo",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderBirthYearTo
-                            ) 
+                            div.year-filter-input-wrapper
+                                label(for="birth-year-from-input")= self.search.labelTextBirthYearFrom
+                                input.w3-input.w3-round.year-filter-input.birthyear-from.search-input--detail-search(
+                                    type="number",
+                                    name="birthYearFrom",
+                                    min="1850",
+                                    max="2050",
+                                    id='birth-year-from-input',
+                                    placeholder= self.search.placeholderYearFrom
+                                )
+                            div.year-filter-input-wrapper    
+                                label(for="birth-year-to-input")= self.search.labelTextBirthYearTo
+                                input.w3-input.w3-round.year-filter-input.birthyear-to.search-input--detail-search(
+                                    type="number",
+                                    name="birthYearTo",
+                                    min="1850",
+                                    max="2050",
+                                    id='birth-year-to-input',
+                                    placeholder= self.search.placeholderYearTo
+                                ) 
                         div.year-filter-inputs-wrapper
-                            input.w3-input.w3-round.year-filter-input.deathyear-from.search-input--detail-search(
-                                type="number",
-                                name="deathYearFrom",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderDeathYearFrom
-                            ) 
-                            input.w3-input.w3-round.year-filter-input.deathyear-to.search-input--detail-search(
-                                type="number",
-                                name="deathYearTo",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderDeathYearTo
-                            ) 
+                            div.year-filter-input-wrapper
+                                label(for="death-year-from-input")= self.search.labelTextDeathYearFrom
+                                input.w3-input.w3-round.year-filter-input.deathyear-from.search-input--detail-search(
+                                    type="number",
+                                    name="deathYearFrom",
+                                    min="1900",
+                                    max="2050",
+                                    id='death-year-from-input',
+                                    placeholder= self.search.placeholderYearFrom
+                                )
+                            div.year-filter-input-wrapper    
+                                label(for="death-year-to-input")= self.search.labelTextDeathYearTo 
+                                input.w3-input.w3-round.year-filter-input.deathyear-to.search-input--detail-search(
+                                    type="number",
+                                    name="deathYearTo",
+                                    min="1900",
+                                    max="2050",
+                                    id='death-year-to-input',
+                                    placeholder= self.search.placeholderYearTo
+                                ) 
             div.search-buttons-wrapper
                 button.search-form-button#searchButton= self.search.button
                 button.search-form-button.more-fields-button= self.search.buttonDetailSearch

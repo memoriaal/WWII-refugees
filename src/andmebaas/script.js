@@ -262,7 +262,7 @@ function detailSearch(qData, detailSearchInputs, qs) {
                 qDataField = "surm";
                 deathyearTo = qs;
                 if(deathyearFrom === "") {
-                    deathyearFrom = "1850";
+                    deathyearFrom = "1900";
                 }
                 qData.query.bool.must.push({
                     range: {
