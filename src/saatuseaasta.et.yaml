@@ -1,45 +1,38 @@
 aasta:
-- kuu: Märts
+- kuu: Jaanuar
   artiklid:
-  - pealkiri: "Märtsipommitamise mälestusüritus"
-    kuupäev: "2024-03-09"
-    pilt: saatuseaasta/vene_lennukid.jpg
-    pilt_alternate: Vene lennukid Tallinna kohal
-    pilt_pealkiri: Vene lennukid
-    lead: "Märtsipommitamise mälestusüritus ja küünalde süütamine koostöös
-      Muinsuskaitse Seltsiga Tallinnas Harju tänaval."
+  - pealkiri: "Lahingud jõuavad Eesti piiridele"
+    kuupäev: "2024-01-29"
+    pilt: saatuseaasta/onud.png
+    pilt_alternate: Saksa 9.armee ülem kindraloberst Walter Model ja Punaarmee kindral Leonid Govorov.
+    pilt_pealkiri: Saksa 9.armee ülem kindraloberst Walter Model ja Punaarmee kindral Leonid Govorov.
+    lead: "Lahingud jõuavad Eesti piiridele"
     lõigud:
-    - Märtsipommitamise mälestusüritus ja küünalde süütamine koostöös
-      Muinsuskaitse Seltsiga Tallinnas Harju tänaval.
-    - Märtsipommitamise mälestusüritus ja küünalde süütamine koostöös
-      Muinsuskaitse Seltsiga Tallinnas Harju tänaval.
-  - pealkiri: "Rahvusvaheline foto- ja videokonkurss"
-    kuupäev: "2024-03-24"
-    pilt: saatuseaasta/vene_lennukid.jpg
-    pilt_alternate: Vene lennukid Tallinna kohal
-    pilt_pealkiri: Vene lennukid
-    lead: |
-      Rahvusvahelise foto- ja videokonkursi väljakuulutamine, kuhu on 
-      seekord eriti oodatud Eesti sõjapõgenike teemat puudutavad tööd. 
-      Parimatele toimub augustis traditsiooniline peaministri vastuvõtt 
-      Stenbocki majas.
-    lõigud:
-    - Märtsipommitamise mälestusüritus ja küünalde süütamine koostöös
-      Muinsuskaitse Seltsiga Tallinnas Harju tänaval.
-    - Märtsipommitamise mälestusüritus ja küünalde süütamine koostöös
-      Muinsuskaitse Seltsiga Tallinnas Harju tänaval.
+    - "1944. aasta talvel jõudis Punaarmee rinne taas Eesti piiridele. Suve lõpuks oli selge, et Punaarmee vallutab Eesti uuesti ja kommunistlik terror jätkub sealt, kus see 1941. aasta suvel katkes." 
+    - "14. jaanuaril 1944 alustasid Punaarmee kolme rinde väekoondised Leningradi–Novgorodi strateegilist pealetungioperatsiooni kindralkolonel Walter Modeli juhitava Saksa väegrupi Nord vastu. Eesmärgiks seati Leningradi ja Novgorodi oblastite vabastamine ning väegrupi Nord ära lõikamine väegrupist Mitte, mis eeldas Punaarmee jõudmist Läänemereni. Pealetung osutus edukaks ning Peipsini jõudes poolitati saksa üksused kaheks: armee vasak tiib asus positsioonidele Narva jõe joonel, ülejäänud väekoondised taganesid Pihkva suunas."
+    - "Saksa kõrgem väejuhatus pidas rinde stabiliseerimist Narva jõel väga oluliseks, sest Soome lahe lõunaranniku kaotamine oleks tähendanud ühtlasi kontrolli kaotamist Soome lahe üle ja Nõukogude Liidu Balti laevastiku pääsemist Läänemerele. See omakorda seadnuks ohtu kogu Saksamaa kontrolli all oleva Läänemere ranniku. Kui sakslased oleks kaotanud Eesti, oleks kogu Soome lõunarannik olnud valla Punaarmee rünnakutele. Kroonilises kütte- ja määrdeainete puuduses vaevlevale Saksa sõjaväele oli oluline ka Kirde-Eesti põlevkivist saadav õlitoodang."
+    - "Võitlusvõime taastamiseks vahetati välja rida üksusi, nende hulgas mitmed Saksa poolel sõdinud võõrrahvaste omad. Täielikult demoraliseerunud 250. jalaväediviis, mida pigem tunneme „Sinine Diviis“ või Hispaania Leegionina, toodi rindelt ära Tapa piirkonda ja saadeti tagasi kodumaale. Seevastu asusid koos sakslastega rindel kaitsele hollandlastest formeeritud 4. SS-soomusgrenaderibrigaad „Nederland“ ning taani ja norra vabatahtlikest moodustatud 11. SS-soomusgrenaderidiviis „Nordland“. Põhiraskuse kandmiseks paisati kiirkorras lennukitel Eestisse Saksa eliitüksusi: Wehrmacht’i soomusgrenaderidiviis „Feldherrnhalle“ jõudsid rindele juba 1. veebruaril, 6. veebruaril andis Hitler käsu Wehrmacht’i soomusgrenaderidiviisi „Grossdeutschland“ üksuste Eestisse saatmiseks."
+    - ### Pantriliin ja tsiviilealnike evakueerimine
+    - "Jaanuari lõpuks olid Punaarmee üksused kindral Leonid Govorovi juhtimisel murdnud Leningrdi blokaadi ning jõudnud Peipsi ja Soome lahe vahelises piirkonnas sõjaeelse Eesti Vabariigi piirideni ning 25. jaanuaril kuulutati Narva rindelinnaks, algas tsivvilisikute evakueerimine. Eesti piirijoon polnud Saksa väejuhatul iseenesest oluliseks maamärgiks, sest tulevasteks lahinguteks valmistuti looduslikult sobivamal Narva jõe joonel. Esimesed Punaarmee üksused jõudsid Narva jõeni 1. veebruaril ning juba järgmisel päeval õnnestus neil jõe läänekaldal moodustada mitmed sillapead."
+    - "Lahinguteks Narva jõe joonel ja Peipsi läänerannikul olid sakslased teinud ettevalmistusi juba mõnda aega, valmistades ette positsioone, mis olid osa nn Pantriliinist (Panther-Stellung). See moodustas i osa nn Idavallist (Ostwall), mis kulges Mustast merest Soome laheni. Liini rajamist oli alustatud küll 1943. aasta augustis, kuid see veel kaugelt valmis ja kindlustustööd jätkusid jooksvalt ka lahingute ajal. Ühtlasi alustati aktiivselt Põhja-Eesti ranniku kindlustamist merelt lähtuda võivate rünnakute tõrjumiseks."
+    - "Paralleelselt Pantriliini rajamisega alustati „kaitsemeetmete tõhustamiseks“ rindejoone ja kaitseliini vaheline ala tsiviilelanikest „puhastamisega“, mis pani Eestis liikuma esimese suure põgenike laine, nn operatsiooni “Roboter”. Lisaks puhtsõjaliste aspektidele ja humaansuskaalutlustele oli selle eesmärk , nagu operatsiooni nimigi viitab, kahtlemata tööjõu hankimine, mis on suur defitsiit igas sõdivas riigis. Ja vastupidi, vaenlasele ei tohtinud jääda ühtegi “rakendatavat inimest”. Nii oli juba 23. jaanuariks 1944 väegrupi Nord tagalapiirkonnas ehitatava Pantriliini ja rindejoone vaheliselt alalt kokku evakueeritud üle 300 tuhande inimese: Narva- ja Peipsitagustel aladel elanud eestlased, kes olid seal elanud tsaariajast saati, Ingerimaa ingerisoomlased, venelased. Neist kümned tuhanded jõudsid ka Eestisse."
+    - "Narva tsiviilisikute sundevakueerimine algas 25. jaanuaril ning oli paljudele arvatavasti ootamatu. Saksa propaganda püüdis järjekindlalt olukorrast maalida lootusrikkamat pilti ning reaalne olukord kajastus pigem kuulujuttudes või oli lahingukõmin juba kõrvale kuulda. Kohalik okupatsiooniaegne ajakirjandus andsid lahingute Narva jõeni jõudmisest selgesõnaliselt teada mõningase viivitusega, viidates ka võimalikule „ajutisele evakueerimisele“. Näiteks vahendas ajaleht Eesti Sõna 3. veebruaril Eesti Omavalitsuse juhi Hjalmar Mäe raadiokõnet: „Kui vaenlane on meie kodumaa piiride lähedal, võib tekkida tarvidus ohustatud piiriäärsest osast mõnda asulat evakueerida, et inimesed mitte asjata hädaohtu ei satuks. Siis olgu igal eestlasel külma verd käsu kohaselt oma kodu ilma hädaldamiseta maha jätta ja olgu igal eestlasel sooja südant temale anda uut peavarju.“ Tsiteeritud Mäe kõnes oli tsiviilelanike evakueerumine siiski kõrvalteema ning pigem oli tegu võitlusvaimu turgutamise ja mobilisatsioonipropagandaga."
+    - ### Üldmobilisatsiooni ettevalmistus
+    - "Eesti piiridele jõudnud lahingud oli vahetu ajend üldmobilisatsiooni välja kuulutamiseks. 1. veebruaril ilmus ajalehtedesse ja kuulutustulpadele Eesti Omavalitsuse juhi määrus, mille kohaselt vastavalt kokkuleppele saksa sõjaväevõimudega kuulutati kaitseteenistuskohustuslasteks aastatel 1904–1923 sündinud mehed, ning kohustati neid ilmuma kaitseteenistuskomisjonidesse. Eesti kodanike üldmobilisatsioon, mis oli sõjaõigusega vastuolus sama moodi, kui 1941. aasta suvine mobilisatsioon Punaarmeesse, oli sellega käima lükatud."
+    - "Mobilisatsioon ei tulnud ka tühjale kohale. Juba varasemalt oli Omakaitse kattevarjus läbi viidud mobilisatsiooniealiste meeste registreerimine. Paralleelselt meeste registreerimise ja üksuste formeerimisplaanidega oli 1943. aastal „peaproovina“ alustatud ka reaalse mobilisatsiooniga, kutsudes novembris teenistusse 1925. aastakäigu kutsealusted."
+    - "Kuulujutud tulevastest üldmobilisatsioonist liikusid rahva seas ringi mitmeid kuid varem. Võttes aluseks julgeolekupolitsei koostatud meelsusaruanded, siis võis eeldada, et üldmobilisatsiooni tulemused (sh kaasas käivad meeleolud) on ettearvamatud ja teatud aastakäikude varasemad varjatud ja varjamata mobilisatsioonid andsid põhjust oletada, et kõrvalehoidmine saab olema massiline."
+    - "Ja see polnud sakslastele kindlasti teadmata. Kuid oli ka tegureid, mis viitasid mobilisatsiooni õnnestumise võimalusele. Ei saa eeldada, et tollane inimene orienteerunuks väga täpselt okupatsioonivõimu „bütsantslikus“ olemuses või rahvusvahelises sõjaõiguses. Nii kasutati motivatsiooni tõstmiseks okupatsioonivõimude kontrolli all olevaid omamaiseid asutusi (Eesti Omavalitsus, Eesti Omakaitse ja Kindralinspektsioon). Samuti oli mobilisatsioonikorraldus koostatud viitega enne 1940. aasta 22. juunit kehtinud Eesti Vabariigi seadustele ja kodakondsusele. Ühtlasi saavutati tinglik kokkulepe rahvusliku opositsiooni esindajatega, kes olid seni suhteliselt passiivses olekus."
+    - "Kuid mitte vähetähtis polnud mobilisatsiooni õnnestumisel okupatsioonivõimude küllalt oskuslikult läbi viidud propaganda. Juba 1941. aastast kultiveeritud Teise Vabadussõja motiiv ei ülistanud mitte niiväga sakslasi, vaid seisukohta, et käesolevas sõjas „idamaise barbaarsuse“ vastu ei ole alternatiive sakslaste toetamisele!"
+    - "Alanud aasta ei tõotanud head ja Eesti rahvast ootas ees veel rida pöördilisi sündmusi, mis määrasid meie saatuse aastakümneteks. Lootus terrorist pääseda sundis kümneid tuhandeid Eesti inimesi kodumaalt lahkuma."
+
   päevikukanded:
-  - kuupäev: "2024-03-02"
-    autor: "Jaan Tamm"
-    pealkiri: "Uus kodu"
-    pilt: saatuseaasta/talu.jpg
-    pilt_alternate: Talu peale kahte sõjaaastat
-    pilt_pealkiri: Talu peale kahte sõjaaastat
+  - kuupäev: "1944-01-31"
+    autor: "Saima Parbo"
+    pealkiri: "31. jaanuar"
+    pilt: saatuseaasta/Narva varemed_EFA.217.1.7838.jpg
+    pilt_alternate: Narva varemed
+    pilt_pealkiri: Narva varemed
     lõigud:
-    - "Kolm aastat tagasi põgenesime koos perega kodust. Nüüd oleme leidnud
-      uue kodu. Loodame, et seekord jääme siia kauemaks. Kui sõda läbi saab,
-      tahame tagasi minna."
-    - "Kohaliku talu peremees on meid väga hästi vastu võtnud. Ta on lubanud
-      meil siin elada, kuni sõda läbi saab. Meie ülesandeks on aidata talu
-      töödel. See on meile väga sobiv lahendus. Meie perel on nüüd katus
-      pea kohal ja me ei pea enam kartma, et meid kuhugi saadetakse."
+    - "Sõjatuled on kohutavalt lähenenud, kuid pool Narva elanikkonnast on kangekaelselt otsustanud paigale jääda, hoolimata käsust."
+    - "Siis saabus õudseim öö, mis otsustas me saatuse. Juba õhtul seati Narva ümbrusesse üles kahureid ning videvikuks muutudes läks lahti möll. Asusime täiesti sõjakärinas. Edasi-tagasi üle linna lendavad kuulid. Taevas oli kui tulemeri. See on ilus, kuid õudne vaatepilt. Lennukipommide plahvatused õõtsutavad maja, kui oleks see papist! Varsti puhkevad tulekahjud. Üksnes Narva ümbruses võib loendada 7–8 kuma. On karta, et venelane marsib juba enne hommikut sisse. Sel ööl otsustasime, et lahkume järgmisel hommikul, kui pole juba hilja. Vanaisa ja vanaema jäävad aga sellest hoolimata kohale."
+    - "Nii algas meie sõjarännak."
