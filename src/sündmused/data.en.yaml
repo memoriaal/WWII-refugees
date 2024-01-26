@@ -1,5 +1,7 @@
-path: /calendar/
-title: Calendar
+path: /events/
+aliases:
+    - /calendar/
+title: Events
 pictures:
     - /images/bg/otsing.jpg
 content:

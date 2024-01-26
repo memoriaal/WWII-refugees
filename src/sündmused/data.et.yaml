@@ -1,5 +1,7 @@
-path: /kalender/
-title: Kalender
+path: /syndmused/
+aliases:
+    - /kalender/
+title: Sündmused
 pictures:
     - /images/bg/otsing.jpg
 content:
