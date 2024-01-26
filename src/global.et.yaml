@@ -28,9 +28,9 @@ navigation:
         title: Intervjuud 
         text: Videointervjuud kommunistliku terrori läbi kannatanud inimestega.
     -
-        url: /kalender/
+        url: /syndmused/
         background: FB_IMG_1587103251581.jpg
-        title: Kalender
+        title: Sündmused
         text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
 
 footer:

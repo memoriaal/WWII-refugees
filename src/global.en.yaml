@@ -28,9 +28,9 @@ navigation:
         title: Interviews 
         text: Video interviews
     -
-        url: /en/calendar/
+        url: /en/events/
         background: FB_IMG_1587103251581.jpg
-        title: Calendar
+        title: Events
         text: Memorial days and events
 
 footer:
