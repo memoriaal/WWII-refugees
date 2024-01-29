@@ -1,0 +1,34 @@
+extends /_templates/html.pug
+
+block body
+
+    include /_templates/navigation.pug
+
+    .sisu.w3-container#artikkel
+        h1= self.title
+        each paragraph in self.texts
+            p= paragraph
+        //- p= self.more.label
+        //-     a(href=self.more.link)= self.more.text
+
+        - console.log(self.data.saatuseaasta)
+        each kuu in self.data.saatuseaasta
+            .w3-row
+                h2= kuu.kuu
+                each p2ev in kuu.p2evikukanded
+                    .w3-row
+                        .w3-third.w3-padding
+                            h3= p2ev.pealkiri
+                            img(src='/images'+p2ev.pilt, alt=p2ev.pilt_alternate, style="width:100%")
+                            //- pildiallkiri
+                            .w3-right.w3-cursive= p2ev.pilt_pealkiri
+                        .w3-twothird
+                            each sissekanne in p2ev.l6igud
+                                p= sissekanne
+                    .w3-row
+                        .w3-right.w3-cursive= p2ev.autor
+
+    include /_templates/footer.pug
+
+//- <p><a href="https://vimeo.com/658946623">Paul Laan INTERVJUU</a> from <a href="https://vimeo.com/eestimaluinstituut">Eesti M&auml;lu Instituut</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+//- <p></p>

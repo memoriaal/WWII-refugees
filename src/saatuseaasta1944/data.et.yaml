@@ -1,0 +1,11 @@
+path: /saatuseaasta/
+data:
+    saatuseaasta: /saatuseaasta.et.yaml
+title: Saatuseaasta 1944
+texts:
+    - Sellel aastal põgenes Eestist umbes 70 000 inimest, kellest enamik jõudis Rootsi. Põgenemine oli tingitud Nõukogude Liidu vägede pealetungist Eestisse, mis algas 1944. aasta suvel. Põgenemise põhjuseks oli hirm Nõukogude Liidu võimu ees, mis oli Eestis kehtestatud 1940. aastal ja millele järgnes 1941. aastal Saksa okupatsioon. Põgenemise põhjuseks oli ka hirm Nõukogude Liidu vägede ees, mis olid Eestis kehtestatud 1940. aastal ja millele järgnes 1941. aastal Saksa okupatsioon.
+more:
+    label: "Rohkem videomeenutusi: "
+    text: www.kogumelugu.ee
+    link: https://www.kogumelugu.ee/
+    
