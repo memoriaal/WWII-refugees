@@ -1,12 +1,12 @@
 - kuu: Jaanuar
   artiklid:
-  - pealkiri: "Lahingud jõuavad Eesti piiridele"
-    kuupäev: "2024-01-29"
-    pilt: saatuseaasta/onud.png
+  - kuup2ev: "2024-01-29"
+    pealkiri: "Lahingud jõuavad Eesti piiridele"
+    pilt: /saatuseaasta/onud.png
     pilt_alternate: Saksa 9.armee ülem kindraloberst Walter Model ja Punaarmee kindral Leonid Govorov.
     pilt_pealkiri: Saksa 9.armee ülem kindraloberst Walter Model ja Punaarmee kindral Leonid Govorov.
     lead: "Lahingud jõuavad Eesti piiridele"
-    lõigud:
+    l6igud:
     - "1944. aasta talvel jõudis Punaarmee rinne taas Eesti piiridele. Suve lõpuks oli selge, et Punaarmee vallutab Eesti uuesti ja kommunistlik terror jätkub sealt, kus see 1941. aasta suvel katkes." 
     - "14. jaanuaril 1944 alustasid Punaarmee kolme rinde väekoondised Leningradi–Novgorodi strateegilist pealetungioperatsiooni kindralkolonel Walter Modeli juhitava Saksa väegrupi Nord vastu. Eesmärgiks seati Leningradi ja Novgorodi oblastite vabastamine ning väegrupi Nord ära lõikamine väegrupist Mitte, mis eeldas Punaarmee jõudmist Läänemereni. Pealetung osutus edukaks ning Peipsini jõudes poolitati saksa üksused kaheks: armee vasak tiib asus positsioonidele Narva jõe joonel, ülejäänud väekoondised taganesid Pihkva suunas."
     - "Saksa kõrgem väejuhatus pidas rinde stabiliseerimist Narva jõel väga oluliseks, sest Soome lahe lõunaranniku kaotamine oleks tähendanud ühtlasi kontrolli kaotamist Soome lahe üle ja Nõukogude Liidu Balti laevastiku pääsemist Läänemerele. See omakorda seadnuks ohtu kogu Saksamaa kontrolli all oleva Läänemere ranniku. Kui sakslased oleks kaotanud Eesti, oleks kogu Soome lõunarannik olnud valla Punaarmee rünnakutele. Kroonilises kütte- ja määrdeainete puuduses vaevlevale Saksa sõjaväele oli oluline ka Kirde-Eesti põlevkivist saadav õlitoodang."
@@ -26,11 +26,11 @@
 
   p2evikukanded:
   - kuup2ev: "1944-01-31"
-    autor: "Saima Parbo"
     pealkiri: "31. jaanuar"
     pilt: /saatuseaasta/Narva_Krivasoo_ERA.4996.1.228.jpg
     pilt_alternate: Krivasoo kuulipildurid
     pilt_pealkiri: Krivasoo kuulipildurid
+    autor: "Saima Parbo"
     l6igud:
     - "Sõjatuled on kohutavalt lähenenud, kuid pool Narva elanikkonnast on kangekaelselt otsustanud paigale jääda, hoolimata käsust."
     - "Siis saabus õudseim öö, mis otsustas me saatuse. Juba õhtul seati Narva ümbrusesse üles kahureid ning videvikuks muutudes läks lahti möll. Asusime täiesti sõjakärinas. Edasi-tagasi üle linna lendavad kuulid. Taevas oli kui tulemeri. See on ilus, kuid õudne vaatepilt. Lennukipommide plahvatused õõtsutavad maja, kui oleks see papist! Varsti puhkevad tulekahjud. Üksnes Narva ümbruses võib loendada 7–8 kuma. On karta, et venelane marsib juba enne hommikut sisse. Sel ööl otsustasime, et lahkume järgmisel hommikul, kui pole juba hilja. Vanaisa ja vanaema jäävad aga sellest hoolimata kohale."

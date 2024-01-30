@@ -16,17 +16,28 @@ block body
             .w3-row
                 h2= kuu.kuu
                 each p2ev in kuu.p2evikukanded
-                    .w3-row
+                    .w3-row.w3-card.w3-margin-bottom
                         .w3-third.w3-padding
                             h3= p2ev.pealkiri
                             img(src='/images'+p2ev.pilt, alt=p2ev.pilt_alternate, style="width:100%")
                             //- pildiallkiri
                             .w3-right.w3-cursive= p2ev.pilt_pealkiri
-                        .w3-twothird
+                        .w3-twothird.w3-padding
                             each sissekanne in p2ev.l6igud
                                 p= sissekanne
-                    .w3-row
-                        .w3-right.w3-cursive= p2ev.autor
+                            .w3-right.w3-cursive= p2ev.autor
+
+                each p2ev in kuu.artiklid
+                    .w3-row.w3-card.w3-margin-bottom
+                        .w3-third.w3-padding
+                            h3= p2ev.pealkiri
+                            img(src='/images'+p2ev.pilt, alt=p2ev.pilt_alternate, style="width:100%")
+                            //- pildiallkiri
+                            .w3-right.w3-cursive= p2ev.pilt_pealkiri
+                        .w3-twothird.w3-padding
+                            each sissekanne in p2ev.l6igud
+                                p= sissekanne
+                            .w3-right.w3-cursive= p2ev.autor
 
     include /_templates/footer.pug
 
