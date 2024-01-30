@@ -15,29 +15,33 @@ block body
         each kuu in self.data.saatuseaasta
             .w3-row
                 h2= kuu.kuu
-                each p2ev in kuu.p2evikukanded
-                    .w3-row.w3-card.w3-margin-bottom
-                        .w3-third.w3-padding
-                            h3= p2ev.pealkiri
-                            img(src='/images'+p2ev.pilt, alt=p2ev.pilt_alternate, style="width:100%")
-                            //- pildiallkiri
-                            .w3-right.w3-cursive= p2ev.pilt_pealkiri
-                        .w3-twothird.w3-padding
-                            each sissekanne in p2ev.l6igud
-                                p= sissekanne
-                            .w3-right.w3-cursive= p2ev.autor
-
                 each p2ev in kuu.artiklid
                     .w3-row.w3-card.w3-margin-bottom
                         .w3-third.w3-padding
                             h3= p2ev.pealkiri
                             img(src='/images'+p2ev.pilt, alt=p2ev.pilt_alternate, style="width:100%")
                             //- pildiallkiri
-                            .w3-right.w3-cursive= p2ev.pilt_pealkiri
+                            .wwii-right.wwii-italic= p2ev.pilt_pealkiri
+                        .w3-twothird.w3-padding
+                            p= p2ev.l6igud[0]
+                            button.w3-button.w3-left-align.w3-block.readmore(onclick='toggleAccordeon(this)')= self.bits.keepReading
+                            .accordeon.w3-hide
+
+                                each sissekanne in p2ev.l6igud
+                                    p= sissekanne
+                                .wwii-right.wwii-italic= p2ev.autor
+
+                each p2ev in kuu.p2evikukanded
+                    .w3-row.w3-card.w3-margin-bottom.wwii-kollakas
+                        .w3-third.w3-padding
+                            h3= p2ev.pealkiri
+                            img(src='/images'+p2ev.pilt, alt=p2ev.pilt_alternate, style="width:100%")
+                            //- pildiallkiri
+                            .wwii-right.wwii-italic= p2ev.pilt_pealkiri
                         .w3-twothird.w3-padding
                             each sissekanne in p2ev.l6igud
                                 p= sissekanne
-                            .w3-right.w3-cursive= p2ev.autor
+                            .wwii-right.wwii-italic= p2ev.allikas
 
     include /_templates/footer.pug
 

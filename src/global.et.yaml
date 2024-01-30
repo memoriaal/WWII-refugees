@@ -28,15 +28,15 @@ navigation:
         title: Intervjuud 
         text: Videointervjuud kommunistliku terrori läbi kannatanud inimestega.
     -
-        url: /syndmused/
-        background: FB_IMG_1587103251581.jpg
-        title: Sündmused
-        text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
-    -
         url: /saatuseaasta/
         background: FB_IMG_1587103251581.jpg
         title: Saatuseaasta 1944
         text: Artklid ja päevikukanded.
+    -
+        url: /syndmused/
+        background: FB_IMG_1587103251581.jpg
+        title: Sündmused 2024
+        text: Kommunistliku terrori ohvrite mälestuspäevad ja -üritused.
 
 footer:
     EMI: Eesti Mälu Instituut
