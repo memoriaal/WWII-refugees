@@ -27,6 +27,11 @@ navigation:
         background: FB_IMG_1587103251581.jpg
         title: Interviews 
         text: Video interviews
+    -   
+        url: /en/fatefull-year/
+        background: FB_IMG_1587103251581.jpg
+        title: Fatefull year 1944
+        text: Articles and diary entries
     -
         url: /en/events/
         background: FB_IMG_1587103251581.jpg
