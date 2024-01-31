@@ -1,0 +1,82 @@
+path: /events/
+aliases:
+    - /calendar/
+title: Events
+pictures:
+    - /images/bg/otsing.jpg
+content:
+    -
+        id: search
+        title: Search the database of refugees of World War II
+        text: |
+            Lorem Ipsum dolor sit amet consectetur adipi 
+            scing elit sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua. Ut enim ad minim 
+            veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute
+events:
+    -
+        date: "2024-03-09"
+        title: March Bombing Memorial Event
+        text: |
+            March Bombing Memorial Event and Candle Lighting in cooperation with the Estonian Heritage Society on Harju Street in Tallinn.
+    -
+        date: "May-June, 2024"
+        title: International Photo and Video Competition
+        text: |
+            This year's International Photo and Video Competition especially welcomes entries related to the topic of Estonian war refugees. The awardees will receive an invitation to the Prime Minister's reception at Stenbock House in August.
+    -
+        date: "June-November, 2024"
+        title: Opening of the outdoor exhibition on the topic of the Mass Flight of 1944.
+        text: |
+            Opening of the outdoor exhibition in six different locations across Estonia.
+    -
+        date: "2024-06-14"
+        title: June Deportation Memorial Event
+        text: |
+            On the anniversary of the June deportation, the winner of the student essay competition will present their work at the annual ceremony at the Memorial for the Victims of Communism. The competition is organized in cooperation with Postimees and is dedicated to the memory of those that were forced to leave their homeland. The best essays will be published in Postimees.
+    -
+        date: "July-August, 2024"
+        title: Summer School for youngsters of Estonian descent 
+        text: |
+            The central themes of the Summer School are Estonia's recent history, war refugees, the continuation of resistance in the Estonian diaspora and the history of diplomacy.
+    -
+        date: "2024-08-24"
+        title: Conference "Second World War Estonian War Refugees"
+        text: |
+            Conference "Estonian War Refugees in World War II" takes place at Haapsalu Cultural Center.
+            - Presentation of the database "Estonian War Refugees in World War II".
+            - Presentation of the article collection on Swedish boat refugees.
+            - Premiere of a documentary that covers the themes of helping refugees, the stories of refugees and returnees on the example of Sweden, and illustrates the void left by refugees in Estonian society.
+            - 17:30-18:45 Reception at Haapsalu Castle for conference participants.
+            - 19:00 Raimo Kangro "Mass in the Memory of Innocent Victims in Estonia" (1989, op. 40) at Haapsalu Cathedral.
+    -
+        date: "2024-09-07"
+        title: Raimo Kangro "Mass in the Memory of Innocent Victims in Estonia"
+        text: |
+            19:00 Raimo Kangro "Mass in the Memory of Innocent Victims in Estonia" (1989, op. 40) performance at Tartu Paulus Church.
+    -   
+        date: "2024-09-13"
+        title: Estonian War Refugee Memorial Ceremony of the Swedish Estonian Association
+        text: |
+            Estonian War Refugee Memorial Ceremony of the Swedish Estonian Association, EIHM documentary and presentation of the article collection dedicated to boat refugees and opening of the exhibition in Slite, Sweden in cooperation with EIHM.
+    -
+        date: "2024-09-13"
+        title: Estonian War Refugee Memorial Ceremony of the Swedish Estonian Association
+        text: |
+            Estonian War Refugee Memorial Ceremony of the Swedish Estonian Association, EIHM documentary and presentation of the article collection dedicated to boat refugees and opening of the exhibition in Slite, Sweden in cooperation with EIHM.
+    -
+        date: "2024-09-21"
+        title: Puise Memorial Event
+        text: |
+            Puise Memorial Event, organized by the Estonian World Council's Mass Flight Committee.
+    -
+        date: "2024-09-21"
+        title: Raimo Kangro "Mass in the Memory of Innocent Victims in Estonia"
+        text: |
+            19:00 Raimo Kangro "Mass for the Innocently Killed Estonians" (1989, op. 40) performance at Kaarli Church in Tallinn.
+    -
+        date: "September, 2024"
+        title: "Time travel for schoolchildren: The Mass Flight of 1944"
+        text: |
+            The Time Travel Method is an educational method that uses local heritage in the learning process to reflect on contemporary issues and provide tools for community building. The goal is to promote learning, social cohesion and support education in schools.

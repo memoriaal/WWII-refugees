@@ -27,10 +27,15 @@ navigation:
         background: FB_IMG_1587103251581.jpg
         title: Interviews 
         text: Video interviews
-    -
-        url: /en/calendar/
+    -   
+        url: /en/fatefull-year/
         background: FB_IMG_1587103251581.jpg
-        title: Calendar
+        title: Fatefull year 1944
+        text: Articles and diary entries
+    -
+        url: /en/events/
+        background: FB_IMG_1587103251581.jpg
+        title: Events 2024
         text: Memorial days and events
 
 footer:
