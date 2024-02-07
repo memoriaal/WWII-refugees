@@ -1,17 +1,3 @@
-- kuu: January
-  artiklid:
-  - klass: päevikukanne
-    pealkiri: "January 31st"
-    pilt: /saatuseaasta/Narva_Krivasoo_ERA.4996.1.228.jpg
-    pilt_alternate: Lieutenant Eduard Simson-Kallas in the winter battle of Narva. ERA.4996.1.228
-    pilt_pealkiri: Lieutenant Eduard Simson-Kallas in the winter battle of Narva. ERA.4996.1.228
-    autor: Saima Parbo
-    allikas: "Leaving Estonia behind: a 14-year-old girl's diary of a wartime escape. Tallinn, 2020"
-    l6igud:
-    - "The fires of war have come terribly close, but half of Narva's population has stubbornly decided to stay put, despite the orders."
-    - "What followed was a most horrid night that decided our fate. Already in the evening, cannons were set up in the vicinity of Narva, and by dusk, a commotion broke out. We were utterly in the midst of war. Bullets fly back and forth across the city. The sky is like a sea of fire. It's a beautiful, yet gruesome sight. The explosions of aerial bombs make our house wobble as if it were made of cardboard! Fires will soon break out. In Narva alone, one can count 7-8 fires. We fear the Russians will march in before morning. We decided to leave the next morning before it’s too late. Even so, grandfather and grandmother wish to stay put."
-    - "Thus began our war journey."
-
 - kuu: February
   artiklid:
     - klass: päevikukanne
@@ -26,3 +12,27 @@
       - "The highway is full of refugees, some on foot, and some on horseback, their belongings piled on a cart and a cow tied to the back. There are refugees from Narva and from the surrounding villages, Estonians, Russians, Ingrians! And in the middle of this, the retreating army, military cars, motorcycles, tanks..."
       - "It's impossible to get through! The car has to move together with foot travellers, unable to make room for itself."
       - "Our initial destination – Sooküla – is about 20 kilometres from Narva, near Vaivara. Halfway there, the air fills with a terrible racket. We don't understand the reason for this at first, but then we see a scary image: Russian planes, there may be six or seven of them, are flying over the highway at a low level, shooting at the crowd. In the midst of frantic noise and cries of terror, they keep coming again and again, causing a terrible panic. People and horses are left lying on the road. In the blink of an eye, the crowd, maddened with fear, has thrown themselves down into the roadside ditches. The road is suddenly clear and the car quickly speeds away."
+    - klass: päevikukanne
+      pealkiri: "7 February"
+      pilt: /saatuseaasta/Narva varemed_EFA.217.1.7838.jpg
+      pilt_alternate: Narva in ruins in 1944 (EFA.217.1.7838)
+      pilt_pealkiri: Narva in ruins in 1944 (EFA.217.1.7838)
+      autor: Saima Parbo
+      allikas: "Leaving Estonia behind: a 14-year-old girl's diary of a wartime escape. Tallinn, 2020"
+      l6igud:
+      - "The peace is gone. It is rumoured that the enemy has began an air assault 10-12 kilometres from us. Here, deep in the forest, the rattle of a machine gun echoes so loudly, as if the battle were only a few hundred meters away. Worst of all, it seems to be getting closer by the hour!"
+      - "Now, the planes are already flying over here too. The bomb blasts make the house shake and tremble. We are once again in the throes of war."
+
+- kuu: January
+  artiklid:
+  - klass: päevikukanne
+    pealkiri: "January 31st"
+    pilt: /saatuseaasta/Narva_Krivasoo_ERA.4996.1.228.jpg
+    pilt_alternate: Lieutenant Eduard Simson-Kallas in the winter battle of Narva. ERA.4996.1.228
+    pilt_pealkiri: Lieutenant Eduard Simson-Kallas in the winter battle of Narva. ERA.4996.1.228
+    autor: Saima Parbo
+    allikas: "Leaving Estonia behind: a 14-year-old girl's diary of a wartime escape. Tallinn, 2020"
+    l6igud:
+    - "The fires of war have come terribly close, but half of Narva's population has stubbornly decided to stay put, despite the orders."
+    - "What followed was a most horrid night that decided our fate. Already in the evening, cannons were set up in the vicinity of Narva, and by dusk, a commotion broke out. We were utterly in the midst of war. Bullets fly back and forth across the city. The sky is like a sea of fire. It's a beautiful, yet gruesome sight. The explosions of aerial bombs make our house wobble as if it were made of cardboard! Fires will soon break out. In Narva alone, one can count 7-8 fires. We fear the Russians will march in before morning. We decided to leave the next morning before it’s too late. Even so, grandfather and grandmother wish to stay put."
+    - "Thus began our war journey."
