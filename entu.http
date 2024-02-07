@@ -1,0 +1,23 @@
+
+@hostname=api.entu.app
+@key=
+
+###
+# auth
+GET {{hostname}}/auth?account=emi HTTP/1.1
+Accept-Encoding: deflate
+Authorization: Bearer {{key}}
+
+@token=
+
+###
+# account
+GET {{hostname}}/account HTTP/1.1
+Accept-Encoding: deflate
+Authorization: Bearer {{token}}
+
+###
+# entity
+GET {{hostname}}/entity?forename.string=Keigla&limit=12 HTTP/1.1
+Accept-Encoding: deflate
+Authorization: Bearer {{token}}
