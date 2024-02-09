@@ -31,13 +31,13 @@ block body
             each paragraph in self.cards.andmebaas.texts
                 p= paragraph
 
-        form.w3-row#searchform(action=self.navigation[1].url, method='GET')
-            input.w3-input.w3-col.l5.w3-round#search(
-                type='search', 
-                name='q', 
-                placeholder= self.search.placeholder
-            ) 
-            button.w3-input.w3-col.l2.w3-round= self.search.button
+        //- form.w3-row#searchform(action=self.navigation[1].url, method='GET')
+        //-     input.w3-input.w3-col.l5.w3-round#search(
+        //-         type='search', 
+        //-         name='q', 
+        //-         placeholder= self.search.placeholder
+        //-     ) 
+        //-     button.w3-input.w3-col.l2.w3-round= self.search.button
 
     .sisu.w3-container#intervjuud
         - var intervjuudCard = self.cards.intervjuud

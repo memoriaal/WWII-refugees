@@ -23,12 +23,14 @@ block body
         
         .w3-row
 
+        h5.note= self.message
         form.w3-row#searchform
             div.search-input-wrapper
                 input.w3-input.w3-round#search.search-input.search-input--general-search(
                     type='search', 
                     name='q',
-                    placeholder= self.search.placeholder
+                    placeholder= self.search.placeholder,
+                    disabled
                 )
                 div.detail-search-inputs-wrapper
                     input.w3-input.w3-round.search-firstname.search-input.search-input--detail-search(
@@ -108,9 +110,10 @@ block body
                                 placeholder= self.search.placeholderDeathYearTo
                             ) 
             div.search-buttons-wrapper
-                button.search-form-button#searchButton= self.search.button
-                button.search-form-button.more-fields-button= self.search.buttonDetailSearch
-                a.button.search-form-button#newPersonLink(
+                button.search-form-button#searchButton(disabled)= self.search.button
+                button.search-form-button.more-fields-button(disabled)= self.search.buttonDetailSearch
+                button.search-form-button#newPersonLink(
+                    disabled,
                     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
                     )= self.newPersonForm.linkText     
 
