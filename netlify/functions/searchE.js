@@ -40,15 +40,37 @@ exports.handler = async (event, context, callback) => {
     const json = await response.json()
     console.log({url, options, json})
 
-    if (!Array.isArray(json)) console.error('searchE: Invalid json data', json)
-    if (json.length === 0) console.error('searchE: No json data')
-
-    if (Array.isArray(json) && json.length > 0) {
-
+    if (!json.entities) {
+        console.error('searchE: No entities in json data', json)
+        callback(null, {
+            statusCode: 500,
+            headers: { 'Content-Type': 'application/json' },
+            body: json,
+            error: 'No entities in json data'
+        })
+    }
+    const entities = json.entities
+    if (!Array.isArray(entities)) {
+        console.error('searchE: Invalid entities in json data', entities)
+        callback(null, {
+            statusCode: 500,
+            headers: { 'Content-Type': 'application/json' },
+            body: json,
+            error: 'Invalid entities in json data'
+        })
+    }
+    if (entities.length === 0) {
+        console.log({result: 404, hits: 0, query: qs})
+        callback(null, {
+            statusCode: 404,
+            headers: { 'Content-Type': 'application/json' },
+            body: json
+        })
+    } else {
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            body: response
+            body: {hits: {count:entities.length, total: json.count, skip: json.skip, pageSize: json.limit}, entities}
         })
     }
 
