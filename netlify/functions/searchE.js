@@ -68,6 +68,8 @@ exports.handler = async (event, context, callback) => {
             body: body
         })
     })
-
+    request.on('end', (data) => {
+        console.log('request end:', {data})
+    })
     request.end()
 }
