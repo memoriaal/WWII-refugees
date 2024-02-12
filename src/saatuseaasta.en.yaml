@@ -35,7 +35,16 @@
       - "We hear a rattle, the glass breaks! We drive on, but the car behind us has stopped, its lamps and windows broken, and it soon disappears behind the curve."
       - "Jõhvi. The lady who was driving with us takes us to her acquaintances. A warm, comfortable, well lit room – we haven't such a thing in weeks! We are given a soft sofa to sleep in. What a pleasure it is to feel comfortable and warm again! It reminds me of home. Dear Narva, will I ever see you again? Can I once again walk on familiar streets, see familiar people again? Grandfather, mother! Where are you now"
       - "I felt my eyes filling with tears and I couldn't stop – I had to cry!"
-
+    - klass: päevikukanne
+      pealkiri: "11 February"
+      pilt: /saatuseaasta/Voldemar Kures Helsingis 1944. ERA.4931.1.151.12.jpg
+      pilt_alternate: Voldemar Kures in Helsinki in 1944. ERA.4931.1.151.12
+      pilt_pealkiri: Voldemar Kures in Helsinki in 1944. ERA.4931.1.151.12
+      autor: Voldemar Kures
+      allikas: "„There are rumors circulating...“ News about the situation in Estonia in 1943–1945, vol. 8. – Akadeemia, 9/2011"
+      l6igud:
+      - "There was a camp for Estonian war refugees in Jollas near Helsinki. There, Voldemar Kures, an Estonian journalist who had already escaped, questioned the new arrivals about the mood in their homeland."
+      - "11 February 1944. A middle-aged craftsman from Tallinn said the following: […] 'The broadcasting announced several times that professor Uluots would give a statement on the radio. This announcement caught everyone’s attention and we were almost certain that Estonia's independence will be declared. Everyone gathered around the radios. I was in a bigger group when Uluots answered the first questions, and we were shocked and disappointed by what he said. Uluots’ statements had the opposite effect to what was expected. Everyone realised that the man had been forcibly dragged to the microphone. In these difficult times, people are constantly creating new illusions for themselves, and some think even now that this announcement might finally help us in some way.'"
 - kuu: January
   artiklid:
   - klass: päevikukanne
