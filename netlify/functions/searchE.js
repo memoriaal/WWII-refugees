@@ -31,45 +31,25 @@ const get_token = async () => {
 exports.handler = async (event, context, callback) => {
     const qs = event.body
     console.log({qs})
-    // const TOKEN = await get_token()
-    const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y'
+    const TOKEN = await get_token()
+    // const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y'
+
+    const url = `https://${ENTU_HOST}/entity?_type.string=victim&q=${encodeURIComponent(event.body)}`
     const options = {
-        hostname: ENTU_HOST,
-        path: '/entity?_type.string=victim&q=' + encodeURIComponent(event.body),
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${TOKEN}`,
-            'Content-Type': 'application/json'
-        }
+      method: 'GET',
+      headers: {
+        'Accept-Encoding': 'deflate',
+        'Authorization': `Bearer ${TOKEN}`
+      }
     }
+
     console.log({options})
-    const request = https.request(options, response => {
-        var body = ''
-
-        response.on('data', function (d) {
-            body += d
-        })
-
-        response.on('end', function () {
-            console.log('on end:', {body})
-            callback(null, {
-                statusCode: 200,
-                headers: { 'Content-Type': 'application/json' },
-                body: body
-            })
-        })
-    })
-
-    request.on('error', function () {
-        console.log('on error:', {body})
-        callback(null, {
-            statusCode: 500,
-            headers: { 'Content-Type': 'application/json' },
-            body: body
-        })
-    })
-    request.on('end', (data) => {
-        console.log('request end:', {data})
-    })
-    request.end()
+    const response = await fetch(url, options)
+    const json = await response.json()
+    if (Array.isArray(json) && json.length > 0) {
+      return json
+    } else {
+      console.error('get_token: Invalid json data', json)
+      return null
+    }
 }
