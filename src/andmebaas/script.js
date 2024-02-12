@@ -43,7 +43,7 @@ async function ENTUQuery(qs, callback) {
         })
 
         if (!response.ok) {
-            console.log('response not ok', response)
+            console.log('response not ok', response.json())
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
