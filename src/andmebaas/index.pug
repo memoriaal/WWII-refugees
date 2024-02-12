@@ -111,7 +111,7 @@ block body
                             ) 
             div.search-buttons-wrapper
                 button.search-form-button#searchButton(enabled)= self.search.button
-                //- button.search-form-button.more-fields-button(enabled)= self.search.buttonDetailSearch
+                button.search-form-button.more-fields-button(enabled style="display:none")= self.search.buttonDetailSearch
                 button.search-form-button#newPersonLink(
                     enabled,
                     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
