@@ -43,7 +43,14 @@ exports.handler = async (event, context, callback) => {
 
     console.log({options, url})
     const response = await fetch(url, options)
-    const json = await response.json()
+
+    callback(null, {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: response
+    })
+
+    const json = response.json()
     if (Array.isArray(json.entities) && json.entities.length > 0) {
         console.log({result: 200, hits: json.entities.length, query: qs})
         callback(null, {
