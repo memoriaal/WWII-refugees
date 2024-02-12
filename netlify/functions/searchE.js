@@ -35,7 +35,7 @@ exports.handler = async (event, context, callback) => {
     const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y'
     const options = {
         hostname: ENTU_HOST,
-        path: '/entity?_type.string=victim?q=' + event.body,
+        path: '/entity?_type.string=victim&q=' + event.body,
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${TOKEN}`,
