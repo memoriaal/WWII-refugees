@@ -1,7 +1,6 @@
 
 @hostname=api.entu.app
 @key=reader
-@key=6Im1paGtlbC5wdXRyaW5zaEBnbWFp
 
 ###
 # auth
@@ -9,8 +8,7 @@ GET {{hostname}}/auth?account=emi HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{key}}
 
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc2NjU5NDMsImV4cCI6MTcwNzgzODc0MywiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.pcTk90N7hvIv5Koiy5NJH7JW9a9ixncmlCOTgRv1ymY
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc2NzA3NDYsImV4cCI6MTcwNzg0MzU0NiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNTI2OTM5OTBiNTM0ZTJlMWQwMmVjOWIxIn0._atTnaN9d_zd8kDbfBGxCIN9GlLiBtU98XC2mu8hXTk
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3MjMzNDAsImV4cCI6MTcwNzg5NjE0MCwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.2uX8umIW3JvoQFs5g-mgKnqn-3ktLix_h8qLRWX3DMw
 
 ###
 # account
@@ -35,8 +33,14 @@ Authorization: Bearer {{token}}
 @victim=65c5f170b534e2e1d02eca8a
 
 ###
-# entity GET
+# entity GET victims
 GET {{hostname}}/entity?_type.string=victim&limit=200&skip=0&props=_id,forename.string HTTP/1.1
+Accept-Encoding: deflate
+Authorization: Bearer {{token}}
+
+###
+# entity query victims
+GET {{hostname}}/entity?_type.string=victim&limit=200&skip=0&q=kivi&props=persoon.string,forename.string,surname.strnig,kirje.string HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{token}}
 
