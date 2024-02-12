@@ -36,10 +36,13 @@ exports.handler = async (event, context, callback) => {
         }
     }
 
-    console.log({options, url})
     const response = await fetch(url, options)
-
     const json = await response.json()
+    console.log({url, options, json})
+
+    if (!Array.isArray(json)) console.error('searchE: Invalid json data', json)
+    if (json.length === 0) console.error('searchE: No json data')
+
     if (Array.isArray(json) && json.length > 0) {
 
         callback(null, {
