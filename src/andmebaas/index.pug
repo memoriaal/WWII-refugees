@@ -33,86 +33,9 @@ block body
                     placeholder= self.search.placeholder,
                     enabled
                 )
-                div.detail-search-inputs-wrapper
-                    input.w3-input.w3-round.search-firstname.search-input.search-input--detail-search(
-                        type='search', 
-                        name='firstname',
-                        placeholder= self.search.placeholderFirstname
-                    )
-                    input.w3-input.w3-round.search-lastname.search-input.search-input--detail-search(
-                        type='search', 
-                        name='lastname',
-                        placeholder= self.search.placeholderLastname
-                    )
-                    input.w3-input.w3-round.search-mothers-firstname.search-input.search-input--detail-search(
-                        type='search', 
-                        name='mothersFirstname',
-                        placeholder= self.search.placeholderMothersFirstname
-                    )
-                    //-input.w3-input.w3-round.search-mothers-lastname.search-input.search-input--detail-search(
-                        type='search', 
-                        name='mothersLastname',
-                        placeholder= self.search.placeholderMothersLastname
-                    //-)
-                    input.w3-input.w3-round.search-fathers-firstname.search-input.search-input--detail-search(
-                        type='search', 
-                        name='fathersFirstname',
-                        placeholder= self.search.placeholderFathersFirstname
-                    )
-                    //-input.w3-input.w3-round.search-fathers-lastname.search-input.search-input--detail-search(
-                        type='search', 
-                        name='fathersLastname',
-                        placeholder= self.search.placeholderFathersLastname
-                    //-)
-                    input.w3-input.w3-round.search-birthplace.search-input.search-input--detail-search(
-                        type='search', 
-                        name='birthplace',
-                        placeholder= self.search.placeholderBirthplace
-                    )
-                    input.w3-input.w3-round.search-place-of-residence.search-input.search-input--detail-search(
-                        type='search', 
-                        name='placeOfResidence',
-                        placeholder= self.search.placeholderPlaceOfResidence
-                    )
-                    input.w3-input.w3-round.search-place-of-death.search-input.search-input--detail-search(
-                        type='search', 
-                        name='placeOfDeath',
-                        placeholder= self.search.placeholderPlaceOfDeath
-                    )
-                    div.year-filter-wrapper
-                        div.year-filter-inputs-wrapper
-                            input.w3-input.w3-round.year-filter-input.birthyear-from.search-input--detail-search(
-                                type="number",
-                                name="birthYearFrom",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderBirthYearFrom
-                            ) 
-                            input.w3-input.w3-round.year-filter-input.birthyear-to.search-input--detail-search(
-                                type="number",
-                                name="birthYearTo",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderBirthYearTo
-                            ) 
-                        div.year-filter-inputs-wrapper
-                            input.w3-input.w3-round.year-filter-input.deathyear-from.search-input--detail-search(
-                                type="number",
-                                name="deathYearFrom",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderDeathYearFrom
-                            ) 
-                            input.w3-input.w3-round.year-filter-input.deathyear-to.search-input--detail-search(
-                                type="number",
-                                name="deathYearTo",
-                                min="1850",
-                                max="2050",
-                                placeholder= self.search.placeholderDeathYearTo
-                            ) 
+
             div.search-buttons-wrapper
                 button.search-form-button#searchButton(enabled)= self.search.button
-                button.search-form-button.more-fields-button(enabled style="display:none")= self.search.buttonDetailSearch
                 button.search-form-button#newPersonLink(
                     enabled,
                     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
@@ -121,11 +44,5 @@ block body
         #tulemused
             .w3-text#search-count= ""
             #search-results
-        //- <form class="form" id="searchform" action="/" method="GET">
-        //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
-        //-     <button class="col-4 col-md-3 col-xl-2">Otsi/Search</button>
-        //- </form>
 
     include /_templates/footer.pug
-
-    //- script(src='/functions/search.js')
