@@ -8,7 +8,7 @@ GET {{hostname}}/auth?account=emi HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{key}}
 
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3NjEwNzYsImV4cCI6MTcwNzkzMzg3NiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmQ0ODk1MzEzMjRmZjhhNzk0In0.rNvRY336rjR5EMp5dzhJ2QJayb3KP5akl-ckKdzkbrE
 
 ###
 # account
@@ -22,25 +22,25 @@ GET {{hostname}}/entity?_type.string=folder&name.string=Publitseeritud+kirjed&pr
 Accept-Encoding: deflate
 Authorization: Bearer {{token}}
 
-@folder=65c34b4fb534e2e1d02eca37
+@folder=65c34b4f489531324ff8a795
 
 ###
 # entity GET victim definition
-GET {{hostname}}/entity?_type.string=entity&name.string=victim&props=_id HTTP/1.1
+GET {{hostname}}/entity?_type.string=entity&name.string=repisPerson&props=_id HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{token}}
 
-@victim=65c5f170b534e2e1d02eca8a
+@victim=65ca3d28489531324ff8a7e4
 
 ###
 # entity GET victims
-GET {{hostname}}/entity?_type.string=victim&limit=200&skip=0&props=_id,forename.string HTTP/1.1
+GET {{hostname}}/entity?_type.string=repisPerson&limit=200&skip=0&props=_id,forename.string HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{token}}
 
 ###
 # entity query victims
-GET {{hostname}}/entity?_type.string=victim&redirect._id.exists=false&q=Krasnojarski+laagri HTTP/1.1
+GET {{hostname}}/entity?_type.string=repisPerson&q=demograafia+keskus+karaganda HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{token}}
 

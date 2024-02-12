@@ -29,10 +29,10 @@ const get_token = async () => {
 exports.handler = async (event, context, callback) => {
     const qs = event.body
     console.log({qs})
-    const TOKEN = await get_token()
-    // const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y'
+    // const TOKEN = await get_token()
+    const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3NjEwNzYsImV4cCI6MTcwNzkzMzg3NiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmQ0ODk1MzEzMjRmZjhhNzk0In0.rNvRY336rjR5EMp5dzhJ2QJayb3KP5akl-ckKdzkbrE'
 
-    const url = `https://${ENTU_HOST}/entity?_type.string=victim&limit=5&q=${encodeURIComponent(event.body)}`
+    const url = `https://${ENTU_HOST}/entity?_type.string=repisPerson&limit=5&q=${encodeURIComponent(event.body)}`
     const options = {
         method: 'GET',
         headers: {
