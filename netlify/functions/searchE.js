@@ -13,6 +13,7 @@ const get_token = async () => {
     }
     const response = await fetch(url, options)
     const json = await response.json()
+    console.log({url, options, json, response})
     if (Array.isArray(json) && json.length > 0) {
         if (json[0].token) {
             return json[0].token
