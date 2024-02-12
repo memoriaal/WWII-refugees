@@ -48,7 +48,7 @@ async function ENTUQuery(qs, callback) {
 
         const data = await response.json()
         console.log('From response:', {data})
-        callback(data, idQuery, qData)
+        callback(data)
     } catch (error) {
         console.error('Error:', error);
     }
@@ -214,7 +214,7 @@ function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInput
     detailSearchInputsWrapper.style.display = "block";
 }
 
-function generalSearch(data, idQuery, qData) {
+function generalSearch(data) {
     // const data = JSON.parse(xhr2.responseText);
     ecresults = data
     console.log({ecresults})
