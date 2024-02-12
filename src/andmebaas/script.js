@@ -136,24 +136,27 @@ function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     
     var idQuery = (qs == Number(qs) && qs.length === 10)
     
-    const xhr2 = new XMLHttpRequest();
-    xhr2.open('POST', '/.netlify/functions/searchB');
-    xhr2.setRequestHeader('Content-Type', 'application/json');
-    xhr2.onload = function () {
-        if (xhr2.status === 200) {
-            generalSearch(xhr2, idQuery, qData);        
-        } else {
-            console.log('Error:', xhr2.status)
+    try {
+        const response = await fetch('/.netlify/functions/searchB', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(qData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    };
-    xhr2.onerror = function () {
-        console.log('Error:', xhr2.status)
+
+        const data = await response.json();
+        generalSearch(data, idQuery, qData);
+    } catch (error) {
+        console.error('Error:', error);
     }
-    console.log('qData', qData)
-    xhr2.send(JSON.stringify(qData))
 }
 
-const performQueryWithTimeout = (qs, detailSearchQueryStrings, detailSearchInputs) => {
+const performQueryWithTimeout = await (qs, detailSearchQueryStrings, detailSearchInputs) => {
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         reject(new Error('Query timed out'));
