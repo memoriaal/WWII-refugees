@@ -23,7 +23,8 @@ block body
         
         .w3-row
 
-        h5.note= self.message
+        if self.message
+            h5.note= self.message
         form.w3-row#searchform
             div.search-input-wrapper
                 input.w3-input.w3-round#search.search-input.search-input--general-search(
