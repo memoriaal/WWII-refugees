@@ -31,17 +31,18 @@ const get_token = async () => {
 exports.handler = async (event, context, callback) => {
     const qs = event.body
     console.log({qs})
+    // const TOKEN = await get_token()
+    const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y'
     const options = {
         hostname: ENTU_HOST,
         path: '/entity?_type.string=victim?q=' + event.body,
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y', //await get_token(),
+            'Authorization': `Bearer ${TOKEN}`,
             'Content-Type': 'application/json'
         }
     }
     console.log({options})
-    console.log({token: await get_token()})
     const request = https.request(options, response => {
         var body = ''
 
@@ -50,6 +51,7 @@ exports.handler = async (event, context, callback) => {
         })
 
         response.on('end', function () {
+            console.log({body})
             callback(null, {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
