@@ -4,72 +4,7 @@ window.addEventListener('load', function () {
     const qs = getQueryStringValue('q')
     const input = document.querySelector('input[name="q"]')
 
-    const detailSearchInputsWrapper = document.querySelector(".detail-search-inputs-wrapper");
-    const showMoreSearchFieldsButton = document.querySelector(".more-fields-button");
-    const generalSearchInput = document.querySelector(".search-input--general-search");
-    const detailSearchInputs = queryAll(".search-input--detail-search");
-    
-    let detailSearchQueryStrings = [];
-    let detailSearchQueryString;
-
-
-    for (let input of detailSearchInputs) {
-        if(input.classList.contains("search-firstname")) {
-            detailSearchQueryString = getQueryStringValue('firstname');
-        } else if(input.classList.contains("search-lastname")) {
-            detailSearchQueryString = getQueryStringValue('lastname');
-        } else if(input.classList.contains("search-mothers-firstname")) {
-            detailSearchQueryString = getQueryStringValue('mothersFirstname');
-        } else if(input.classList.contains("search-mothers-lastname")) {
-            detailSearchQueryString = getQueryStringValue('mothersLastname');
-        } else if(input.classList.contains("search-fathers-firstname")) {
-            detailSearchQueryString = getQueryStringValue('fathersFirstname');
-        } else if(input.classList.contains("search-fathers-lastname")) {
-            detailSearchQueryString = getQueryStringValue('fathersLastname');
-        } else if(input.classList.contains("search-birthplace")) {
-            detailSearchQueryString = getQueryStringValue('birthplace');
-        } else if(input.classList.contains("search-place-of-residence")) {
-            detailSearchQueryString = getQueryStringValue('placeOfResidence');
-        } else if(input.classList.contains("search-place-of-death")) {
-            detailSearchQueryString = getQueryStringValue('placeOfDeath');
-        } else if(input.classList.contains("birthyear-from")) {
-            detailSearchQueryString = getQueryStringValue('birthYearFrom');
-        } else if(input.classList.contains("birthyear-to")) {
-            detailSearchQueryString = getQueryStringValue('birthYearTo');
-        } else if(input.classList.contains("deathyear-from")) {
-            detailSearchQueryString = getQueryStringValue('deathYearFrom');
-        } else if(input.classList.contains("deathyear-to")) {
-            detailSearchQueryString = getQueryStringValue('deathYearTo');
-        }
-        
-        input.value = detailSearchQueryString;
-        if(input.value !== "") {
-            detailSearchQueryStrings.push(input.value);
-        }
-    }
-
-    if(detailSearchQueryStrings.length > 0) {
-        detailSearchInputsWrapper.style.display = "block";
-        input.style.display = "none";
-        showMoreSearchFieldsButton.style.display = "none";
-    }
-
-    showMoreSearchFieldsButton.addEventListener(("click"), (event) => {
-        showMoreSearchFieldsButton.style.display = "none";
-        showMoreSearchInputsFields(event, generalSearchInput, detailSearchInputsWrapper);
-    })
-
-    if (qs || detailSearchQueryStrings.length > 0) {
-        input.value = qs
-        performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs)
-        .catch(err => {
-          console.error(err);
-        //   location.reload(); // Refresh the page
-        });
-        // ENTUQuery(qs, detailSearchQueryStrings, detailSearchInputs)
-    } else {
-        this.document.getElementById('intro').classList.remove('w3-hide')
-    }
+    ENTUQuery(qs, generalSearch)
 })
 
 // Because of accidentally closing modal when ending drag outside of modal,
@@ -93,7 +28,7 @@ var ecresults = {}
 var fbFormData = {}
 
 
-async function ENTUQuery(qs) {
+async function ENTUQuery(qs, callback) {
     // regex match if query consists of exactly 10 numbers
     const idQuery = /^\d{10}$/.test(qs)
     console.log({qs, idQuery})
@@ -112,8 +47,8 @@ async function ENTUQuery(qs) {
         }
 
         const data = await response.json()
-        console.log({data})
-        generalSearch(data, idQuery, qData)
+        console.log('From response:', {data})
+        callback(data, idQuery, qData)
     } catch (error) {
         console.error('Error:', error);
     }
