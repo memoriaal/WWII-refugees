@@ -12,6 +12,7 @@ window.addEventListener('load', function () {
     let detailSearchQueryStrings = [];
     let detailSearchQueryString;
 
+
     for (let input of detailSearchInputs) {
         if(input.classList.contains("search-firstname")) {
             detailSearchQueryString = getQueryStringValue('firstname');
@@ -60,7 +61,12 @@ window.addEventListener('load', function () {
 
     if (qs || detailSearchQueryStrings.length > 0) {
         input.value = qs
-        performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+        performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs)
+        .catch(err => {
+          console.error(err);
+        //   location.reload(); // Refresh the page
+        });
+        // performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
     } else {
         this.document.getElementById('intro').classList.remove('w3-hide')
     }
@@ -86,7 +92,8 @@ const hasMouseMoved = (event) => {
 var ecresults = {}
 var fbFormData = {}
 
-function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
+
+async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
     
     let qData = {
@@ -129,22 +136,44 @@ function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     
     var idQuery = (qs == Number(qs) && qs.length === 10)
     
-    const xhr2 = new XMLHttpRequest();
-    xhr2.open('POST', '/.netlify/functions/searchB');
-    xhr2.setRequestHeader('Content-Type', 'application/json');
-    xhr2.onload = function () {
-        if (xhr2.status === 200) {
-            generalSearch(xhr2, idQuery, qData);        
-        } else {
-            console.log('Error:', xhr2.status)
+    try {
+        const response = await fetch('/.netlify/functions/searchB', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(qData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    };
-    xhr2.onerror = function () {
-        console.log('Error:', xhr2.status)
+
+        const data = await response.json()
+        console.log({data})
+        generalSearch(data, idQuery, qData)
+    } catch (error) {
+        console.error('Error:', error);
     }
-    console.log('qData', qData)
-    xhr2.send(JSON.stringify(qData))
 }
+
+async function performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs) {
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        reject(new Error('Query timed out'));
+      }, 2000); // 2 seconds
+  
+      performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+        .then(result => {
+          clearTimeout(timeout);
+          resolve(result);
+        })
+        .catch(err => {
+          clearTimeout(timeout);
+          reject(err);
+        });
+    });
+};
 
 function detailSearch(qData, detailSearchInputs, qs) {
     let qDataField;
@@ -288,10 +317,10 @@ function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInput
     detailSearchInputsWrapper.style.display = "block";
 }
 
-function generalSearch(xhr2, idQuery, qData) {
-    const data = JSON.parse(xhr2.responseText);
+function generalSearch(data, idQuery, qData) {
+    // const data = JSON.parse(xhr2.responseText);
     ecresults = data
-    console.log('ecresults', ecresults)
+    console.log({ecresults})
     console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
     const searchCountE = document.querySelector('#search-count')
     if(data.hits.total.value) {
