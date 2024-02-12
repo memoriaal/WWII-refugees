@@ -29,7 +29,8 @@ const get_token = async () => {
 }
 
 exports.handler = async (event, context, callback) => {
-    console.log({body: event.body, qs: event.qs})
+    const qs = event.body
+    console.log({qs})
     const options = {
         hostname: ENTU_HOST,
         path: '/entity?_type.string=victim?q=' + event.body,
@@ -39,7 +40,8 @@ exports.handler = async (event, context, callback) => {
             'Content-Type': 'application/json'
         }
     }
-
+    console.log({options})
+    console.log({token: await get_token()})
     const request = https.request(options, response => {
         var body = ''
 
