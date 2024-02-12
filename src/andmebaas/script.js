@@ -320,7 +320,7 @@ function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInput
 function generalSearch(data, idQuery, qData) {
     // const data = JSON.parse(xhr2.responseText);
     ecresults = data
-    console.log('ecresults', ecresults)
+    console.log({ecresults})
     console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
     const searchCountE = document.querySelector('#search-count')
     if(data.hits.total.value) {
