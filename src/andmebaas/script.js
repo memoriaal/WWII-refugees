@@ -149,8 +149,9 @@ async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
-        generalSearch(data, idQuery, qData);
+        const data = await response.json()
+        console.log({data})
+        generalSearch(data, idQuery, qData)
     } catch (error) {
         console.error('Error:', error);
     }
