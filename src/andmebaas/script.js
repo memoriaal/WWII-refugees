@@ -156,7 +156,7 @@ async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     }
 }
 
-const performQueryWithTimeout = await (qs, detailSearchQueryStrings, detailSearchInputs) => {
+async function performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs) {
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         reject(new Error('Query timed out'));
