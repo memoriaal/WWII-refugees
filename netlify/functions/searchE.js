@@ -58,7 +58,7 @@ exports.handler = async (event, context, callback) => {
             statusCode: 500,
             headers: { 'Content-Type': 'application/json' },
             body: body,
-            message: 'Invalid json data'
+            error: 'Invalid json data'
         })
     }
 }
