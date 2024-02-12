@@ -54,13 +54,13 @@ async function ENTUQuery(qs, callback) {
 
 function showResults(data) {
     // const data = JSON.parse(xhr2.responseText);
-    const {hits, entities} = data
-    console.log(data.error || 'All green', { count: hits, entities: entities.map(e => e.person) })
+    const {qs, hits, entities} = data
+    console.log(data.error || 'All green', { count: hits, entities: entities.map(e => e.persoon[0].string) })
     const searchCountE = document.querySelector('#search-count')
     if(hits.count) {
         searchCountE.innerHTML = "Leitud tulemuste arv: " + hits.count;
     }
-    const idQuery = /^\d{10}$/.test(data.qs)
+    const idQuery = /^\d{10}$/.test(qs)
     if (idQuery && hits.count==1 && entities[0].redirect) {
         window.location.href = '/?q=' + entities[0].redirect
     }
