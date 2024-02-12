@@ -3,6 +3,9 @@
 window.addEventListener('load', function () {
     const qs = getQueryStringValue('q')
     const input = document.querySelector('input[name="q"]')
+    if (qs && input) {
+        input.value = qs
+    }
 
     ENTUQuery(qs, showResults)
 })
