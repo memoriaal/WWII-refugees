@@ -60,6 +60,7 @@ function showResults(data) {
     if(hits.count) {
         searchCountE.innerHTML = "Leitud tulemuste arv: " + hits.count;
     }
+    const idQuery = /^\d{10}$/.test(data.qs)
     if (idQuery && hits.count==1 && entities[0].redirect) {
         window.location.href = '/?q=' + entities[0].redirect
     }
