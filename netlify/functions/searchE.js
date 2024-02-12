@@ -32,7 +32,7 @@ exports.handler = async (event, context, callback) => {
     const TOKEN = await get_token()
     // const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3NjEwNzYsImV4cCI6MTcwNzkzMzg3NiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmQ0ODk1MzEzMjRmZjhhNzk0In0.rNvRY336rjR5EMp5dzhJ2QJayb3KP5akl-ckKdzkbrE'
 
-    const url = `https://${ENTU_HOST}/entity?_type.string=repisPerson&limit=5&q=${encodeURIComponent(event.body)}`
+    const url = `https://${ENTU_HOST}/entity?_type.string=repisPerson&limit=5&q=${encodeURIComponent(qs)}`
     const options = {
         method: 'GET',
         headers: {
@@ -47,6 +47,7 @@ exports.handler = async (event, context, callback) => {
     const entities = json.entities
     if (Array.isArray(entities) && entities.length > 0) {
         const body = JSON.stringify(entities)
+        console.log({result: 200, hits: entities.length, query: qs})
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
