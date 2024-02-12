@@ -93,57 +93,20 @@ var ecresults = {}
 var fbFormData = {}
 
 
-async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
-    // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
-    
-    let qData = {
-            query: {
-                bool: {
-                    must: [
-                        {
-                            multi_match: {
-                                query: qs,
-                                fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
-                                operator: 'and',
-                                type: 'cross_fields',
-                            }
-                        }
-                    ],
-                    filter: [
-                        { term: { wwii: 1 } }
-                    ]
-                },
-            },
-            sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
-            _source: [
-                'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
-                'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
-                'sünd', 'surm', 'sünnikoht', 'surmakoht', 'id',
-                'kirjed.kirje', 'kirjed.kirjekood', 'kirjed.viide', 'kirjed.allikas', 'kirjed.allika_nimetus',
-                'pereseosed.persoon', 'pereseosed.kirje',
-                'pereseosed.seos', 'pereseosed.suund', 'pereseosed.kirjed',
-                'tahvlikirje.kirjekood', 'tahvlikirje.kirje', 'tahvlikirje.tahvel', 'tahvlikirje.tulp', 'tahvlikirje.rida',
-                'episoodid.nimetus', 'episoodid.väärtus', 'episoodid.asukoht',
-                'redirect'
-            ],
-        }
-
-    if(detailSearchQueryStrings.length > 0) {
-        qData = detailSearch(qData, detailSearchInputs, qs);
-    }
-
-    // If querystring is 10 digits, then redirect to person page
-    
-    var idQuery = (qs == Number(qs) && qs.length === 10)
+async function ENTUQuery(qs) {
+    // regex match if query consists of exactly 10 numbers
+    const idQuery = /^\d{10}$/.test(qs)
+    console.log({qs, idQuery})
     
     try {
-        const response = await fetch('/.netlify/functions/searchB', {
+        const response = await fetch('/.netlify/functions/searchE', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(qData)
-        });
+            body: qs,
+            qs: qs
+        })
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
