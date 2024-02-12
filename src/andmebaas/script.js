@@ -93,7 +93,7 @@ var ecresults = {}
 var fbFormData = {}
 
 
-function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
+async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
     
     let qData = {
