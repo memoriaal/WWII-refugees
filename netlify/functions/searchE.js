@@ -67,6 +67,7 @@ exports.handler = async (event, context, callback) => {
             body: json
         })
     } else {
+        console.log({result: 200, hits: {count:entities.length, total: json.count, skip: json.skip, pageSize: json.limit}, query: qs, entities: entities.slice(0, 2)})
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
