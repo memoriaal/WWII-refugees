@@ -12,23 +12,6 @@ window.addEventListener('load', function () {
     let detailSearchQueryStrings = [];
     let detailSearchQueryString;
 
-    const performQueryWithTimeout = (qs, detailSearchQueryStrings, detailSearchInputs) => {
-        return new Promise((resolve, reject) => {
-          const timeout = setTimeout(() => {
-            reject(new Error('Query timed out'));
-          }, 2000); // 2 seconds
-      
-          performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
-            .then(result => {
-              clearTimeout(timeout);
-              resolve(result);
-            })
-            .catch(err => {
-              clearTimeout(timeout);
-              reject(err);
-            });
-        });
-    };
 
     for (let input of detailSearchInputs) {
         if(input.classList.contains("search-firstname")) {
@@ -81,7 +64,7 @@ window.addEventListener('load', function () {
         performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs)
         .catch(err => {
           console.error(err);
-          location.reload(); // Refresh the page
+        //   location.reload(); // Refresh the page
         });
         // performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
     } else {
@@ -108,6 +91,7 @@ const hasMouseMoved = (event) => {
 
 var ecresults = {}
 var fbFormData = {}
+
 
 function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
@@ -168,6 +152,24 @@ function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     console.log('qData', qData)
     xhr2.send(JSON.stringify(qData))
 }
+
+const performQueryWithTimeout = (qs, detailSearchQueryStrings, detailSearchInputs) => {
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        reject(new Error('Query timed out'));
+      }, 2000); // 2 seconds
+  
+      performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+        .then(result => {
+          clearTimeout(timeout);
+          resolve(result);
+        })
+        .catch(err => {
+          clearTimeout(timeout);
+          reject(err);
+        });
+    });
+};
 
 function detailSearch(qData, detailSearchInputs, qs) {
     let qDataField;
