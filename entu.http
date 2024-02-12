@@ -8,7 +8,7 @@ GET {{hostname}}/auth?account=emi HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{key}}
 
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3MjMzNDAsImV4cCI6MTcwNzg5NjE0MCwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.2uX8umIW3JvoQFs5g-mgKnqn-3ktLix_h8qLRWX3DMw
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y
 
 ###
 # account
@@ -40,7 +40,7 @@ Authorization: Bearer {{token}}
 
 ###
 # entity query victims
-GET {{hostname}}/entity?_type.string=victim&limit=200&skip=0&q=kivi&props=persoon.string,forename.string,surname.strnig,kirje.string HTTP/1.1
+GET {{hostname}}/entity?_type.string=victim&redirect._id.exists=false&q=Krasnojarski+laagri HTTP/1.1
 Accept-Encoding: deflate
 Authorization: Bearer {{token}}
 
