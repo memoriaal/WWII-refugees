@@ -35,7 +35,7 @@ exports.handler = async (event, context, callback) => {
         path: '/entity?_type.string=victim?' + event.qs,
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + await get_token(),
+            'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc3Mzg3MDYsImV4cCI6MTcwNzkxMTUwNiwiYXVkIjoiMjE3LjE1OS4yMTMuMjEwIiwiaXNzIjoiZW1pIiwic3ViIjoiNjVjMzRhZmRiNTM0ZTJlMWQwMmVjYTM2In0.yam2S_BhoQu-ack5SCjxWMnQYB0r8GsrGFQXhpYZA5Y', //await get_token(),
             'Content-Type': 'application/json'
         }
     }
