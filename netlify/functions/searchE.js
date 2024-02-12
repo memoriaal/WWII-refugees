@@ -14,7 +14,7 @@ const get_token = async () => {
     const response = await fetch(url, options)
     const json = await response.json()
     console.log({url, options, json})
-    if (!isArray(json)) console.error('get_token: Invalid json data', json)
+    if (!Array.isArray(json)) console.error('get_token: Invalid json data', json)
     if (json.length === 0) console.error('get_token: No json data')
     if (!json[0].token) console.error('get_token: No token in json data', json)
 
