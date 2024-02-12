@@ -49,7 +49,7 @@ exports.handler = async (event, context, callback) => {
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            hits: json.entities.length,
+            hits: {count:json.entities.length, total: json.count, skip: json.skip, pageSize: json.limit},
             body: json
         })
     } else {
