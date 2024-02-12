@@ -62,16 +62,19 @@ function showResults(data) {
     }
     const idQuery = /^\d{10}$/.test(qs)
     if (idQuery && hits.count==1 && entities[0].redirect) {
-        window.location.href = '/?q=' + entities[0].redirect
+        window.location.href = '/?q=' + entities[0].redirect[0].string
     }
     const resultTemplateE = get('search-result-template')
     const searchResultsE = get('search-results')
     for (let i = 0; i < hits.count; i++) {
         const text = []
         const p = entities[i]
-        fbFormData[p.persoon] = {
-            id: p.persoon,
-            name: p.eesnimi + ' ' + p.perenimi
+        const persoon = p.persoon[0].string
+        const eesnimi = p.eesnimi[0].string
+        const perenimi = p.perenimi[0].string
+        fbFormData[persoon] = {
+            id: persoon,
+            name: eesnimi + ' ' + perenimi
         }
         searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
@@ -109,13 +112,16 @@ function initResultFeedbackButtons() {
 function fillTemplate(recordE, p) {
     recordE.style.display = ''
     console.log('fillTemplate', p)
-    recordE.id = p.id
-    const personName = (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi
+    const persoon = p.persoon[0].string
+    recordE.id = persoon
+    const eesnimi = p.eesnimi[0].string
+    const perenimi = p.perenimi[0].string
+    const personName = (eesnimi ? eesnimi : '') + ' ' + perenimi
 
     const surnameE = recordE.querySelector('#surname')
-    recordE.querySelector('#forename').innerHTML = p.eesnimi   || ''
-    if (p.perenimi) {
-        surnameE.innerHTML = p.perenimi
+    recordE.querySelector('#forename').innerHTML = eesnimi   || ''
+    if (perenimi) {
+        surnameE.innerHTML = perenimi
     } else {
         surnameE.previousElementSibling.remove()
         surnameE.remove()
@@ -123,29 +129,35 @@ function fillTemplate(recordE, p) {
 
     const birthplaceE = recordE.querySelector('#birthplace')
     const deathplaceE = recordE.querySelector('#deathplace')
-    recordE.querySelector('#birthdate').innerHTML = p.sünd       || ''
-    if (p.sünnikoht) {
-        birthplaceE.innerHTML = p.sünnikoht
+    const synd = p.synd[0].string
+    const surm = p.surm[0].string
+    const synnikoht = p.synnikoht[0].string
+    const surmakoht = p.surmakoht[0].string
+    recordE.querySelector('#birthdate').innerHTML = synd       || ''
+    if (synnikoht) {
+        birthplaceE.innerHTML = synnikoht
     } else {
         birthplaceE.previousElementSibling.remove()
         birthplaceE.remove()
     }
-    recordE.querySelector('#deathdate').innerHTML = p.surm       || ''
-    if (p.surmakoht) {
-        deathplaceE.innerHTML = p.surmakoht
+    recordE.querySelector('#deathdate').innerHTML = surm       || ''
+    if (surmakoht) {
+        deathplaceE.innerHTML = surmakoht
     } else {
         deathplaceE.previousElementSibling.remove()
         deathplaceE.remove()
     }
-    recordE.querySelector('#fathername').innerHTML = p.isanimi   || ''
-    recordE.querySelector('#mothername').innerHTML = p.emanimi   || ''
+    const isanimi = p.isanimi[0].string
+    const emanimi = p.emanimi[0].string
+    recordE.querySelector('#fathername').innerHTML = isanimi   || ''
+    recordE.querySelector('#mothername').innerHTML = emanimi   || ''
 
     const resultLinkE = recordE.querySelector('#resultId a')
-    resultLinkE.innerHTML = p.id
-    resultLinkE.href = './?q=' + p.id
-    recordE.querySelector('#resultId').id = 'ID_' + p.id
+    resultLinkE.innerHTML = persoon
+    resultLinkE.href = './?q=' + persoon
+    recordE.querySelector('#resultId').id = 'ID_' + persoon
 
-    stripReplace('#searchResultFeedbackFormLink', personName, 'feedback_' + p.id)
+    stripReplace('#searchResultFeedbackFormLink', personName, 'feedback_' + persoon)
 
     p.kirjed = p.kirjed || []
 
@@ -154,7 +166,7 @@ function fillTemplate(recordE, p) {
     for (let ik = 0; ik < p.kirjed.length; ik++) {
         const resultRecordE = resultRecordTemplateE.cloneNode(true)
         const pKirje = p.kirjed[ik]
-        resultRecordE.id = p.id + '_' + ik
+        resultRecordE.id = persoon + '_' + ik
         resultRecordE.setAttribute('code', pKirje.kirjekood)
         resultRecordE.querySelector('.record-label').innerHTML = pKirje.allikas
         const allikaLinkE = resultRecordE.querySelector('a')
@@ -172,7 +184,7 @@ function fillTemplate(recordE, p) {
         recordE.querySelector('#resultFamily').remove()
     } else {
         const resultRecordFamily = recordE.querySelector('#resultFamily')
-        resultRecordFamily.id = 'family_of_' + p.id
+        resultRecordFamily.id = 'family_of_' + persoon
         const familyMemberTemplateE = recordE.querySelector('#resultFamilyMember')
 
         for (let ip = 0; ip < p.pereseosed.length; ip++) {
@@ -183,7 +195,7 @@ function fillTemplate(recordE, p) {
             }
             const perekirjed = pPereseos.kirjed || []
             const familyMemberE = familyMemberTemplateE.cloneNode(true)
-            familyMemberE.id = p.id + '_F_' + ip
+            familyMemberE.id = persoon + '_F_' + ip
             familyMemberE.classList.add('family-member')
             familyMemberE.querySelector('.family-member-full-record .code').innerHTML = pPereseos.seos + ' ' + pPereseos.persoon
             familyMemberE.querySelector('.family-member-full-record .record').innerHTML = replaceLinebreaks(pPereseos.kirje)
@@ -191,7 +203,7 @@ function fillTemplate(recordE, p) {
             for (let ik = 0; ik < perekirjed.length; ik++) {
                 const perekirje = perekirjed[ik]
                 const resultRecordE = resultRecordTemplateE.cloneNode(true)
-                resultRecordE.id = p.id + '_' + ik
+                resultRecordE.id = persoon + '_' + ik
                 resultRecordE.setAttribute('code', perekirje.kirjekood)
                 resultRecordE.querySelector('.record-label').innerHTML = perekirje.allikas
                 const allikaLinkE = resultRecordE.querySelector('a')
@@ -211,7 +223,7 @@ function fillTemplate(recordE, p) {
     if (p.tahvlikirje && p.kivi) {
         const plaqueTemplateE = get('search-result-plaque-template')
         const plaqueE = plaqueTemplateE.cloneNode(true)
-        plaqueE.id = 'plaque_' + p.id
+        plaqueE.id = 'plaque_' + persoon
         plaqueE.querySelector('#plaquename').innerHTML = p.tahvlikirje.tahvel
         plaqueE.querySelector('#plaquecolumn').innerHTML = p.tahvlikirje.tulp
         plaqueE.querySelector('#plaquerow').innerHTML = p.tahvlikirje.rida
