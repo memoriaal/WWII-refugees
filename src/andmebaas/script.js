@@ -104,8 +104,7 @@ async function ENTUQuery(qs) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: qs,
-            qs: qs
+            body: qs
         })
 
         if (!response.ok) {
