@@ -10,7 +10,7 @@ texts:
     - "The following data is collected in the database: the date and place of birth of the persons, their occupation, the time of departure from Estonia, the mode and route, the country of residence at the end of the war and the subsequent permanent country of residence."
     - "The vast majority of the data comes from the archives of Estonia, Sweden, the United States and Germany, and individuals provide a valuable addition."
     - "For questions related to the compilation of the database, please contact: refugee@mnemosyne.ee"
-message: "The database search engine is currently under development. Please try again on Monday."
+# message: "The database search engine is currently under development. Please try again on Monday."
 
 t: 
     result: result

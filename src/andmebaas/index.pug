@@ -30,7 +30,7 @@ block body
                     type='search', 
                     name='q',
                     placeholder= self.search.placeholder,
-                    disabled
+                    enabled
                 )
                 div.detail-search-inputs-wrapper
                     input.w3-input.w3-round.search-firstname.search-input.search-input--detail-search(
@@ -110,10 +110,10 @@ block body
                                 placeholder= self.search.placeholderDeathYearTo
                             ) 
             div.search-buttons-wrapper
-                button.search-form-button#searchButton(disabled)= self.search.button
-                button.search-form-button.more-fields-button(disabled)= self.search.buttonDetailSearch
+                button.search-form-button#searchButton(enabled)= self.search.button
+                button.search-form-button.more-fields-button(enabled)= self.search.buttonDetailSearch
                 button.search-form-button#newPersonLink(
-                    disabled,
+                    enabled,
                     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
                     )= self.newPersonForm.linkText     
 

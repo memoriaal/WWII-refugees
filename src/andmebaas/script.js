@@ -12,6 +12,24 @@ window.addEventListener('load', function () {
     let detailSearchQueryStrings = [];
     let detailSearchQueryString;
 
+    const performQueryWithTimeout = (qs, detailSearchQueryStrings, detailSearchInputs) => {
+        return new Promise((resolve, reject) => {
+          const timeout = setTimeout(() => {
+            reject(new Error('Query timed out'));
+          }, 2000); // 2 seconds
+      
+          performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+            .then(result => {
+              clearTimeout(timeout);
+              resolve(result);
+            })
+            .catch(err => {
+              clearTimeout(timeout);
+              reject(err);
+            });
+        });
+    };
+
     for (let input of detailSearchInputs) {
         if(input.classList.contains("search-firstname")) {
             detailSearchQueryString = getQueryStringValue('firstname');
@@ -60,7 +78,12 @@ window.addEventListener('load', function () {
 
     if (qs || detailSearchQueryStrings.length > 0) {
         input.value = qs
-        performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+        performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs)
+        .catch(err => {
+          console.error(err);
+          location.reload(); // Refresh the page
+        });
+        // performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
     } else {
         this.document.getElementById('intro').classList.remove('w3-hide')
     }
