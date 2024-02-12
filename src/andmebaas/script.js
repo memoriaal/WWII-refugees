@@ -66,7 +66,7 @@ window.addEventListener('load', function () {
           console.error(err);
         //   location.reload(); // Refresh the page
         });
-        // performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+        // ENTUQuery(qs, detailSearchQueryStrings, detailSearchInputs)
     } else {
         this.document.getElementById('intro').classList.remove('w3-hide')
     }
@@ -126,7 +126,7 @@ async function performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearc
         reject(new Error('Query timed out'));
       }, 2000); // 2 seconds
   
-      performQuery(qs, detailSearchQueryStrings, detailSearchInputs)
+      ENTUQuery(qs, detailSearchQueryStrings, detailSearchInputs)
         .then(result => {
           clearTimeout(timeout);
           resolve(result);
