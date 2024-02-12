@@ -43,7 +43,7 @@ exports.handler = async (event, context, callback) => {
 
     console.log({options, url})
     const response = await fetch(url, options)
-
+    console.log({response})
     callback(null, {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
