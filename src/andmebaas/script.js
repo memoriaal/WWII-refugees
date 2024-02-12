@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
     const qs = getQueryStringValue('q')
     const input = document.querySelector('input[name="q"]')
 
-    ENTUQuery(qs, generalSearch)
+    ENTUQuery(qs, showResults)
 })
 
 // Because of accidentally closing modal when ending drag outside of modal,
@@ -48,197 +48,35 @@ async function ENTUQuery(qs, callback) {
 
         const data = await response.json()
         console.log('From response:', {data})
-        callback(data)
+        callback(data.entities)
     } catch (error) {
         console.error('Error:', error);
     }
 }
 
-async function performQueryWithTimeout(qs, detailSearchQueryStrings, detailSearchInputs) {
-    return new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => {
-        reject(new Error('Query timed out'));
-      }, 2000); // 2 seconds
-  
-      ENTUQuery(qs, detailSearchQueryStrings, detailSearchInputs)
-        .then(result => {
-          clearTimeout(timeout);
-          resolve(result);
-        })
-        .catch(err => {
-          clearTimeout(timeout);
-          reject(err);
-        });
-    });
-};
-
-function detailSearch(qData, detailSearchInputs, qs) {
-    let qDataField;
-    let birthyearFrom = "";
-    let birthyearTo = "";
-    let deathyearFrom = "";
-    let deathyearTo = "";
-
-    qData.query.bool.must = [];
-    for (let input of detailSearchInputs) {
-        if(input.value !== "") {
-            qs = input.value;
-
-            let queryObject = {
-                multi_match: {
-                    query: qs,
-                    fields: [],
-                    operator: 'and',
-                    type: 'cross_fields',
-                }
-            }
-
-            if(input.classList.contains("search-firstname")) {
-                qDataField = "eesnimi";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            else if(input.classList.contains("search-lastname")) {
-                qDataField = "perenimi";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            else if(input.classList.contains("search-mothers-firstname")) {
-                qDataField = "emanimi";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            // else if(input.classList.contains("search-mothers-lastname")) {
-            //     qDataField = "";
-            //     queryObject.multi_match.fields.push(qDataField);
-            // }
-            else if(input.classList.contains("search-fathers-firstname")) {
-                qDataField = "isanimi";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            // else if(input.classList.contains("search-fathers-lastname")) {
-            //     qDataField = "";
-            //     queryObject.multi_match.fields.push(qDataField);
-            // }
-            else if(input.classList.contains("search-birthplace")) {
-                qDataField = "sünnikoht";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            else if(input.classList.contains("search-place-of-residence")) {
-                qDataField = "kirjed.kirje";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            else if(input.classList.contains("search-place-of-death")) {
-                qDataField = "surmakoht";
-                queryObject.multi_match.fields.push(qDataField);
-                qData.query.bool.must.push(queryObject);
-            }
-            else if(input.classList.contains("birthyear-from")) {
-                qDataField = "sünd";
-                birthyearFrom = qs;
-                if(birthyearTo === "") {
-                    birthyearTo = "now";
-                }
-                qData.query.bool.must.push({
-                    range: {
-                        [qDataField]: {
-                            gte: birthyearFrom,
-                            lte: birthyearTo,
-                            relation: "within"
-                        }
-                    }
-                })
-            }
-            else if(input.classList.contains("birthyear-to")) {
-                qDataField = "sünd";
-                birthyearTo = qs;
-                if(birthyearFrom === "") {
-                    birthyearFrom = "1850";
-                }
-                qData.query.bool.must.push({
-                    range: {
-                        [qDataField]: {
-                            gte: birthyearFrom,
-                            lte: birthyearTo,
-                            relation: "within"
-                        }
-                    }
-                })
-            }
-            else if(input.classList.contains("deathyear-from")) {
-                qDataField = "surm";
-                deathyearFrom = qs;
-                if(deathyearTo === "") {
-                    deathyearTo = "now";
-                }
-                qData.query.bool.must.push({
-                    range: {
-                        [qDataField]: {
-                            gte: deathyearFrom,
-                            lte: deathyearTo,
-                            relation: "within"
-                        }
-                    }
-                })
-            }
-            else if(input.classList.contains("deathyear-to")) {
-                qDataField = "surm";
-                deathyearTo = qs;
-                if(deathyearFrom === "") {
-                    deathyearFrom = "1850";
-                }
-                qData.query.bool.must.push({
-                    range: {
-                        [qDataField]: {
-                            gte: deathyearFrom,
-                            lte: deathyearTo,
-                            relation: "within"
-                        }
-                    }
-                })
-            }
-        }
-    }
-    
-    return qData;
-}
-
-function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInputsWrapper) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    generalSearchInput.value = "";
-    generalSearchInput.style.display = "none";
-    detailSearchInputsWrapper.style.display = "block";
-}
-
-function generalSearch(data) {
+function showResults(data) {
     // const data = JSON.parse(xhr2.responseText);
-    ecresults = data
-    console.log({ecresults})
-    console.log(data.error || 'All green', { query: qData.query, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
+    const {hits, entities} = data
+    console.log(data.error || 'All green', { count: hits, entities: entities.map(e => e.person) })
     const searchCountE = document.querySelector('#search-count')
-    if(data.hits.total.value) {
-        searchCountE.innerHTML = "Leitud tulemuste arv: " + data.hits.total.value;
+    if(hits.count) {
+        searchCountE.innerHTML = "Leitud tulemuste arv: " + hits.count;
     }
-    const hits = data.hits.hits
-    if (idQuery && hits[0] && hits[0]._source.redirect) {
-        window.location.href = '/?q=' + hits[0]._source.redirect
+    if (idQuery && hits.count==1 && entities[0].redirect) {
+        window.location.href = '/?q=' + entities[0].redirect
     }
     const resultTemplateE = get('search-result-template')
     const searchResultsE = get('search-results')
-    for (let i = 0; i < hits.length; i++) {
+    for (let i = 0; i < hits.count; i++) {
         const text = []
-        const p = hits[i]._source
-        fbFormData[p.id] = {
-            id: p.id,
+        const p = entities[i]
+        fbFormData[p.persoon] = {
+            id: p.persoon,
             name: p.eesnimi + ' ' + p.perenimi
         }
         searchResultsE.appendChild(fillTemplate(resultTemplateE.cloneNode(true), p))
 
-        if (p.evo === 1) {
+        if (p.evo) {
             text.push('<hr/><p class="mb-0">Nimi ohvitseride mälestusseinal: ' + p.evokirje + '</p>')
         }
         text.push('</div>')
