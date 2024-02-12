@@ -41,7 +41,7 @@ exports.handler = async (event, context, callback) => {
         }
     }
 
-    console.log({options})
+    console.log({options, url})
     const response = await fetch(url, options)
     const json = await response.json()
     const entities = json.entities
