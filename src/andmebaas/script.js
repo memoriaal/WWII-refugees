@@ -107,7 +107,7 @@ function initResultFeedbackButtons() {
 
 function fillTemplate(recordE, p) {
     recordE.style.display = ''
-    // console.log('fillTemplate', p)
+    console.log('fillTemplate', p)
     recordE.id = p.id
     const personName = (p.eesnimi ? p.eesnimi : '') + ' ' + p.perenimi
 
