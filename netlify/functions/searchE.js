@@ -46,7 +46,8 @@ exports.handler = async (event, context, callback) => {
     console.log({options})
     const response = await fetch(url, options)
     const json = await response.json()
-    if (Array.isArray(json) && json.length > 0) {
+    const entities = json.entities
+    if (Array.isArray(entities) && entities.length > 0) {
       return json
     } else {
       console.error('get_token: Invalid json data', json)
