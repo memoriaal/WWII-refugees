@@ -44,14 +44,13 @@ exports.handler = async (event, context, callback) => {
     console.log({options, url})
     const response = await fetch(url, options)
     const json = await response.json()
-    const entities = json.entities
-    if (Array.isArray(entities) && entities.length > 0) {
-        const body = JSON.stringify(entities)
-        console.log({result: 200, hits: entities.length, query: qs})
+    if (Array.isArray(json.entities) && json.entities.length > 0) {
+        console.log({result: 200, hits: json.entities.length, query: qs})
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            body: body
+            hits: json.entities.length,
+            body: json
         })
     } else {
         console.error('get_token: Invalid json data', json)
