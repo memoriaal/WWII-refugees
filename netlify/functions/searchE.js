@@ -67,11 +67,21 @@ exports.handler = async (event, context, callback) => {
             body: json
         })
     } else {
-        console.log({result: 200, hits: {count:entities.length, total: json.count, skip: json.skip, pageSize: json.limit}, query: qs, entities: entities.slice(0, 2)})
+        console.log({result: 200, hits: {count:entities.length, total: json.count, skip: json.skip, pageSize: json.limit}, query: qs, entities: entities.map(e => e._id)})
+        const returnBody = JSON.stringify({
+            hits: {
+                count:entities.length, 
+                total: json.count, 
+                skip: json.skip, 
+                pageSize: json.limit
+            }, 
+            qs,
+            entities
+        })
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            body: {hits: {count:entities.length, total: json.count, skip: json.skip, pageSize: json.limit}, entities}
+            body: returnBody
         })
     }
 
