@@ -43,37 +43,41 @@ exports.handler = async (event, context, callback) => {
 
     console.log({options, url})
     const response = await fetch(url, options)
-    console.log({response})
-    callback(null, {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: response
-    })
 
-    const json = response.json()
-    if (Array.isArray(json.entities) && json.entities.length > 0) {
-        console.log({result: 200, hits: json.entities.length, query: qs})
+    const json = await response.json()
+    if (Array.isArray(json) && json.length > 0) {
+
         callback(null, {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            hits: {count:json.entities.length, total: json.count, skip: json.skip, pageSize: json.limit},
-            body: json
-        })
-    } else if (Array.isArray(json.entities) && json.entities.length === 0) {
-        console.log({result: 404, hits: 0, query: qs})
-        callback(null, {
-            statusCode: 404,
-            headers: { 'Content-Type': 'application/json' },
-            hits: {count:0, total: json.count, skip: json.skip, pageSize: json.limit},
-            body: json
-        })
-    } else {
-        console.error('get_token: Invalid json data', json)
-        callback(null, {
-            statusCode: 500,
-            headers: { 'Content-Type': 'application/json' },
-            body: body,
-            error: 'Invalid json data'
+            body: response
         })
     }
+
+    // const json = response.json()
+    // if (Array.isArray(json.entities) && json.entities.length > 0) {
+    //     console.log({result: 200, hits: json.entities.length, query: qs})
+    //     callback(null, {
+    //         statusCode: 200,
+    //         headers: { 'Content-Type': 'application/json' },
+    //         hits: {count:json.entities.length, total: json.count, skip: json.skip, pageSize: json.limit},
+    //         body: json
+    //     })
+    // } else if (Array.isArray(json.entities) && json.entities.length === 0) {
+    //     console.log({result: 404, hits: 0, query: qs})
+    //     callback(null, {
+    //         statusCode: 404,
+    //         headers: { 'Content-Type': 'application/json' },
+    //         hits: {count:0, total: json.count, skip: json.skip, pageSize: json.limit},
+    //         body: json
+    //     })
+    // } else {
+    //     console.error('get_token: Invalid json data', json)
+    //     callback(null, {
+    //         statusCode: 500,
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: body,
+    //         error: 'Invalid json data'
+    //     })
+    // }
 }
