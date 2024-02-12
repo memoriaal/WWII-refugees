@@ -44,16 +44,9 @@ async function ENTUQuery(qs, callback) {
             },
             body: qs
         })
-
-        const data = await response.json()
-        console.log('From response:', {data})
-        if (!response.ok) {
-            console.log('response not ok', response.json())
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        console.log('From response:', {data})
-        callback(data.entities)
+        const json = await response.json()
+        console.log({json})
+        callback(json)
     } catch (error) {
         console.error('Error:', error);
     }
