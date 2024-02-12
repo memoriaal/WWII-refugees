@@ -52,6 +52,14 @@ exports.handler = async (event, context, callback) => {
             hits: {count:json.entities.length, total: json.count, skip: json.skip, pageSize: json.limit},
             body: json
         })
+    } else if (Array.isArray(json.entities) && json.entities.length === 0) {
+        console.log({result: 404, hits: 0, query: qs})
+        callback(null, {
+            statusCode: 404,
+            headers: { 'Content-Type': 'application/json' },
+            hits: {count:0, total: json.count, skip: json.skip, pageSize: json.limit},
+            body: json
+        })
     } else {
         console.error('get_token: Invalid json data', json)
         callback(null, {
