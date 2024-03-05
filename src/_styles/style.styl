@@ -35,11 +35,8 @@ body
     background inherit
     padding 0 4em
     margin -2em 0
-#navigation.scrolled
-    background-color var(--wwii-valge)
-    box-shadow var(--wwii-jalus) 0 0 0.5em
-    padding 0 4em 0m 1em
-    z-index 1
+    .set-language
+        clear both 
 
 
 .wwii-nav
@@ -98,3 +95,29 @@ h4
 .wwii-päevikukanne
     background var(--wwii-taust2)
     font-style oblique
+
+
+// mobile
+@media only screen and (max-width: 768px)
+    #navigation
+        padding 0 0em
+        position relative
+    #navLarge
+        padding 0 0.5em
+        border 1px solid var(--wwii-taust2)
+    .sisu
+    body>div
+        padding 0 0.5em
+    #footer
+        padding 0.5em 0.5em
+
+@media only screen and (min-width: 768px)
+    #navigation.scrolled
+        background-color var(--wwii-valge)
+        box-shadow var(--wwii-jalus) 0 0 0.5em
+        padding 0 4em 0m 1em
+        z-index 1
+
+.note
+    background: var(--wwii-taust2)
+    padding 1em

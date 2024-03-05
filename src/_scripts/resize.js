@@ -94,7 +94,7 @@ window.addEventListener('resize', function () {
 window.addEventListener('scroll', function () {
     const toResize = {
         logo: document.getElementById('logo'),
-        navigation: document.getElementById('navigation'),
+        navigation: document.getElementById('navLarge'),
     }
     // Resize all elements that need to be resized
     Object.keys(toResize).forEach(key => {
