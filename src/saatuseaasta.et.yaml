@@ -1,3 +1,13 @@
+- kuu: Märts
+  artiklid:
+  - klass: päevikukanne
+    pealkiri: "1. veebruar"
+    pilt: /saatuseaasta/sagrits.jpg
+    pilt_alternate: Richard Sagrits. Põgenikud (1944). SA Eesti Ajaloomuuseum
+    pilt_pealkiri: Richard Sagrits. Põgenikud (1944). SA Eesti Ajaloomuuseum
+    autor: Saima Parbo
+    allikas: "Jättes seljataha Eesti: 14-aastase tüdruku päevik sõjaaegsest põgenemisest. Tallinn, 2020"
+    l6igud:
 - kuu: Veebruar
   artiklid:
   - klass: päevikukanne
@@ -110,6 +120,15 @@
     - "'Meeleolu on lohutamatu. Kui läheme koos kaotaja poolega, sammume hukkumisele vastu, ja punaste juure jäämisel ootab samuti kõiki sama saatus."
     - "Niipea kui üldmobilisatsioon välja kuulutati, jäi elukäik peaaegu seisma. Keegi ei tahtnud enam midagi teha. Toon kas sellegi väikese näite, et laste piim jäi linna toomata. Siis ähvardati kõiki saboteerijaid surmanuhtlusega, ja elu saadi jälle kuidagi käiku. Alguses olid kõik mobilisatsiooni vastu. Aga kuhu sa end ikka peidad. Osa peab ikkagi kaasa minema. Masendatud meeleolust annab tunnistust ülirohke alkoholi tarvitamine. Nägin tänaval üht meeste salka, kes maalt ühte mobiliseeritute koonduspunkti toodi. Selle salga taga tõmbas üks purjus naine lõõtspilli. See oli see rahvuslippudega ja orkestritega sõjaväkke tulek, nagu sellest teadis jutustada propagandaleht “Eesti Sõna”! Ei ole kusagil seda tuju, nagu oli veel sakslaste maaletuleku ajal. Hoopis kõnelemata Vabadussõja päevist."
     - "Kohutav on see, et kõik tuletab meele punaste aega. Siis sundisid venelased meie näitlejaid ja kirjanikke nendele vemmalvärsse kirjutama ja deklameerima, nüüd käsib sakslaste käsilane Mäe näitlejail deklameerida isamaalisi laule ja luuletajail kirjutada “isamaalisi” vemmalvärsse.'"
+  - klass: päevikukanne
+    pealkiri: "24. veebruar"
+    pilt: /saatuseaasta/Konstantin Päts. Riigikogu Kantselei 24.02.jpg
+    pilt_alternate: Konstantin Päts. Riigikogu Kantselei 
+    pilt_pealkiri: Konstantin Päts. Riigikogu Kantselei
+    autor: Voldemar Kures
+    allikas: "„Mitmesuguseid kuuldusi liigub...“ Teateid olukorra kohta Eestis 1943–1945, 8. osa. Akadeemia, 9/2011"
+    l6igud:
+    - "„Sakslased kõnelevad koos omavalitsuse meestega, et tuleb sõbralikke suhteid maa pärisrahvaga soetada. Hakatakse jälle Eesti endiseid poliitikategelasi ülistama. /.../ Kõik see tuli ka nüüdsel ebaharilikul ja tasakaalutul ajal kodumaale täiesti ootamatult. Kodumaalt eemalviibijad ei tea, et K. Pätsi, J. Tõnissoni, kindral J. Laidoneri ja paljude teiste iseseisvusaegsete tuntud tegelaste nimesid ei ole enamlaste ega ka Saksa okupatsiooni kestel lubatud avalikult nimetadagi. Eesti Omavalitsuse juhi [Hjalmar Mäe] poolt anti kohe alul lehtedele salajane ringkiri, et on keelatud isegi kirjeldada, kuidas K. Päts, J. Laidoner, J. Tõnisson ja teised küüditati enamlaste poolt Venemaale. Eesti rahvas sai sellest teada alles Soome eestikeelsete raadiosaadete. /.../  Nüüd on omavalitsuse ja Saksa võimude poolt võetud tarvitusele veel uusi trikke. 22. veebr. õhtul toodi välja Eesti Vabariigi president K. Päts, kelle saatusest meie praegu midagi ei tea. See oli tema sünnipäeva eelõhtu. .../ K. Pätsi ülistamine oli otse ülevoolav ja kogu tänane iseseisvuspäeva mälestamine kodumaal toimub K. Pätsi 70. a. sünnipäeva meeletuletuse tähe all.“"
 - kuu: Jaanuar
   artiklid:
   - klass: artikkel
