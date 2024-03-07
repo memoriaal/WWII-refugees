@@ -82,6 +82,11 @@ search:
     button: Otsi
     buttonDetailSearch: Kuva veel otsinguvälju
 
+pagination:
+    paginationPrev: "<"
+    paginationDots: "..."
+    paginationNext: ">"
+
 alerts:
     noResults: Otsingule ei leitud vasteid
     feedbackFailed: Tagasiside saatmine ebaõnnestus

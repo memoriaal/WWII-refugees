@@ -83,6 +83,11 @@ search:
     button: Search
     buttonDetailSearch: Show more search fields
 
+pagination:
+    paginationPrev: "<"
+    paginationDots: "..."
+    paginationNext: ">"
+
 alerts: 
     noResults: No results found for the search term
     feedbackFailed: Feedback sending failed
