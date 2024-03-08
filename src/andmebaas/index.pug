@@ -142,7 +142,7 @@ block body
                                 ) 
             div.search-buttons-wrapper
                 button.search-form-button#searchButton(enabled)= self.search.button
-                button.search-form-button.more-fields-button(enabled style="display:none")= self.search.buttonDetailSearch
+                button.search-form-button.more-fields-button(enabled style="display:block")= self.search.buttonDetailSearch
                 button.search-form-button#newPersonLink(
                     enabled,
                     onclick="document.getElementById('newPersonFormRoot').style.display='block'"
@@ -155,6 +155,14 @@ block body
         //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
         //-     <button class="col-4 col-md-3 col-xl-2">Otsi/Search</button>
         //- </form>
+        div.pagination-wrapper
+            a.pagination-prev.pagination-button.pagination= self.pagination.paginationPrev
+            a.pagination-first-page.pagination-button= self.pagination.paginationFirstPage
+            div.pagination-dots= self.pagination.paginationDots 
+            a.pagination-current-page.pagination-button= self.pagination.paginationCurrentPage 
+            div.pagination-dots= self.pagination.paginationDots
+            a.pagination-last-page.pagination-button= self.pagination.paginationLastPage
+            a.pagination-next.pagination-button= self.pagination.paginationNext
 
     include /_templates/footer.pug
 
