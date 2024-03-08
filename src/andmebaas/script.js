@@ -389,14 +389,6 @@ function getURLWithPage(page) {
     return url.toString();
 }
 
-function getURLWithPage(page) {
-    const url = new URL(currentURL);
-    const urlParams = new URLSearchParams(url.search);
-    urlParams.set("page", page);
-    url.search = urlParams.toString();
-    return url.toString();
-}
-
 function pagination() {
     const paginationWrapper = document.querySelector(".pagination-wrapper");
     const paginationButtons = document.querySelectorAll(".pagination-button");
