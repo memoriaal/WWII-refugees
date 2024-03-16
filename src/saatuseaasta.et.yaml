@@ -1,8 +1,8 @@
 - kuu: Märts
   artiklid:
 
-  - klass: artikkel
-    pealkiri: "Nõukogude lennuväe rünnakud Eestis 1944. aasta märtsis"
+  - pealkiri: "Nõukogude lennuväe rünnakud Eestis 1944. aasta märtsis"
+    klass: artikkel
     pilt: /saatuseaasta/Vaade purustatud Estonia teatrile peale märtsipommitamist. EAA.5355.1.158.284.jpg
     pilt_alternate: Vaade purustatud Estonia teatrile peale märtsipommitamist. EAA.5355.1.158.284
     pilt_pealkiri: Vaade purustatud Estonia teatrile peale märtsipommitamist. EAA.5355.1.158.284
@@ -27,8 +27,8 @@
     - "Eraldi tuleks siinkohal mainida Tallinna 9.-10. märtsi (15 diviisi jõud) ja Tartu pommitamist 26.-27. märtsil (5), mis olid juba kaugemale tagalasse suunatud löögid logistika- ja halduskeskuste vastu. Kuigi neid on otsesõnu nimetatud ka „terrorirünnakuteks“ tsiviilelanikkonna vastu, siis põhieesmärgiks oli ikkagi sõjaliselt olulise taristu (raudtee, lennuväljad, sadamad, strateegilise tähtsusega tööstusettevõtted) hävitamine ja seeläbi rinde varustamise häirimine. Nagu juba öeldud, polnud kauglennuvägi täppisrelv ja pihta said peamiselt tsiviilkvartalid."
     - "Punalennuväe rünnakud polnud Eesti kohal aprilli saabumisega kaugeltki lõppenud, need kestsid vaheaegadega 1944. aasta sügiseni. Propagandistliku jätku sai tänaseni silmaga hoomatav hävitustöö ka hilisemal ajal, kui purustatut tuli hakata üles ehitama. Mõistagi ei rõhutatud siinkohal Nõukogude kauglennuväe kandvat rolli."
 
-  - klass: päevikukanne
-    pealkiri: "6. märts"
+  - pealkiri: "6. märts"
+    klass: päevikukanne
     pilt: /saatuseaasta/Inimesed lahkumas oma varaga linnast 9. märtsi pommitamisele järgnenud päeval, foto Pikalt tänavalt. ERA.R-68.1.5.64 06.03.jpg
     pilt_alternate: Inimesed lahkumas oma varaga linnast 9. märtsi pommitamisele järgnenud päeval, foto Pikalt tänavalt. ERA.R-68.1.5.64 
     pilt_pealkiri: Inimesed lahkumas oma varaga linnast 9. märtsi pommitamisele järgnenud päeval, foto Pikalt tänavalt. ERA.R-68.1.5.64 
@@ -39,8 +39,8 @@
     - "Sakslased tahavad tõsiselt evakueerida Tallinnat ja Tartut. Kardetakse õhurünnakuid. Tegelikult on evakuatsiooni raske läbi viia, sest ei anta ronge ega autosid. Inimesed ise ei taha lahkuda, ütlevad: kui oleme kusagil maakolkas, kuidas meie siis mere äärde pääseme, kui tuleb päris põgenemine. Osa inimesi loodab ikka veel Soome ja Rootsi pääseda."
     - "Miks linnadest ei taheta lahkuda, selleks on annud põhjusi Narva evakueerimine. Inimesed kardavad, et nende mahajäetud korterid rüüstatakse paljaks, nagu sündis Narvas. Narva elanike varandusi müüakse nüüd juba Tallinnas. Üks on kindel: kui tuleb evakueerimine, ükskõik kust kohast ja kui kaugele, tuleb inimestel loota ainult oma jalgadele. Sakslaste poolt ei anta tsiviilelanikele mingit abi veoabinõude näol."
 
-  - klass: päevikukanne
-    pealkiri: "7. märts"
+  - pealkiri: "7. märts"
+    klass: päevikukanne
     pilt: /saatuseaasta/Narva Issanda Muutmise peakirik pärast Nõukogude õhurünnakut. EAA.5466.1.21.20 07.03.jpg
     pilt_alternate: Narva Issanda Muutmise peakirik pärast Nõukogude õhurünnakut. EAA.5466.1.21.20 
     pilt_pealkiri: Narva Issanda Muutmise peakirik pärast Nõukogude õhurünnakut. EAA.5466.1.21.20 
@@ -50,8 +50,8 @@
     - "Tallinna lehes seisis:"
     - "6. märtsil ründasid vaenlase lennukid Narva linna, jättes pärast 9 tundi kestnud pommitamist linnast järele vaid rusu- ja tuhahunnikud. Üks ajalooline linn langes rusudesse. Esialgu olin võimetu mõtlema. Mu kodu – mu kodu, nad on hävitanud  sinu! Kodu, mis olid mulle nii kallis! Olen kaotanud kaks kallimat – isa ja nüüd ka kodu! Oh see ei või, ei, see ei või võimalik olla! Mida rohkem mõtlen, seda valusam tundub see! Ei, ma ei taha mõelda, tahan pigistada silmad kinni ja kujutleda, et see on vaid õudne unenägu! – Kuid ma ei saa lahti tõelisest!"
 
-  - klass: päevikukanne
-    pealkiri: "9. märts"
+  - pealkiri: "9. märts"
+    klass: päevikukanne
     pilt: /saatuseaasta/Inimesed purustatud linnatänaval oma allesjäänud vara kandmas 9. märtsi pommitamisele järgnenud päeval. ERA.R-68.1.5.1. 09.03..jpg
     pilt_alternate: Inimesed purustatud linnatänaval oma allesjäänud vara kandmas 9. märtsi pommitamisele järgnenud päeval. ERA.R-68.1.5.1. 
     pilt_pealkiri: Inimesed purustatud linnatänaval oma allesjäänud vara kandmas 9. märtsi pommitamisele järgnenud päeval. ERA.R-68.1.5.1. 
@@ -61,8 +61,8 @@
     - "Õhtul kell pool 7 kostab äkki õhualarmi katkendlik vile, millele kohe järgnevad plahvatuse mürinad. Õhurünnak! Kui palju sai neid Narvas läbi elatud – nii palju, et ei tunne enam vähimatki hirmu! Lükates pimenduskatted eest, pimestun väljast hoovavast valgusest. Need on „jõulupuud“, loendamatud valgustuspallid! Meenub Narva. Kas käib Tallinna käsi samuti? Jõulupuude järgi otsustades on tegemist tõsise suurrünnakuga. Maja kõigub kohutavalt üha uute plahvatuste mõjul. Aknaklaasid klirisevad, ähvardades iga hetk sisse langeda."
     - "Laskume keldrisse. /.../  Tunnid venivad. Jälle terav vihin ja kärgatus, mille mõjul keldergi tugevalt vappub. Pärast viietunnilist tormi harveneb mürin ja /.../ väljume keldrist. „Estonia põleb!“ – „Harju tänav on ainus suur rusuhunnik!“ – kõlavad teated sealt saabuvailt inimestelt. Siit vaadates tundub Tallinn vaid suure tulemerena. Aeg-ajalt kostub tumedat mürinat, mis tekib põlevate majade sisselangemisest. Kõikjal lõõmab, leegitseb! Lumelgi on punakas helk, nagu oleks tasse imbunud verd. Kui õudne, nii lõpmata õudne! Mitmesaja kilomeetri kaugusele paistis tulekuma ja üle terve Eesti kajas sosin: Tallinn põleb!"
 
-  - klass: päevikukanne
-    pealkiri: "13. märts"
+  - pealkiri: "13. märts"
+    klass: päevikukanne
     pilt: /saatuseaasta/Viljandi. EFA.217.0.183427. 13.03.jpg
     pilt_alternate: Viljandi. EFA.217.0.183427. 
     pilt_pealkiri: Viljandi. EFA.217.0.183427. 
@@ -72,11 +72,11 @@
     - "Kartes, et sarnane rünnak võiks korduda, otsustasime evakueeruda Viljandi."
     - "On juba õhtu, kui jõuame jaama ja hakkame ootama Viljandi rongi. Saabub öö, selge ja valge, kui rong sõidab ette. Saame õnnelikult oma pakid vagunisse ja peagi alustab rong meie kergendusohete saatel sõitu. Väike Oti on haige, me seame teda võimalikult mugavalt lamama."
 
-  - klass: päevikukanne
-    pealkiri: "15. märts"
-    pilt: /saatuseaasta/Saksa tank Viljandi raudteejaama lähedal. EFA.217.0.183384. 15.03.jpg
-    pilt_alternate: Saksa tank Viljandi raudteejaama lähedal. EFA.217.0.183384.  
-    pilt_pealkiri: Saksa tank Viljandi raudteejaama lähedal. EFA.217.0.183384.
+  - pealkiri: "15. märts"
+    klass: päevikukanne
+    pilt: /saatuseaasta/Saksa moonavoor Viljandis_VM VM 9326 F.jpeg
+    pilt_alternate: Saksa moonavoor Viljandis_VM VM 9326 F
+    pilt_pealkiri: Saksa moonavoor Viljandis_VM VM 9326 F
     autor: Saima Parbo
     allikas: "Jättes seljataha Eesti: 14-aastase tüdruku päevik sõjaaegsest põgenemisest. Tallinn, 2020"
     l6igud:
@@ -85,11 +85,11 @@
     - "Jaama sõidab ERÜ32 auto, mille ülesandeks on abistada evakueerunuid. Me suurimaks rõõmuks lubatakse meid viia otse sihtkohta."
     - "Pooletunnilise sõidu järele koputame Veske talu33 uksele. Kestab hulk aega, kui avama tullakse, sest varase aja tõttu magavad kõik alles. Avaja – taat ise – teeb suured silmad, nähes meid. Ärkavad ja teised pereliikmed ja tulevad tervitama. Meile pakutakse kohe süüa ja saadetakse reisiväsimust välja puhkama."
 
-  - klass: päevikukanne
-    pealkiri: "16. märts"
-    pilt: /saatuseaasta/Vaade Tallinnale pärast pommitamist Nõukogude Armee õhujõudude poolt 9.märtsil 1944 aastal. EFA.706.10.15000. 16.03..jpg
-    pilt_alternate: Vaade Tallinnale pärast pommitamist Nõukogude Armee õhujõudude poolt 9.märtsil 1944 aastal. EFA.706.10.15000. 
-    pilt_pealkiri: Vaade Tallinnale pärast pommitamist Nõukogude Armee õhujõudude poolt 9.märtsil 1944 aastal. EFA.706.10.15000.
+  - pealkiri: "16. märts"
+    klass: päevikukanne
+    pilt: /saatuseaasta/Ivar Paalmann, Tallinn. Osa purustatud hoonest Niguliste ja Harju tänava nurgal, TLM F 8444_123.jpg
+    pilt_alternate: Ivar Paalmann, Tallinn. Osa purustatud hoonest Niguliste ja Harju tänava nurgal, TLM F 8444_123
+    pilt_pealkiri: Ivar Paalmann, Tallinn. Osa purustatud hoonest Niguliste ja Harju tänava nurgal, TLM F 8444_123
     autor: Voldemar Kures
     allikas: "„Mitmesuguseid kuuldusi liigub...“ Teateid olukorra kohta Eestis 1943–1945, 8. osa. Akadeemia, 9/2011"
     l6igud:
