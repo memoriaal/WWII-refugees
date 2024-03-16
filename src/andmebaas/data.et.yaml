@@ -10,6 +10,7 @@ texts:
     - "Andmebaasi kogutakse järgmisi andmeid: isikute sünniaeg ja koht, tegevusala, Eestis lahkumise aeg, moodus ja teekond, asukohariik sõja lõppedes ning järgnev püsiv asukohariik."
     - "Valdav osa andmeid pärineb Eesti, Rootsi, USA ning Saksamaa arhiividest, tänuväärset täiendust pakuvad ka üksikisikud."
     - "Andmebaasi koostamisega seotud küsimustes palume pöörduda aadressil: refugee@mnemosyne.ee."
+# message: "Andmebaasi otsimootor on hetkel arenduses. Palun proovige esmaspäeval uuesti."
 
 t:
     result: vaste
