@@ -697,5 +697,6 @@ function openSearchResultFeedbackForm(evnt) {
     })
     // make form visible and set focus to first input
     get('searchResultFormRoot').style.display = 'block'
+    return false
     // formE.querySelector('input[name="name"]').focus()
 }
