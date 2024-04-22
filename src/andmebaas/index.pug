@@ -150,6 +150,14 @@ block body
 
         #tulemused
             .w3-text#search-count= ""
+            div.pagination-wrapper
+                a.pagination-prev.pagination-button.pagination= self.pagination.paginationPrev
+                a.pagination-first-page.pagination-button= self.pagination.paginationFirstPage
+                div.pagination-dots.pagination-dots--left= self.pagination.paginationDots 
+                a.pagination-current-page.pagination-button= self.pagination.paginationCurrentPage 
+                div.pagination-dots.pagination-dots--right= self.pagination.paginationDots
+                a.pagination-last-page.pagination-button= self.pagination.paginationLastPage
+                a.pagination-next.pagination-button= self.pagination.paginationNext
             #search-results
         //- <form class="form" id="searchform" action="/" method="GET">
         //-     <input class="col-8 col-md-6 col-xl-4" type="search" name="q" placeholder="sisesta nimi →">
@@ -158,9 +166,9 @@ block body
         div.pagination-wrapper
             a.pagination-prev.pagination-button.pagination= self.pagination.paginationPrev
             a.pagination-first-page.pagination-button= self.pagination.paginationFirstPage
-            div.pagination-dots= self.pagination.paginationDots 
+            div.pagination-dots.pagination-dots--left= self.pagination.paginationDots 
             a.pagination-current-page.pagination-button= self.pagination.paginationCurrentPage 
-            div.pagination-dots= self.pagination.paginationDots
+            div.pagination-dots.pagination-dots--right= self.pagination.paginationDots
             a.pagination-last-page.pagination-button= self.pagination.paginationLastPage
             a.pagination-next.pagination-button= self.pagination.paginationNext
 
