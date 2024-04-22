@@ -115,7 +115,9 @@ async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
                         {
                             multi_match: {
                                 query: qs,
-                                fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
+                                fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje',
+                                 'isanimi', 'emanimi', 'perenimed', 'eesnimed'
+                                ],
                                 operator: 'and',
                                 type: 'cross_fields',
                             }
@@ -128,7 +130,7 @@ async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
             },
             size: pageSize,
             from: startFrom,
-            sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+            sort: { 'perenimi.raw': 'asc',  'eesnimi.raw': 'asc'},
             _source: [
                 'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
                 'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
@@ -390,13 +392,17 @@ function getURLWithPage(page) {
 }
 
 function pagination() {
-    const paginationWrapper = document.querySelector(".pagination-wrapper");
+    const paginationWrapper = document.querySelectorAll(".pagination-wrapper");
     const paginationButtons = document.querySelectorAll(".pagination-button");
     const paginationDots = document.querySelectorAll(".pagination-dots");
     if (totalHits >= 1) {
-        paginationWrapper.style.display = "flex";
+        paginationWrapper.forEach(wrapper => {
+            wrapper.style.display = "flex";
+        })
     } else {
-        paginationWrapper.style.display = "none";
+        paginationWrapper.forEach(wrapper => {
+            wrapper.style.display = "none";
+        })
     }
     let currentPage = getQueryStringValue('page');
     let page;
@@ -421,17 +427,21 @@ function pagination() {
                 button.removeAttribute("hidden");
                 paginationDots.forEach((dots) => {
                     dots.removeAttribute("hidden");
+                    if (dots.classList.contains("pagination-dots--left")) {
+                        if (currentPage == 1) {
+                            dots.setAttribute("hidden", "");
+                        } else {
+                            dots.removeAttribute("hidden", "");
+                        }
+                    }
+                    if (dots.classList.contains("pagination-dots--right")) {
+                        if (currentPage == totalPages) {
+                            dots.setAttribute("hidden", "");
+                        } else {
+                            dots.removeAttribute("hidden", "");
+                        }
+                    }
                 })
-                if (currentPage == 1) {
-                    paginationDots[0].setAttribute("hidden", "");
-                } else {
-                    paginationDots[0].removeAttribute("hidden", "");
-                }
-                if (currentPage == totalPages) {
-                    paginationDots[1].setAttribute("hidden", "");
-                } else {
-                    paginationDots[1].removeAttribute("hidden", "");
-                }
             }
             if (button.classList.contains("pagination-prev")) {
                 if(totalPages === 1) {
