@@ -74,9 +74,9 @@ search:
     # placeholderMothersLastname: sisesta ema perenimi
     # placeholderFathersFirstname: sisesta isa eesnimi
     # placeholderFathersLastname: sisesta isa perenimi
-    placeholderBirthplace: linn
-    placeholderPlaceOfResidence: linn
-    placeholderPlaceOfDeath: linn
+    placeholderBirthplace: 
+    placeholderPlaceOfResidence: 
+    placeholderPlaceOfDeath: 
     placeholderYearFrom: aastast
     placeholderYearTo: aastani
     button: Otsi
