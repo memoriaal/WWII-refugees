@@ -92,9 +92,21 @@ const hasMouseMoved = (event) => {
 var ecresults = {}
 var fbFormData = {}
 
+// Pagination
+let totalHits;
+let totalPages;
+const pageSize = 100;
+const currentURL = window.location.href;
 
 async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
     // Elasticsearch query, that matches querystring with multiple fields and filters by WWII
+
+    let startFrom = 0;
+    let page = getQueryStringValue('page');
+
+    if (typeof page !== null && page > 0) {
+        startFrom = (page - 1) * pageSize;
+    }
     
     let qData = {
             query: {
@@ -103,7 +115,9 @@ async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
                         {
                             multi_match: {
                                 query: qs,
-                                fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje'],
+                                fields: ['perenimi', 'eesnimi', 'id', 'pereseosed.kirje', 'kirjed.kirje',
+                                 'isanimi', 'emanimi', 'perenimed', 'eesnimed'
+                                ],
                                 operator: 'and',
                                 type: 'cross_fields',
                             }
@@ -114,7 +128,9 @@ async function performQuery(qs, detailSearchQueryStrings, detailSearchInputs) {
                     ]
                 },
             },
-            sort: { 'eesnimi.raw': 'asc', 'perenimi.raw': 'asc' },
+            size: pageSize,
+            from: startFrom,
+            sort: { 'perenimi.raw': 'asc',  'eesnimi.raw': 'asc'},
             _source: [
                 'isperson', 'kivi', 'emem', 'evo', 'wwii', 'evokirje',
                 'perenimi', 'eesnimi', 'isanimi', 'emanimi', 'perenimed', 'eesnimed',
@@ -291,7 +307,7 @@ function detailSearch(qData, detailSearchInputs, qs) {
                 qDataField = "surm";
                 deathyearTo = qs;
                 if(deathyearFrom === "") {
-                    deathyearFrom = "1850";
+                    deathyearFrom = "1900";
                 }
                 qData.query.bool.must.push({
                     range: {
@@ -320,13 +336,14 @@ function showMoreSearchInputsFields(event, generalSearchInput, detailSearchInput
 function generalSearch(data, idQuery, qData) {
     // const data = JSON.parse(xhr2.responseText);
     ecresults = data
-    console.log({ecresults})
+    // console.log({ecresults})
     console.log(data.error || 'All green', { query: qData, total: data.hits.total.value, hits: data.hits.hits.map(hit => hit._source) })
     const searchCountE = document.querySelector('#search-count')
     if(data.hits.total.value) {
         searchCountE.innerHTML = "Leitud tulemuste arv: " + data.hits.total.value;
     }
     const hits = data.hits.hits
+    totalHits = data.hits.total.value;
     if (idQuery && hits[0] && hits[0]._source.redirect) {
         window.location.href = '/?q=' + hits[0]._source.redirect
     }
@@ -363,6 +380,117 @@ function generalSearch(data, idQuery, qData) {
     window.scrollBy(0, -100)
 
     initResultFeedbackButtons()
+    pagination();
+}
+
+function getURLWithPage(page) {
+    const url = new URL(currentURL);
+    const urlParams = new URLSearchParams(url.search);
+    urlParams.set("page", page);
+    url.search = urlParams.toString();
+    return url.toString();
+}
+
+function pagination() {
+    const paginationWrapper = document.querySelectorAll(".pagination-wrapper");
+    const paginationButtons = document.querySelectorAll(".pagination-button");
+    const paginationDots = document.querySelectorAll(".pagination-dots");
+    if (totalHits >= 1) {
+        paginationWrapper.forEach(wrapper => {
+            wrapper.style.display = "flex";
+        })
+    } else {
+        paginationWrapper.forEach(wrapper => {
+            wrapper.style.display = "none";
+        })
+    }
+    let currentPage = getQueryStringValue('page');
+    let page;
+    
+    if (currentPage === undefined || currentPage === null) {
+        currentPage = 1;
+    }
+    if (totalHits !== undefined) {
+        totalPages = Math.ceil(totalHits / pageSize);
+        
+        paginationButtons.forEach((button) => {
+            button.setAttribute("page", "");
+            if (totalPages >= 1) {
+                if (!button.classList.contains("pagination-current-page")) {
+                    button.setAttribute("hidden", "");
+                    paginationDots.forEach((dots) => {
+                        dots.setAttribute("hidden", "");
+                    })
+                }
+            }
+            if (totalPages > 1) {
+                button.removeAttribute("hidden");
+                paginationDots.forEach((dots) => {
+                    dots.removeAttribute("hidden");
+                    if (dots.classList.contains("pagination-dots--left")) {
+                        if (currentPage == 1) {
+                            dots.setAttribute("hidden", "");
+                        } else {
+                            dots.removeAttribute("hidden", "");
+                        }
+                    }
+                    if (dots.classList.contains("pagination-dots--right")) {
+                        if (currentPage == totalPages) {
+                            dots.setAttribute("hidden", "");
+                        } else {
+                            dots.removeAttribute("hidden", "");
+                        }
+                    }
+                })
+            }
+            if (button.classList.contains("pagination-prev")) {
+                if(totalPages === 1) {
+                    currentPage = 1;
+                }
+                if (currentPage == 1) {
+                    button.setAttribute("hidden", "");
+                } else {
+                    button.removeAttribute("hidden", "");
+                }
+                page = parseInt(currentPage) - 1;
+            } else if (button.classList.contains("pagination-first-page")) {
+                if (totalPages >= 1 && currentPage == 1) {
+                    button.setAttribute("hidden", "");
+                } else {
+                    button.removeAttribute("hidden", "");
+                }
+                page = 1;
+                button.textContent = "1"
+            } else if (button.classList.contains("pagination-current-page")) { 
+                if (currentPage && currentPage !== 1) {
+                    currentPage = getQueryStringValue('page');
+                    page = parseInt(currentPage);
+                    if(totalPages === 1) {
+                        currentPage = 1;
+                    }
+                } else {
+                    page = currentPage;
+                }
+                button.textContent = currentPage;
+            } else if (button.classList.contains("pagination-last-page")) {
+                if (totalPages >= 1 && currentPage == totalPages) {
+                    button.setAttribute("hidden", "");
+                } else {
+                    button.removeAttribute("hidden", "");
+                }
+                page = totalPages;
+                button.textContent = totalPages;
+            } else if (button.classList.contains("pagination-next")) {
+                if (currentPage == totalPages) {
+                    button.setAttribute("hidden", "");
+                } else {
+                    button.removeAttribute("hidden", "");
+                }
+                page = parseInt(currentPage) + 1;
+            }
+            button.setAttribute("href", getURLWithPage(page))
+        })
+    }
 }
 
 function initResultFeedbackButtons() {

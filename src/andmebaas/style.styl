@@ -31,6 +31,8 @@
     .search-buttons-wrapper
         display flex
         flex-direction column
+    .more-fields-button 
+        border-top 1px solid var(--wwii-taust2)
     .detail-search-inputs-wrapper
         display none
     .year-filter-wrapper
@@ -40,12 +42,31 @@
             display flex
             flex-direction row
             gap 10px
+            .year-filter-input-wrapper
+                display flex
+                width 100%
+                flex-direction column
+                justify-content flex-end 
+
+.pagination-wrapper
+    display none
+    width 100%
+    height auto
+    flex-direction row
+    justify-content center
+    width fit-content
+    margin 0 auto;
+    background-color var(--wwii-taust3)
+    .pagination-button
+        padding 0 10px
+        text-decoration none
+
 button, .button
     background-color var(--wwii-taust3)
     cursor pointer
     border none
 
-button:hover
+button:hover, .pagination-button:hover, .pagination-current-page
     background-color var(--wwii-taust2)
 #tulemused
     margin-top 2em
